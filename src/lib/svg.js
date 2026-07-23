@@ -1,13 +1,15 @@
 // Fund44 — inline SVG library. Logo communicates routing/matching → a path to capital.
 
-// Logo mark: a "44" abstracted as two converging routing paths meeting at a node.
+// Logo mark: two routing lanes rising through a decision node into a single path to capital (the "4" of a 4-shape apex).
 export const logoMark = (size = 28) => `
 <svg width="${size}" height="${size}" viewBox="0 0 32 32" fill="none" aria-hidden="true" class="f44-mark">
   <rect x="1" y="1" width="30" height="30" rx="8" stroke="currentColor" stroke-width="1.6"/>
-  <path d="M9 22V13.5L15 22V9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M19 22V13.5L25 22V9" stroke="var(--accent-deep, currentColor)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="15" cy="9" r="2" fill="var(--accent, currentColor)"/>
-  <circle cx="25" cy="9" r="2" fill="var(--accent, currentColor)"/>
+  <path d="M8 24V17a4 4 0 0 1 4-4h4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 24V21a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+  <path d="M16 13l4-5m-4 5 4 5" stroke="var(--accent-deep, currentColor)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16" cy="13" r="2.4" fill="currentColor"/>
+  <circle cx="23" cy="8" r="2.2" fill="var(--accent, currentColor)"/>
+  <circle cx="23" cy="18" r="2.2" fill="var(--accent, currentColor)"/>
 </svg>`;
 
 export const logo = () => `
