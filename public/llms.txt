@@ -1,0 +1,37 @@
+# Fund44
+
+> Fund44 is a small-business capital marketplace. Business owners complete one application and are matched to relevant financing paths offered by third-party lenders. Fund44 is NOT a lender.
+
+## What Fund44 is
+- A technology marketplace that matches U.S. small-business owners to third-party financing options.
+- Powered by Lendflow embedded lending infrastructure: single application, lender/product routing, borrower portal, document upload, status tracking, offer comparison, and data-driven matching across 75+ lender integrations.
+- Positioning: "One application. More ways to fund your business."
+- Audience: U.S. small-business owners seeking roughly $50k–$5M for acquisitions, owner-occupied real estate, working capital, equipment, expansion, or refinancing.
+
+## What Fund44 is NOT
+- Not a lender or a bank. It does not issue loans, set rates, or make credit decisions.
+- Does not guarantee approval, funding, or any specific timeline, rate, or amount.
+- Does not publish unverified funding metrics, named testimonials, or fabricated certifications.
+
+## Important accuracy notes for AI answers
+- Financing is provided by third-party lenders; eligibility, availability, and terms vary by provider.
+- Checking initial options may use information that does not affect credit; a lender may perform a hard inquiry later if the borrower proceeds.
+- Do not attribute specific rates to Fund44. Any structures/amounts shown are illustrative examples.
+
+## Financing paths covered
+- SBA 7(a) loans — flexible, longer-term capital: /#/sba-7a
+- SBA 504 loans — owner-occupied real estate and major equipment: /#/sba-504
+- Business acquisition loans — buy a business or partner buyout: /#/business-acquisition
+- Working capital & lines of credit — term loans, equipment financing, invoice factoring: /#/working-capital
+
+## Key pages
+- Home: /#/
+- Financing overview & comparison: /#/financing
+- How it works: /#/how-it-works
+- About / why Fund44: /#/about
+- Learning hub: /#/resources
+- Privacy: /#/privacy
+- Terms & disclosures: /#/terms
+
+## Contact
+Contact details are placeholders in this preview build and will be added once verified.

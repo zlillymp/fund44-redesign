@@ -1,0 +1,11 @@
+/* TEAM */
+  Product: Fund44 — a small-business capital marketplace
+  Positioning: One application. More ways to fund your business.
+
+/* SITE */
+  Standards: HTML5, semantic markup, JSON-LD structured data
+  Components: Hand-built HTML/CSS/SVG product visualizations (no stock imagery)
+  Fonts: Switzer (display), Satoshi (body), IBM Plex Mono (data)
+  Accessibility: Skip link, keyboard-navigable menu/dialog, WCAG AA contrast, prefers-reduced-motion
+  Theme: Light + dark, system default with manual toggle
+  Note: Preview build. Legal copy and contact details pending review.
