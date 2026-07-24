@@ -95,10 +95,10 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
   Verify/Evidence: `test -f ROADMAP.md AGENTS.md docs/measurement-plan.md`; `rg -n 'ROADMAP.md|AGENTS.md|measurement-plan.md' ROADMAP.md AGENTS.md docs/measurement-plan.md`
 
 - [ ] `F44-GOV-01` `P0 BLOCKER` Create a claims register and centralized approved-disclosure source.
-  Status: ready
+  Status: blocked - claims/disclosure inventory completed, but legal, operations, partner, product, privacy, and security approvals are missing; waiting on external input
   Owner: Legal + Brand + Content ops
   Depends on: `F44-OPS-01`
-  Paths: new `docs/claims-register.md`, new `docs/disclosures.md`, `src/pages/*.js`, `src/components/ui.js`, `src/components/flow.js`, `public/llms.txt`
+  Paths: new `docs/claims-register.md`, new `docs/disclosures.md`, `src/pages/*.js`, `src/components/ui.js`, `src/components/flow.js`, `src/components/shell.js`, `public/llms.txt`
   Acceptance: every public claim, trust statement, and disclosure has an approved source, owner, scope, and allowed wording; preview/live variants are defined; unapproved claims are inventoried.
   Verify/Evidence: claims register diff; `git grep -n '75\\+ lender integrations\\|placeholder\\|Preview — legal review required' src public` reviewed against the register.
 
@@ -347,3 +347,5 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
 | --- | --- | --- | --- | --- |
 | 2026-07-24 | `F44-OPS-01` | Bootstrapped the durable roadmap, agent protocol, and measurement plan; integrated technical audit plus organic/conversion conclusions; created shareable mirrors outside the repo. | Cross-reference validation, duplicate-task-ID check, and mirror file equality check. | `branch:f44-ops-01-roadmap-docs` |
 | 2026-07-24 | `F44-MEA-01` | Ratified the measurement taxonomy as an implementation contract, clarified the north-star counting grain and KPI formulas, added an implementation-ready dashboard spec, and locked in privacy/baseline-before-target rules without setting numeric targets. | Markdown link-target check passed; section-header grep passed across roadmap, measurement, and dashboard docs; markdownlint passed with `MD013` disabled for repo-wide wrap style; `npm run build` passed. | `PR #3` |
+| 2026-07-24 | `F44-GOV-01` | Claimed the task on `agent/f44-gov-01` and expanded the path list to include `src/components/shell.js` because the sitewide footer contains public marketplace, credit, timing, and preview disclosures that must be captured in the register. | Dependency check: `F44-OPS-01` is done; inventory surfaces identified in `src/pages/*.js`, `src/components/ui.js`, `src/components/flow.js`, `src/components/shell.js`, and `public/llms.txt`. | `branch:agent/f44-gov-01` |
+| 2026-07-24 | `F44-GOV-01` | Added [docs/claims-register.md](docs/claims-register.md) and [docs/disclosures.md](docs/disclosures.md); inventoried public numeric, product, process, trust, timing, credit, lender-network, privacy/security, and marketplace/not-lender claims; centralized preview-versus-live disclosure drafts; blocked task completion because the repo contains no legal, business, partner, privacy, or security approval artifacts. | Register/disclosure diffs; grep review of lender-count, placeholder, and preview/legal-review strings in `src` and `public`; repo review found no approval source for `Lendflow`, `75+ lender integrations`, final privacy/legal copy, verified contact details, ranking/fairness claims, or security claims. | `PR #2`, `commit:5b8476a`, `branch:agent/f44-gov-01` |
