@@ -1,0 +1,348 @@
+# Fund44 Roadmap
+
+Canonical source of truth for sequencing, task ownership, verification, and release gates for the Fund44 conversion and organic-growth redesign.
+
+Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md](docs/measurement-plan.md). The shareable mirrors at `/home/user/workspace/fund44-roadmap.pplx.md` and `/home/user/workspace/fund44-agent-checklist.md` are copies, not the source of truth.
+
+## Scope
+
+- Marketing architecture, routing, and static generation.
+- SEO, AEO, LLM crawlability, schema, sitemap, canonicals, OG, and content quality gates.
+- Conversion UX, eligibility mode design, trust/disclosures, analytics, dashboards, and release readiness.
+- Accessibility, mobile hardening, performance, deployment, security, testing, and operational governance.
+
+## Baseline Snapshot
+
+- Current app is a Vite vanilla-JS SPA with fragment routing in `src/main.js` and `#/...` links across `src/components/shell.js`, `src/components/ui.js`, `src/pages/*.js`, `public/sitemap.xml`, and `public/llms.txt`.
+- Route metadata is injected at runtime by `src/lib/seo.js`, so route-specific `<title>`, canonical, OG, and JSON-LD are not guaranteed in the initial HTML response.
+- Canonicals are emitted as clean URLs, while breadcrumbs, article schema, `llms.txt`, and `sitemap.xml` still use fragment URLs. That signal set is inconsistent.
+- `src/lib/seo.js` references `/og-image.png`, but the asset does not exist in `public/`.
+- `src/components/shell.js` uses a skip link to `#main`, which conflicts with the hash router.
+- `src/pages/legal.js` still contains placeholder legal/contact content and preview flags.
+- `src/components/flow.js` is preview-only and does not submit data anywhere.
+- No CI, host config, test suite, analytics layer, monitoring config, or security-header config is present in the repository tree.
+- Existing product/program/article copy is largely hardcoded in `src/pages/products.js` and `src/pages/resources.js`, which blocks scalable manifest-driven content work.
+
+## Open Blockers
+
+- Final production domain, `sameAs`/entity references, and attribution model are not yet confirmed.
+- Hosting target and clean-URL behavior are not yet confirmed.
+- Staging versus production indexing policy is not yet defined.
+- Legal sign-off is missing for marketplace disclosures, privacy, terms, consent, and contact details.
+- Verified trust assets and approved public claims are not yet centralized.
+- Analytics, monitoring, and dashboard stack selections are not yet finalized.
+- Live eligibility/application integration requirements and credentials are not yet available in this repo.
+
+## Key Artifacts
+
+- [ROADMAP.md](ROADMAP.md): this task ledger, dependency order, gates, and changelog.
+- [AGENTS.md](AGENTS.md): operating protocol for future agents.
+- [docs/measurement-plan.md](docs/measurement-plan.md): event taxonomy, funnel definitions, QA rules, and dashboard views.
+
+## Execution Phases
+
+1. Phase A: Governance and source-of-truth setup.
+   Exit focus: approved claims/disclosures, verified entity/contact/legal inputs, measurement definitions.
+2. Phase B: Crawlable architecture and release foundation.
+   Exit focus: clean routes, structured content model, prerendered pages, aligned metadata/crawl files, accessibility/security baseline, core QA automation.
+3. Phase C: Conversion system and trust foundation.
+   Exit focus: navigation/CTA reset, preview/live eligibility modes, verified trust modules, instrumented funnel, release dashboard.
+4. Phase D: Manifest-driven organic expansion.
+   Exit focus: citation validation, internal-link graph, scalable page templates, national financing hubs, use-case, industry, and state launches with freshness controls.
+5. Phase E: Optimization and controlled expansion.
+   Exit focus: component governance, experimentation harness, contextual funnels, template regression breadth, and gated metro/programmatic expansion.
+
+## Dependency Order
+
+`F44-OPS-01` -> `F44-GOV-01` + `F44-GOV-02` + `F44-MEA-01` -> `F44-ARCH-01` -> `F44-ARCH-02` -> `F44-SEO-01` -> `F44-SEO-02` + `F44-SEO-03` -> `F44-UX-01` + `F44-CNV-01` + `F44-TRUST-01` -> `F44-A11Y-01` + `F44-SEC-01` + `F44-MEA-02` + `F44-QA-01` -> `F44-SEO-04` + `F44-SEO-05` + `F44-CONT-01` -> `F44-CONT-02` + `F44-CONT-03` + `F44-CONT-04` + `F44-CONT-05` -> `F44-DSGN-01` + `F44-EXP-01` + `F44-CNV-02` + `F44-QA-02` -> `F44-CONT-06` + `F44-EXP-02`
+
+## Milestone Exit Gates
+
+- `M0` Operating system in place.
+  Gate: `F44-OPS-01` complete and roadmap/agent protocol/measurement plan cross-linked.
+- `M1` Crawlable launch foundation ready.
+  Gate: `F44-GOV-01`, `F44-GOV-02`, `F44-MEA-01`, `F44-ARCH-01`, `F44-ARCH-02`, `F44-SEO-01`, `F44-SEO-02`, and `F44-SEO-03` complete.
+- `M2` Conversion-ready release candidate.
+  Gate: `F44-UX-01`, `F44-CNV-01`, `F44-TRUST-01`, `F44-A11Y-01`, `F44-SEC-01`, `F44-MEA-02`, and `F44-QA-01` complete.
+- `M3` Organic scale v1 ready.
+  Gate: `F44-SEO-04`, `F44-SEO-05`, `F44-CONT-01`, `F44-CONT-02`, `F44-CONT-03`, `F44-CONT-04`, and `F44-CONT-05` complete.
+- `M4` Controlled optimization enabled.
+  Gate: `F44-DSGN-01`, `F44-EXP-01`, `F44-CNV-02`, `F44-QA-02`, `F44-CONT-06`, and `F44-EXP-02` complete.
+
+## KPI Watchlist
+
+| KPI | Definition | Source | Baseline Status |
+| --- | --- | --- | --- |
+| North star | Qualified financing journeys: unique sessions/users reaching a live qualified or manual-review outcome and continuing to the next committed step. | `docs/measurement-plan.md` | Not yet instrumented |
+| Crawlable landing coverage | Count of canonical, indexable landing pages published from the route/content manifest. | Route manifest + crawl files | Fragment-routed baseline only |
+| Organic landing sessions | Non-branded organic sessions landing on canonical money/content pages. | Analytics | No baseline |
+| Page-to-CTA rate | Share of landing sessions that click a primary CTA on a page type. | Analytics | No baseline |
+| Funnel start rate | Share of eligible landing sessions that start preview or live eligibility. | Analytics | No baseline |
+| Outcome mix | Distribution of preview, live qualified, manual-review, and not-fit outcomes. | Analytics | No baseline |
+| Submission completion rate | Share of live starts that submit successfully. | Analytics/integration logs | No baseline |
+| Trust interaction rate | Share of sessions that view or interact with verified trust modules before conversion. | Analytics | No baseline |
+| Release health | CI pass rate, Lighthouse health, critical a11y defects, JS error-free sessions. | CI + monitoring | No baseline |
+| Content freshness coverage | Share of canonical pages with current review metadata and no stale flags. | Content reports | No baseline |
+
+## Now
+
+- [x] `F44-OPS-01` `P0` Bootstrap the roadmap, agent protocol, and measurement-plan documents.
+  Status: done
+  Owner: Product ops
+  Depends on: none
+  Paths: `ROADMAP.md`, `AGENTS.md`, `docs/measurement-plan.md`
+  Acceptance: repo-local operating docs exist, cross-reference each other, use stable task IDs, and provide enough context that future agents do not need to repeat discovery.
+  Verify/Evidence: `test -f ROADMAP.md AGENTS.md docs/measurement-plan.md`; `rg -n 'ROADMAP.md|AGENTS.md|measurement-plan.md' ROADMAP.md AGENTS.md docs/measurement-plan.md`
+
+- [ ] `F44-GOV-01` `P0 BLOCKER` Create a claims register and centralized approved-disclosure source.
+  Status: ready
+  Owner: Legal + Brand + Content ops
+  Depends on: `F44-OPS-01`
+  Paths: new `docs/claims-register.md`, new `docs/disclosures.md`, `src/pages/*.js`, `src/components/ui.js`, `src/components/flow.js`, `public/llms.txt`
+  Acceptance: every public claim, trust statement, and disclosure has an approved source, owner, scope, and allowed wording; preview/live variants are defined; unapproved claims are inventoried.
+  Verify/Evidence: claims register diff; `git grep -n '75\\+ lender integrations\\|placeholder\\|Preview — legal review required' src public` reviewed against the register.
+
+- [ ] `F44-GOV-02` `P0 BLOCKER` Finalize business identity, legal/contact copy, consent language, and attribution rules.
+  Status: ready
+  Owner: Legal + Operations + SEO
+  Depends on: `F44-OPS-01`, `F44-GOV-01`
+  Paths: `src/pages/legal.js`, `src/lib/seo.js`, `public/humans.txt`, `public/llms.txt`, `index.html`, new `docs/legal-launch-checklist.md`
+  Acceptance: verified contact details replace placeholders; approved privacy/terms/consent copy is published or staging-gated; entity URLs and `sameAs` references are verified; staging/prod indexing rules are explicit.
+  Verify/Evidence: `git grep -n 'placeholder|Preview — legal review required|faster-funding.com' src public index.html`; legal approval note linked in changelog.
+
+- [ ] `F44-MEA-01` `P0` Adopt the measurement taxonomy and north-star definitions from the measurement plan.
+  Status: ready
+  Owner: Growth analytics
+  Depends on: `F44-OPS-01`
+  Paths: `docs/measurement-plan.md`, new `docs/dashboard-spec.md`, future analytics implementation files
+  Acceptance: event names, required properties, KPI formulas, QA checklist, and dashboard views are ratified and treated as implementation requirements; no numeric targets are set before a clean baseline exists.
+  Verify/Evidence: measurement plan approval note in changelog; `rg -n 'North Star|Event Catalog|Dashboard Views|Baseline then Target Workflow' docs/measurement-plan.md`
+
+- [ ] `F44-ARCH-01` `P0 BLOCKER` Create one route/content manifest and remove fragment URLs from the production model.
+  Status: ready
+  Owner: Frontend platform
+  Depends on: `F44-GOV-02`, `F44-MEA-01`
+  Paths: `src/main.js`, `src/pages/index.js`, `src/components/shell.js`, `src/components/ui.js`, `src/pages/*.js`, `public/sitemap.xml`, `public/llms.txt`, new `src/lib/routes.js`, new `content/manifest.*`
+  Acceptance: canonical routes, nav items, breadcrumbs, CTAs, crawl files, and analytics route IDs all come from one manifest; production URLs no longer use `#/`; skip links and in-page anchors are no longer coupled to routing.
+  Verify/Evidence: `git grep -n '#/' src public index.html`; route manifest diff; built route inventory attached in changelog.
+
+- [ ] `F44-ARCH-02` `P0` Move hardcoded articles and core program pages into structured content.
+  Status: ready
+  Owner: Frontend platform + Content engineering
+  Depends on: `F44-GOV-01`, `F44-ARCH-01`
+  Paths: `src/pages/products.js`, `src/pages/resources.js`, `src/pages/home.js`, `src/pages/financing.js`, new `content/**/*.json`, new `content/schema/*`, new `scripts/validate-content.mjs`
+  Acceptance: current product/program/article content is stored in structured files rather than large hardcoded template literals; schema supports standardized fields for quick answer, who it fits, when it may not fit, typical documents, how Fund44 fits, and common questions.
+  Verify/Evidence: `git grep -n 'const ARTICLES|productPage\\(' src/pages`; `npm run validate:content`
+
+- [ ] `F44-SEO-01` `P0 BLOCKER` Ship prerendered clean-path pages with build-time metadata.
+  Status: ready
+  Owner: Frontend platform
+  Depends on: `F44-ARCH-01`, `F44-ARCH-02`
+  Paths: `index.html`, `vite.config.js`, `src/lib/seo.js`, `src/pages/*.js`, new `scripts/prerender.mjs`
+  Acceptance: every canonical route emits HTML with final page copy and route-specific metadata in the initial response; deep-link refresh works on the chosen host; home, program, article, legal, and 404 pages are all prerendered.
+  Verify/Evidence: `npm run build`; `find dist -path '*/index.html' | sort`; `curl -s http://127.0.0.1:4173/financing/ | rg '<title>|canonical|application/ld\\+json'`
+
+- [ ] `F44-SEO-02` `P0 BLOCKER` Generate sitemap, robots, llms, canonicals, and attribution metadata from the same manifest.
+  Status: ready
+  Owner: SEO + Frontend platform
+  Depends on: `F44-ARCH-01`, `F44-SEO-01`
+  Paths: `public/sitemap.xml`, `public/robots.txt`, `public/llms.txt`, `src/lib/seo.js`, new `scripts/generate-crawl-files.mjs`, new analytics route-attribution config
+  Acceptance: crawl files and metadata are generated from one source; canonical, breadcrumb, OG URL, llms URLs, and analytics attribution agree; preview/staging can be `noindex` while production remains indexable.
+  Verify/Evidence: `rg '#/' dist/sitemap.xml dist/robots.txt dist/llms.txt`; `curl -s http://127.0.0.1:4173/resources/sba-7a-vs-504/ | rg 'canonical|og:url|application/ld\\+json'`
+
+- [ ] `F44-SEO-03` `P0` Replace placeholder trust/entity signals and add page-type schema coverage.
+  Status: ready
+  Owner: SEO + Brand + Frontend
+  Depends on: `F44-GOV-01`, `F44-GOV-02`, `F44-SEO-01`
+  Paths: `src/lib/seo.js`, `index.html`, `src/pages/*.js`, `public/`, new entity/trust asset files under `public/`
+  Acceptance: each page type emits the right schema shape; verified logo/OG assets exist; entity/contact references are accurate; placeholder or unverified trust/entity signals are removed or replaced.
+  Verify/Evidence: `test -f public/og-image.png`; schema validator evidence linked in changelog; `git grep -n 'sameAs|Organization|FinancialService' src/lib/seo.js`
+
+- [ ] `F44-UX-01` `P0` Reset navigation and CTA hierarchy for brand clarity and conversion intent.
+  Status: ready
+  Owner: Product design + Frontend
+  Depends on: `F44-GOV-01`, `F44-ARCH-01`
+  Paths: `src/components/shell.js`, `src/components/ui.js`, `src/pages/home.js`, `src/pages/financing.js`, `src/pages/products.js`, `src/pages/how-it-works.js`
+  Acceptance: primary nav reflects the route manifest; CTA hierarchy clearly distinguishes explore, preview, apply, and contact intents; attribution naming aligns with route/canonical naming; mobile nav is simplified and consistent.
+  Verify/Evidence: UX review linked in changelog; updated CTA inventory; route-to-CTA map attached to task notes.
+
+- [ ] `F44-CNV-01` `P0 BLOCKER` Define preview/live eligibility modes and qualified/manual-review/not-fit outcomes.
+  Status: ready
+  Owner: Product + Frontend + Legal
+  Depends on: `F44-GOV-01`, `F44-GOV-02`, `F44-UX-01`
+  Paths: `src/components/flow.js`, `src/components/ui.js`, `src/pages/legal.js`, new `docs/eligibility-modes.md`, future integration modules under `src/lib/eligibility/*`
+  Acceptance: preview and live modes have explicit rules, copy, consent boundaries, and next-step logic; qualified, manual-review, and not-fit outcomes are defined with compliant messaging and tracking semantics.
+  Verify/Evidence: state diagram committed; scenario matrix for preview/live and all outcomes; changelog includes review sign-off.
+
+- [ ] `F44-TRUST-01` `P0` Build verified trust-proof modules and retire placeholders.
+  Status: ready
+  Owner: Brand + Content ops + Frontend
+  Depends on: `F44-GOV-01`, `F44-GOV-02`, `F44-UX-01`
+  Paths: `src/components/ui.js`, `src/pages/home.js`, `src/pages/about.js`, `src/pages/how-it-works.js`, new `content/trust/*`
+  Acceptance: any trust module shown on site is sourced from approved evidence with owner and freshness metadata; no placeholder or fabricated proof remains; trust modules can be measured consistently.
+  Verify/Evidence: trust registry referenced in changelog; `git grep -n 'testimonial|2,400|168M|placeholder' src`
+
+- [ ] `F44-A11Y-01` `P0` Harden mobile behavior and accessibility before launch.
+  Status: ready
+  Owner: Accessibility + Frontend
+  Depends on: `F44-UX-01`, `F44-CNV-01`
+  Paths: `src/components/shell.js`, `src/components/flow.js`, `src/main.js`, `src/styles.css`, `src/product.css`, future `tests/a11y/*`
+  Acceptance: skip link no longer collides with routing; nav and dialog semantics are corrected; focus management, reduced motion, and mobile touch targets are validated; critical flows work keyboard-only and on narrow screens.
+  Verify/Evidence: Playwright or manual accessibility checklist linked in changelog; `git grep -n 'href=\"#main\"|role=\"menu\"|aria-hidden' src`
+
+- [ ] `F44-SEC-01` `P0` Add deployment security controls and harden form rendering.
+  Status: ready
+  Owner: Security + DevOps + Frontend
+  Depends on: `F44-GOV-02`, `F44-CNV-01`
+  Paths: host config such as `netlify.toml` or `vercel.json`, `index.html`, `src/components/flow.js`, `src/main.js`, future integration code
+  Acceptance: CSP, HSTS, content-type, referrer, and permissions policies are configured for the chosen host; no client-side secrets are exposed; user-entered form values are rendered safely; consent boundaries are enforced.
+  Verify/Evidence: `curl -I $STAGING_URL`; `git grep -n 'innerHTML|textContent' src/components/flow.js src/main.js`; security review linked in changelog.
+
+- [ ] `F44-MEA-02` `P0` Implement analytics, dashboard plumbing, and event QA from the measurement plan.
+  Status: ready
+  Owner: Growth analytics + Frontend
+  Depends on: `F44-MEA-01`, `F44-ARCH-01`, `F44-UX-01`, `F44-CNV-01`
+  Paths: `src/main.js`, `src/components/shell.js`, `src/components/flow.js`, new `src/lib/analytics.js`, new `src/lib/monitoring.js`, new dashboard config/docs
+  Acceptance: funnel events, required properties, attribution fields, and dashboard views from the measurement plan are implemented; no PII is emitted; event QA evidence exists for page, CTA, funnel, and outcome flows.
+  Verify/Evidence: vendor debug output or staging screenshots; completed QA checklist from `docs/measurement-plan.md`.
+
+- [ ] `F44-QA-01` `P0` Rebuild release-readiness automation and CI.
+  Status: ready
+  Owner: QA automation
+  Depends on: `F44-SEO-01`, `F44-UX-01`, `F44-CNV-01`, `F44-MEA-02`
+  Paths: `package.json`, new `playwright.config.*`, new `tests/**`, new `.github/workflows/*`, new Lighthouse config
+  Acceptance: CI covers build, route smoke, canonical/title/schema checks, event smoke, accessibility smoke, mobile layout, console errors, 404 handling, and release evidence collection.
+  Verify/Evidence: `npx playwright test`; CI run reference linked in changelog.
+
+## Next
+
+- [ ] `F44-SEO-04` `P1` Create a citation registry and build validation for content integrity.
+  Status: ready
+  Owner: SEO + Content engineering
+  Depends on: `F44-GOV-01`, `F44-ARCH-02`
+  Paths: new `content/citations.*`, new `scripts/validate-citations.mjs`, `content/**/*.json`, `package.json`
+  Acceptance: each claim-bearing content page references approved citation IDs or approved internal evidence; build fails on missing, expired, duplicate, or disallowed citations.
+  Verify/Evidence: `npm run validate:citations`; citation validation report linked in changelog.
+
+- [ ] `F44-SEO-05` `P1` Generate an internal-link graph and enforce orphan checks.
+  Status: ready
+  Owner: SEO + Frontend platform
+  Depends on: `F44-ARCH-01`, `F44-ARCH-02`, `F44-SEO-01`
+  Paths: new `scripts/build-link-graph.mjs`, `content/manifest.*`, page templates, new `docs/link-graph.md`
+  Acceptance: link graph output identifies hubs, spokes, orphaned pages, and missing cross-links; money pages cannot launch without required inbound/outbound links.
+  Verify/Evidence: `npm run build:link-graph`; generated graph artifact linked in changelog.
+
+- [ ] `F44-CONT-01` `P1` Standardize scalable page sections and content quality gates.
+  Status: ready
+  Owner: Content strategy + Content engineering
+  Depends on: `F44-ARCH-02`, `F44-SEO-04`
+  Paths: new `content/schema/*`, new `content/templates/*`, new `docs/content-quality-gates.md`, page templates
+  Acceptance: financing, use-case, industry, and state pages all support the standard section set: Quick answer, Who it fits, When it may not fit, Typical documents, How Fund44 fits, and Common questions; each template enforces disclaimers, schema, and evidence fields.
+  Verify/Evidence: `npm run validate:content`; template checklist linked in changelog.
+
+- [ ] `F44-CONT-02` `P1` Launch national financing hubs from the approved manifest.
+  Status: ready
+  Owner: SEO content + Frontend
+  Depends on: `F44-CONT-01`, `F44-SEO-05`, `F44-MEA-02`
+  Paths: new `content/financing/*`, page templates, `content/manifest.*`
+  Acceptance: approved national financing hub pages ship with canonical metadata, internal links, schema, citations, and measurement tags; each page passes the quality-gate template.
+  Verify/Evidence: route inventory diff; content QA checklist; build artifact review.
+
+- [ ] `F44-CONT-03` `P1` Launch use-case pages from the approved manifest.
+  Status: ready
+  Owner: SEO content + Frontend
+  Depends on: `F44-CONT-01`, `F44-SEO-05`, `F44-MEA-02`
+  Paths: new `content/use-cases/*`, page templates, `content/manifest.*`
+  Acceptance: use-case pages cover approved search intents with standardized sections, citation support, internal links, and per-page measurement fields.
+  Verify/Evidence: route inventory diff; content QA checklist; build artifact review.
+
+- [ ] `F44-CONT-04` `P1` Launch industry pages from the approved manifest.
+  Status: ready
+  Owner: SEO content + Frontend
+  Depends on: `F44-CONT-01`, `F44-SEO-05`, `F44-MEA-02`
+  Paths: new `content/industries/*`, page templates, `content/manifest.*`
+  Acceptance: industry pages only launch from approved intents and use the standardized template, citations, internal links, and disclosure rules.
+  Verify/Evidence: route inventory diff; content QA checklist; build artifact review.
+
+- [ ] `F44-CONT-05` `P1` Launch state pages from the approved manifest.
+  Status: ready
+  Owner: SEO content + Frontend
+  Depends on: `F44-CONT-01`, `F44-SEO-05`, `F44-MEA-02`
+  Paths: new `content/states/*`, page templates, `content/manifest.*`
+  Acceptance: state pages ship only from approved manifest rows, keep national copy/disclosure standards, and add only state-specific facts that have evidence and freshness ownership.
+  Verify/Evidence: route inventory diff; content QA checklist; build artifact review.
+
+- [ ] `F44-CONT-06` `P1` Add freshness-review workflow and stale-content reporting.
+  Status: ready
+  Owner: Content ops
+  Depends on: `F44-SEO-04`, `F44-CONT-01`
+  Paths: new `docs/content-review.md`, `content/manifest.*`, `content/citations.*`, new `scripts/report-freshness.mjs`
+  Acceptance: each canonical page has an owner, reviewed-at field, review trigger, and stale-status signal; stale content can be reported before release.
+  Verify/Evidence: `npm run report:freshness`; stale-content report linked in changelog.
+
+- [ ] `F44-DSGN-01` `P1` Establish semantic token and component governance.
+  Status: ready
+  Owner: Design systems + Frontend
+  Depends on: `F44-UX-01`, `F44-TRUST-01`
+  Paths: `src/styles.css`, `src/product.css`, `src/components/ui.js`, new `docs/design-governance.md`
+  Acceptance: semantic tokens, CTA variants, disclosure patterns, trust modules, and content-section components are standardized so new templates do not fork visual logic.
+  Verify/Evidence: component inventory linked in changelog; token audit diff.
+
+- [ ] `F44-EXP-01` `P1` Build an experimentation harness with guardrails and exposure tracking.
+  Status: ready
+  Owner: Growth engineering + Analytics
+  Depends on: `F44-MEA-02`, `F44-DSGN-01`
+  Paths: new `src/lib/experiments.js`, new `docs/experiment-rules.md`, analytics layer, affected templates
+  Acceptance: nav, CTA, funnel, trust, and mobile experiments can be configured with exposure events, kill switches, and guardrail metrics; no experiment bypasses disclosure or consent rules.
+  Verify/Evidence: experiment QA checklist; sample exposure event evidence linked in changelog.
+
+- [ ] `F44-CNV-02` `P1` Build contextual product funnels that preserve route intent.
+  Status: ready
+  Owner: Product + Frontend + Analytics
+  Depends on: `F44-CNV-01`, `F44-MEA-02`, `F44-DSGN-01`
+  Paths: page templates, `src/components/flow.js`, route manifest, analytics config
+  Acceptance: product/context pages can pass route and intent into the funnel without breaking disclosure rules, attribution, or outcome handling; context-specific next steps are measurable.
+  Verify/Evidence: scenario matrix linked in changelog; QA event evidence for at least one product-context path.
+
+- [ ] `F44-QA-02` `P1` Expand regression automation for templates, trust modules, and funnel variants.
+  Status: ready
+  Owner: QA automation
+  Depends on: `F44-QA-01`, `F44-DSGN-01`, `F44-CNV-02`
+  Paths: `tests/**`, CI workflows, template fixtures/content manifests
+  Acceptance: regression coverage extends beyond launch smoke checks to template variants, trust modules, funnel modes/outcomes, and canonical/content quality assertions for generated pages.
+  Verify/Evidence: CI run reference linked in changelog; template regression matrix attached.
+
+## Later
+
+- [ ] `F44-CONT-07` `P2` Expand into metro and other programmatic combinations only from approved manifests and query evidence.
+  Status: ready
+  Owner: SEO strategy + Content ops
+  Depends on: `F44-CONT-02`, `F44-CONT-03`, `F44-CONT-04`, `F44-CONT-05`, `F44-SEO-04`, `F44-SEO-05`
+  Paths: new `content/metros/*`, approved manifests, query-evidence docs, page templates
+  Acceptance: no metro/programmatic page launches without approved manifest rows, query evidence, required internal links, citations, freshness owner, and QA pass.
+  Verify/Evidence: manifest approval reference; `npm run validate:content`; `npm run build:link-graph`
+
+- [ ] `F44-EXP-02` `P2` Run controlled experiments on nav, CTA, funnel, trust, and mobile patterns.
+  Status: ready
+  Owner: Growth engineering + Analytics + Product
+  Depends on: `F44-EXP-01`, `F44-CNV-02`, `F44-QA-02`
+  Paths: experiment configs, dashboards, affected templates, experiment documentation
+  Acceptance: every experiment has a hypothesis, primary KPI, safety metrics, rollback plan, and post-test summary; results update roadmap priorities instead of creating undocumented drift.
+  Verify/Evidence: experiment brief and result summary linked in changelog; exposure and KPI evidence attached.
+
+## Risks and Mitigations
+
+| Risk | Impact | Mitigation |
+| --- | --- | --- |
+| Clean-route migration slips while content and SEO work starts anyway. | Duplicated work and inconsistent crawl signals. | Do not start scale-content tasks before `F44-ARCH-01`, `F44-SEO-01`, and `F44-SEO-02` are complete. |
+| Claims, trust proof, or legal copy ships without centralized approval. | Compliance risk and brand damage. | Complete `F44-GOV-01`, `F44-GOV-02`, and `F44-TRUST-01` before production indexing. |
+| Measurement launches late or inconsistently. | No usable baseline; experimentation becomes noise. | Treat `F44-MEA-01` and `F44-MEA-02` as gating work, not a follow-up. |
+| Programmatic content outpaces quality controls. | Thin content, orphan pages, and poor index quality. | Enforce `F44-SEO-04`, `F44-SEO-05`, `F44-CONT-01`, and `F44-CONT-06` before expansion. |
+| Preview/live funnel logic forks or drifts by page context. | Broken attribution and unclear user journeys. | Centralize route intent, eligibility modes, and outcome handling through `F44-CNV-01` and `F44-CNV-02`. |
+| Accessibility and security are postponed until late release stages. | Expensive rework and launch blockers. | Keep `F44-A11Y-01`, `F44-SEC-01`, and `F44-QA-01` in the Now tranche. |
+
+## Change Log
+
+| Date | Task ID | Summary | Tests or Evidence | PR / Commit / Ref |
+| --- | --- | --- | --- | --- |
+| 2026-07-24 | `F44-OPS-01` | Bootstrapped the durable roadmap, agent protocol, and measurement plan; integrated technical audit plus organic/conversion conclusions; created shareable mirrors outside the repo. | Cross-reference validation, duplicate-task-ID check, and mirror file equality check. | `branch:f44-ops-01-roadmap-docs` |
