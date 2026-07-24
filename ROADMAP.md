@@ -110,8 +110,8 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
   Acceptance: verified contact details replace placeholders; approved privacy/terms/consent copy is published or staging-gated; entity URLs and `sameAs` references are verified; staging/prod indexing rules are explicit.
   Verify/Evidence: `git grep -n 'placeholder|Preview — legal review required|faster-funding.com' src public index.html`; legal approval note linked in changelog.
 
-- [ ] `F44-MEA-01` `P0` Adopt the measurement taxonomy and north-star definitions from the measurement plan.
-  Status: ready
+- [x] `F44-MEA-01` `P0` Adopt the measurement taxonomy and north-star definitions from the measurement plan.
+  Status: done
   Owner: Growth analytics
   Depends on: `F44-OPS-01`
   Paths: `docs/measurement-plan.md`, new `docs/dashboard-spec.md`, future analytics implementation files
@@ -346,3 +346,4 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
 | Date | Task ID | Summary | Tests or Evidence | PR / Commit / Ref |
 | --- | --- | --- | --- | --- |
 | 2026-07-24 | `F44-OPS-01` | Bootstrapped the durable roadmap, agent protocol, and measurement plan; integrated technical audit plus organic/conversion conclusions; created shareable mirrors outside the repo. | Cross-reference validation, duplicate-task-ID check, and mirror file equality check. | `branch:f44-ops-01-roadmap-docs` |
+| 2026-07-24 | `F44-MEA-01` | Ratified the measurement taxonomy as an implementation contract, clarified the north-star counting grain and KPI formulas, added an implementation-ready dashboard spec, and locked in privacy/baseline-before-target rules without setting numeric targets. | Markdown link-target check passed; section-header grep passed across roadmap, measurement, and dashboard docs; markdownlint passed with `MD013` disabled for repo-wide wrap style; `npm run build` passed. | `PR #3` |
