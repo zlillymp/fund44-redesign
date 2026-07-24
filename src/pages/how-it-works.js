@@ -13,7 +13,7 @@ const FAQ = [
 
 const STEPS = [
   { n: '01', h: 'Answer a few questions', p: 'Tell us your use of funds, amount, time in business, revenue, and state. It takes minutes.', ic: icon.route },
-  { n: '02', h: 'Get matched to paths', p: 'Your profile is screened against 75+ lender integrations and ranked by fit — not by fee.', ic: icon.layers },
+  { n: '02', h: 'Get matched to paths', p: 'Your profile can be screened across 75+ lender integrations using business and product criteria.', ic: icon.layers },
   { n: '03', h: 'Upload documents once', p: 'A single shared checklist feeds every relevant lender. No re-submitting the same paperwork.', ic: icon.file },
   { n: '04', h: 'Compare & continue', p: 'Review offers side by side, understand each path, and continue with one secure flow.', ic: icon.scale },
 ];

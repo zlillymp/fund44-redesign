@@ -84,8 +84,8 @@ const STEPS = [
     },
   },
   {
-    title: 'Where should we send your preview?',
-    why: 'We only use this to show you your preview results in this demo. This is a preview — nothing is submitted to any lender and no data leaves your browser.',
+    title: 'A few final details for your preview',
+    why: 'These details personalize the on-screen demo result only. Nothing is submitted to a lender or sent from your browser.',
     render: () => `
       <div class="field">
         <label for="f-name">Your name</label>
@@ -185,7 +185,7 @@ function mount() {
   backdrop.className = 'dialog-backdrop';
   backdrop.setAttribute('role', 'dialog');
   backdrop.setAttribute('aria-modal', 'true');
-  backdrop.setAttribute('aria-label', 'Check your funding options');
+  backdrop.setAttribute('aria-label', 'Funding path preview');
   backdrop.innerHTML = `<div class="dialog" id="flowDialog"></div>`;
   document.body.appendChild(backdrop);
   backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });

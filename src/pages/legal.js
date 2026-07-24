@@ -109,7 +109,7 @@ export function contact() {
       </div>
     </div>
     <div class="mt-8" style="text-align:center">
-      <button class="btn btn-primary btn-lg" data-open-flow>Check your options ${icon.arrow}</button>
+      <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
     </div>
   </section>`;
 }

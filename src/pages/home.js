@@ -13,7 +13,7 @@ const FAQ = [
 export function home() {
   setMeta({
     title: 'Fund44 — One application. More ways to fund your business.',
-    description: 'Apply once and get matched to relevant small-business financing paths — SBA, term loans, lines of credit and more — from a network of third-party lenders. See your options in minutes.',
+    description: 'Explore small-business financing from $50,000 to $5 million, including SBA loans, acquisition financing, term loans, and lines of credit.',
     path: '/',
     jsonld: [ld.org(), ld.financialService(), ld.faq(FAQ)],
   });
@@ -23,21 +23,21 @@ export function home() {
   <section class="section" style="padding-top:clamp(2.5rem,6vw,5rem);position:relative;overflow:hidden">
     <div class="tex-dots" style="position:absolute;inset:0;opacity:.6;mask-image:linear-gradient(180deg,#000,transparent 78%)"></div>
     <div class="wrap" style="position:relative">
-      ${eyebrow('Small-business capital marketplace')}
+      ${eyebrow('$50K–$5M small-business financing')}
       <h1 class="h-hero reveal wt-split mt-6" style="max-width:16ch">
         One application. <b>More ways</b> to fund your business.
       </h1>
       <p class="lead reveal mt-6" style="font-size:var(--text-lg)">
-        Answer a few questions, see the financing paths that actually fit, compare your next steps, and continue — all in one secure experience. No starting over for every lender.
+        Explore SBA loans, acquisition financing, term loans, and lines of credit through one clear path — without researching and reapplying lender by lender.
       </p>
       <div class="wrap-btns reveal mt-8">
-        ${primaryCta('Check your options')}
-        ${secondaryCta()}
+        ${primaryCta('Preview my funding paths')}
+        ${secondaryCta('Compare financing options')}
       </div>
-      <div class="reveal mt-8" style="display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;color:var(--muted);font-size:var(--text-sm)">
-        <span style="display:inline-flex;gap:.5rem;align-items:center">${icon.route}Matched by fit, not by fee</span>
-        <span style="display:inline-flex;gap:.5rem;align-items:center">${icon.layers}75+ lender integrations</span>
-        <span style="display:inline-flex;gap:.5rem;align-items:center">${icon.lock}One secure profile</span>
+      <div class="hero-proof reveal mt-8" aria-label="Fund44 financing coverage">
+        <span>${icon.building}<b>SBA + flexible capital</b></span>
+        <span>${icon.layers}<b>75+ lender integrations</b></span>
+        <span>${icon.route}<b>One application path</b></span>
       </div>
 
       <div class="reveal mt-12" style="position:relative">
@@ -63,11 +63,11 @@ export function home() {
         <div class="fs-text">
           ${eyebrow('How the match works')}
           <h2 class="h2 reveal mt-4" style="color:var(--on-dark)">Your profile, routed to the lenders that fit.</h2>
-          <p class="lead reveal mt-4">Fund44 runs on embedded lending infrastructure. Your single application is normalized and screened against a network of 75+ lender integrations, then only the relevant paths are surfaced — ranked by fit.</p>
+          <p class="lead reveal mt-4">Fund44 is built on embedded lending infrastructure. Your profile can be screened across 75+ lender integrations so relevant financing paths can be surfaced without a separate search for every lender.</p>
           <div class="feat-list reveal mt-8">
             ${featItem(icon.route, 'Single application, many routes', 'One borrower journey feeds every relevant product path.')}
             ${featItem(icon.layers, 'Lender & product routing', 'Profiles are matched against products that actually serve your size, use, and geography.')}
-            ${featItem(icon.eye, 'Transparent ranking', 'Paths are ordered by fit for your situation — you see why each one appears.')}
+            ${featItem(icon.eye, 'Clear comparisons', 'See why each financing path may suit your use of funds, amount, and business profile.')}
           </div>
         </div>
         <div class="fs-viz">${routingWaterfall()}</div>

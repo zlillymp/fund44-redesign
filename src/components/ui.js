@@ -10,7 +10,7 @@ export const breadcrumb = (crumbs) => `
       : `<a href="#${c.href}">${c.label}</a><span class="sep">/</span>`).join('')}
   </nav>`;
 
-export const primaryCta = (label = 'Check your options') =>
+export const primaryCta = (label = 'Preview my funding paths') =>
   `<button class="btn btn-primary btn-lg" data-open-flow>${label} ${icon.arrow}</button>`;
 
 export const secondaryCta = (label = 'Explore financing', href = '#/financing') =>
@@ -27,7 +27,7 @@ export const ctaBanner = (heading, sub) => `
         <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">${sub}</p>
       </div>
       <div class="wrap-btns">
-        <button class="btn btn-primary btn-lg" data-open-flow>See my funding options ${icon.arrow}</button>
+        <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
         <a class="btn btn-on-dark btn-lg" href="#/how-it-works" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">How it works</a>
       </div>
     </div>
@@ -60,7 +60,7 @@ export const matchDashboard = () => `
   <div class="panel-body">
     <div class="match-head">
       <div>
-        <div class="match-count"><span data-count="7">0</span><small>relevant paths found</small></div>
+        <div class="match-count"><span data-count="4">0</span><small>illustrative paths found</small></div>
       </div>
       <span class="tag">Use of funds · Acquisition</span>
     </div>
@@ -90,7 +90,7 @@ export const routingWaterfall = () => `
       <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Screened against 75+ integrations</span></div><span class="wf-badge">75+</span></div>
       <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
       <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Filtered out</b><span>Product / geography mismatch</span></div><span class="wf-badge">skip</span></div>
-      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Eligible paths surfaced</b><span>Ranked by fit, not by fee</span></div><span class="wf-badge match">4 matched</span></div>
+      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Based on profile and product criteria</span></div><span class="wf-badge match">4 paths</span></div>
     </div>
   </div>
 </div>`;
@@ -184,7 +184,7 @@ export const chaosToPath = () => `
   <div class="path-box">
     <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--accent)">With Fund44</span>
     <div class="path-step"><span class="pnum">1</span> Answer a few questions once</div>
-    <div class="path-step"><span class="pnum">2</span> See relevant paths, ranked by fit</div>
+    <div class="path-step"><span class="pnum">2</span> See paths based on your profile</div>
     <div class="path-step"><span class="pnum">3</span> Upload documents a single time</div>
     <div class="path-step"><span class="pnum">4</span> Compare offers side by side</div>
     <div class="path-step"><span class="pnum">5</span> Continue with one secure flow</div>
@@ -202,12 +202,12 @@ export const pageHero = ({ crumbs, eyebrow: eb, title, lead, cta = true }) => `
   <div class="mt-6">${eb ? `<span class="eyebrow reveal">${eb}</span>` : ''}</div>
   <h1 class="h1 reveal mt-4" style="max-width:18ch">${title}</h1>
   <p class="lead reveal mt-6">${lead}</p>
-  ${cta ? `<div class="wrap-btns reveal mt-8">${primaryCta('Check your options')}${secondaryCta()}</div>` : ''}
+  ${cta ? `<div class="wrap-btns reveal mt-8">${primaryCta()}${secondaryCta()}</div>` : ''}
 </section>`;
 
 // definition / "what is" answer block for AEO
 export const answerBlock = (term, def) => `
-<div class="card reveal" style="border-left:3px solid var(--accent-deep)">
+<div class="card answer-card reveal">
   <div class="eyebrow" style="margin-bottom:var(--space-3)">Quick answer</div>
   <p style="font-size:var(--text-lg);color:var(--ink);line-height:1.5"><strong>${term}</strong> ${def}</p>
 </div>`;

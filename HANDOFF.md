@@ -57,11 +57,21 @@ Funding-match dashboard (count-up + fit bars), lender-routing waterfall (with fi
 - Negative checks: no clipped headings, no tiny tap targets (min 44–46px), no missing dark-mode styles found.
 
 ## Known placeholders / integration points
-- **Eligibility flow** is preview/demo only — wire `flow.js` success handler to the real Fund44/Lendflow embedded application to go live.
+- **Eligibility flow** is preview/demo only. Keep it clearly labeled as a preview during design/content review. The real Fund44/Lendflow application is intentionally deferred until after visual, copy, contact, legal, analytics, and deployment readiness are complete.
 - **Contact details** are marked placeholders (`[placeholder-domain]`); add verified email/phone before launch.
 - **Legal copy** (privacy, terms) is placeholder pending counsel review.
 - **OG image** referenced at `/og-image.png` — not yet generated; add a 1200×630 asset.
 - Canonical/sitemap URLs use `https://fund44.com`; update if the production domain differs.
+
+## Launch priority order
+1. Final visual and conversion-copy review.
+2. Verify product coverage, funding ranges, and every public claim.
+3. Add verified contact details and business identity.
+4. Finalize privacy, terms, consent language, and marketplace disclosures with counsel.
+5. Add analytics, conversion events, error monitoring, and production OG imagery.
+6. Complete accessibility, performance, cross-browser, desktop, and mobile QA.
+7. Connect the live Fund44/Lendflow application and validate end-to-end lead routing.
+8. Production deployment, domain cutover, indexing, and post-launch monitoring.
 
 ## Conventions for follow-up edits
 - Add a page: create `src/pages/foo.js` exporting a function returning an HTML string, call `setMeta({...})` inside it, register in `src/pages/index.js`, add to nav in `src/components/shell.js` and to `sitemap.xml`.

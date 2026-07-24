@@ -30,7 +30,7 @@ export function header() {
       </nav>
       <div class="nav-right">
         <button class="theme-toggle" data-theme-toggle aria-label="Switch color theme"></button>
-        <button class="btn btn-primary nav-cta-desktop" data-open-flow>Check your options</button>
+        <button class="btn btn-primary nav-cta-desktop" data-open-flow>Preview funding paths</button>
         <button class="menu-btn" data-menu-open aria-label="Open menu" aria-expanded="false">${icon.menu}</button>
       </div>
     </div>
@@ -54,7 +54,7 @@ export function header() {
         <a href="#/about">About</a>
       </nav>
       <div class="mobile-menu-cta">
-        <button class="btn btn-primary btn-lg btn-block" data-open-flow>Check your options ${icon.arrow}</button>
+        <button class="btn btn-primary btn-lg btn-block" data-open-flow>Preview funding paths ${icon.arrow}</button>
       </div>
     </div>
   </div>`;
@@ -69,10 +69,10 @@ export function footer() {
         <div class="cta-banner-inner" style="display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;align-items:center">
           <div>
             <h2 class="h2" style="max-width:16ch">One application. More ways to fund your business.</h2>
-            <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">See relevant options in minutes — no starting over for every lender.</p>
+            <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">Explore the financing paths Fund44 is designed to support before the live application launches.</p>
           </div>
           <div class="wrap-btns">
-            <button class="btn btn-primary btn-lg" data-open-flow>Check your options ${icon.arrow}</button>
+            <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
             <a class="btn btn-on-dark btn-lg" href="#/financing" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">Explore financing</a>
           </div>
         </div>
