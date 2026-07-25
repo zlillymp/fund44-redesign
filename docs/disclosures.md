@@ -1,21 +1,23 @@
 # Fund44 Centralized Disclosures
 
-Central wording source for roadmap task `F44-GOV-01`. Reviewed on `2026-07-24`.
+Central wording source for roadmap task `F44-GOV-01`. Reviewed on `2026-07-25`.
 
-This file does not create approval by itself. It centralizes draft wording so pages can stop inventing variations. Each disclosure below must remain `Pending` until the required owner approves it. Where a disclosure depends on the current preview implementation, the preview and live variants are separated explicitly.
+This file centralizes approved and draft disclosure language so pages, manifests, and AI-facing files stop inventing variations. The business approver input received on `2026-07-25` authorizes conservative public and staging draft use of `F44-DISC-11`, `F44-DISC-12`, and `F44-DISC-13`. Formal counsel review remains recommended before broad production reuse. Legal business name, business address, support email, support phone, and final privacy, terms, consent, and entity/contact copy remain TBD under `F44-GOV-02`.
 
 ## Use rules
 
 - Reuse these IDs in page copy, content manifests, future trust modules, and AI-facing files.
 - Prefer exact reuse over paraphrase. If a page needs a materially different claim, add a new disclosure ID instead of freehanding it.
 - `Preview` wording is for the current demo build only.
-- `Live` wording is blocked until legal, operations, product, and partner approvals exist where noted.
+- `Business-approved draft` wording may be used in conservative public or staging drafts based on the business approvals recorded above.
+- `Blocked` wording must not be used publicly until the listed owner approvals exist.
 
 ## Status legend
 
-- `Pending`: draft wording exists but no approval artifact is in the repo.
-- `Blocked`: external legal, business, or partner verification is required before use.
-- `Preview-verified`: wording is aligned with the current checked-in preview behavior, but still lacks legal sign-off.
+- `Business-approved draft`: wording is approved by business for conservative public and staging draft use; formal counsel review is still recommended.
+- `Pending`: draft wording exists but no final approval artifact is in the repo.
+- `Blocked`: external legal, business, partner, privacy, or security verification is still required before use.
+- `Preview-verified`: wording is aligned with the current checked-in preview behavior, but still lacks final legal sign-off.
 
 ## Core disclosures
 
@@ -26,7 +28,7 @@ This file does not create approval by itself. It centralizes draft wording so pa
 - Status: Pending
 - Allowed scope:
   Preview: yes
-  Live: blocked pending legal/entity approval
+  Live: blocked pending legal and entity approval
 - Preview wording:
 
 ```text
@@ -40,7 +42,7 @@ Blocked pending legal approval of final entity description and marketplace discl
 ```
 
 - Notes:
-  Use this as the default source for footer, hero FAQ, legal, and AI-facing marketplace language.
+  Use this as the default source for footer, hero FAQ, legal, and AI-facing marketplace language once legal review is complete.
 
 ### `F44-DISC-02` No guarantees
 
@@ -112,7 +114,7 @@ This content is general and educational in nature. It is not financial, legal, o
 - Status: Pending
 - Allowed scope:
   Preview: yes
-  Live: pending product/legal review
+  Live: pending product and legal review
 - Preview wording:
 
 ```text
@@ -145,7 +147,7 @@ Preview only. This flow shows sample results, does not create an application, an
 Do not use in live mode.
 ```
 
-### `F44-DISC-07` Preview privacy/data-use boundary
+### `F44-DISC-07` Preview privacy and data-use boundary
 
 - Purpose: use on the preview flow and preview privacy page.
 - Owner role: Legal + Privacy owner + Product
@@ -192,7 +194,7 @@ Blocked pending final privacy policy, consent flow, lender-sharing controls, ret
 - Status: Pending
 - Allowed scope:
   Preview: yes
-  Live: pending operations/legal approval
+  Live: pending operations and legal approval
 - Preview wording:
 
 ```text
@@ -225,6 +227,75 @@ Contact details and final legal copy are placeholders in this preview build and 
 Do not use in live mode.
 ```
 
+### `F44-DISC-11` Curated network story
+
+- Purpose: use on network descriptions, about/home pages, FAQs, and AI-facing summaries where the lender-network story is explained.
+- Owner role: Business + Brand + Operations
+- Status: Business-approved draft
+- Allowed scope:
+  Preview: yes
+  Live: yes for conservative public wording; formal counsel review remains recommended
+- Preview wording:
+
+```text
+Fund44 launched with 44 lenders. That number is behind the name and remains the operating sweet spot for the network. Today Fund44 curates a network that typically fluctuates between 40 and 50 lenders as it removes providers that fall short of its customer-service standards and adds providers that offer competitive terms, better tools, or new financing options. The network can change over time, and the paths shown in the experience may vary by business profile, financing need, geography, and current provider participation.
+```
+
+- Live wording:
+
+```text
+Fund44 launched with 44 lenders. That number is behind the name and remains the operating sweet spot for the network. Today Fund44 curates a network that typically fluctuates between 40 and 50 lenders as it removes providers that fall short of its customer-service standards and adds providers that offer competitive terms, better tools, or new financing options. The network can change over time, and the paths shown in the experience may vary by business profile, financing need, geography, and current provider participation.
+```
+
+- Notes:
+  Use `customer-service standards` exactly. Do not revert to `75+ lender integrations`, do not promise lender availability, and do not imply uniform lender conduct or outcomes.
+
+### `F44-DISC-12` Fit-over-fees and routing explanation
+
+- Purpose: use where Fund44 explains why a path may be shown and how fit language should be framed.
+- Owner role: Business + Product + Brand
+- Status: Business-approved draft
+- Allowed scope:
+  Preview: yes
+  Live: yes for conservative public wording; formal counsel review remains recommended
+- Preview wording:
+
+```text
+Fund44 is built around fit over fees. The experience explains why a path may fit based on the information provided, the stated financing need, and the product details available in the experience.
+```
+
+- Live wording:
+
+```text
+Fund44 is built around fit over fees. The experience explains why a path may fit based on the information provided, the stated financing need, and the product details available in the experience.
+```
+
+- Notes:
+  Do not expand this into `ranked by fit`, `filtered out`, `no black box`, `no opaque scoring`, or `not by what pays us most` unless compensation and routing governance are documented separately.
+
+### `F44-DISC-13` Faster process and workflow availability
+
+- Purpose: use where the product workflow is described without promising a specific timeline or universal feature availability.
+- Owner role: Business + Product + Operations
+- Status: Business-approved draft
+- Allowed scope:
+  Preview: yes
+  Live: yes for conservative public wording; formal counsel review remains recommended
+- Preview wording:
+
+```text
+Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.
+```
+
+- Live wording:
+
+```text
+Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.
+```
+
+- Notes:
+  Do not promise a specific number of minutes or days. Do not imply that every provider supports every step, or that status tracking, document reuse, and offer comparison are always available in every flow.
+
 ## Conditional or blocked claims that should not be reused without separate approval
 
 ### `F44-DISC-B01` Vendor-name disclosure
@@ -241,32 +312,32 @@ Do not use in live mode.
 embedded lending infrastructure
 ```
 
-### `F44-DISC-B02` Lender-network count disclosure
+### `F44-DISC-B02` Unsupported lender-count disclosure
 
-- Purpose: using `75+ lender integrations` or any similar count.
+- Purpose: using `75+ lender integrations` or any lender-count phrasing that conflicts with `F44-DISC-11`.
 - Owner role: Partner management + Operations + Legal
 - Status: Blocked
 - Allowed scope:
-  Preview: blocked unless a dated source and public-use approval exist
-  Live: blocked unless a dated source and public-use approval exist
+  Preview: blocked except for the exact curated-network wording in `F44-DISC-11`
+  Live: blocked except for the exact curated-network wording in `F44-DISC-11`
 - Replacement:
 
 ```text
-third-party lender network
+Use F44-DISC-11.
 ```
 
-### `F44-DISC-B03` Ranking/fairness disclosure
+### `F44-DISC-B03` Fairness, ranking, or compensation-governance disclosure
 
-- Purpose: statements such as `fit over fees`, `ranked by fit`, or `not by what pays us most`.
+- Purpose: statements such as `ranked by fit`, `not by what pays us most`, or any other undisclosed compensation or ranking governance claim.
 - Owner role: Legal + Operations + Product + Brand
 - Status: Blocked
 - Allowed scope:
-  Preview: blocked for public use without policy support
-  Live: blocked for public use without policy support
+  Preview: blocked except for the exact wording in `F44-DISC-12`
+  Live: blocked except for the exact wording in `F44-DISC-12`
 - Replacement:
 
 ```text
-We surface paths using the information provided in the experience.
+Use F44-DISC-12.
 ```
 
 ### `F44-DISC-B04` Security claim
@@ -283,37 +354,37 @@ We surface paths using the information provided in the experience.
 single flow
 ```
 
-### `F44-DISC-B05` Human specialist / operating-step claim
+### `F44-DISC-B05` Human specialist or operating-step claim
 
 - Purpose: statements such as `a specialist confirms details`.
 - Owner role: Operations + Legal
 - Status: Blocked
 - Allowed scope:
   Preview: blocked
-  Live: blocked until operating workflow is approved
+  Live: blocked until the operating workflow is approved
 - Replacement:
 
 ```text
 additional details may be requested during the process
 ```
 
-### `F44-DISC-B06` Track record / faster funding trust claim
+### `F44-DISC-B06` Track record or performance disclosure
 
-- Purpose: statements about a prior track record or making funding faster.
+- Purpose: claims about a prior track record, guaranteed acceleration, or business-history/performance statements beyond the approved `44` origin story and conservative faster-process wording.
 - Owner role: Brand + Operations + Legal
 - Status: Blocked
 - Allowed scope:
-  Preview: blocked without evidence
-  Live: blocked without evidence
+  Preview: blocked except for the exact wording in `F44-DISC-11` and `F44-DISC-13`
+  Live: blocked except for the exact wording in `F44-DISC-11` and `F44-DISC-13`
 - Replacement:
 
 ```text
-Retire until a verified company-history or performance evidence package exists.
+Use F44-DISC-11 and F44-DISC-13.
 ```
 
-## Minimum approvals needed before this file can become a live source of truth
+## Remaining follow-ups after `F44-GOV-01`
 
-1. Legal review of `F44-DISC-01` through `F44-DISC-10`.
-2. Operations and partner-management approval for any public lender-network, product-coverage, or vendor-reference statements.
-3. Product review of preview-versus-live state transitions for the funnel, privacy, and credit language.
-4. Security review before any public use of security or data-protection claims beyond the narrow preview boundary now supported by code.
+1. Formal counsel review of `F44-DISC-01` through `F44-DISC-13` remains recommended, even though business approved `F44-DISC-11` through `F44-DISC-13` for conservative public and staging draft use on `2026-07-25`.
+2. `F44-GOV-02` still must supply the legal business name, business address, support email, support phone, final privacy and consent language, final terms and entity/contact copy, and verified `sameAs` and indexing rules.
+3. Partner and legal approval is still required before naming `Lendflow` publicly or publishing vendor-specific attribution copy.
+4. Security and privacy owners still need to approve any live-mode security, sharing, retention, and user-rights language beyond the current preview boundary.
