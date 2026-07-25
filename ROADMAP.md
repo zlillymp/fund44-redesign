@@ -54,7 +54,7 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
 
 ## Dependency Order
 
-`F44-OPS-01` -> `F44-GOV-01` + `F44-GOV-02` + `F44-MEA-01` -> `F44-ARCH-01` -> `F44-ARCH-02` -> `F44-SEO-01` -> `F44-SEO-02` + `F44-SEO-03` -> `F44-UX-01` + `F44-CNV-01` + `F44-TRUST-01` -> `F44-A11Y-01` + `F44-SEC-01` + `F44-MEA-02` + `F44-QA-01` -> `F44-SEO-04` + `F44-SEO-05` + `F44-CONT-01` -> `F44-CONT-02` + `F44-CONT-03` + `F44-CONT-04` + `F44-CONT-05` -> `F44-DSGN-01` + `F44-EXP-01` + `F44-CNV-02` + `F44-QA-02` -> `F44-CONT-06` + `F44-EXP-02`
+`F44-OPS-01` -> `F44-GOV-01` + `F44-MEA-01` -> `F44-ARCH-01` -> `F44-ARCH-02` -> `F44-SEO-01` -> `F44-SEO-02` + `F44-SEO-03` -> `F44-UX-01` + `F44-CNV-01` + `F44-TRUST-01` -> `F44-A11Y-01` + `F44-SEC-01` + `F44-MEA-02` + `F44-QA-01` -> `F44-SEO-04` + `F44-SEO-05` + `F44-CONT-01` -> `F44-CONT-02` + `F44-CONT-03` + `F44-CONT-04` + `F44-CONT-05` -> `F44-DSGN-01` + `F44-EXP-01` + `F44-CNV-02` + `F44-QA-02` -> `F44-CONT-06` + `F44-EXP-02`
 
 ## Milestone Exit Gates
 
@@ -121,7 +121,7 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
 - [ ] `F44-ARCH-01` `P0 BLOCKER` Create one route/content manifest and remove fragment URLs from the production model.
   Status: ready
   Owner: Frontend platform
-  Depends on: `F44-GOV-02`, `F44-MEA-01`
+  Depends on: `F44-GOV-01`, `F44-MEA-01`
   Paths: `src/main.js`, `src/pages/index.js`, `src/components/shell.js`, `src/components/ui.js`, `src/pages/*.js`, `public/sitemap.xml`, `public/llms.txt`, new `src/lib/routes.js`, new `content/manifest.*`
   Acceptance: canonical routes, nav items, breadcrumbs, CTAs, crawl files, and analytics route IDs all come from one manifest; production URLs no longer use `#/`; skip links and in-page anchors are no longer coupled to routing.
   Verify/Evidence: `git grep -n '#/' src public index.html`; route manifest diff; built route inventory attached in changelog.
@@ -345,6 +345,7 @@ Keep this file aligned with [AGENTS.md](AGENTS.md) and [docs/measurement-plan.md
 
 | Date | Task ID | Summary | Tests or Evidence | PR / Commit / Ref |
 | --- | --- | --- | --- | --- |
+| 2026-07-25 | `F44-GOV-01` | Marked approved claims/disclosure language as complete and corrected `F44-ARCH-01` to depend on `F44-GOV-01` plus `F44-MEA-01`, because route/content architecture can proceed before final legal identity/contact/privacy details. Preserved `F44-GOV-02` as an `M1` launch/indexing gate and for final legal/entity/contact/schema surfaces. | Markdown/link/dependency validation; reviewed `M1`, `F44-ARCH-01`, and downstream `F44-GOV-02` dependencies for compliance-gate preservation. | `branch:f44-gov-01-dependency-fix` |
 | 2026-07-24 | `F44-OPS-01` | Bootstrapped the durable roadmap, agent protocol, and measurement plan; integrated technical audit plus organic/conversion conclusions; created shareable mirrors outside the repo. | Cross-reference validation, duplicate-task-ID check, and mirror file equality check. | `branch:f44-ops-01-roadmap-docs` |
 | 2026-07-24 | `F44-MEA-01` | Ratified the measurement taxonomy as an implementation contract, clarified the north-star counting grain and KPI formulas, added an implementation-ready dashboard spec, and locked in privacy/baseline-before-target rules without setting numeric targets. | Markdown link-target check passed; section-header grep passed across roadmap, measurement, and dashboard docs; markdownlint passed with `MD013` disabled for repo-wide wrap style; `npm run build` passed. | `PR #3` |
 | 2026-07-24 | `F44-GOV-01` | Claimed the task on `agent/f44-gov-01` and expanded the path list to include `src/components/shell.js` because the sitewide footer contains public marketplace, credit, timing, and preview disclosures that must be captured in the register. | Dependency check: `F44-OPS-01` is done; inventory surfaces identified in `src/pages/*.js`, `src/components/ui.js`, `src/components/flow.js`, `src/components/shell.js`, and `public/llms.txt`. | `branch:agent/f44-gov-01` |
