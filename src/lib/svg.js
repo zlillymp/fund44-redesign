@@ -1,3 +1,5 @@
+import { hrefForRoute } from './routes.js';
+
 // Fund44 — inline SVG library. Logo communicates routing/matching → a path to capital.
 
 // Logo mark: two routing lanes rising through a decision node into a single path to capital (the "4" of a 4-shape apex).
@@ -13,7 +15,7 @@ export const logoMark = (size = 28) => `
 </svg>`;
 
 export const logo = () => `
-<a href="#/" class="logo" aria-label="Fund44 home" style="display:inline-flex;align-items:center;gap:.55rem;color:var(--ink)">
+<a href="${hrefForRoute('home')}" class="logo" aria-label="Fund44 home" style="display:inline-flex;align-items:center;gap:.55rem;color:var(--ink)">
   ${logoMark(30)}
   <span style="font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-0.04em">Fund<span style="color:var(--accent-deep)">44</span></span>
 </a>`;

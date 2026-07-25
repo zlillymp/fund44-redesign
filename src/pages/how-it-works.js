@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, routingWaterfall, docChecklist, statusTimeline, offerComparison, featItem } from '../components/ui.js';
+import { getBreadcrumbs } from '../lib/routes.js';
 
-const CRUMBS = [{ label: 'Home', href: '/' }, { label: 'How it works', href: '/how-it-works' }];
+const CRUMBS = getBreadcrumbs('how_it_works');
 
 const FAQ = [
   { q: 'How long does the process take?', a: 'The initial options preview takes a few minutes. Full timelines depend on the product and the lenders you proceed with. Fund44 does not guarantee any specific funding speed.' },

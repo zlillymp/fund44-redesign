@@ -1,32 +1,22 @@
 import { logo, logoMark, icon } from '../lib/svg.js';
-
-export const NAV = [
-  { label: 'Financing', href: '#/financing', panel: [
-    { label: 'Financing overview', href: '#/financing', desc: 'All the paths in one place' },
-    { label: 'SBA 7(a) loans', href: '#/sba-7a', desc: 'Flexible, longer-term capital' },
-    { label: 'SBA 504 loans', href: '#/sba-504', desc: 'Real estate & major equipment' },
-    { label: 'Business acquisition', href: '#/business-acquisition', desc: 'Buy a business or partner out' },
-    { label: 'Working capital & lines', href: '#/working-capital', desc: 'Day-to-day cash flow' },
-  ]},
-  { label: 'How it works', href: '#/how-it-works' },
-  { label: 'Resources', href: '#/resources' },
-  { label: 'About', href: '#/about' },
-];
+import { getCtaDestination, getFooterNavigation, getMobileNavigation, getPrimaryNavigation, hrefForRoute } from '../lib/routes.js';
 
 export function header() {
+  const navItems = getPrimaryNavigation();
+  const mobileItems = getMobileNavigation();
   return `
   <a href="#main" class="skip-link">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <div class="wrap nav">
       ${logo()}
       <nav class="nav-links" aria-label="Primary">
-        ${NAV.map((n) => n.panel ? `
+        ${navItems.map((n) => n.panel ? `
           <div class="nav-item">
-            <a class="nav-link" href="${n.href}" data-nav="${n.href}">${n.label}</a>
+            <a class="nav-link" href="${n.href}" data-nav-route="${n.routeId}">${n.label}</a>
             <div class="nav-panel" role="menu">
-              ${n.panel.map((p) => `<a href="${p.href}" role="menuitem"><strong>${p.label}</strong><span>${p.desc}</span></a>`).join('')}
+              ${n.panel.map((p) => `<a href="${p.href}" role="menuitem"><strong>${p.label}</strong><span>${p.description}</span></a>`).join('')}
             </div>
-          </div>` : `<a class="nav-link" href="${n.href}" data-nav="${n.href}">${n.label}</a>`).join('')}
+          </div>` : `<a class="nav-link" href="${n.href}" data-nav-route="${n.routeId}">${n.label}</a>`).join('')}
       </nav>
       <div class="nav-right">
         <button class="theme-toggle" data-theme-toggle aria-label="Switch color theme"></button>
@@ -43,15 +33,7 @@ export function header() {
         <button class="theme-toggle" data-menu-close aria-label="Close menu">${icon.close}</button>
       </div>
       <nav class="mobile-links" aria-label="Mobile">
-        <a href="#/">Home</a>
-        <a href="#/financing">Financing</a>
-        <a href="#/sba-7a" class="sub">SBA 7(a) loans</a>
-        <a href="#/sba-504" class="sub">SBA 504 loans</a>
-        <a href="#/business-acquisition" class="sub">Business acquisition</a>
-        <a href="#/working-capital" class="sub">Working capital & lines</a>
-        <a href="#/how-it-works">How it works</a>
-        <a href="#/resources">Resources</a>
-        <a href="#/about">About</a>
+        ${mobileItems.map((item) => `<a href="${item.href}"${item.className ? ` class="${item.className}"` : ''}>${item.label}</a>`).join('')}
       </nav>
       <div class="mobile-menu-cta">
         <button class="btn btn-primary btn-lg btn-block" data-open-flow>Preview funding paths ${icon.arrow}</button>
@@ -61,6 +43,7 @@ export function header() {
 }
 
 export function footer() {
+  const footerGroups = getFooterNavigation();
   return `
   <footer class="site-footer">
     <div class="wrap">
@@ -73,46 +56,27 @@ export function footer() {
           </div>
           <div class="wrap-btns">
             <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
-            <a class="btn btn-on-dark btn-lg" href="#/financing" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">Explore financing</a>
+            <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('explore_financing').href}" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">Explore financing</a>
           </div>
         </div>
       </div>
 
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="#/" class="logo" style="display:inline-flex;align-items:center;gap:.5rem;color:var(--on-dark)">
+          <a href="${hrefForRoute('home')}" class="logo" style="display:inline-flex;align-items:center;gap:.5rem;color:var(--on-dark)">
             ${logoMark(28)}
             <span style="font-family:var(--font-display);font-weight:600;font-size:1.25rem;letter-spacing:-0.04em">Fund<span style="color:var(--accent)">44</span></span>
           </a>
           <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--on-dark-muted);max-width:34ch">A small-business capital marketplace. Apply once; get matched to relevant financing paths from a network of third-party lenders.</p>
         </div>
-        <div class="footer-col">
-          <h4>Financing</h4>
-          <ul role="list">
-            <li><a href="#/sba-7a">SBA 7(a) loans</a></li>
-            <li><a href="#/sba-504">SBA 504 loans</a></li>
-            <li><a href="#/business-acquisition">Business acquisition</a></li>
-            <li><a href="#/working-capital">Working capital & lines</a></li>
-            <li><a href="#/financing">All financing</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul role="list">
-            <li><a href="#/how-it-works">How it works</a></li>
-            <li><a href="#/about">About Fund44</a></li>
-            <li><a href="#/resources">Learning hub</a></li>
-            <li><a href="#/resources/sba-7a-vs-504">SBA 7(a) vs 504</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul role="list">
-            <li><a href="#/privacy">Privacy</a></li>
-            <li><a href="#/terms">Terms & disclosures</a></li>
-            <li><a href="#/contact">Contact</a></li>
-          </ul>
-        </div>
+        ${footerGroups.map((group) => `
+          <div class="footer-col">
+            <h4>${group.heading}</h4>
+            <ul role="list">
+              ${group.items.map((item) => `<li><a href="${item.href}">${item.label}</a></li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
       </div>
 
       <div class="footer-disclosure">

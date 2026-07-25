@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock } from '../components/ui.js';
+import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 
-const CRUMBS = [{ label: 'Home', href: '/' }, { label: 'Financing', href: '/financing' }];
+const CRUMBS = getBreadcrumbs('financing');
 
 const FAQ = [
   { q: 'Which financing type is right for my business?', a: 'It depends on your use of funds, time in business, revenue, and how quickly you need capital. SBA loans suit longer-term needs and larger amounts; lines of credit suit ongoing cash-flow gaps; equipment and factoring solve specific needs. Fund44 matches your profile to the paths that fit.' },
@@ -11,12 +12,12 @@ const FAQ = [
 ];
 
 const PRODUCTS = [
-  { name: 'SBA 7(a)', use: 'Acquisition, working capital, expansion, refinance', term: 'Longer term', amount: 'Up to $5M', speed: 'Moderate', href: '#/sba-7a' },
-  { name: 'SBA 504', use: 'Owner-occupied real estate, major equipment', term: 'Long, fixed-asset', amount: 'Large projects', speed: 'Moderate', href: '#/sba-504' },
-  { name: 'Business acquisition', use: 'Buy a business or buy out a partner', term: 'Varies by structure', amount: 'Deal-sized', speed: 'Moderate', href: '#/business-acquisition' },
-  { name: 'Term loan', use: 'One-time investments, growth projects', term: 'Fixed, 1–7 yr', amount: 'Mid-range', speed: 'Faster', href: '#/working-capital' },
-  { name: 'Line of credit', use: 'Ongoing cash flow, seasonality', term: 'Revolving', amount: 'Flexible', speed: 'Faster', href: '#/working-capital' },
-  { name: 'Equipment financing', use: 'Purchase or finance equipment', term: 'Asset life', amount: 'Equipment cost', speed: 'Faster', href: '#/working-capital' },
+  { name: 'SBA 7(a)', use: 'Acquisition, working capital, expansion, refinance', term: 'Longer term', amount: 'Up to $5M', speed: 'Moderate', href: hrefForRoute('sba_7a') },
+  { name: 'SBA 504', use: 'Owner-occupied real estate, major equipment', term: 'Long, fixed-asset', amount: 'Large projects', speed: 'Moderate', href: hrefForRoute('sba_504') },
+  { name: 'Business acquisition', use: 'Buy a business or buy out a partner', term: 'Varies by structure', amount: 'Deal-sized', speed: 'Moderate', href: hrefForRoute('business_acquisition') },
+  { name: 'Term loan', use: 'One-time investments, growth projects', term: 'Fixed, 1–7 yr', amount: 'Mid-range', speed: 'Faster', href: hrefForRoute('working_capital') },
+  { name: 'Line of credit', use: 'Ongoing cash flow, seasonality', term: 'Revolving', amount: 'Flexible', speed: 'Faster', href: hrefForRoute('working_capital') },
+  { name: 'Equipment financing', use: 'Purchase or finance equipment', term: 'Asset life', amount: 'Equipment cost', speed: 'Faster', href: hrefForRoute('working_capital') },
 ];
 
 export function financing() {
@@ -73,10 +74,10 @@ export function financing() {
     </div>
     <div class="grid g-2 reveal" data-stagger>
       ${[
-        ['I want to buy a business', 'Acquisition financing and SBA 7(a) are common starting points.', '#/business-acquisition', icon.route],
-        ['I need to buy or refinance property', 'SBA 504 and SBA 7(a) are built for owner-occupied real estate.', '#/sba-504', icon.building],
-        ['I need cash flow for operations', 'Lines of credit and short-term working capital fit recurring gaps.', '#/working-capital', icon.cash],
-        ['I need equipment', 'Equipment financing or an SBA loan can spread the cost over its useful life.', '#/working-capital', icon.truck],
+        ['I want to buy a business', 'Acquisition financing and SBA 7(a) are common starting points.', hrefForRoute('business_acquisition'), icon.route],
+        ['I need to buy or refinance property', 'SBA 504 and SBA 7(a) are built for owner-occupied real estate.', hrefForRoute('sba_504'), icon.building],
+        ['I need cash flow for operations', 'Lines of credit and short-term working capital fit recurring gaps.', hrefForRoute('working_capital'), icon.cash],
+        ['I need equipment', 'Equipment financing or an SBA loan can spread the cost over its useful life.', hrefForRoute('working_capital'), icon.truck],
       ].map(([t,d,h,ic]) => `
         <a href="${h}" class="card card-hover" style="display:flex;gap:var(--space-4);align-items:flex-start">
           <span class="fi-mark" style="width:44px;height:44px;flex-shrink:0">${ic}</span>

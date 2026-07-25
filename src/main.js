@@ -2,18 +2,67 @@ import './styles.css';
 import './product.css';
 import { header, footer } from './components/shell.js';
 import { initFlow } from './components/flow.js';
-import { routes } from './pages/index.js';
+import { pageRenderers } from './pages/index.js';
+import { getRouteMatch, isLegacyHashRoute, normalizePathname, resolveLegacyHashPath, shouldHighlightRoute } from './lib/routes.js';
 
 const app = document.getElementById('app');
 
-function currentRoute() {
-  const hash = window.location.hash.replace(/^#/, '') || '/';
-  // exact match first
-  if (routes[hash]) return { fn: routes[hash], param: null };
-  // dynamic: /resources/:slug
-  const m = hash.match(/^\/resources\/(.+)$/);
-  if (m && routes['/resources/:slug']) return { fn: routes['/resources/:slug'], param: m[1] };
-  return { fn: routes['*'], param: hash };
+function currentMatch() {
+  return getRouteMatch(window.location.pathname);
+}
+
+function migrateLegacyHashRoute() {
+  const { hash, search } = window.location;
+  const legacyPath = resolveLegacyHashPath(hash);
+  if (!legacyPath) return false;
+  window.history.replaceState({}, '', `${legacyPath}${search}`);
+  return true;
+}
+
+function shouldHandleLink(anchor) {
+  if (!anchor) return false;
+  const href = anchor.getAttribute('href');
+  if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return false;
+  if (href.startsWith('#')) return false;
+  if (anchor.target && anchor.target !== '_self') return false;
+  return anchor.origin === window.location.origin;
+}
+
+function isSamePageAnchor(anchor) {
+  const href = anchor.getAttribute('href');
+  if (!href) return false;
+  const url = new URL(href, window.location.origin);
+  return url.pathname === window.location.pathname && Boolean(url.hash);
+}
+
+function scrollToAnchor(hash) {
+  if (!hash) return false;
+  const id = hash.startsWith('#') ? hash.slice(1) : hash;
+  if (!id) return false;
+  const target = document.getElementById(id);
+  if (!target) return false;
+  target.scrollIntoView();
+  if (target instanceof HTMLElement) {
+    target.focus({ preventScroll: true });
+  }
+  return true;
+}
+
+function getRenderer(match) {
+  const route = match.route;
+  if (route.routeId === 'not_found') {
+    return () => pageRenderers.notFound(match.requestedPath);
+  }
+
+  if (route.slug) {
+    return () => pageRenderers.article(route.slug);
+  }
+
+  const renderer = pageRenderers[route.pageKey];
+  if (!renderer) {
+    throw new Error(`No renderer registered for page key "${route.pageKey}"`);
+  }
+  return renderer;
 }
 
 // theme toggle (system default, no localStorage)
@@ -110,25 +159,90 @@ function initFaq() {
   });
 }
 
-function setActiveNav() {
-  const hash = window.location.hash.replace(/^#/, '') || '/';
-  document.querySelectorAll('[data-nav]').forEach((a) => {
-    const target = a.dataset.nav.replace(/^#/, '');
-    a.classList.toggle('active', target === hash || (target !== '/' && hash.startsWith(target)));
+function setActiveNav(currentRouteId) {
+  document.querySelectorAll('[data-nav-route]').forEach((a) => {
+    const target = a.dataset.navRoute;
+    a.classList.toggle('active', shouldHighlightRoute(currentRouteId, target));
   });
 }
 
-async function render() {
-  const { fn, param } = currentRoute();
-  const html = fn(param);
+async function render({ preserveScroll = false } = {}) {
+  const match = currentMatch();
+  const renderer = getRenderer(match);
+  const html = renderer();
   app.innerHTML = html;
-  window.scrollTo(0, 0);
-  setActiveNav();
+  if (!preserveScroll) {
+    window.scrollTo(0, 0);
+  }
+  setActiveNav(match.route.routeId);
   observeReveals();
   animateViz();
 }
 
+function navigate(href, { replace = false } = {}) {
+  const url = new URL(href, window.location.origin);
+  const nextPath = normalizePathname(url.pathname);
+  const nextUrl = `${nextPath}${url.search}${url.hash}`;
+
+  if (replace) {
+    window.history.replaceState({}, '', nextUrl);
+  } else {
+    window.history.pushState({}, '', nextUrl);
+  }
+
+  if (url.hash) {
+    render({ preserveScroll: true }).then(() => {
+      if (!scrollToAnchor(url.hash)) {
+        window.location.hash = url.hash;
+      }
+    });
+    return;
+  }
+
+  render();
+}
+
+function initNavigation() {
+  document.body.addEventListener('click', (event) => {
+    const anchor = event.target.closest('a[href]');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (href === '#main') {
+      return;
+    }
+
+    if (isSamePageAnchor(anchor)) {
+      event.preventDefault();
+      scrollToAnchor(new URL(anchor.href).hash);
+      return;
+    }
+
+    if (!shouldHandleLink(anchor)) return;
+
+    const url = new URL(anchor.href);
+    const nextPath = normalizePathname(url.pathname);
+    if (url.origin !== window.location.origin) return;
+
+    event.preventDefault();
+    if (nextPath === window.location.pathname && !url.hash && url.search === window.location.search) {
+      return;
+    }
+    navigate(anchor.href);
+  });
+
+  window.addEventListener('popstate', () => {
+    render({ preserveScroll: Boolean(window.location.hash) }).then(() => {
+      if (window.location.hash) scrollToAnchor(window.location.hash);
+    });
+  });
+}
+
 function boot() {
+  if (isLegacyHashRoute(window.location.hash)) {
+    migrateLegacyHashRoute();
+  }
+
   document.getElementById('shell-header').innerHTML = header();
   document.getElementById('shell-footer').innerHTML = footer();
   initTheme();
@@ -136,8 +250,10 @@ function boot() {
   initMobileMenu();
   initFaq();
   initFlow();
-  window.addEventListener('hashchange', render);
-  render();
+  initNavigation();
+  render({ preserveScroll: Boolean(window.location.hash) }).then(() => {
+    if (window.location.hash) scrollToAnchor(window.location.hash);
+  });
 }
 
 boot();

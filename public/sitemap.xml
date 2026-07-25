@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
-  <url><loc>https://fund44.com/#/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://fund44.com/#/financing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://fund44.com/#/sba-7a</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fund44.com/#/sba-504</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fund44.com/#/business-acquisition</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fund44.com/#/working-capital</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fund44.com/#/how-it-works</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fund44.com/#/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fund44.com/#/resources</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fund44.com/#/resources/sba-7a-vs-504</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fund44.com/#/resources/preparing-your-documents</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fund44.com/#/resources/working-capital-vs-term-loan</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fund44.com/#/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://fund44.com/#/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://fund44.com/#/contact</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://fund44.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://fund44.com/financing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://fund44.com/sba-7a</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fund44.com/sba-504</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fund44.com/business-acquisition</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fund44.com/working-capital</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fund44.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://fund44.com/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fund44.com/resources</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://fund44.com/resources/sba-7a-vs-504</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fund44.com/resources/preparing-your-documents</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fund44.com/resources/working-capital-vs-term-loan</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fund44.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://fund44.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://fund44.com/contact</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

@@ -1,5 +1,6 @@
 import { icon } from '../lib/svg.js';
 import { setMeta } from '../lib/seo.js';
+import { getCtaDestination } from '../lib/routes.js';
 
 export function notFound() {
   setMeta({
@@ -13,8 +14,8 @@ export function notFound() {
     <h1 class="h1 mt-6" style="max-width:16ch">This path doesn't lead anywhere.</h1>
     <p class="lead mt-4" style="margin-inline:auto">The page you were looking for isn't here — but your funding path might be.</p>
     <div class="wrap-btns mt-8" style="justify-content:center">
-      <a class="btn btn-primary btn-lg" href="#/">Back home ${icon.arrow}</a>
-      <a class="btn btn-ghost btn-lg" href="#/financing">Explore financing</a>
+      <a class="btn btn-primary btn-lg" href="${getCtaDestination('back_home').href}">Back home ${icon.arrow}</a>
+      <a class="btn btn-ghost btn-lg" href="${getCtaDestination('explore_financing').href}">Explore financing</a>
     </div>
   </section>`;
 }

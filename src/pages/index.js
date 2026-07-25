@@ -7,19 +7,19 @@ import { resources, article } from './resources.js';
 import { privacy, terms, contact } from './legal.js';
 import { notFound } from './not-found.js';
 
-export const routes = {
-  '/': home,
-  '/financing': financing,
-  '/sba-7a': sba7a,
-  '/sba-504': sba504,
-  '/business-acquisition': acquisition,
-  '/working-capital': workingCapital,
-  '/how-it-works': howItWorks,
-  '/about': about,
-  '/resources': resources,
-  '/resources/:slug': article,
-  '/privacy': privacy,
-  '/terms': terms,
-  '/contact': contact,
-  '*': notFound,
+export const pageRenderers = {
+  home,
+  financing,
+  sba7a,
+  sba504,
+  acquisition,
+  workingCapital,
+  howItWorks,
+  about,
+  resources,
+  article,
+  privacy,
+  terms,
+  contact,
+  notFound,
 };

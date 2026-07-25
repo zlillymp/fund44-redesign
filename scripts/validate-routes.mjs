@@ -1,0 +1,110 @@
+import fs from 'node:fs';
+import { routeManifest } from '../content/manifest.mjs';
+import { getRouteInventory, getSitemapEntries, getLlmsInventories, hrefForRoute } from '../src/lib/routes.js';
+
+const errors = [];
+const warnings = [];
+const { routes, navigation } = routeManifest;
+
+function assert(condition, message) {
+  if (!condition) errors.push(message);
+}
+
+const routeIds = new Set();
+const paths = new Set();
+const legacyHashes = new Set();
+
+for (const route of routes) {
+  assert(route.routeId, 'Every route must have a routeId.');
+  assert(route.path, `Route ${route.routeId} is missing a path.`);
+  assert(route.pageKey, `Route ${route.routeId} is missing a pageKey.`);
+  assert(route.analyticsRouteId, `Route ${route.routeId} is missing an analyticsRouteId.`);
+  assert(route.pageType, `Route ${route.routeId} is missing a pageType.`);
+  assert(route.templateId, `Route ${route.routeId} is missing a templateId.`);
+  assert(route.routeFamily, `Route ${route.routeId} is missing a routeFamily.`);
+
+  assert(!routeIds.has(route.routeId), `Duplicate routeId: ${route.routeId}`);
+  routeIds.add(route.routeId);
+
+  assert(!paths.has(route.path), `Duplicate path: ${route.path}`);
+  paths.add(route.path);
+
+  for (const legacyHash of route.legacyHashes || []) {
+    assert(!legacyHashes.has(legacyHash), `Duplicate legacy hash mapping: ${legacyHash}`);
+    legacyHashes.add(legacyHash);
+    assert(legacyHash.startsWith('#/'), `Legacy hash should preserve old route shape: ${legacyHash}`);
+  }
+
+  if (route.parentRouteId) {
+    assert(routes.some((candidate) => candidate.routeId === route.parentRouteId), `Unknown parentRouteId ${route.parentRouteId} on ${route.routeId}`);
+  }
+
+  if (route.slug) {
+    assert(route.path.endsWith(`/${route.slug}`), `Slug ${route.slug} does not align with path ${route.path}`);
+  }
+
+  if (route.crawl?.canonical) {
+    assert(route.path.startsWith('/'), `Canonical route ${route.routeId} must use an absolute path.`);
+  }
+}
+
+for (const item of navigation.primary) {
+  assert(routeIds.has(item.routeId), `Primary nav references unknown route ${item.routeId}`);
+  for (const panelRouteId of item.panel || []) {
+    assert(routeIds.has(panelRouteId), `Primary nav panel references unknown route ${panelRouteId}`);
+  }
+}
+
+for (const item of navigation.mobile) {
+  assert(routeIds.has(item.routeId), `Mobile nav references unknown route ${item.routeId}`);
+}
+
+for (const group of navigation.footer) {
+  for (const routeId of group.items) {
+    assert(routeIds.has(routeId), `Footer nav references unknown route ${routeId}`);
+  }
+}
+
+const sitemapXml = fs.readFileSync(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
+for (const entry of getSitemapEntries()) {
+  assert(sitemapXml.includes(entry.loc), `Sitemap is missing ${entry.loc}`);
+}
+
+const llmsText = fs.readFileSync(new URL('../public/llms.txt', import.meta.url), 'utf8');
+const llmsInventory = getLlmsInventories();
+for (const item of [...llmsInventory.financingPaths, ...llmsInventory.keyPages]) {
+  assert(llmsText.includes(item.path), `llms.txt is missing path ${item.path}`);
+}
+
+const inventory = getRouteInventory();
+assert(inventory.some((route) => route.routeId === 'home'), 'Route inventory must include home.');
+assert(inventory.some((route) => route.routeId === 'not_found' && route.canonical === false), 'Route inventory must include non-canonical 404.');
+
+const canonicalHrefs = routes.filter((route) => route.crawl?.canonical).map((route) => hrefForRoute(route.routeId));
+if (canonicalHrefs.some((href) => href.includes('#/'))) {
+  errors.push('Canonical hrefs must not contain fragment routes.');
+}
+
+if (warnings.length) {
+  for (const warning of warnings) {
+    console.warn(`WARN: ${warning}`);
+  }
+}
+
+if (errors.length) {
+  for (const error of errors) {
+    console.error(`ERROR: ${error}`);
+  }
+  process.exit(1);
+}
+
+console.log('Route manifest validation passed.');
+console.table(inventory.map((route) => ({
+  routeId: route.routeId,
+  path: route.path,
+  pageType: route.pageType,
+  templateId: route.templateId,
+  routeFamily: route.routeFamily,
+  canonical: route.canonical,
+  landing: route.landing,
+})));

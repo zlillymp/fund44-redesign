@@ -1,4 +1,5 @@
 import { icon } from '../lib/svg.js';
+import { getCtaDestination, hrefForRoute } from '../lib/routes.js';
 
 // ---------- Shared section pieces ----------
 export const eyebrow = (t) => `<span class="eyebrow reveal">${t}</span>`;
@@ -7,13 +8,13 @@ export const breadcrumb = (crumbs) => `
   <nav class="breadcrumb reveal" aria-label="Breadcrumb">
     ${crumbs.map((c, i) => i === crumbs.length - 1
       ? `<span aria-current="page">${c.label}</span>`
-      : `<a href="#${c.href}">${c.label}</a><span class="sep">/</span>`).join('')}
+      : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
   </nav>`;
 
 export const primaryCta = (label = 'Preview my funding paths') =>
   `<button class="btn btn-primary btn-lg" data-open-flow>${label} ${icon.arrow}</button>`;
 
-export const secondaryCta = (label = 'Explore financing', href = '#/financing') =>
+export const secondaryCta = (label = 'Explore financing', href = getCtaDestination('explore_financing').href) =>
   `<a class="btn btn-ghost btn-lg" href="${href}">${label}</a>`;
 
 // mid-page CTA banner
@@ -28,7 +29,7 @@ export const ctaBanner = (heading, sub) => `
       </div>
       <div class="wrap-btns">
         <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
-        <a class="btn btn-on-dark btn-lg" href="#/how-it-works" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">How it works</a>
+        <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('learn_how_it_works').href}" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">How it works</a>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@
 - Positioning: "One application. More ways to fund your business."
 - Audience: U.S. small-business owners seeking roughly $50k–$5M for acquisitions, owner-occupied real estate, working capital, equipment, expansion, or refinancing.
 
-## What Fund44 is NOT
+## What Fund44 is not
 - Not a lender or a bank. It does not issue loans, set rates, or make credit decisions.
 - Does not guarantee approval, funding, or any specific timeline, rate, or amount.
 - Does not publish unverified funding metrics, named testimonials, or fabricated certifications.
@@ -19,19 +19,19 @@
 - Do not attribute specific rates to Fund44. Any structures/amounts shown are illustrative examples.
 
 ## Financing paths covered
-- SBA 7(a) loans — flexible, longer-term capital: /#/sba-7a
-- SBA 504 loans — owner-occupied real estate and major equipment: /#/sba-504
-- Business acquisition loans — buy a business or partner buyout: /#/business-acquisition
-- Working capital & lines of credit — term loans, equipment financing, invoice factoring: /#/working-capital
+- SBA 7(a) loans — flexible, longer-term capital: /sba-7a
+- SBA 504 loans — owner-occupied real estate and major equipment: /sba-504
+- Business acquisition loans — buy a business or partner buyout: /business-acquisition
+- Working capital & lines of credit — term loans, equipment financing, invoice factoring: /working-capital
 
 ## Key pages
-- Home: /#/
-- Financing overview & comparison: /#/financing
-- How it works: /#/how-it-works
-- About / why Fund44: /#/about
-- Learning hub: /#/resources
-- Privacy: /#/privacy
-- Terms & disclosures: /#/terms
+- Home: /
+- Financing overview & comparison: /financing
+- How it works: /how-it-works
+- About / why Fund44: /about
+- Learning hub: /resources
+- Privacy: /privacy
+- Terms & disclosures: /terms
 
 ## Contact
 Contact details are placeholders in this preview build and will be added once verified.
