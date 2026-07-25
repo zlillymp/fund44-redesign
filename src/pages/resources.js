@@ -1,9 +1,10 @@
 import { icon, thumb } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, eyebrow, disclosure } from '../components/ui.js';
+import { getBreadcrumbs, getRouteBySlug, hrefForRoute, hrefForSlug } from '../lib/routes.js';
 import { notFound } from './not-found.js';
 
-const CRUMBS = [{ label: 'Home', href: '/' }, { label: 'Resources', href: '/resources' }];
+const CRUMBS = getBreadcrumbs('resources');
 
 export const ARTICLES = {
   'sba-7a-vs-504': {
@@ -104,7 +105,7 @@ export function resources() {
   <section class="section-tight wrap">
     <div class="grid g-3 reveal" data-stagger>
       ${cards.map(([slug, a]) => `
-        <a href="#/resources/${slug}" class="card card-hover article-card">
+        <a href="${hrefForSlug(slug)}" class="card card-hover article-card">
           <div class="ac-thumb">${a.thumb}</div>
           <div class="ac-cat">${a.cat}</div>
           <h3>${a.title}</h3>
@@ -121,12 +122,13 @@ export function resources() {
 export function article(slug) {
   const a = ARTICLES[slug];
   if (!a) return notFound(slug);
-  const crumbs = [...CRUMBS, { label: a.title, href: `/resources/${slug}` }];
+  const route = getRouteBySlug(slug);
+  const crumbs = route ? getBreadcrumbs(route.routeId) : CRUMBS;
   setMeta({
     title: a.title,
     description: a.desc,
-    path: `/resources/${slug}`,
-    jsonld: [ld.breadcrumb(crumbs), ld.article({ title: a.title, description: a.desc, path: `/resources/${slug}`, date: a.date }), ld.faq(a.faq)],
+    path: hrefForSlug(slug),
+    jsonld: [ld.breadcrumb(crumbs), ld.article({ title: a.title, description: a.desc, path: hrefForSlug(slug), date: a.date }), ld.faq(a.faq)],
   });
 
   const others = Object.entries(ARTICLES).filter(([s]) => s !== slug).slice(0, 2);
@@ -134,8 +136,8 @@ export function article(slug) {
   return `
   <section class="section-tight wrap" style="padding-top:clamp(2rem,4vw,3.5rem)">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-      <a href="#/">Home</a><span class="sep">/</span>
-      <a href="#/resources">Resources</a><span class="sep">/</span>
+      <a href="${hrefForRoute('home')}">Home</a><span class="sep">/</span>
+      <a href="${hrefForRoute('resources')}">Resources</a><span class="sep">/</span>
       <span aria-current="page" style="max-width:40ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${a.title}</span>
     </nav>
     <div class="mt-6"><span class="eyebrow reveal">${a.cat}</span></div>
@@ -161,7 +163,7 @@ export function article(slug) {
     <h2 class="h2 reveal mt-4 mb-8" style="font-size:var(--text-xl)">More from the learning hub</h2>
     <div class="grid g-2 reveal" data-stagger>
       ${others.map(([s, o]) => `
-        <a href="#/resources/${s}" class="card card-hover article-card">
+        <a href="${hrefForSlug(s)}" class="card card-hover article-card">
           <div class="ac-cat">${o.cat}</div>
           <h3>${o.title}</h3>
           <p>${o.desc}</p>

@@ -1,12 +1,13 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { eyebrow, disclosure } from '../components/ui.js';
+import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 
 function legalHead(crumbs, title, updated) {
   return `
   <section class="section-tight wrap wrap-default" style="padding-top:clamp(2rem,4vw,3.5rem)">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-      ${crumbs.map((c, i) => i === crumbs.length - 1 ? `<span aria-current="page">${c.label}</span>` : `<a href="#${c.href}">${c.label}</a><span class="sep">/</span>`).join('')}
+      ${crumbs.map((c, i) => i === crumbs.length - 1 ? `<span aria-current="page">${c.label}</span>` : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
     <div class="reveal mt-4" style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center">
@@ -23,7 +24,7 @@ const section = (h, body) => `
   </div>`;
 
 export function privacy() {
-  const crumbs = [{ label: 'Home', href: '/' }, { label: 'Privacy', href: '/privacy' }];
+  const crumbs = getBreadcrumbs('privacy');
   setMeta({
     title: 'Privacy — preview',
     description: 'How Fund44 approaches privacy: what information is collected to match you with lenders, how it is used, and the controls you have. Preview copy pending legal review.',
@@ -51,12 +52,12 @@ export function privacy() {
       <p>Specific rights and request procedures (including any applicable state privacy rights) will be finalized during legal review.</p>`)}
     ${section('Credit information', `
       <p>Checking your initial options can use information that does not affect your credit score. If you choose to proceed with a lender, that lender may perform a hard credit inquiry as part of its own underwriting.</p>`)}
-    ${section('Contact', `<p>Privacy questions can be directed to the contact placeholder on our <a href="#/contact" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
+    ${section('Contact', `<p>Privacy questions can be directed to the contact placeholder on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
   </section>`;
 }
 
 export function terms() {
-  const crumbs = [{ label: 'Home', href: '/' }, { label: 'Terms & disclosures', href: '/terms' }];
+  const crumbs = getBreadcrumbs('terms');
   setMeta({
     title: 'Terms & disclosures — preview',
     description: 'Fund44 terms and marketplace disclosures in plain language. Fund44 is not a lender; financing is offered by third-party providers. Preview copy pending legal review.',
@@ -79,12 +80,12 @@ export function terms() {
       <p>Content on this site, including the learning hub, is general and educational. It is not financial, legal, or tax advice. Program rules (including SBA programs) and lender requirements change and are set by those entities.</p>`)}
     ${section('Preview status', `
       <p>This site is a preview build. Any figures, testimonials, or metrics are illustrative or interface data. Fund44 does not publish unverified funding claims, named testimonials, or fabricated certifications.</p>`)}
-    ${section('Contact', `<p>Questions about these terms can be directed to the contact placeholder on our <a href="#/contact" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
+    ${section('Contact', `<p>Questions about these terms can be directed to the contact placeholder on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
   </section>`;
 }
 
 export function contact() {
-  const crumbs = [{ label: 'Home', href: '/' }, { label: 'Contact', href: '/contact' }];
+  const crumbs = getBreadcrumbs('contact');
   setMeta({
     title: 'Contact Fund44',
     description: 'Get in touch with Fund44. Contact details are placeholders in this preview build and will be added once verified.',

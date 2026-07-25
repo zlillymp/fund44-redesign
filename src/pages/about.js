@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, disclosure, eyebrow, chaosToPath, featItem } from '../components/ui.js';
+import { getBreadcrumbs } from '../lib/routes.js';
 
-const CRUMBS = [{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }];
+const CRUMBS = getBreadcrumbs('about');
 
 export function about() {
   setMeta({

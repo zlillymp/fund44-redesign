@@ -1,9 +1,10 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featItem } from '../components/ui.js';
+import { getBreadcrumbs } from '../lib/routes.js';
 
 function productPage(cfg) {
-  const crumbs = [{ label: 'Home', href: '/' }, { label: 'Financing', href: '/financing' }, { label: cfg.short, href: cfg.path }];
+  const crumbs = getBreadcrumbs(cfg.routeId);
   setMeta({ title: cfg.title, description: cfg.desc, path: cfg.path, jsonld: [ld.breadcrumb(crumbs), ld.faq(cfg.faq)] });
 
   return `
@@ -52,6 +53,7 @@ function productPage(cfg) {
 
 export function sba7a() {
   return productPage({
+    routeId: 'sba_7a',
     short: 'SBA 7(a)',
     path: '/sba-7a',
     title: 'SBA 7(a) loans',
@@ -97,6 +99,7 @@ export function sba7a() {
 
 export function sba504() {
   return productPage({
+    routeId: 'sba_504',
     short: 'SBA 504',
     path: '/sba-504',
     title: 'SBA 504 loans',
@@ -141,6 +144,7 @@ export function sba504() {
 
 export function acquisition() {
   return productPage({
+    routeId: 'business_acquisition',
     short: 'Business acquisition',
     path: '/business-acquisition',
     title: 'Business acquisition loans',
@@ -185,6 +189,7 @@ export function acquisition() {
 
 export function workingCapital() {
   return productPage({
+    routeId: 'working_capital',
     short: 'Working capital',
     path: '/working-capital',
     title: 'Working capital & lines of credit',

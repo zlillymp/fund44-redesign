@@ -1,6 +1,7 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { eyebrow, primaryCta, secondaryCta, ctaBanner, disclosure, faqBlock, matchDashboard, routingWaterfall, docChecklist, statusTimeline, offerComparison, chaosToPath, featItem } from '../components/ui.js';
+import { hrefForRoute } from '../lib/routes.js';
 
 const FAQ = [
   { q: 'Is Fund44 a lender?', a: 'No. Fund44 is a technology marketplace. Financing is offered by third-party lenders in our network. Eligibility, rates, and terms are set by each lender — not by Fund44.' },
@@ -128,10 +129,10 @@ export function home() {
     </div>
     <div class="grid g-2 reveal" data-stagger>
       ${[
-        ['SBA 7(a) loans', 'Flexible, longer-term capital for acquisitions, working capital, and growth.', '#/sba-7a', icon.building],
-        ['SBA 504 loans', 'Long-term, fixed-asset financing for owner-occupied real estate and major equipment.', '#/sba-504', icon.key],
-        ['Business acquisition', 'Structure financing to buy a business, buy out a partner, or fund a transition.', '#/business-acquisition', icon.route],
-        ['Working capital & lines of credit', 'Flexible cash flow, term loans, equipment financing, and factoring.', '#/working-capital', icon.cash],
+        ['SBA 7(a) loans', 'Flexible, longer-term capital for acquisitions, working capital, and growth.', hrefForRoute('sba_7a'), icon.building],
+        ['SBA 504 loans', 'Long-term, fixed-asset financing for owner-occupied real estate and major equipment.', hrefForRoute('sba_504'), icon.key],
+        ['Business acquisition', 'Structure financing to buy a business, buy out a partner, or fund a transition.', hrefForRoute('business_acquisition'), icon.route],
+        ['Working capital & lines of credit', 'Flexible cash flow, term loans, equipment financing, and factoring.', hrefForRoute('working_capital'), icon.cash],
       ].map(([t,d,h,ic]) => `
         <a href="${h}" class="card card-hover" style="display:flex;flex-direction:column;gap:var(--space-4)">
           <span class="fi-mark" style="width:44px;height:44px">${ic}</span>

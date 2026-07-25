@@ -1,6 +1,8 @@
 // SEO / metadata manager — updates <head> per route, injects JSON-LD.
-const SITE = 'Fund44';
-const BASE = 'https://fund44.com';
+import { absoluteUrlForPath, routeSite } from './routes.js';
+
+const SITE = routeSite.siteName;
+const BASE = routeSite.baseUrl;
 
 function upsertMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`);
@@ -16,7 +18,7 @@ function upsertLink(rel, href) {
 export function setMeta({ title, description, path = '/', jsonld = [] }) {
   const fullTitle = path === '/' ? `${title}` : `${title} · ${SITE}`;
   document.title = fullTitle;
-  const canonical = `${BASE}/${path.replace(/^\//, '')}`;
+  const canonical = absoluteUrlForPath(path);
   upsertMeta('name', 'description', description);
   upsertLink('canonical', canonical);
   // Open Graph
@@ -72,7 +74,7 @@ export const ld = {
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      item: `${BASE}/#${c.href}`,
+      item: absoluteUrlForPath(c.path),
     })),
   }),
   faq: (items) => ({
@@ -93,6 +95,6 @@ export const ld = {
     dateModified: date,
     author: { '@type': 'Organization', name: 'Fund44' },
     publisher: { '@type': 'Organization', name: 'Fund44' },
-    mainEntityOfPage: `${BASE}/#${path}`,
+    mainEntityOfPage: absoluteUrlForPath(path),
   }),
 };
