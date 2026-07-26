@@ -8,7 +8,7 @@ import { getLinkModuleForRoute } from '../lib/link-graph.js';
 function renderProgramPage(contentId) {
   const content = getContentById(contentId);
   const crumbs = getBreadcrumbs(content.routeId);
-  const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const faqItems = content.commonQuestions.map((item) => ({ id: item.id, q: item.question, a: item.answer }));
   const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
@@ -69,7 +69,10 @@ function renderProgramPage(contentId) {
     <div class="grid g-3 reveal" data-stagger>
       ${content.eligibilityCards.map((card) => `<div class="card">${featItem(icon[card.iconKey], card.title, card.description)}</div>`).join('')}
     </div>
-    <div class="mt-8">${disclosure(content.sectionDisclosureHtml)}</div>
+    <div class="mt-8">${disclosure(content.sectionDisclosureHtml, {
+      disclosureId: `${content.routeId}_section_disclosure`,
+      disclosureContext: `${content.routeId}_eligibility`,
+    })}</div>
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
@@ -84,7 +87,7 @@ function renderProgramPage(contentId) {
   <section class="section wrap wrap-default">
     ${eyebrow(`${content.shortLabel} FAQ`)}
     <h2 class="h2 reveal mt-4 mb-8">Questions about ${content.shortLabel}</h2>
-    ${faqBlock(faqItems)}
+    ${faqBlock(faqItems, content.measurement.faqGroup)}
   </section>
   `;
 }

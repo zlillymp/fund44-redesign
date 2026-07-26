@@ -13,6 +13,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "validate:crawl": "node scripts/validate-crawl-files.mjs",
     "validate:design": "node scripts/validate-design-tokens.mjs",
+    "validate:analytics": "node scripts/validate-analytics.mjs",
     "validate:legal": "node scripts/validate-legal.mjs",
     "validate:routes": "node scripts/validate-routes.mjs",
     "validate:prerender": "node scripts/validate-prerender.mjs",

@@ -39,6 +39,18 @@ import {
   validateStep,
 } from '../lib/eligibility/model.js';
 import {
+  trackApplicationStart,
+  trackApplicationSubmitAttempt,
+  trackApplicationSubmitResult,
+  trackContactRequestSubmit,
+  trackEligibilityModeView,
+  trackEligibilityOutcomeView,
+  trackEligibilityStart,
+  trackEligibilityStepComplete,
+  trackEligibilityStepView,
+  trackEligibilityValidationError,
+} from '../lib/analytics.js';
+import {
   clearEligibilityState,
   isFlowHistoryState,
   persistEligibilityState,
@@ -58,6 +70,126 @@ let backdrop;
 let lastFocus = null;
 let historyEntryActive = false;
 let isBootstrappingFromStorage = false;
+let trackedFlowKey = null;
+let trackedStepViewKey = null;
+let trackedOutcomeKey = null;
+
+function currentEligibilityMode(state = flowState) {
+  return state.context.activeMode || state.context.requestedMode || ELIGIBILITY_MODES.preview;
+}
+
+function currentFlowKey() {
+  return [
+    flowState.context.entryRouteId || 'unknown_route',
+    flowState.context.startSurface || 'unknown_surface',
+    flowState.context.startCtaId || 'unknown_cta',
+    currentEligibilityMode(flowState),
+  ].join('::');
+}
+
+function stepDefinitionForState(state = flowState) {
+  return getStepDefinition(state.currentStepId, state);
+}
+
+function currentStepViewKey() {
+  const definition = stepDefinitionForState();
+  return [currentFlowKey(), definition?.id || 'unknown_step'].join('::');
+}
+
+function currentOutcomeKey() {
+  const outcome = flowState.outcome;
+  if (!outcome) return null;
+  return [
+    currentFlowKey(),
+    outcome.outcomeCategory || 'unknown_outcome',
+    outcome.outcomeReasonCode || 'unknown_reason',
+  ].join('::');
+}
+
+function resetTrackedFlowEvents() {
+  trackedFlowKey = null;
+  trackedStepViewKey = null;
+  trackedOutcomeKey = null;
+}
+
+function contactRequestTypeForOutcome(outcomeCategory) {
+  if (outcomeCategory === OUTCOME_CATEGORIES.notFit) {
+    return 'not_fit_contact_request';
+  }
+
+  return 'manual_review_contact_request';
+}
+
+function maybeTrackFlowLifecycle() {
+  if (!flowState.isOpen) return;
+
+  const flowKey = currentFlowKey();
+  if (trackedFlowKey !== flowKey) {
+    trackedFlowKey = flowKey;
+    trackedStepViewKey = null;
+    trackedOutcomeKey = null;
+
+    trackEligibilityModeView({
+      eligibilityMode: currentEligibilityMode(),
+      modeSource: flowState.context.modeSource || 'ui',
+      eligibleNextActions: getCurrentSequence(flowState)
+        .filter((stepId) => stepId !== STEP_IDS.modeSelect)
+        .slice(0, 3),
+    });
+
+    trackEligibilityStart({
+      eligibilityMode: currentEligibilityMode(),
+      startSurface: flowState.context.startSurface || 'unknown',
+      startCtaId: flowState.context.startCtaId || 'unknown',
+      modeSource: flowState.context.modeSource || 'ui',
+    });
+  }
+
+  const definition = stepDefinitionForState();
+  const stepViewKey = currentStepViewKey();
+  if (definition && trackedStepViewKey !== stepViewKey) {
+    trackedStepViewKey = stepViewKey;
+    trackEligibilityStepView({
+      eligibilityMode: currentEligibilityMode(),
+      stepId: definition.id,
+      stepName: definition.name,
+      stepIndex: getStepIndex(flowState) + 1,
+      stepCount: getStepCount(flowState),
+    });
+  }
+
+  if (flowState.currentStepId === STEP_IDS.outcome && flowState.outcome) {
+    const outcomeKey = currentOutcomeKey();
+    if (outcomeKey && trackedOutcomeKey !== outcomeKey) {
+      trackedOutcomeKey = outcomeKey;
+      trackEligibilityOutcomeView({
+        eligibilityMode: currentEligibilityMode(),
+        outcomeCategory: flowState.outcome.outcomeCategory,
+        outcomeReasonCode: flowState.outcome.outcomeReasonCode,
+        recommendedNextStep: flowState.outcome.recommendedNextStep,
+      });
+    }
+  }
+}
+
+function flowRecommendationCtaId(item) {
+  switch (item?.relation) {
+    case 'contact':
+      return 'contact_after_manual_review';
+    case 'compare':
+      return 'compare_financing_after_outcome';
+    case 'entry_context':
+      return 'return_to_entry_context';
+    case 'recommended_path':
+      return 'recommended_path_after_outcome';
+    case 'guidance':
+      return 'guidance_after_not_fit';
+    case 'related_path':
+      return 'related_path_after_outcome';
+    default:
+      return 'outcome_next_step';
+  }
+}
 
 function escapeHtml(value = '') {
   return String(value)
@@ -299,7 +431,17 @@ function renderOutcomeView() {
       </div>
       <div class="outcome-actions">
         ${outcome.recommendations.map((item) => `
-          <a class="btn ${item.relation === 'contact' ? 'btn-ghost' : 'btn-primary'} btn-block" href="${hrefForRoute(item.routeId)}">
+          <a
+            class="btn ${item.relation === 'contact' ? 'btn-ghost' : 'btn-primary'} btn-block"
+            href="${hrefForRoute(item.routeId)}"
+            data-analytics-cta-id="${escapeHtml(flowRecommendationCtaId(item))}"
+            data-analytics-cta-label="${escapeHtml(recommendationLabel(item))}"
+            data-analytics-cta-type="${item.relation === 'contact' ? 'secondary' : 'primary'}"
+            data-analytics-cta-placement="eligibility_outcome"
+            data-destination-route-id="${escapeHtml(item.routeId)}"
+            data-eligibility-mode="${escapeHtml(currentEligibilityMode())}"
+            data-flow-outcome-relation="${escapeHtml(item.relation || '')}"
+          >
             ${escapeHtml(recommendationLabel(item))}
           </a>
         `).join('')}
@@ -467,6 +609,7 @@ function paint({ focus = true } = {}) {
   dialog.scrollTop = 0;
   dialog.setAttribute('aria-label', FLOW_TITLE_BY_MODE[flowState.context.activeMode] || FLOW_TITLE_BY_MODE.preview);
   syncStorage();
+  maybeTrackFlowLifecycle();
 
   if (focus) {
     queueMicrotask(() => focusPrimaryInteractiveElement());
@@ -533,15 +676,27 @@ function closeFlow({ fromHistory = false } = {}) {
   }
 
   lastFocus?.focus?.();
+  resetTrackedFlowEvents();
 }
 
 function restartFlow() {
   flowState = restartState(flowState);
+  resetTrackedFlowEvents();
   paint();
 }
 
 function selectFlowMode(mode) {
+  const previousState = flowState;
+  const previousDefinition = stepDefinitionForState(previousState);
   flowState = selectMode(flowState, mode);
+  if (previousDefinition?.id === STEP_IDS.modeSelect) {
+    trackEligibilityStepComplete({
+      eligibilityMode: currentEligibilityMode(flowState),
+      stepId: previousDefinition.id,
+      stepName: previousDefinition.name,
+      stepIndex: getStepIndex(previousState) + 1,
+    });
+  }
   if (flowState.currentStepId === STEP_IDS.liveUnavailable) {
     markOpenState(true);
   }
@@ -577,11 +732,59 @@ function focusFirstError() {
 }
 
 function next() {
+  const previousState = flowState;
+  const previousDefinition = stepDefinitionForState(previousState);
+  const errors = validateStep(previousState);
+  if (Object.keys(errors).length > 0) {
+    flowState = {
+      ...previousState,
+      errors,
+      isOpen: true,
+    };
+    trackEligibilityValidationError({
+      eligibilityMode: currentEligibilityMode(),
+      stepId: previousState.currentStepId,
+      fieldIds: Object.keys(errors),
+      errorType: 'validation_block',
+    });
+    paint({ focus: false });
+    focusFirstError();
+    return;
+  }
+
   const candidate = advanceState(flowState);
   flowState = {
     ...candidate,
     isOpen: true,
   };
+  if (previousDefinition) {
+    trackEligibilityStepComplete({
+      eligibilityMode: currentEligibilityMode(flowState),
+      stepId: previousDefinition.id,
+      stepName: previousDefinition.name,
+      stepIndex: getStepIndex(previousState) + 1,
+    });
+  }
+
+  if (flowState.currentStepId === STEP_IDS.liveUnavailable) {
+    trackApplicationStart({
+      sourceOutcome: 'live_mode_unavailable',
+      applicationMode: ELIGIBILITY_MODES.live,
+      startSurface: flowState.context.startSurface || 'unknown',
+    });
+    trackApplicationSubmitAttempt({
+      eligibilityMode: ELIGIBILITY_MODES.live,
+      stepId: STEP_IDS.liveUnavailable,
+      attemptNumber: 1,
+    });
+    trackApplicationSubmitResult({
+      eligibilityMode: ELIGIBILITY_MODES.live,
+      result: 'blocked',
+      failureReasonCode: 'live_mode_unavailable',
+      integrationTarget: 'none',
+    });
+  }
+
   paint({ focus: !Object.keys(flowState.errors).length });
 
   if (Object.keys(flowState.errors).length) {
@@ -635,6 +838,13 @@ export function initFlow() {
     if (!backdrop) return;
     const dialogLink = event.target.closest('.dialog a[href]');
     if (dialogLink) {
+      if (dialogLink.dataset.flowOutcomeRelation === 'contact') {
+        trackContactRequestSubmit({
+          requestType: contactRequestTypeForOutcome(flowState.outcome?.outcomeCategory),
+          sourceOutcome: flowState.outcome?.outcomeCategory || '',
+          eligibilityMode: currentEligibilityMode(),
+        });
+      }
       closeFlow();
       return;
     }
@@ -702,6 +912,7 @@ export function __resetFlowForTests() {
   clearEligibilityState();
   flowState = createInitialEligibilityState();
   historyEntryActive = false;
+  resetTrackedFlowEvents();
   if (backdrop?.isConnected) {
     backdrop.remove();
   }

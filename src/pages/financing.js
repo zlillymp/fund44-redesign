@@ -9,7 +9,7 @@ const CRUMBS = getBreadcrumbs('financing');
 
 export function financing() {
   const content = getContentById('page_financing');
-  const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const faqItems = content.commonQuestions.map((item) => ({ id: item.id, q: item.question, a: item.answer }));
   const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
@@ -61,7 +61,7 @@ export function financing() {
                 <td class="muted">${row.structure}</td>
                 <td class="muted">${row.amount}</td>
                 <td class="muted">${row.speed}</td>
-                <td><a href="${hrefForRoute(row.destinationRouteId)}" class="accent-text btn-link copy-accent-link-row nowrap">View ${icon.arrow}</a></td>
+                <td><a href="${hrefForRoute(row.destinationRouteId)}" class="accent-text btn-link copy-accent-link-row nowrap" data-analytics-cta-id="compare_financing_matrix_row" data-analytics-cta-label="View ${row.name}" data-analytics-cta-type="inline" data-analytics-cta-placement="financing_matrix" data-destination-route-id="${row.destinationRouteId}" data-destination-content-id="${row.destinationRouteId}">View ${icon.arrow}</a></td>
               </tr>
             `).join('')}
           </tbody>
@@ -88,7 +88,7 @@ export function financing() {
     </div>
     <div class="grid g-2 reveal" data-stagger>
       ${content.decisionCards.map((card) => `
-        <a href="${hrefForRoute(card.destinationRouteId)}" class="card card-hover card-row">
+        <a href="${hrefForRoute(card.destinationRouteId)}" class="card card-hover card-row" data-analytics-cta-id="decision_helper_link" data-analytics-cta-label="${card.title}" data-analytics-cta-type="inline" data-analytics-cta-placement="financing_decision_helper" data-destination-route-id="${card.destinationRouteId}">
           <span class="fi-mark fi-mark-lg">${icon[card.iconKey]}</span>
           <div>
             <h3 class="title-lg">${card.title}</h3>
@@ -97,7 +97,10 @@ export function financing() {
         </a>
       `).join('')}
     </div>
-    <div class="mt-8">${disclosure(content.sectionDisclosureHtml)}</div>
+    <div class="mt-8">${disclosure(content.sectionDisclosureHtml, {
+      disclosureId: 'financing_decision_helper_disclosure',
+      disclosureContext: 'financing_decision_helper',
+    })}</div>
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
@@ -112,7 +115,7 @@ export function financing() {
   <section class="section wrap wrap-default">
     ${eyebrow('Financing FAQ')}
     <h2 class="h2 reveal mt-4 mb-8">Choosing between options</h2>
-    ${faqBlock(faqItems)}
+    ${faqBlock(faqItems, content.measurement.faqGroup)}
   </section>
   `;
 }

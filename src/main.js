@@ -4,8 +4,20 @@ import { header, footer } from './components/shell.js';
 import { initFlow } from './components/flow.js';
 import { renderRouteToHtml } from './pages/index.js';
 import { isLegacyHashRoute, normalizePathname, resolveLegacyHashPath, shouldHighlightRoute } from './lib/routes.js';
+import {
+  instrumentVisibilityEvents,
+  trackCtaClick,
+  trackFaqExpand,
+  trackInternalLinkClick,
+  trackNavClick,
+  trackRouteResolved,
+  trackTrustModuleClick,
+} from './lib/analytics.js';
+import { initMonitoring } from './lib/monitoring.js';
 
 const app = typeof document !== 'undefined' ? document.getElementById('app') : null;
+let cleanupVisibilityEvents = () => {};
+let lastResolvedRouteId = '';
 
 function migrateLegacyHashRoute() {
   const { hash, search } = window.location;
@@ -135,6 +147,13 @@ function initFaq() {
     const open = item.classList.toggle('open');
     q.setAttribute('aria-expanded', open);
     ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0';
+    if (open) {
+      trackFaqExpand({
+        faqId: q.dataset.faqId || '',
+        faqGroup: q.dataset.faqGroup || '',
+        faqPosition: Number(q.dataset.faqPosition || '0'),
+      });
+    }
   });
 }
 
@@ -154,6 +173,13 @@ async function render({ preserveScroll = false } = {}) {
   setActiveNav(match.route.routeId);
   observeReveals();
   animateViz();
+  cleanupVisibilityEvents();
+  cleanupVisibilityEvents = instrumentVisibilityEvents(document.body);
+  trackRouteResolved({
+    pathname: window.location.pathname,
+    referrerRouteId: lastResolvedRouteId,
+  });
+  lastResolvedRouteId = match.route.routeId;
 }
 
 function navigate(href, { replace = false } = {}) {
@@ -181,6 +207,28 @@ function navigate(href, { replace = false } = {}) {
 
 function initNavigation() {
   document.body.addEventListener('click', (event) => {
+    const trustModuleAction = event.target.closest('[data-trust-module-id] a[href], [data-trust-module-id] button[data-trust-destination]');
+    if (trustModuleAction) {
+      const module = trustModuleAction.closest('[data-trust-module-id]');
+      trackTrustModuleClick({
+        trustModuleId: module?.dataset.trustModuleId || '',
+        trustType: module?.dataset.trustType || '',
+        destination: trustModuleAction.getAttribute('href') || trustModuleAction.dataset.trustDestination || '',
+      });
+    }
+
+    const ctaButton = event.target.closest('button[data-analytics-cta-id]');
+    if (ctaButton) {
+      trackCtaClick({
+        ctaId: ctaButton.dataset.analyticsCtaId || '',
+        ctaLabel: ctaButton.dataset.analyticsCtaLabel || ctaButton.textContent?.trim() || '',
+        ctaType: ctaButton.dataset.analyticsCtaType || 'primary',
+        ctaPlacement: ctaButton.dataset.analyticsCtaPlacement || 'button',
+        destinationRouteId: ctaButton.dataset.destinationRouteId || '',
+        eligibilityMode: ctaButton.dataset.eligibilityMode || 'none',
+      });
+    }
+
     const anchor = event.target.closest('a[href]');
     if (!anchor) return;
 
@@ -196,6 +244,38 @@ function initNavigation() {
     }
 
     if (!shouldHandleLink(anchor)) return;
+
+    const navSection = anchor.dataset.navSection || '';
+    const navLabel = anchor.dataset.navLabel || anchor.textContent?.trim() || '';
+    const destinationRouteId = anchor.dataset.destinationRouteId || '';
+    const ctaId = anchor.dataset.analyticsCtaId || '';
+
+    if (navSection) {
+      trackNavClick({
+        navSection,
+        navLabel,
+        destinationRouteId,
+      });
+    }
+
+    if (ctaId) {
+      trackCtaClick({
+        ctaId,
+        ctaLabel: anchor.dataset.analyticsCtaLabel || anchor.textContent?.trim() || '',
+        ctaType: anchor.dataset.analyticsCtaType || 'inline',
+        ctaPlacement: anchor.dataset.analyticsCtaPlacement || navSection || 'link',
+        destinationRouteId,
+        eligibilityMode: anchor.dataset.eligibilityMode || 'none',
+      });
+    }
+
+    if (!ctaId && (anchor.dataset.linkContext || anchor.dataset.linkRelation || anchor.dataset.analyticsRouteId)) {
+      trackInternalLinkClick({
+        linkContext: anchor.dataset.linkContext || anchor.dataset.linkRelation || 'internal_link',
+        destinationRouteId: destinationRouteId || anchor.dataset.analyticsRouteId || '',
+        destinationContentId: anchor.dataset.destinationContentId || '',
+      });
+    }
 
     const url = new URL(anchor.href);
     const nextPath = normalizePathname(url.pathname);
@@ -222,6 +302,7 @@ function boot() {
 
   document.getElementById('shell-header').innerHTML = header();
   document.getElementById('shell-footer').innerHTML = footer();
+  initMonitoring();
   initTheme();
   initHeaderScroll();
   initMobileMenu();
