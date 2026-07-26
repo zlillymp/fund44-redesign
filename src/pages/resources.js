@@ -25,6 +25,7 @@ function renderBodyBlocks(blocks) {
 export function resources() {
   const hub = getResourceHub();
   const cards = hub.articleIds.map((contentId) => getContentById(contentId));
+  const faqItems = hub.commonQuestions.map((item) => ({ id: item.id, q: item.question, a: item.answer }));
   const linkModule = getLinkModuleForRoute(hub.routeId);
 
   setMeta({
@@ -46,7 +47,7 @@ export function resources() {
   <section class="section-tight wrap">
     <div class="grid g-3 reveal" data-stagger>
       ${cards.map((article) => `
-        <a href="${hrefForSlug(article.slug)}" class="card card-hover article-card">
+        <a href="${hrefForSlug(article.slug)}" class="card card-hover article-card" data-analytics-cta-id="resources_article_card" data-analytics-cta-label="${article.title}" data-analytics-cta-type="inline" data-analytics-cta-placement="resources_hub_cards" data-destination-route-id="${article.routeId}" data-destination-content-id="${article.id}">
           <div class="ac-thumb">${renderThumb(article.thumbKey)}</div>
           <div class="ac-cat">${article.category}</div>
           <h3>${article.title}</h3>
@@ -65,6 +66,12 @@ export function resources() {
   })}
 
   ${relatedLinksModule(linkModule)}
+
+  <section class="section wrap wrap-default">
+    ${eyebrow('Learning hub FAQ')}
+    <h2 class="h2 reveal mt-4 mb-8">Before you start comparing paths</h2>
+    ${faqBlock(faqItems, hub.measurement.faqGroup)}
+  </section>
   `;
 }
 
@@ -73,7 +80,7 @@ export function article(slug) {
   if (!content) return notFound(slug);
 
   const routeCrumbs = getBreadcrumbs(content.routeId);
-  const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const faqItems = content.commonQuestions.map((item) => ({ id: item.id, q: item.question, a: item.answer }));
   const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
@@ -103,8 +110,8 @@ export function article(slug) {
   return `
   <section class="section-tight wrap section-page-head">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-      <a href="${hrefForRoute('home')}">Home</a><span class="sep">/</span>
-      <a href="${hrefForRoute('resources')}">Resources</a><span class="sep">/</span>
+      <a href="${hrefForRoute('home')}" data-link-context="breadcrumb" data-destination-route-id="home">Home</a><span class="sep">/</span>
+      <a href="${hrefForRoute('resources')}" data-link-context="breadcrumb" data-destination-route-id="resources">Resources</a><span class="sep">/</span>
       <span aria-current="page" class="article-crumb-current">${content.title}</span>
     </nav>
     <div class="mt-6"><span class="eyebrow reveal">${content.category}</span></div>
@@ -116,12 +123,15 @@ export function article(slug) {
     <div class="ac-thumb reveal article-thumb-wide">${renderThumb(content.thumbKey)}</div>
     <article class="prose reveal mx-auto">${renderBodyBlocks(content.bodyBlocks)}</article>
 
-    <div class="mt-12 copy-reading">${disclosure(content.sectionDisclosureHtml)}</div>
+    <div class="mt-12 copy-reading">${disclosure(content.sectionDisclosureHtml, {
+      disclosureId: `${content.routeId}_section_disclosure`,
+      disclosureContext: `${content.routeId}_article`,
+    })}</div>
 
     <div class="mt-12 copy-reading">
       ${eyebrow('Questions')}
       <h2 class="h2 reveal mt-4 mb-8 title-xl">Related questions</h2>
-      ${faqBlock(faqItems)}
+      ${faqBlock(faqItems, content.measurement.faqGroup)}
     </div>
   </section>
 
@@ -130,7 +140,7 @@ export function article(slug) {
     <h2 class="h2 reveal mt-4 mb-8 title-xl">More from the learning hub</h2>
     <div class="grid g-2 reveal" data-stagger>
       ${others.map((item) => `
-        <a href="${hrefForContentId(item.id)}" class="card card-hover article-card">
+        <a href="${hrefForContentId(item.id)}" class="card card-hover article-card" data-analytics-cta-id="article_keep_reading" data-analytics-cta-label="${item.title}" data-analytics-cta-type="inline" data-analytics-cta-placement="article_keep_reading" data-destination-route-id="${item.routeId}" data-destination-content-id="${item.id}">
           <div class="ac-cat">${item.category}</div>
           <h3>${item.title}</h3>
           <p>${item.metaDescription}</p>

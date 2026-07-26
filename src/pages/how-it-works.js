@@ -98,7 +98,10 @@ export function howItWorks() {
   </section>
 
   <section class="section-tight wrap">
-    ${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.marketplacePreview} ${disclosures.noGuarantees}`)}
+    ${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.marketplacePreview} ${disclosures.noGuarantees}`, {
+      disclosureId: 'how_it_works_marketplace_disclosure',
+      disclosureContext: 'how_it_works',
+    })}
   </section>
 
   ${ctaBanner('Ready to see your paths?', disclosures.previewFlow, {
@@ -113,7 +116,7 @@ export function howItWorks() {
   <section class="section wrap wrap-default">
     ${eyebrow('Process FAQ')}
     <h2 class="h2 reveal mt-4 mb-8">How the process works</h2>
-    ${faqBlock(FAQ)}
+      ${faqBlock(FAQ, 'how_it_works_faq')}
   </section>
   `;
 }

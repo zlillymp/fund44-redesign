@@ -11,7 +11,7 @@ function renderFeatureItems(items) {
 
 export function home() {
   const content = getContentById('page_home');
-  const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const faqItems = content.commonQuestions.map((item) => ({ id: item.id, q: item.question, a: item.answer }));
   const productCards = content.productCardIds.map((id) => getContentById(id));
   const linkModule = getLinkModuleForRoute(content.routeId);
 
@@ -38,9 +38,14 @@ export function home() {
           ctaId: 'preview_funding_paths',
           startSurface: 'home_hero_primary',
         })}
-        ${secondaryCta('Compare financing options')}
+        ${secondaryCta('Compare financing options', undefined, {
+          ctaId: 'compare_financing_options',
+          destinationKey: 'explore_financing',
+          ctaPlacement: 'home_hero_secondary',
+          destinationRouteId: 'financing',
+        })}
       </div>
-      <div class="hero-proof reveal mt-8" aria-label="Fund44 financing coverage">
+      <div class="hero-proof reveal mt-8" aria-label="Fund44 financing coverage" data-trust-module-id="home_hero_proof" data-trust-type="coverage" data-evidence-source="approved_content">
         ${content.heroProofItems.map((item) => `<span>${icon[item.iconKey]}<b>${item.label}</b></span>`).join('')}
       </div>
 
@@ -111,7 +116,10 @@ export function home() {
         ${eyebrow(content.status.eyebrow)}
         <h3 class="h3 reveal mt-4">${content.status.heading}</h3>
         <p class="lead reveal mt-4 text-body-base">${content.status.lead}</p>
-        <div class="mt-6">${disclosure(content.status.disclosureHtml)}</div>
+        <div class="mt-6">${disclosure(content.status.disclosureHtml, {
+          disclosureId: 'home_status_disclosure',
+          disclosureContext: 'home_status',
+        })}</div>
       </div>
     </div>
   </section>
@@ -123,7 +131,7 @@ export function home() {
     </div>
     <div class="grid g-2 reveal" data-stagger>
       ${productCards.map((card) => `
-        <a href="${hrefForContentId(card.id)}" class="card card-hover card-stack">
+        <a href="${hrefForContentId(card.id)}" class="card card-hover card-stack" data-link-context="home_product_cards" data-destination-route-id="${card.routeId}" data-destination-content-id="${card.id}">
           <span class="fi-mark fi-mark-lg">${icon[card.routeId === 'sba_7a' ? 'building' : card.routeId === 'sba_504' ? 'key' : card.routeId === 'business_acquisition' ? 'route' : 'cash']}</span>
           <h3 class="h3 title-lg">${card.title}</h3>
           <p class="muted text-body-sm grow">${card.summary}</p>
@@ -136,6 +144,9 @@ export function home() {
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'home_cta_banner',
+    secondaryCtaId: 'cta_banner_how_it_works',
+    secondaryCtaDestinationKey: 'learn_how_it_works',
+    secondaryCtaRouteId: 'how_it_works',
   })}
 
   ${relatedLinksModule(linkModule)}
@@ -143,7 +154,7 @@ export function home() {
   <section class="section wrap wrap-default">
     ${eyebrow('Common questions')}
     <h2 class="h2 reveal mt-4 mb-8">Answers, in plain language</h2>
-    ${faqBlock(faqItems)}
+    ${faqBlock(faqItems, content.measurement.faqGroup)}
   </section>
   `;
 }

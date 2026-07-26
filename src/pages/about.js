@@ -73,7 +73,10 @@ export function about() {
     ${eyebrow('Why the name matters')}
     <h2 class="h2 reveal mt-4 title-section">A curated lender network, not a volume story.</h2>
     <p class="lead reveal mt-4">${disclosures.networkStory}</p>
-    <div class="mt-8">${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.noGuarantees} ${disclosures.illustrative}`)}</div>
+    <div class="mt-8">${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.noGuarantees} ${disclosures.illustrative}`, {
+      disclosureId: 'about_marketplace_disclosure',
+      disclosureContext: 'about_page',
+    })}</div>
   </section>
 
   ${ctaBanner('See what Fund44 can find for you.', disclosures.previewFlow, {

@@ -17,7 +17,7 @@ function legalHead(crumbs, title, updated) {
   return `
   <section class="section-tight wrap wrap-default section-page-head">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-      ${crumbs.map((c, i) => i === crumbs.length - 1 ? `<span aria-current="page">${c.label}</span>` : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
+      ${crumbs.map((c, i) => i === crumbs.length - 1 ? `<span aria-current="page">${c.label}</span>` : `<a href="${c.path}" data-link-context="breadcrumb" data-destination-route-id="${c.routeId || ''}">${c.label}</a><span class="sep">/</span>`).join('')}
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
     <div class="reveal mt-4 meta-row">
@@ -46,7 +46,10 @@ export function privacy() {
   return `
   ${legalHead(crumbs, 'Privacy', true)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} ${liveDisclosuresBlocked.privacyConsent}`)}
+    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} ${liveDisclosuresBlocked.privacyConsent}`, {
+      disclosureId: 'privacy_page_draft_disclosure',
+      disclosureContext: 'privacy_page',
+    })}
     ${section('What we collect', `
       <p>${disclosures.previewPrivacy}</p>
       <p>The preview asks for limited business and contact inputs so the on-screen demo can be personalized. The exact live collection categories, sharing boundaries, retention periods, and consent steps are still pending approval.</p>`)}
@@ -91,7 +94,10 @@ export function terms() {
   return `
   ${legalHead(crumbs, 'Terms & disclosures', true)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} Final legal business identity, support details, consent flow, retention terms, and sameAs references remain blocked.`)}
+    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} Final legal business identity, support details, consent flow, retention terms, and sameAs references remain blocked.`, {
+      disclosureId: 'terms_page_draft_disclosure',
+      disclosureContext: 'terms_page',
+    })}
     ${section('Marketplace disclosure', `
       <p>${disclosures.marketplacePreview}</p>
       <p>${disclosures.networkStory}</p>`)}
@@ -136,7 +142,10 @@ export function contact() {
   return `
   ${legalHead(crumbs, 'Contact', false)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Controlled TBD state.</strong> ${disclosures.contactPlaceholder}`)}
+    ${disclosure(`<strong>Controlled TBD state.</strong> ${disclosures.contactPlaceholder}`, {
+      disclosureId: 'contact_page_tbd_disclosure',
+      disclosureContext: 'contact_page',
+    })}
     <p class="lead reveal">This page is designed to make unresolved identity and contact fields obvious. Nothing below should be mistaken for final production contact data.</p>
     <div class="grid g-2 reveal mt-8" data-stagger>
       <div class="card">
@@ -173,6 +182,10 @@ export function contact() {
     <div class="mt-8 layout-center">
       <button
         class="btn btn-primary btn-lg"
+        data-analytics-cta-id="preview_funding_paths"
+        data-analytics-cta-label="Preview funding paths"
+        data-analytics-cta-type="primary"
+        data-analytics-cta-placement="contact_page_primary"
         data-open-flow
         data-cta-id="preview_funding_paths"
         data-start-surface="contact_page_primary"

@@ -5,11 +5,19 @@ import { flowTriggerAttributes } from '../lib/eligibility/trigger.js';
 // ---------- Shared section pieces ----------
 export const eyebrow = (t) => `<span class="eyebrow reveal">${t}</span>`;
 
+function escapeAttribute(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
 export const breadcrumb = (crumbs) => `
   <nav class="breadcrumb reveal" aria-label="Breadcrumb">
     ${crumbs.map((c, i) => i === crumbs.length - 1
       ? `<span aria-current="page">${c.label}</span>`
-      : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
+      : `<a href="${c.path}" data-link-context="breadcrumb" data-destination-route-id="${c.routeId || ''}">${c.label}</a><span class="sep">/</span>`).join('')}
   </nav>`;
 
 export const primaryCta = (
@@ -22,7 +30,7 @@ export const primaryCta = (
     productContextTitle = '',
   } = {},
 ) =>
-  `<button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
+  `<button class="btn btn-primary btn-lg" data-analytics-cta-id="${escapeAttribute(ctaId)}" data-analytics-cta-label="${escapeAttribute(label)}" data-analytics-cta-type="primary" data-analytics-cta-placement="${escapeAttribute(startSurface)}" ${flowTriggerAttributes({
     ctaId,
     startSurface,
     requestedMode,
@@ -30,8 +38,18 @@ export const primaryCta = (
     productContextTitle,
   })}>${label} ${icon.arrow}</button>`;
 
-export const secondaryCta = (label = 'Explore financing', href = getCtaDestination('explore_financing').href) =>
-  `<a class="btn btn-ghost btn-lg" href="${href}">${label}</a>`;
+export const secondaryCta = (
+  label = 'Explore financing',
+  href = getCtaDestination('explore_financing').href,
+  {
+    ctaId = 'explore_financing',
+    destinationKey = 'explore_financing',
+    ctaType = 'secondary',
+    ctaPlacement = 'page_hero_secondary',
+    destinationRouteId = 'financing',
+  } = {},
+) =>
+  `<a class="btn btn-ghost btn-lg" href="${escapeAttribute(href || getCtaDestination(destinationKey).href)}" data-analytics-cta-id="${escapeAttribute(ctaId)}" data-analytics-cta-label="${escapeAttribute(label)}" data-analytics-cta-type="${escapeAttribute(ctaType)}" data-analytics-cta-placement="${escapeAttribute(ctaPlacement)}" data-destination-route-id="${escapeAttribute(destinationRouteId)}">${label}</a>`;
 
 // mid-page CTA banner
 export const ctaBanner = (
@@ -43,6 +61,10 @@ export const ctaBanner = (
     requestedMode = 'preview',
     productContextRouteId = '',
     productContextTitle = '',
+    secondaryCtaId = 'cta_banner_how_it_works',
+    secondaryCtaLabel = 'How it works',
+    secondaryCtaDestinationKey = 'learn_how_it_works',
+    secondaryCtaRouteId = 'how_it_works',
   } = {},
 ) => `
 <section class="section-tight wrap">
@@ -54,22 +76,30 @@ export const ctaBanner = (
         <p class="lead cta-banner-copy">${sub}</p>
       </div>
       <div class="cta-banner-actions">
-        <button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
+        <button class="btn btn-primary btn-lg" data-analytics-cta-id="${escapeAttribute(ctaId)}" data-analytics-cta-label="Preview funding paths" data-analytics-cta-type="primary" data-analytics-cta-placement="${escapeAttribute(startSurface)}" ${flowTriggerAttributes({
           ctaId,
           startSurface,
           requestedMode,
           productContextRouteId,
           productContextTitle,
         })}>Preview funding paths ${icon.arrow}</button>
-        <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('learn_how_it_works').href}">How it works</a>
+        <a class="btn btn-on-dark btn-lg" href="${getCtaDestination(secondaryCtaDestinationKey).href}" data-analytics-cta-id="${escapeAttribute(secondaryCtaId)}" data-analytics-cta-label="${escapeAttribute(secondaryCtaLabel)}" data-analytics-cta-type="secondary" data-analytics-cta-placement="cta_banner_secondary" data-destination-route-id="${escapeAttribute(secondaryCtaRouteId)}">${secondaryCtaLabel}</a>
       </div>
     </div>
   </div>
 </section>`;
 
 // disclosure bar
-export const disclosure = (text) => `
-<div class="disclosure-bar reveal">
+export const disclosure = (
+  text,
+  {
+    disclosureId = 'generic_disclosure',
+    disclosureContext = 'page',
+    disclosureVersion = '2026-07-26.f44-mea-02',
+    eligibilityMode = 'none',
+  } = {},
+) => `
+<div class="disclosure-bar reveal" data-disclosure-id="${escapeAttribute(disclosureId)}" data-disclosure-context="${escapeAttribute(disclosureContext)}" data-disclosure-version="${escapeAttribute(disclosureVersion)}" data-eligibility-mode="${escapeAttribute(eligibilityMode)}">
   ${icon.info}
   <p>${text}</p>
 </div>`;
@@ -102,11 +132,11 @@ export const sectionSummaryCard = ({ heading, summary, bullets = [] }) => `
 </div>`;
 
 // FAQ block (also returns items for JSON-LD upstream)
-export const faqBlock = (items) => `
+export const faqBlock = (items, faqGroup = 'faq_group') => `
 <div class="faq reveal">
-  ${items.map((it) => `
+  ${items.map((it, index) => `
     <div class="faq-item">
-      <button class="faq-q" aria-expanded="false"><span>${it.q}</span><span class="chev">${icon.plus}</span></button>
+      <button class="faq-q" aria-expanded="false" data-faq-id="${escapeAttribute(it.id || `${faqGroup}_${index + 1}`)}" data-faq-group="${escapeAttribute(faqGroup)}" data-faq-position="${index + 1}"><span>${it.q}</span><span class="chev">${icon.plus}</span></button>
       <div class="faq-a"><div class="faq-a-inner">${it.a}</div></div>
     </div>`).join('')}
 </div>`;
@@ -301,7 +331,7 @@ export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => `
         <ul role="list" class="section-card-list mt-6">
           ${group.items.map((item) => `
             <li>
-              <a href="${item.href}" class="accent-text btn-link copy-accent-link-row" data-link-relation="${item.relation}" data-analytics-route-id="${item.targetAnalyticsRouteId}">${item.label} ${icon.arrow}</a>
+              <a href="${item.href}" class="accent-text btn-link copy-accent-link-row" data-link-relation="${item.relation}" data-analytics-route-id="${item.targetAnalyticsRouteId}" data-link-context="related_links:${group.id}" data-destination-route-id="${item.targetRouteId || item.targetAnalyticsRouteId || ''}">${item.label} ${icon.arrow}</a>
               <p class="muted text-body-sm inline-note">${item.description}</p>
             </li>
           `).join('')}
