@@ -1,2 +1,5 @@
 node_modules
 dist
+artifacts
+playwright-report
+test-results

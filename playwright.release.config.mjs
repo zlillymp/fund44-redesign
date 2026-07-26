@@ -1,23 +1,23 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const port = 4173;
+const port = 4174;
 
 export default defineConfig({
-  testDir: './tests/a11y',
+  testDir: './tests/release',
   timeout: 30_000,
   fullyParallel: false,
   retries: 0,
-  outputDir: 'test-results/a11y',
+  outputDir: 'test-results/release',
   reporter: [
     ['list'],
-    ['html', { open: 'never', outputFolder: 'playwright-report/a11y' }],
+    ['html', { open: 'never', outputFolder: 'playwright-report/release' }],
   ],
   use: {
     baseURL: `http://127.0.0.1:${port}`,
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'npm run preview -- --host 127.0.0.1 --port 4173',
+    command: 'npm run preview -- --host 127.0.0.1 --port 4174',
     url: `http://127.0.0.1:${port}`,
     reuseExistingServer: true,
     timeout: 30_000,
@@ -35,14 +35,6 @@ export default defineConfig({
       use: {
         browserName: 'chromium',
         ...devices['Pixel 5'],
-      },
-    },
-    {
-      name: 'reduced-motion-desktop',
-      use: {
-        ...devices['Desktop Chrome'],
-        viewport: { width: 1280, height: 900 },
-        reducedMotion: 'reduce',
       },
     },
   ],
