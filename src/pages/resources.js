@@ -1,8 +1,9 @@
 import { icon, thumb } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, eyebrow, disclosure } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, eyebrow, disclosure, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForContentId, hrefForRoute, hrefForSlug } from '../lib/routes.js';
 import { getArticles, getContentById, getResourceHub } from '../lib/content.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 import { notFound } from './not-found.js';
 
 const CRUMBS = getBreadcrumbs('resources');
@@ -24,6 +25,7 @@ function renderBodyBlocks(blocks) {
 export function resources() {
   const hub = getResourceHub();
   const cards = hub.articleIds.map((contentId) => getContentById(contentId));
+  const linkModule = getLinkModuleForRoute(hub.routeId);
 
   setMeta({
     title: hub.metaTitle,
@@ -56,6 +58,8 @@ export function resources() {
   </section>
 
   ${ctaBanner(hub.ctaBanner.heading, hub.ctaBanner.subheading)}
+
+  ${relatedLinksModule(linkModule)}
   `;
 }
 
@@ -65,6 +69,7 @@ export function article(slug) {
 
   const routeCrumbs = getBreadcrumbs(content.routeId);
   const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
     title: content.metaTitle,
@@ -131,5 +136,7 @@ export function article(slug) {
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+
+  ${relatedLinksModule(linkModule)}
   `;
 }

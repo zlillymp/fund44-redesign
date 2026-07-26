@@ -1,12 +1,14 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, disclosure, eyebrow, chaosToPath, featItem } from '../components/ui.js';
+import { pageHero, ctaBanner, disclosure, eyebrow, chaosToPath, featItem, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import { disclosures } from '../lib/legal.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 const CRUMBS = getBreadcrumbs('about');
 
 export function about() {
+  const linkModule = getLinkModuleForRoute('about');
   setMeta({
     title: 'About Fund44 — why we built it',
     description: 'Fund44 is a small-business capital marketplace built to make financing paths easier to compare without inventing lender counts, guarantees, or unsupported workflow promises.',
@@ -69,5 +71,7 @@ export function about() {
   </section>
 
   ${ctaBanner('See what Fund44 can find for you.', 'One application. More ways to fund your business. Preview your options now.')}
+
+  ${relatedLinksModule(linkModule)}
   `;
 }

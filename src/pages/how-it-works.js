@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, routingWaterfall, docChecklist, statusTimeline, offerComparison, featItem } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, routingWaterfall, docChecklist, statusTimeline, offerComparison, featItem, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import { disclosures } from '../lib/legal.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 const CRUMBS = getBreadcrumbs('how_it_works');
 
@@ -21,6 +22,7 @@ const STEPS = [
 ];
 
 export function howItWorks() {
+  const linkModule = getLinkModuleForRoute('how_it_works');
   setMeta({
     title: 'How Fund44 works',
     description: 'See the conservative product-workflow draft for Fund44: routing explanations, one document checklist, document reuse where supported, status tracking, and offer comparison when available in the experience.',
@@ -94,6 +96,8 @@ export function howItWorks() {
   </section>
 
   ${ctaBanner('Ready to see your paths?', 'Start the eligibility preview. It shows sample results only and keeps the current preview data in your browser.')}
+
+  ${relatedLinksModule(linkModule)}
 
   <section class="section wrap wrap-default">
     ${eyebrow('Process FAQ')}

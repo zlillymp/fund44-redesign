@@ -1,14 +1,16 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForContentId, hrefForRoute } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 const CRUMBS = getBreadcrumbs('financing');
 
 export function financing() {
   const content = getContentById('page_financing');
   const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
     title: content.metaTitle,
@@ -75,6 +77,8 @@ export function financing() {
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+
+  ${relatedLinksModule(linkModule)}
 
   <section class="section wrap wrap-default">
     ${eyebrow('Financing FAQ')}

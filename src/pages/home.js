@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { eyebrow, primaryCta, secondaryCta, ctaBanner, disclosure, faqBlock, matchDashboard, routingWaterfall, docChecklist, statusTimeline, offerComparison, chaosToPath, featItem } from '../components/ui.js';
+import { eyebrow, primaryCta, secondaryCta, ctaBanner, disclosure, faqBlock, matchDashboard, routingWaterfall, docChecklist, statusTimeline, offerComparison, chaosToPath, featItem, relatedLinksModule } from '../components/ui.js';
 import { hrefForContentId } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 function renderFeatureItems(items) {
   return items.map((item) => featItem(icon[item.iconKey], item.title, item.description)).join('');
@@ -12,6 +13,7 @@ export function home() {
   const content = getContentById('page_home');
   const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
   const productCards = content.productCardIds.map((id) => getContentById(id));
+  const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
     title: content.metaTitle,
@@ -129,6 +131,8 @@ export function home() {
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+
+  ${relatedLinksModule(linkModule)}
 
   <section class="section wrap wrap-default">
     ${eyebrow('Common questions')}
