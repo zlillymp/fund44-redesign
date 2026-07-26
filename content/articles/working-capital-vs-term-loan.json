@@ -87,7 +87,7 @@
     },
     {
       "type": "paragraph",
-      "html": "<p>If you're not sure, that's exactly what a marketplace is for. Fund44 can surface both, so you can compare structure and fit rather than guessing.</p>"
+      "html": "<p>If you're not sure, use this comparison to decide whether you should explore a term loan, a line of credit, or another financing path in more detail.</p>"
     }
   ],
   "sectionDisclosureHtml": "This article is educational and general in nature. It is not financial or legal advice. <strong>Fund44 is not a lender.</strong> Program rules, eligibility, and terms are set by the SBA and third-party lenders and can change.",
@@ -116,7 +116,24 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_wf_businessline_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-04"
   ],

@@ -69,3 +69,19 @@ test('route-based content lookup resolves the home and financing records', () =>
   assert.equal(getContentByRouteId('home').id, 'page_home');
   assert.equal(getContentByRouteId('financing').id, 'page_financing');
 });
+
+test('claim-bearing content records declare evidence scopes and citation ids', () => {
+  const content = getAllContent();
+
+  content.forEach((record) => {
+    assert.ok(Array.isArray(record.claimIds), `${record.id} is missing claimIds`);
+    assert.equal(typeof record.claimReview, 'object', `${record.id} is missing claimReview`);
+    assert.ok(Array.isArray(record.citationIds), `${record.id} is missing citationIds`);
+
+    if (record.claimIds.length > 0) {
+      assert.equal(record.claimReview.requiresEvidence, true, `${record.id} should require evidence`);
+      assert.ok(record.claimReview.evidenceScopes.length > 0, `${record.id} should declare evidence scopes`);
+      assert.ok(record.citationIds.length > 0, `${record.id} should reference at least one citation`);
+    }
+  });
+});

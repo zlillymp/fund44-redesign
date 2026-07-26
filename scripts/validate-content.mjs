@@ -2,6 +2,7 @@ import { routeManifest } from '../content/manifest.mjs';
 import { getAllContent } from '../src/lib/content.js';
 import {
   allowedAudienceStages,
+  allowedEvidenceScopes,
   allowedBlockTypes,
   allowedFreshnessStates,
   allowedFunnelRoles,
@@ -57,6 +58,32 @@ function validateQuestionGroup(record) {
     assert(item.question, `${record.id}: commonQuestions[${index}].question is required`);
     assert(item.answer, `${record.id}: commonQuestions[${index}].answer is required`);
   });
+}
+
+function validateClaimReview(record) {
+  assert(Array.isArray(record.claimIds), `${record.id}: claimIds must be an array`);
+  const claimIds = new Set();
+  record.claimIds.forEach((claimId, index) => {
+    assert(typeof claimId === 'string' && claimId.length > 0, `${record.id}: claimIds[${index}] must be a non-empty string`);
+    assert(!claimIds.has(claimId), `${record.id}: duplicate claim id "${claimId}"`);
+    claimIds.add(claimId);
+  });
+
+  assert(typeof record.claimReview === 'object' && record.claimReview !== null, `${record.id}: claimReview must be an object`);
+  assert(typeof record.claimReview?.requiresEvidence === 'boolean', `${record.id}: claimReview.requiresEvidence must be boolean`);
+  assert(Array.isArray(record.claimReview?.evidenceScopes), `${record.id}: claimReview.evidenceScopes must be an array`);
+
+  const evidenceScopes = new Set();
+  record.claimReview.evidenceScopes.forEach((scope, index) => {
+    assert(allowedEvidenceScopes.has(scope), `${record.id}: claimReview.evidenceScopes[${index}] has invalid scope "${scope}"`);
+    assert(!evidenceScopes.has(scope), `${record.id}: duplicate evidence scope "${scope}"`);
+    evidenceScopes.add(scope);
+  });
+
+  if (record.claimIds.length > 0) {
+    assert(record.claimReview.requiresEvidence, `${record.id}: claim-bearing records must set claimReview.requiresEvidence to true`);
+    assert(record.claimReview.evidenceScopes.length > 0, `${record.id}: claim-bearing records must declare at least one evidence scope`);
+  }
 }
 
 function validateIndexability(record, route) {
@@ -127,6 +154,12 @@ function validateRelationships(record) {
   }
   assert(Array.isArray(record.disclosureIds), `${record.id}: disclosureIds must be an array`);
   assert(Array.isArray(record.citationIds), `${record.id}: citationIds must be an array`);
+  const citationIds = new Set();
+  record.citationIds.forEach((citationId, index) => {
+    assert(typeof citationId === 'string' && citationId.length > 0, `${record.id}: citationIds[${index}] must be a non-empty string`);
+    assert(!citationIds.has(citationId), `${record.id}: duplicate citation id "${citationId}"`);
+    citationIds.add(citationId);
+  });
 }
 
 function validateRouteBinding(record) {
@@ -165,6 +198,7 @@ contentRecords.forEach((record) => {
   validateContributors(record);
   validateQuickAnswer(record);
   validateQuestionGroup(record);
+  validateClaimReview(record);
   validateRelationships(record);
   validateBodyBlocks(record);
 

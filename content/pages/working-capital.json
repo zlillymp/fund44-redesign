@@ -6,13 +6,13 @@
   "templateId": "product_page",
   "title": "Working capital & lines of credit",
   "metaTitle": "Working capital & lines of credit",
-  "metaDescription": "Working capital financing — including business lines of credit, term loans, equipment financing, and invoice factoring — covers day-to-day cash flow and growth. Fund44 matches you to the right flexible option.",
+  "metaDescription": "Working capital financing can include business lines of credit, term loans, equipment financing, and invoice factoring for day-to-day cash flow and growth. Learn how these flexible structures differ.",
   "summary": "The working-capital page explains flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "Working capital & lines of credit",
     "title": "Working capital & lines of credit — stay flexible.",
-    "lead": "For cash-flow gaps, seasonality, and near-term needs, flexible financing often fits better than a long-term loan. Fund44 surfaces the working-capital paths relevant to your business."
+    "lead": "For cash-flow gaps, seasonality, and near-term needs, flexible financing may fit better than a long-term asset loan. Use this page to compare the common structures borrowers evaluate."
   },
   "shortLabel": "Working capital",
   "quickAnswer": {
@@ -60,7 +60,7 @@
     ["Term loan", "Fixed amount, fixed schedule"],
     ["Equipment financing", "Secured by the equipment"],
     ["Invoice factoring", "Advance against receivables"],
-    ["Relative speed", "Often faster than SBA"],
+    ["Relative speed", "Varies by provider"],
     ["Issued by", "Third-party lenders"]
   ],
   "eligibilityHeading": "What flexible lenders look at",
@@ -87,7 +87,7 @@
   "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Working-capital product availability, amounts, and terms are determined by third-party lenders and vary by provider. This page is educational only.",
   "ctaBanner": {
     "heading": "Need flexible cash flow?",
-    "subheading": "Preview lines of credit, term loans, and other working-capital paths matched to your business."
+    "subheading": "Preview lines of credit, term loans, and other working-capital paths based on your financing goal."
   },
   "commonQuestions": [
     {
@@ -98,7 +98,7 @@
     {
       "id": "wc_faq_speed",
       "question": "How fast is working-capital financing?",
-      "answer": "Flexible products are often faster than SBA loans, but timelines still vary by lender and your documentation. Fund44 does not guarantee any specific funding speed."
+      "answer": "Timelines vary by provider, product, and documentation. Fund44 does not guarantee any specific funding speed."
     },
     {
       "id": "wc_faq_factoring",
@@ -108,7 +108,7 @@
     {
       "id": "wc_faq_credit",
       "question": "Does checking these options affect my credit?",
-      "answer": "Checking your initial options can use information that does not affect your credit score. A lender you choose to proceed with may later run a hard credit inquiry."
+      "answer": "Checking the preview uses information that does not affect your credit score because the current preview does not submit an application to a lender."
     }
   ],
   "relatedIds": [
@@ -125,7 +125,27 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07",
+    "F44-CRED-01"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance",
+      "credit_disclosure"
+    ]
+  },
+  "citationIds": [
+    "external_wf_businessline_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "internal_disc_03_preview_credit"
+  ],
   "disclosureIds": [
     "F44-DISC-04",
     "F44-DISC-09"

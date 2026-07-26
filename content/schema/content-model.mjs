@@ -20,6 +20,8 @@ export const baseRequiredFields = [
   'contributors',
   'publishedDate',
   'reviewedDate',
+  'claimIds',
+  'claimReview',
   'citationIds',
   'disclosureIds',
   'indexability',
@@ -68,3 +70,33 @@ export const allowedFreshnessStates = new Set(['review_pending', 'published', 'r
 export const allowedAudienceStages = new Set(['entry', 'consideration', 'comparison', 'education']);
 export const allowedFunnelRoles = new Set(['entry', 'consideration', 'assist']);
 export const allowedBlockTypes = new Set(['paragraph', 'heading', 'list', 'blockquote']);
+export const allowedEvidenceScopes = new Set([
+  'marketplace_disclosure',
+  'network_story',
+  'routing_explanation',
+  'workflow_availability',
+  'preview_notice',
+  'credit_disclosure',
+  'product_overview',
+  'program_detail',
+  'educational_editorial',
+  'document_guidance',
+]);
+
+export const externalEvidenceRequiredScopes = new Set([
+  'product_overview',
+  'program_detail',
+  'educational_editorial',
+  'document_guidance',
+]);
+
+export const allowedCitationTypes = new Set([
+  'internal_approved',
+  'external_primary',
+  'external_reference',
+]);
+
+export const allowedInternalApprovalStatuses = new Set([
+  'business_approved_draft',
+  'preview_verified',
+]);

@@ -6,7 +6,7 @@
   "templateId": "resources_hub",
   "title": "Learning hub — small-business funding resources",
   "metaTitle": "Learning hub — small-business funding resources",
-  "metaDescription": "Plain-language guides on SBA loans, document prep, and choosing the right financing. Learn how business funding works and how Fund44 matches you to relevant paths.",
+  "metaDescription": "Plain-language guides on SBA loans, document prep, and choosing the right financing. Learn how business funding works and move from education into comparison when you are ready.",
   "summary": "The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.",
   "contentVersion": "2026-07-26",
   "hero": {
@@ -87,7 +87,24 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-06",
+    "F44-PROD-07",
+    "F44-PROC-04"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "educational_editorial",
+      "document_guidance",
+      "workflow_availability"
+    ]
+  },
+  "citationIds": [
+    "external_sba_loans_overview_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "internal_disc_13_workflow"
+  ],
   "disclosureIds": [
     "F44-DISC-04"
   ],

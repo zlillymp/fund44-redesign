@@ -11,7 +11,7 @@ test('renderRouteToHtml returns final copy for canonical routes', () => {
   const article = renderRouteToHtml('/resources/sba-7a-vs-504');
   const notFound = renderRouteToHtml('/missing-route');
 
-  assert.match(home.html, /One application\./i);
+  assert.match(home.html, /Funding a business shouldn't mean starting over five times\./i);
   assert.match(financing.html, /Compare financing paths at a glance/i);
   assert.match(article.html, /SBA 7\(a\) vs SBA 504/i);
   assert.match(notFound.html, /This path doesn't lead anywhere\./i);

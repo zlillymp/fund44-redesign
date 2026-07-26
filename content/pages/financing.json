@@ -6,13 +6,13 @@
   "templateId": "financing_hub",
   "title": "Small-business financing options",
   "metaTitle": "Small-business financing options",
-  "metaDescription": "Compare SBA 7(a), SBA 504, business acquisition loans, term loans, lines of credit, equipment financing and factoring. Fund44 matches you to the paths that fit — from a network of third-party lenders.",
+  "metaDescription": "Compare SBA 7(a), SBA 504, business acquisition loans, term loans, lines of credit, equipment financing, and factoring. Review how these paths differ and decide where to go deeper next.",
   "summary": "The financing hub compares the main product categories on the site and gives visitors a route into the best-fitting program page based on their business goal.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "Financing overview",
     "title": "Every path to capital, in one place.",
-    "lead": "Fund44 helps U.S. small-business owners find the right financing — from SBA loans to lines of credit — without applying separately to each lender. Start with your goal; we surface what fits."
+    "lead": "Review SBA loans, acquisition financing, term loans, lines of credit, equipment financing, and factoring in one place. Start with your goal and use this overview to decide which paths deserve a deeper look."
   },
   "quickAnswer": {
     "term": "Business financing",
@@ -85,7 +85,7 @@
       "use": "One-time investments, growth projects",
       "structure": "Fixed, 1-7 yr",
       "amount": "Mid-range",
-      "speed": "Faster",
+      "speed": "Varies",
       "destinationRouteId": "working_capital"
     },
     {
@@ -94,7 +94,7 @@
       "use": "Ongoing cash flow, seasonality",
       "structure": "Revolving",
       "amount": "Flexible",
-      "speed": "Faster",
+      "speed": "Varies",
       "destinationRouteId": "working_capital"
     },
     {
@@ -103,7 +103,7 @@
       "use": "Purchase or finance equipment",
       "structure": "Asset life",
       "amount": "Equipment cost",
-      "speed": "Faster",
+      "speed": "Varies",
       "destinationRouteId": "working_capital"
     }
   ],
@@ -141,12 +141,12 @@
     {
       "id": "financing_faq_right_type",
       "question": "Which financing type is right for my business?",
-      "answer": "It depends on your use of funds, time in business, revenue, and how quickly you need capital. SBA loans suit longer-term needs and larger amounts; lines of credit suit ongoing cash-flow gaps; equipment and factoring solve specific needs. Fund44 matches your profile to the paths that fit."
+      "answer": "It depends on your use of funds, time in business, revenue, and how quickly you need capital. SBA loans often suit longer-term needs and larger amounts, while lines of credit, term loans, equipment financing, and factoring solve different working-capital or asset-specific needs."
     },
     {
       "id": "financing_faq_multiple_options",
-      "question": "Can I be matched to more than one option?",
-      "answer": "You may see one or more relevant paths depending on your business profile, financing need, and provider availability. Fund44 surfaces them together so you can compare structure and fit rather than committing to the first product you find."
+      "question": "Can more than one option fit the same need?",
+      "answer": "Yes. A business can evaluate more than one path depending on its financing need, profile, and provider availability. This overview is meant to help you compare those structures before you go deeper."
     },
     {
       "id": "financing_faq_sba_best",
@@ -172,7 +172,33 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-01",
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-04",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_loans_overview_2026_07_26",
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_buy_existing_business_2026_07_26",
+    "external_sba_change_of_ownership_2026_07_26",
+    "external_wf_businessline_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-09",
     "F44-DISC-12"

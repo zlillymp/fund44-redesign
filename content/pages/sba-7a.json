@@ -6,13 +6,13 @@
   "templateId": "product_page",
   "title": "SBA 7(a) loans",
   "metaTitle": "SBA 7(a) loans",
-  "metaDescription": "SBA 7(a) loans are flexible, longer-term small-business loans partially guaranteed by the U.S. Small Business Administration. Fund44 matches you to lenders offering 7(a) financing for acquisitions, working capital, and growth.",
+  "metaDescription": "SBA 7(a) loans are flexible, longer-term small-business loans partially guaranteed by the U.S. Small Business Administration. Learn what they are commonly used for and when they may fit.",
   "summary": "The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "SBA 7(a)",
     "title": "SBA 7(a) loans — flexible capital for growth.",
-    "lead": "The SBA 7(a) program is one of the most versatile small-business loan types. Fund44 helps you see whether it fits your goal and connects you with lenders that offer it."
+    "lead": "The SBA 7(a) program is one of the most versatile small-business loan types. Use this page to understand what it commonly covers and when it may fit your goal."
   },
   "shortLabel": "SBA 7(a)",
   "quickAnswer": {
@@ -49,7 +49,7 @@
   },
   "howFund44Fits": {
     "heading": "How Fund44 fits",
-    "summary": "Fund44 helps a borrower decide whether SBA 7(a) belongs in the mix and routes them toward providers that offer it.",
+    "summary": "Fund44 uses this page to explain where SBA 7(a) may fit in a broader financing comparison.",
     "bullets": [
       "Explains the program in plain language.",
       "Places SBA 7(a) alongside other structured paths for comparison.",
@@ -109,7 +109,7 @@
     {
       "id": "sba7a_faq_direct_lender",
       "question": "Does Fund44 issue SBA 7(a) loans?",
-      "answer": "No. Fund44 is a marketplace. It matches you with SBA-approved lenders in its network. Eligibility and terms are decided by those lenders."
+      "answer": "No. Fund44 does not issue SBA 7(a) loans. Eligibility and terms are decided by SBA-approved lenders and SBA program rules."
     }
   ],
   "relatedIds": [
@@ -126,7 +126,24 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_loans_overview_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-04",
     "F44-DISC-09"
