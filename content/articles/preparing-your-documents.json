@@ -1,0 +1,153 @@
+{
+  "id": "article_preparing_your_documents",
+  "routeId": "resource_preparing_documents",
+  "slug": "preparing-your-documents",
+  "pageType": "article",
+  "templateId": "editorial_article",
+  "title": "The document checklist that speeds up small-business funding",
+  "metaTitle": "The document checklist that speeds up small-business funding",
+  "metaDescription": "The financial documents lenders commonly ask for — and how preparing them once can make comparing options far faster.",
+  "summary": "A practical article about the documents borrowers commonly assemble before comparing financing options.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Getting ready",
+    "title": "The document checklist that speeds up small-business funding",
+    "lead": "The financial documents lenders commonly ask for — and how preparing them once can make comparing options far faster."
+  },
+  "category": "Getting ready",
+  "readTimeMinutes": 6,
+  "thumbKey": "doc",
+  "quickAnswer": {
+    "term": "The short answer",
+    "definition": "is that most delays come from missing paperwork, so collecting common lender documents before you shop can reduce friction and make comparisons easier."
+  },
+  "whoItFits": {
+    "heading": "Who this article fits",
+    "items": [
+      "Borrowers preparing to compare funding options.",
+      "Owners who want to know what lenders commonly request.",
+      "Acquisition borrowers gathering both business and deal documents."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this article may not fit",
+    "items": [
+      "Borrowers who already have a lender-specific checklist in hand.",
+      "Users seeking a formal legal or compliance checklist rather than a practical prep guide."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical documents highlighted here",
+    "items": [
+      "Business tax returns",
+      "Personal financial statement",
+      "Bank statements",
+      "Debt schedule",
+      "Use-of-funds summary",
+      "Target financials and purchase agreement for acquisitions"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this article to connect document prep guidance to the broader financing workflow without promising universal lender requirements.",
+    "bullets": [
+      "Explains common examples rather than a guaranteed checklist.",
+      "Connects prep work to the preview and acquisition/product pages.",
+      "Uses conservative workflow language rather than absolute promises."
+    ]
+  },
+  "bodyBlocks": [
+    {
+      "type": "paragraph",
+      "html": "<p class=\"lead\" style=\"font-size:var(--text-lg)\">Most delays in business funding aren't about credit — they're about paperwork. Having your documents ready before you shop makes every conversation faster.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What lenders commonly request"
+    },
+    {
+      "type": "list",
+      "html": "<ul><li><strong>Business tax returns</strong> — typically the last two years.</li><li><strong>Personal financial statement</strong> — for owners with significant ownership.</li><li><strong>Bank statements</strong> — often the most recent six months.</li><li><strong>Debt schedule</strong> — a summary of existing business obligations.</li><li><strong>Use-of-funds summary</strong> — what you'll do with the capital.</li></ul>"
+    },
+    {
+      "type": "paragraph",
+      "html": "<p>For acquisitions, add the target business's financials and a purchase agreement or letter of intent.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why \"once\" matters"
+    },
+    {
+      "type": "paragraph",
+      "html": "<p>Traditionally, each lender wants its own copies in its own format. Prepare a clean set once and you remove the biggest source of friction. Fund44's shared document checklist takes this further — you upload a single time and reuse across relevant lenders.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A simple prep routine"
+    },
+    {
+      "type": "list",
+      "html": "<ol><li>Gather the five documents above in PDF.</li><li>Write a two-paragraph use-of-funds summary.</li><li>Note your desired amount and rough timeline.</li><li>Check your options and see which paths fit.</li></ol>"
+    }
+  ],
+  "sectionDisclosureHtml": "This article is educational and general in nature. It is not financial or legal advice. <strong>Fund44 is not a lender.</strong> Program rules, eligibility, and terms are set by the SBA and third-party lenders and can change.",
+  "ctaBanner": {
+    "heading": "See your funding options.",
+    "subheading": "Apply once and get matched to relevant paths from a network of lenders."
+  },
+  "commonQuestions": [
+    {
+      "id": "article_docs_business_plan",
+      "question": "Do I need a business plan?",
+      "answer": "For some loan types and acquisitions, a plan or use-of-funds narrative helps. For flexible working-capital products, recent financials often matter more."
+    },
+    {
+      "id": "article_docs_credit",
+      "question": "Does uploading documents to Fund44 trigger a credit check?",
+      "answer": "Checking initial options uses information that does not affect your credit score. A lender may run a hard inquiry later if you choose to proceed."
+    }
+  ],
+  "relatedIds": [
+    "page_business_acquisition",
+    "page_working_capital",
+    "article_sba_7a_vs_504",
+    "article_working_capital_vs_term_loan"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": false,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "document_preparation",
+    "contentGroup": "resources_article",
+    "audienceStage": "education",
+    "funnelRole": "assist"
+  },
+  "measurement": {
+    "routeFamily": "resources_article",
+    "ctaIds": [
+      "article_keep_reading",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "article_preparing_documents_faq",
+    "freshnessState": "review_pending"
+  }
+}

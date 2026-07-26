@@ -1,0 +1,155 @@
+{
+  "id": "page_working_capital",
+  "routeId": "working_capital",
+  "slug": "working-capital",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "Working capital & lines of credit",
+  "metaTitle": "Working capital & lines of credit",
+  "metaDescription": "Working capital financing — including business lines of credit, term loans, equipment financing, and invoice factoring — covers day-to-day cash flow and growth. Fund44 matches you to the right flexible option.",
+  "summary": "The working-capital page explains flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Working capital & lines of credit",
+    "title": "Working capital & lines of credit — stay flexible.",
+    "lead": "For cash-flow gaps, seasonality, and near-term needs, flexible financing often fits better than a long-term loan. Fund44 surfaces the working-capital paths relevant to your business."
+  },
+  "shortLabel": "Working capital",
+  "quickAnswer": {
+    "term": "Working capital financing",
+    "definition": "is short- to medium-term funding that covers day-to-day operating needs rather than long-term assets. It includes business lines of credit, term loans, equipment financing, and invoice factoring — each suited to different cash-flow situations."
+  },
+  "whoItFitsHeading": "Flexible funding for operating needs",
+  "whoItFits": {
+    "heading": "When working-capital options tend to fit",
+    "items": [
+      "Smoothing seasonal or cyclical cash flow",
+      "Covering payroll, inventory, or supplier costs",
+      "Bridging the gap on outstanding invoices",
+      "Financing equipment over its useful life",
+      "Funding a specific, one-time growth project"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When working-capital options may not fit as well",
+    "items": [
+      "Long-term fixed-asset projects may point more directly to SBA 504 or another asset-focused structure.",
+      "Borrowers seeking a larger acquisition or multi-purpose SBA structure may want to compare SBA 7(a) first."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical documents lenders may request",
+    "items": [
+      "Recent bank statements",
+      "Business financials",
+      "Revenue and cash-flow support",
+      "Equipment or receivable details when applicable"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 helps a borrower compare flexible product structures and understand when a revolving or shorter-term path may fit better than a longer-term loan.",
+    "bullets": [
+      "Puts lines of credit, term loans, equipment financing, and factoring into one comparison frame.",
+      "Connects flexible products to the same route and workflow.",
+      "Avoids promising provider speed or universal availability."
+    ]
+  },
+  "glanceSpecs": [
+    ["Line of credit", "Revolving, draw as needed"],
+    ["Term loan", "Fixed amount, fixed schedule"],
+    ["Equipment financing", "Secured by the equipment"],
+    ["Invoice factoring", "Advance against receivables"],
+    ["Relative speed", "Often faster than SBA"],
+    ["Issued by", "Third-party lenders"]
+  ],
+  "eligibilityHeading": "What flexible lenders look at",
+  "eligibilityCards": [
+    {
+      "id": "wc_revenue_cash",
+      "iconKey": "cash",
+      "title": "Revenue & cash flow",
+      "description": "Consistent revenue and healthy cash flow are the primary signals for most working-capital products."
+    },
+    {
+      "id": "wc_time_business",
+      "iconKey": "clock",
+      "title": "Time in business",
+      "description": "Many flexible products favor businesses with an operating track record."
+    },
+    {
+      "id": "wc_statements",
+      "iconKey": "file",
+      "title": "Recent statements",
+      "description": "Bank statements and financials help lenders size the right facility."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Working-capital product availability, amounts, and terms are determined by third-party lenders and vary by provider. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Need flexible cash flow?",
+    "subheading": "Preview lines of credit, term loans, and other working-capital paths matched to your business."
+  },
+  "commonQuestions": [
+    {
+      "id": "wc_faq_term_vs_loc",
+      "question": "What is the difference between a term loan and a line of credit?",
+      "answer": "A term loan gives you a fixed amount up front repaid on a set schedule — good for one-time needs. A line of credit lets you draw funds as needed up to a limit and repay as you go — good for recurring or unpredictable cash-flow gaps."
+    },
+    {
+      "id": "wc_faq_speed",
+      "question": "How fast is working-capital financing?",
+      "answer": "Flexible products are often faster than SBA loans, but timelines still vary by lender and your documentation. Fund44 does not guarantee any specific funding speed."
+    },
+    {
+      "id": "wc_faq_factoring",
+      "question": "What is invoice factoring?",
+      "answer": "Invoice factoring advances a portion of your outstanding invoices so you get cash sooner, with the factor collecting from your customers. It suits businesses with slow-paying B2B receivables."
+    },
+    {
+      "id": "wc_faq_credit",
+      "question": "Does checking these options affect my credit?",
+      "answer": "Checking your initial options can use information that does not affect your credit score. A lender you choose to proceed with may later run a hard credit inquiry."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "article_working_capital_vs_term_loan",
+    "article_preparing_your_documents"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "working_capital_financing",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "working_capital_faq",
+    "freshnessState": "review_pending"
+  }
+}

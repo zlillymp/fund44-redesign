@@ -88,10 +88,10 @@ export const routingWaterfall = () => `
     <div class="waterfall">
       <div class="wf-stage"><div class="wf-node on">01</div><div class="wf-label"><b>One application</b><span>Borrower profile normalized</span></div></div>
       <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
-      <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Screened against 75+ integrations</span></div><span class="wf-badge">75+</span></div>
+      <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Curated network, typically 40-50 lenders</span></div><span class="wf-badge">40-50</span></div>
       <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
-      <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Filtered out</b><span>Product / geography mismatch</span></div><span class="wf-badge">skip</span></div>
-      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Based on profile and product criteria</span></div><span class="wf-badge match">4 paths</span></div>
+      <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Path context updated</b><span>Shown only where the experience supports it</span></div><span class="wf-badge">varies</span></div>
+      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Explained using fit-over-fees routing context</span></div><span class="wf-badge match">4 paths</span></div>
     </div>
   </div>
 </div>`;
@@ -188,7 +188,7 @@ export const chaosToPath = () => `
     <div class="path-step"><span class="pnum">2</span> See paths based on your profile</div>
     <div class="path-step"><span class="pnum">3</span> Upload documents a single time</div>
     <div class="path-step"><span class="pnum">4</span> Compare offers side by side</div>
-    <div class="path-step"><span class="pnum">5</span> Continue with one secure flow</div>
+    <div class="path-step"><span class="pnum">5</span> Continue with one shared flow</div>
   </div>
 </div>`;
 

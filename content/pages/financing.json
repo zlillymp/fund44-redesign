@@ -1,0 +1,204 @@
+{
+  "id": "page_financing",
+  "routeId": "financing",
+  "slug": "financing",
+  "pageType": "financing_hub",
+  "templateId": "financing_hub",
+  "title": "Small-business financing options",
+  "metaTitle": "Small-business financing options",
+  "metaDescription": "Compare SBA 7(a), SBA 504, business acquisition loans, term loans, lines of credit, equipment financing and factoring. Fund44 matches you to the paths that fit — from a network of third-party lenders.",
+  "summary": "The financing hub compares the main product categories on the site and gives visitors a route into the best-fitting program page based on their business goal.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Financing overview",
+    "title": "Every path to capital, in one place.",
+    "lead": "Fund44 helps U.S. small-business owners find the right financing — from SBA loans to lines of credit — without applying separately to each lender. Start with your goal; we surface what fits."
+  },
+  "quickAnswer": {
+    "term": "Business financing",
+    "definition": "is capital a company borrows to fund operations, growth, acquisitions, or assets. It comes in many forms — SBA loans, term loans, lines of credit, equipment financing, and factoring — each suited to different needs, timelines, and business profiles."
+  },
+  "whoItFits": {
+    "heading": "Who this overview fits",
+    "items": [
+      "Owners comparing multiple funding categories before going deeper.",
+      "Visitors who want a high-level view of SBA, acquisition, and working-capital paths.",
+      "Borrowers deciding whether they need a long-term asset loan or a more flexible structure."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this overview may not fit",
+    "items": [
+      "Borrowers who already know the exact product page they want.",
+      "Users looking for final rates, eligibility decisions, or provider-specific availability."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical document examples across these paths",
+    "items": [
+      "Recent business financial statements",
+      "Bank statements",
+      "Tax returns",
+      "Use-of-funds summary"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this overview page to frame the product set, point visitors to the right structured page, and explain the route into the broader experience.",
+    "bullets": [
+      "Compares core product types at a glance.",
+      "Links each comparison row to the canonical product route.",
+      "Uses approved fit language without promising outcomes."
+    ]
+  },
+  "matrixRows": [
+    {
+      "id": "matrix_sba_7a",
+      "name": "SBA 7(a)",
+      "use": "Acquisition, working capital, expansion, refinance",
+      "structure": "Longer term",
+      "amount": "Up to $5M",
+      "speed": "Moderate",
+      "destinationRouteId": "sba_7a"
+    },
+    {
+      "id": "matrix_sba_504",
+      "name": "SBA 504",
+      "use": "Owner-occupied real estate, major equipment",
+      "structure": "Long, fixed-asset",
+      "amount": "Large projects",
+      "speed": "Moderate",
+      "destinationRouteId": "sba_504"
+    },
+    {
+      "id": "matrix_business_acquisition",
+      "name": "Business acquisition",
+      "use": "Buy a business or buy out a partner",
+      "structure": "Varies by structure",
+      "amount": "Deal-sized",
+      "speed": "Moderate",
+      "destinationRouteId": "business_acquisition"
+    },
+    {
+      "id": "matrix_term_loan",
+      "name": "Term loan",
+      "use": "One-time investments, growth projects",
+      "structure": "Fixed, 1-7 yr",
+      "amount": "Mid-range",
+      "speed": "Faster",
+      "destinationRouteId": "working_capital"
+    },
+    {
+      "id": "matrix_line_of_credit",
+      "name": "Line of credit",
+      "use": "Ongoing cash flow, seasonality",
+      "structure": "Revolving",
+      "amount": "Flexible",
+      "speed": "Faster",
+      "destinationRouteId": "working_capital"
+    },
+    {
+      "id": "matrix_equipment_financing",
+      "name": "Equipment financing",
+      "use": "Purchase or finance equipment",
+      "structure": "Asset life",
+      "amount": "Equipment cost",
+      "speed": "Faster",
+      "destinationRouteId": "working_capital"
+    }
+  ],
+  "decisionCards": [
+    {
+      "id": "decision_buy_business",
+      "title": "I want to buy a business",
+      "description": "Acquisition financing and SBA 7(a) are common starting points.",
+      "destinationRouteId": "business_acquisition",
+      "iconKey": "route"
+    },
+    {
+      "id": "decision_property",
+      "title": "I need to buy or refinance property",
+      "description": "SBA 504 and SBA 7(a) are built for owner-occupied real estate.",
+      "destinationRouteId": "sba_504",
+      "iconKey": "building"
+    },
+    {
+      "id": "decision_cash_flow",
+      "title": "I need cash flow for operations",
+      "description": "Lines of credit and short-term working capital fit recurring gaps.",
+      "destinationRouteId": "working_capital",
+      "iconKey": "cash"
+    },
+    {
+      "id": "decision_equipment",
+      "title": "I need equipment",
+      "description": "Equipment financing or an SBA loan can spread the cost over its useful life.",
+      "destinationRouteId": "working_capital",
+      "iconKey": "truck"
+    }
+  ],
+  "commonQuestions": [
+    {
+      "id": "financing_faq_right_type",
+      "question": "Which financing type is right for my business?",
+      "answer": "It depends on your use of funds, time in business, revenue, and how quickly you need capital. SBA loans suit longer-term needs and larger amounts; lines of credit suit ongoing cash-flow gaps; equipment and factoring solve specific needs. Fund44 matches your profile to the paths that fit."
+    },
+    {
+      "id": "financing_faq_multiple_options",
+      "question": "Can I be matched to more than one option?",
+      "answer": "You may see one or more relevant paths depending on your business profile, financing need, and provider availability. Fund44 surfaces them together so you can compare structure and fit rather than committing to the first product you find."
+    },
+    {
+      "id": "financing_faq_sba_best",
+      "question": "Are SBA loans always the best option?",
+      "answer": "Not always. SBA loans often offer favorable terms but involve more documentation and time. For urgent working-capital needs, a line of credit or term loan may fit better. The right answer depends on your situation."
+    }
+  ],
+  "ctaBanner": {
+    "heading": "Let's find the paths that fit.",
+    "subheading": "Answer a few questions and preview the financing options relevant to your goal."
+  },
+  "relatedIds": [
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "page_working_capital"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-09",
+    "F44-DISC-12"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "financing_options_overview",
+    "contentGroup": "program_hub",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_hub",
+    "ctaIds": [
+      "preview_funding_paths",
+      "compare_financing_matrix_row",
+      "decision_helper_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "financing_faq",
+    "freshnessState": "review_pending"
+  }
+}

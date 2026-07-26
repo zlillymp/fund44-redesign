@@ -1,0 +1,145 @@
+{
+  "id": "article_working_capital_vs_term_loan",
+  "routeId": "resource_working_capital_vs_term_loan",
+  "slug": "working-capital-vs-term-loan",
+  "pageType": "article",
+  "templateId": "editorial_article",
+  "title": "Line of credit or term loan? Matching the tool to the need",
+  "metaTitle": "Line of credit or term loan? Matching the tool to the need",
+  "metaDescription": "When a revolving line of credit beats a term loan for cash flow — and when it doesn’t.",
+  "summary": "A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Financing basics",
+    "title": "Line of credit or term loan? Matching the tool to the need",
+    "lead": "When a revolving line of credit beats a term loan for cash flow — and when it doesn't."
+  },
+  "category": "Financing basics",
+  "readTimeMinutes": 5,
+  "thumbKey": "bars",
+  "quickAnswer": {
+    "term": "The short answer",
+    "definition": "is that a term loan usually fits a one-time planned cost, while a line of credit usually fits recurring or unpredictable operating gaps."
+  },
+  "whoItFits": {
+    "heading": "Who this article fits",
+    "items": [
+      "Borrowers deciding between a fixed disbursement and revolving access to capital.",
+      "Owners matching a specific use of funds to the right structure.",
+      "Visitors who want a plain-language rule of thumb before previewing options."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this article may not fit",
+    "items": [
+      "Borrowers who need a larger SBA or acquisition-focused structure.",
+      "Users who already have provider-specific term sheets to compare."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples related to this comparison",
+    "items": [
+      "Recent bank statements",
+      "Business financial statements",
+      "Project or use-of-funds summary"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this article to connect flexible-product education to the working-capital route and preview flow.",
+    "bullets": [
+      "Explains the core difference in plain language.",
+      "Links directly to the working-capital route.",
+      "Keeps the article educational rather than prescriptive."
+    ]
+  },
+  "bodyBlocks": [
+    {
+      "type": "paragraph",
+      "html": "<p class=\"lead\" style=\"font-size:var(--text-lg)\">A line of credit and a term loan solve different problems. Choosing the wrong one is a common — and avoidable — mistake.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Term loans: fixed and predictable"
+    },
+    {
+      "type": "paragraph",
+      "html": "<p>A <strong>term loan</strong> gives you a set amount up front, repaid on a fixed schedule. It's ideal for one-time investments with a clear cost — a renovation, an equipment purchase, a specific growth project.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lines of credit: flexible and revolving"
+    },
+    {
+      "type": "paragraph",
+      "html": "<p>A <strong>line of credit</strong> lets you draw funds as needed up to a limit, repay, and draw again. It shines for recurring or unpredictable needs — seasonality, payroll timing, or bridging slow-paying invoices.</p>"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A quick rule of thumb"
+    },
+    {
+      "type": "blockquote",
+      "html": "<blockquote>Fund a one-time cost with a term loan. Fund an ongoing gap with a line of credit.</blockquote>"
+    },
+    {
+      "type": "paragraph",
+      "html": "<p>If you're not sure, that's exactly what a marketplace is for. Fund44 can surface both, so you can compare structure and fit rather than guessing.</p>"
+    }
+  ],
+  "sectionDisclosureHtml": "This article is educational and general in nature. It is not financial or legal advice. <strong>Fund44 is not a lender.</strong> Program rules, eligibility, and terms are set by the SBA and third-party lenders and can change.",
+  "ctaBanner": {
+    "heading": "See your funding options.",
+    "subheading": "Apply once and get matched to relevant paths from a network of lenders."
+  },
+  "commonQuestions": [
+    {
+      "id": "article_wc_term_both",
+      "question": "Can I have both a term loan and a line of credit?",
+      "answer": "Many businesses use both — a term loan for a project and a line of credit for cash-flow flexibility. Availability depends on the lender and your profile."
+    }
+  ],
+  "relatedIds": [
+    "page_working_capital",
+    "page_financing",
+    "article_preparing_your_documents",
+    "article_sba_7a_vs_504"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": false,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "line_of_credit_vs_term_loan",
+    "contentGroup": "resources_article",
+    "audienceStage": "education",
+    "funnelRole": "assist"
+  },
+  "measurement": {
+    "routeFamily": "resources_article",
+    "ctaIds": [
+      "article_keep_reading",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "article_working_capital_vs_term_loan_faq",
+    "freshnessState": "review_pending"
+  }
+}

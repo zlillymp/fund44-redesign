@@ -1,0 +1,217 @@
+{
+  "id": "page_home",
+  "routeId": "home",
+  "slug": "home",
+  "pageType": "home",
+  "templateId": "home_page",
+  "title": "Fund44 — One application. More ways to fund your business.",
+  "metaTitle": "Fund44 — One application. More ways to fund your business.",
+  "metaDescription": "Explore small-business financing from $50,000 to $5 million, including SBA loans, acquisition financing, term loans, and lines of credit.",
+  "summary": "Fund44 turns a fragmented financing search into one clear path so small-business owners can explore relevant funding options without starting from scratch for every lender.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "$50K-$5M small-business financing",
+    "title": "One application. <b>More ways</b> to fund your business.",
+    "lead": "Explore SBA loans, acquisition financing, term loans, and lines of credit through one clear path — without researching and reapplying lender by lender."
+  },
+  "heroProofItems": [
+    {
+      "iconKey": "building",
+      "label": "SBA + flexible capital"
+    },
+    {
+      "iconKey": "layers",
+      "label": "Curated 40-50 lender network"
+    },
+    {
+      "iconKey": "route",
+      "label": "One application path"
+    }
+  ],
+  "problem": {
+    "eyebrow": "The problem with shopping for capital",
+    "heading": "Funding a business shouldn't mean starting over five times.",
+    "lead": "Every lender wants a slightly different application and its own documents. Fund44 turns that scramble into a single organized path."
+  },
+  "network": {
+    "eyebrow": "How the match works",
+    "heading": "Your profile, routed through a curated network.",
+    "lead": "Fund44 launched with 44 lenders. That number is behind the name and remains the operating sweet spot for the network. Today Fund44 curates a network that typically fluctuates between 40 and 50 lenders as it removes providers that fall short of its customer-service standards and adds providers that offer competitive terms, better tools, or new financing options. The network can change over time, and the paths shown in the experience may vary by business profile, financing need, geography, and current provider participation.",
+    "featureItems": [
+      {
+        "iconKey": "route",
+        "title": "One application, many routes",
+        "description": "One borrower journey feeds every relevant product path."
+      },
+      {
+        "iconKey": "layers",
+        "title": "Fit-first routing explanation",
+        "description": "Fund44 is built around fit over fees. The experience explains why a path may fit based on the information provided, the stated financing need, and the product details available in the experience."
+      },
+      {
+        "iconKey": "eye",
+        "title": "Clear comparisons",
+        "description": "See why each financing path may suit your use of funds, amount, and business profile."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "One organized experience",
+    "heading": "One checklist, shared context, and comparison tools in one place.",
+    "lead": "Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.",
+    "portalHeading": "A borrower portal that keeps you organized",
+    "portalLead": "Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.",
+    "portalFeatures": [
+      {
+        "iconKey": "file",
+        "title": "One document checklist",
+        "description": "Prepare documents once and reuse them where the workflow supports it."
+      },
+      {
+        "iconKey": "clock",
+        "title": "Status visibility",
+        "description": "See status tracking when that step is available in the experience."
+      }
+    ],
+    "comparisonHeading": "Compare paths side by side",
+    "comparisonLead": "When options appear, Fund44 lines them up so you can weigh structure and fit rather than chase the first yes.",
+    "comparisonFeatures": [
+      {
+        "iconKey": "scale",
+        "title": "Offer comparison",
+        "description": "Compare structures side by side when that step is available in the experience."
+      },
+      {
+        "iconKey": "shield",
+        "title": "Decide with context",
+        "description": "Understand what each path means before you proceed with any provider."
+      }
+    ]
+  },
+  "status": {
+    "eyebrow": "What happens next",
+    "heading": "Clear next steps, not a guessing game.",
+    "lead": "As you move from exploring options to choosing a provider, the experience is designed to show what stage you are in and what comes next."
+  },
+  "quickAnswer": {
+    "term": "Fund44",
+    "definition": "is a small-business capital marketplace experience that helps owners explore SBA loans, acquisition financing, and flexible capital paths in one organized workflow. Fund44 is not a lender."
+  },
+  "whoItFits": {
+    "heading": "Who the home page is speaking to",
+    "items": [
+      "Owners comparing several funding paths for one business goal.",
+      "Borrowers who want to understand how SBA and non-SBA options differ.",
+      "Teams that want one organized intake path before choosing a provider."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this framing may not fit",
+    "items": [
+      "Borrowers looking for final lender terms or a guaranteed outcome on the marketing site.",
+      "Users who need final legal/contact details before launch artifacts are complete under F44-GOV-02."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples mentioned on this page",
+    "items": [
+      "Business tax returns",
+      "Personal financial statement",
+      "Bank statements",
+      "Debt schedule",
+      "Use-of-funds summary"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "The home page explains the marketplace story, the curated network, and how the experience helps a borrower move from exploration to comparison without promising outcomes.",
+    "bullets": [
+      "Introduces the approved 44-lender origin story and curated 40-50 lender network.",
+      "Explains fit-over-fees and workflow availability using approved disclosure language.",
+      "Routes visitors into financing pages, the learning hub, or the preview flow."
+    ]
+  },
+  "commonQuestions": [
+    {
+      "id": "home_faq_is_lender",
+      "question": "Is Fund44 a lender?",
+      "answer": "No. Fund44 is a technology marketplace. Financing is offered by third-party lenders in our network. Eligibility, rates, and terms are set by each lender — not by Fund44."
+    },
+    {
+      "id": "home_faq_funding_size",
+      "question": "What size funding does Fund44 help with?",
+      "answer": "Fund44 is built for U.S. small-business owners seeking roughly $50,000 to $5 million for acquisitions, owner-occupied real estate, working capital, equipment, expansion, or refinancing."
+    },
+    {
+      "id": "home_faq_credit",
+      "question": "Does checking my options affect my credit?",
+      "answer": "Checking your initial options can use information that does not affect your credit score. If you choose to proceed with a specific lender, that lender may later perform a hard credit inquiry as part of its own underwriting."
+    },
+    {
+      "id": "home_faq_products",
+      "question": "What products can I be matched to?",
+      "answer": "Coverage can include SBA 7(a) and SBA 504 loans, business acquisition financing, conventional term loans, business lines of credit, equipment financing, and invoice factoring, depending on your profile and lender availability."
+    },
+    {
+      "id": "home_faq_apply_separately",
+      "question": "Do I have to apply separately with each lender?",
+      "answer": "No — that is the point of Fund44. You share your profile and documents once, and Fund44 routes them to relevant lenders so you can compare paths without starting over each time."
+    }
+  ],
+  "productCardIds": [
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "page_working_capital"
+  ],
+  "ctaBanner": {
+    "heading": "See the paths that fit your business.",
+    "subheading": "A few questions is all it takes to preview your options. Preview only — nothing is submitted to a lender."
+  },
+  "relatedIds": [
+    "page_financing",
+    "page_resources",
+    "page_sba_7a",
+    "page_working_capital"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-02",
+    "F44-DISC-03",
+    "F44-DISC-11",
+    "F44-DISC-12",
+    "F44-DISC-13"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "small_business_financing_marketplace",
+    "contentGroup": "core_marketing",
+    "audienceStage": "entry",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "home",
+    "ctaIds": [
+      "preview_funding_paths",
+      "compare_financing_options",
+      "cta_banner_preview_funding_paths",
+      "cta_banner_how_it_works"
+    ],
+    "faqGroup": "home_faq",
+    "freshnessState": "review_pending"
+  }
+}
