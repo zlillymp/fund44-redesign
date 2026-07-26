@@ -6,18 +6,18 @@
   "templateId": "product_page",
   "title": "Working capital & lines of credit",
   "metaTitle": "Working capital & lines of credit",
-  "metaDescription": "Working capital financing can include business lines of credit, term loans, equipment financing, and invoice factoring for day-to-day cash flow and growth. Learn how these flexible structures differ.",
-  "summary": "The working-capital page explains flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs.",
+  "metaDescription": "Working capital financing can include business lines of credit, term loans, and equipment financing for day-to-day cash flow and growth. Learn how these flexible structures differ.",
+  "summary": "The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "Working capital & lines of credit",
     "title": "Working capital & lines of credit — stay flexible.",
-    "lead": "For cash-flow gaps, seasonality, and near-term needs, flexible financing may fit better than a long-term asset loan. Use this page to compare the common structures borrowers evaluate."
+    "lead": "For cash-flow gaps, seasonality, and near-term needs, flexible financing may fit better than a long-term asset loan. Use this page to compare the main flexible structures and decide which specific product page deserves a deeper look."
   },
   "shortLabel": "Working capital",
   "quickAnswer": {
     "term": "Working capital financing",
-    "definition": "is short- to medium-term funding that covers day-to-day operating needs rather than long-term assets. It includes business lines of credit, term loans, equipment financing, and invoice factoring — each suited to different cash-flow situations."
+    "definition": "is short- to medium-term funding that covers day-to-day operating needs rather than long-term assets. It includes business lines of credit, term loans, equipment financing, and other flexible structures, each suited to different cash-flow situations."
   },
   "whoItFitsHeading": "Flexible funding for operating needs",
   "whoItFits": {
@@ -25,7 +25,6 @@
     "items": [
       "Smoothing seasonal or cyclical cash flow",
       "Covering payroll, inventory, or supplier costs",
-      "Bridging the gap on outstanding invoices",
       "Financing equipment over its useful life",
       "Funding a specific, one-time growth project"
     ]
@@ -43,15 +42,15 @@
       "Recent bank statements",
       "Business financials",
       "Revenue and cash-flow support",
-      "Equipment or receivable details when applicable"
+      "Equipment or project details when applicable"
     ]
   },
   "howFund44Fits": {
     "heading": "How Fund44 fits",
     "summary": "Fund44 helps a borrower compare flexible product structures and understand when a revolving or shorter-term path may fit better than a longer-term loan.",
     "bullets": [
-      "Puts lines of credit, term loans, equipment financing, and factoring into one comparison frame.",
-      "Connects flexible products to the same route and workflow.",
+      "Puts lines of credit, term loans, and equipment financing into one comparison frame.",
+      "Connects flexible products to their own canonical routes while keeping the umbrella overview intact.",
       "Avoids promising provider speed or universal availability."
     ]
   },
@@ -59,7 +58,7 @@
     ["Line of credit", "Revolving, draw as needed"],
     ["Term loan", "Fixed amount, fixed schedule"],
     ["Equipment financing", "Secured by the equipment"],
-    ["Invoice factoring", "Advance against receivables"],
+    ["Working-capital role", "Flexible operating needs"],
     ["Relative speed", "Varies by provider"],
     ["Issued by", "Third-party lenders"]
   ],
@@ -101,11 +100,6 @@
       "answer": "Timelines vary by provider, product, and documentation. Fund44 does not guarantee any specific funding speed."
     },
     {
-      "id": "wc_faq_factoring",
-      "question": "What is invoice factoring?",
-      "answer": "Invoice factoring advances a portion of your outstanding invoices so you get cash sooner, with the factor collecting from your customers. It suits businesses with slow-paying B2B receivables."
-    },
-    {
       "id": "wc_faq_credit",
       "question": "Does checking these options affect my credit?",
       "answer": "Checking the preview uses information that does not affect your credit score because the current preview does not submit an application to a lender."
@@ -114,6 +108,9 @@
   "relatedIds": [
     "page_financing",
     "page_sba_7a",
+    "page_term_loan",
+    "page_line_of_credit",
+    "page_equipment_financing",
     "article_working_capital_vs_term_loan",
     "article_preparing_your_documents"
   ],
@@ -144,7 +141,8 @@
     "external_wf_businessline_2026_07_26",
     "external_chase_business_loans_2026_07_26",
     "external_wf_prepare_credit_2026_07_26",
-    "internal_disc_03_preview_credit"
+    "internal_disc_03_preview_credit",
+    "external_usbank_equipment_financing_2026_07_26"
   ],
   "disclosureIds": [
     "F44-DISC-04",

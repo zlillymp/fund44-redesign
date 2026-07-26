@@ -1,0 +1,171 @@
+{
+  "id": "page_line_of_credit",
+  "routeId": "line_of_credit",
+  "slug": "line-of-credit",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "Business lines of credit",
+  "metaTitle": "Business lines of credit",
+  "metaDescription": "A business line of credit provides revolving access to capital for recurring cash-flow needs, seasonality, or short-term operating gaps. Learn when a line of credit commonly fits.",
+  "summary": "The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Business lines of credit",
+    "title": "Business lines of credit for ongoing cash-flow flexibility.",
+    "lead": "A line of credit is designed for borrowing as needs arise rather than taking one lump sum once. Use this page to understand when revolving access to capital commonly fits day-to-day operations."
+  },
+  "shortLabel": "Line of credit",
+  "quickAnswer": {
+    "term": "A business line of credit",
+    "definition": "is a revolving credit facility that lets a business draw funds up to a limit, repay, and draw again as needed. It is commonly used for recurring or unpredictable operating needs such as cash-flow gaps, inventory cycles, or seasonality."
+  },
+  "whoItFitsHeading": "Flexible access for recurring needs",
+  "whoItFits": {
+    "heading": "When a line of credit tends to fit",
+    "items": [
+      "Recurring cash-flow gaps rather than one large expense",
+      "Seasonal inventory or payroll timing needs",
+      "Working capital that may need to be drawn more than once",
+      "Businesses that value flexibility over a fixed lump-sum structure"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When a line of credit may not fit as well",
+    "items": [
+      "A defined one-time project may be better served by a term loan or an SBA structure.",
+      "Long-term fixed-asset purchases such as owner-occupied property or heavy equipment may point more directly to SBA 504 or equipment-focused financing."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common line-of-credit document examples",
+    "items": [
+      "Recent bank statements",
+      "Business financial statements",
+      "Revenue support",
+      "Use-of-funds context for the facility"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to explain where revolving credit fits in the product mix and to route visitors into the related comparison and preview paths.",
+    "bullets": [
+      "Clarifies the difference between revolving credit and a fixed term loan.",
+      "Connects the page to the broader working-capital comparison route and related educational content.",
+      "Keeps funding speed, approval, and facility terms under third-party lender control."
+    ]
+  },
+  "glanceSpecs": [
+    ["Structure", "Revolving credit facility"],
+    ["Common uses", "Cash flow, inventory, seasonality"],
+    ["Funding pattern", "Draw as needed up to a limit"],
+    ["Repayment", "Varies by facility and draw"],
+    ["Best for", "Recurring or unpredictable needs"],
+    ["Issued by", "Third-party lenders"]
+  ],
+  "eligibilityHeading": "What line-of-credit lenders often review",
+  "eligibilityCards": [
+    {
+      "id": "loc_cash_flow",
+      "iconKey": "cash",
+      "title": "Revenue consistency",
+      "description": "Because revolving credit supports ongoing operations, lenders commonly review consistent revenue and cash-flow patterns."
+    },
+    {
+      "id": "loc_borrowing_pattern",
+      "iconKey": "route",
+      "title": "Use pattern",
+      "description": "Lenders often want to understand whether the facility is meant for recurring working capital, seasonality, or another ongoing need."
+    },
+    {
+      "id": "loc_operating_history",
+      "iconKey": "clock",
+      "title": "Operating track record",
+      "description": "Time in business and recent account performance can shape how a revolving facility is sized and underwritten."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Line-of-credit eligibility, product availability, timelines, and terms are determined by third-party lenders and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Need flexibility for recurring operating needs?",
+    "subheading": "Preview whether a line of credit, a term loan, or another financing path better fits the way your business uses capital."
+  },
+  "commonQuestions": [
+    {
+      "id": "loc_faq_how_it_works",
+      "question": "How does a business line of credit work?",
+      "answer": "A line of credit lets a business draw funds up to an approved limit, repay, and draw again as needed. That structure can fit ongoing cash-flow needs better than taking one fixed lump sum."
+    },
+    {
+      "id": "loc_faq_vs_term",
+      "question": "What is the difference between a line of credit and a term loan?",
+      "answer": "A line of credit is revolving and suits recurring needs, while a term loan provides a fixed amount up front for a defined project or purchase. The right fit depends on how often the business expects to borrow."
+    },
+    {
+      "id": "loc_faq_docs",
+      "question": "What documents may be needed for a line of credit?",
+      "answer": "Common examples include bank statements, business financials, and revenue support. Exact documentation varies by lender and by the facility you are seeking."
+    },
+    {
+      "id": "loc_faq_direct",
+      "question": "Does Fund44 issue business lines of credit?",
+      "answer": "No. Fund44 does not issue business lines of credit. Eligibility and terms are determined by third-party lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_working_capital",
+    "page_term_loan",
+    "article_working_capital_vs_term_loan"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_wf_businessline_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_wf_credit_application_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "business_lines_of_credit",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "line_of_credit_faq",
+    "freshnessState": "review_pending"
+  }
+}

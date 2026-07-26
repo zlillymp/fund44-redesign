@@ -31,6 +31,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://fund44.com/term-loan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/line-of-credit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/equipment-financing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://fund44.com/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

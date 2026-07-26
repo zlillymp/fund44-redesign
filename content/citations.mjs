@@ -167,6 +167,18 @@ export const citationRegistry = [
     allowedScopes: ['document_guidance', 'educational_editorial'],
     claimIds: ['F44-PROD-07'],
   },
+  {
+    id: 'external_usbank_equipment_financing_2026_07_26',
+    citationType: 'external_reference',
+    title: 'Equipment financing and leasing',
+    sourceLabel: 'U.S. Bank',
+    url: 'https://www.usbank.com/business-banking/business-lending/equipment-finance.html',
+    reviewedDate: '2026-07-26',
+    expiresDate: '2027-07-26',
+    approvalStatus: 'current_reviewed',
+    allowedScopes: ['product_overview', 'educational_editorial'],
+    claimIds: ['F44-PROD-01', 'F44-PROD-05'],
+  },
 ];
 
 const citationById = new Map(citationRegistry.map((citation) => [citation.id, citation]));

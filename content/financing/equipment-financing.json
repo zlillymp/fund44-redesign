@@ -1,0 +1,174 @@
+{
+  "id": "page_equipment_financing",
+  "routeId": "equipment_financing",
+  "slug": "equipment-financing",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "Equipment financing",
+  "metaTitle": "Equipment financing",
+  "metaDescription": "Equipment financing helps businesses purchase or refinance machinery, vehicles, and other business equipment with the asset supporting the structure. Learn when equipment financing commonly fits.",
+  "summary": "The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Equipment financing",
+    "title": "Equipment financing for assets your business uses every day.",
+    "lead": "When the goal is to buy or refinance business equipment, an asset-backed structure may fit better than a general-purpose loan. Use this page to understand when equipment financing commonly fits."
+  },
+  "shortLabel": "Equipment financing",
+  "quickAnswer": {
+    "term": "Equipment financing",
+    "definition": "is financing used to purchase or refinance business equipment, with the equipment often serving as collateral for the loan or lease. It is commonly used for vehicles, machinery, technology, and other long-life business assets."
+  },
+  "whoItFitsHeading": "Asset-backed financing for equipment purchases",
+  "whoItFits": {
+    "heading": "When equipment financing tends to fit",
+    "items": [
+      "Purchasing machinery, vehicles, or other business equipment",
+      "Replacing or upgrading equipment tied directly to operations",
+      "Spreading the cost of an equipment purchase over time",
+      "Businesses that want the asset itself tied to the financing structure"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When equipment financing may not fit as well",
+    "items": [
+      "General working-capital needs usually point to a line of credit, term loan, or other flexible structure.",
+      "Owner-occupied real estate projects or larger fixed-asset plans may require comparing SBA 504 or SBA 7(a) as well."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common equipment-financing document examples",
+    "items": [
+      "Equipment quote, invoice, or vendor proposal",
+      "Recent business financial statements",
+      "Bank statements",
+      "Business tax returns"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to explain when an equipment-specific structure may fit and how it differs from broader SBA or working-capital options.",
+    "bullets": [
+      "Frames equipment financing as a distinct asset-backed path instead of blending it into generic working-capital copy.",
+      "Connects visitors to SBA 504, working capital, and the financing hub for comparison.",
+      "Keeps asset eligibility, collateral treatment, and final terms under third-party lender control."
+    ]
+  },
+  "glanceSpecs": [
+    ["Structure", "Asset-backed loan or lease"],
+    ["Common uses", "Machinery, vehicles, equipment"],
+    ["Collateral", "Often the equipment itself"],
+    ["Funding pattern", "Sized to the equipment cost"],
+    ["Best for", "Specific asset purchases"],
+    ["Issued by", "Third-party lenders or finance companies"]
+  ],
+  "eligibilityHeading": "What equipment-financing lenders often review",
+  "eligibilityCards": [
+    {
+      "id": "equipment_asset",
+      "iconKey": "truck",
+      "title": "The equipment itself",
+      "description": "Lenders commonly review the type, age, condition, and useful life of the equipment being financed."
+    },
+    {
+      "id": "equipment_business_profile",
+      "iconKey": "building",
+      "title": "Business profile",
+      "description": "Revenue, cash flow, and the business's operating track record can affect how the request is structured."
+    },
+    {
+      "id": "equipment_docs",
+      "iconKey": "file",
+      "title": "Equipment and financial documents",
+      "description": "Quotes, invoices, and basic financial support help lenders understand both the asset and the business behind the request."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Equipment-financing eligibility, product availability, collateral requirements, timelines, and terms are determined by third-party lenders or finance companies and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Financing machinery, vehicles, or other equipment?",
+    "subheading": "Preview whether equipment financing, SBA 504, SBA 7(a), or another path best fits the asset you are planning to purchase."
+  },
+  "commonQuestions": [
+    {
+      "id": "equipment_faq_how_it_works",
+      "question": "How does equipment financing work?",
+      "answer": "Equipment financing is usually tied to a specific asset purchase, with the equipment often supporting the financing structure. That can make it a strong fit when the business is buying machinery, vehicles, or other long-life equipment."
+    },
+    {
+      "id": "equipment_faq_vs_504",
+      "question": "How is equipment financing different from SBA 504?",
+      "answer": "Equipment financing is typically focused on the equipment itself, while SBA 504 is a broader fixed-asset program used for owner-occupied real estate and major equipment. The best fit depends on the project, asset type, and broader financing plan."
+    },
+    {
+      "id": "equipment_faq_docs",
+      "question": "What documents may be needed for equipment financing?",
+      "answer": "Common examples include an equipment quote or invoice, business financials, bank statements, and tax returns. Exact documentation varies by lender and by the asset being financed."
+    },
+    {
+      "id": "equipment_faq_direct",
+      "question": "Does Fund44 provide equipment financing directly?",
+      "answer": "No. Fund44 does not provide equipment financing directly. Eligibility and terms are determined by third-party lenders or finance companies."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_504",
+    "page_working_capital",
+    "page_sba_7a"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-01",
+    "F44-PROD-03",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_7a_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_usbank_equipment_financing_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "equipment_financing",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "equipment_financing_faq",
+    "freshnessState": "review_pending"
+  }
+}

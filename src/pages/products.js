@@ -107,3 +107,15 @@ export function acquisition() {
 export function workingCapital() {
   return renderProgramPage('page_working_capital');
 }
+
+export function termLoan() {
+  return renderProgramPage('page_term_loan');
+}
+
+export function lineOfCredit() {
+  return renderProgramPage('page_line_of_credit');
+}
+
+export function equipmentFinancing() {
+  return renderProgramPage('page_equipment_financing');
+}
