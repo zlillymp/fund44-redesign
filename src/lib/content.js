@@ -13,6 +13,9 @@ import cashFlowNeedsUseCase from '../../content/use-cases/cash-flow-needs.json' 
 import equipmentPurchaseUseCase from '../../content/use-cases/equipment-purchase.json' with { type: 'json' };
 import businessExpansionUseCase from '../../content/use-cases/business-expansion.json' with { type: 'json' };
 import refinanceBusinessDebtUseCase from '../../content/use-cases/refinance-business-debt.json' with { type: 'json' };
+import franchiseBusinessesIndustry from '../../content/industries/franchise-businesses.json' with { type: 'json' };
+import truckingCompaniesIndustry from '../../content/industries/trucking-companies.json' with { type: 'json' };
+import constructionContractorsIndustry from '../../content/industries/construction-contractors.json' with { type: 'json' };
 import resourcesPage from '../../content/pages/resources.json' with { type: 'json' };
 import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with { type: 'json' };
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
@@ -34,6 +37,9 @@ const records = [
   equipmentPurchaseUseCase,
   businessExpansionUseCase,
   refinanceBusinessDebtUseCase,
+  franchiseBusinessesIndustry,
+  truckingCompaniesIndustry,
+  constructionContractorsIndustry,
   resourcesPage,
   articleSba7aVs504,
   articlePreparingDocuments,
@@ -73,6 +79,10 @@ export function getProgramPages() {
 
 export function getUseCasePages() {
   return records.filter((record) => record.templateId === 'use_case_page');
+}
+
+export function getIndustryPages() {
+  return records.filter((record) => record.templateId === 'industry_page');
 }
 
 export function getResourceHub() {

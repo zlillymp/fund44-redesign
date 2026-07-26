@@ -1,0 +1,211 @@
+{
+  "id": "industry_construction_contractors",
+  "routeId": "construction_contractors",
+  "slug": "construction-contractors",
+  "pageType": "industry",
+  "templateId": "industry_page",
+  "title": "Construction contractor financing",
+  "metaTitle": "Construction contractor financing",
+  "metaDescription": "Construction contractors often compare working-capital lines, equipment financing, and SBA-backed options based on job schedules, receivables, surety-bond requirements, and fleet or equipment needs. Review the industry-specific document and fit differences.",
+  "summary": "The construction-contractors page explains how work-in-process schedules, receivables, bonds, and equipment needs change the financing comparison for contractors and builders.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Industry financing: construction contractors",
+    "title": "Construction financing usually follows the job schedule, not just the bid amount.",
+    "lead": "Contractors often compare working-capital lines, equipment financing, term debt, and SBA-backed options. The right starting point usually depends on whether the pressure comes from project cash-flow timing, bonded contract capacity, or a heavy equipment purchase."
+  },
+  "shortLabel": "Construction contractors",
+  "quickAnswer": {
+    "term": "Construction contractor financing",
+    "definition": "often starts with line-of-credit, equipment-financing, or SBA-backed comparisons, because lenders usually need to understand project cash-flow timing, accounts receivable, work-in-process, bonding requirements, and equipment demands alongside the contractor's financials."
+  },
+  "whoItFitsHeading": "When this industry page fits best",
+  "bestFitHeading": "Common financing starting points for construction contractors",
+  "bestFitProducts": [
+    {
+      "routeId": "line_of_credit",
+      "title": "Business lines of credit",
+      "description": "Often part of the first comparison when project cash-flow timing, payroll, materials, or receivables pressure the business between draws and collections.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "equipment_financing",
+      "title": "Equipment financing",
+      "description": "Often relevant when the request is really about excavators, trucks, trailers, lifts, or other job-critical equipment.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "Worth comparing when the project blends working capital, equipment, refinance, or broader growth needs into one request.",
+      "iconKey": "building"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When contractor financing tends to fit",
+    "items": [
+      "Contractors managing payroll and materials before receivables are collected",
+      "Builders or trades comparing a monitored working-capital line against a broader term or SBA structure",
+      "Firms that need to add or replace revenue-producing equipment tied directly to projects",
+      "Companies whose bonded work, backlog, or job schedule changes how the lender reads the cash-flow request"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the request is really about buying owner-occupied real estate, the real-estate route is usually the better first comparison.",
+      "If the company is not operating project-based or trade-contractor work, another industry or use-case page may fit better than this contractor-focused view."
+    ]
+  },
+  "industryFocusHeading": "Construction-specific underwriting and operating questions",
+  "underwritingFocusCards": [
+    {
+      "id": "construction_wip",
+      "iconKey": "route",
+      "title": "Work in process and backlog",
+      "description": "Bonded and project-based contractors often need the lender or surety to understand the work already underway, not just the next project they want to fund."
+    },
+    {
+      "id": "construction_receivables",
+      "iconKey": "cash",
+      "title": "Receivables and project timing",
+      "description": "SBA's working-capital pilot highlights borrowing against accounts receivable and project financing, which matters when labor and materials are funded ahead of collection."
+    },
+    {
+      "id": "construction_bonds",
+      "iconKey": "shield",
+      "title": "Bonding capacity and contract requirements",
+      "description": "Public and private contracts may require bid, performance, or payment bonds, so financing conversations can overlap with bond eligibility and surety documentation."
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common contractor-financing document examples",
+    "items": [
+      "Schedule of work in process or backlog support",
+      "Accounts receivable or project-billing support showing how jobs convert to cash",
+      "Bid, performance, or payment bond information when bonded contracts are part of the work mix",
+      "Equipment quotes or fixed-asset details if the request also includes machines, vehicles, or major tools"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate contractor-specific work-in-process, bonding, and equipment questions from generic business-loan copy before routing the borrower into the most relevant product pages.",
+    "bullets": [
+      "Explains why the same dollar request can look different when payroll and materials are funded ahead of project collections.",
+      "Connects contractors to line-of-credit, equipment, SBA, and use-case routes without promising a single correct structure.",
+      "Keeps final underwriting, collateral, and bond decisions with third-party lenders, sureties, and program rules."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the project changes",
+  "alternativePaths": [
+    {
+      "routeId": "business_expansion",
+      "title": "Business expansion",
+      "description": "Use the broader expansion-intent page if the question is really about a new division, location, or scale-up rather than project-by-project contractor working capital.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Use the real-estate path if the project is about a yard, warehouse, or other owner-occupied property rather than operating capital or equipment.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "equipment_purchase",
+      "title": "Equipment purchase",
+      "description": "Use this route if the contractor's real need is financing one machine or vehicle, not the broader job-schedule cash cycle.",
+      "iconKey": "truck"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Construction-financing eligibility, bond participation, lender availability, collateral requirements, timelines, and terms are determined by third-party lenders, sureties, and program rules. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Funding payroll, materials, or equipment between projects?",
+    "subheading": "Preview the financing paths that may fit your contractor cash cycle before you choose one structure."
+  },
+  "commonQuestions": [
+    {
+      "id": "construction_faq_start",
+      "question": "What financing paths do construction contractors commonly compare first?",
+      "answer": "Lines of credit, equipment financing, SBA-backed options, and term loans are common starting points, depending on whether the need is project cash flow, bonded contract capacity, or a machine or vehicle purchase."
+    },
+    {
+      "id": "construction_faq_wip",
+      "question": "Why does work in process matter for some contractor requests?",
+      "answer": "SBA's work-in-process form exists because surety and contractor underwriting often needs to understand the jobs already underway, not just future work. That helps frame backlog, open commitments, and project timing."
+    },
+    {
+      "id": "construction_faq_bonds",
+      "question": "Why do surety bonds come up in contractor financing discussions?",
+      "answer": "SBA's surety-bond program explains that many public and private contracts require bid, performance, and payment bonds. When bonded work is part of the business mix, bond capacity can overlap with financing and document preparation."
+    },
+    {
+      "id": "construction_faq_direct",
+      "question": "Does Fund44 lend directly to contractors?",
+      "answer": "No. Fund44 does not lend directly to contractors. Third-party lenders and, where relevant, sureties determine eligibility, structure, and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_line_of_credit",
+    "page_equipment_financing",
+    "page_sba_7a",
+    "use_case_business_expansion",
+    "use_case_owner_occupied_real_estate"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-05",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_surety_bonds_2026_07_26",
+    "external_sba_wip_form_994f_2026_07_26",
+    "external_sba_7a_wcp_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "construction_contractor_financing",
+    "contentGroup": "industry",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "industry",
+    "ctaIds": [
+      "preview_funding_paths",
+      "industry_best_fit_link",
+      "industry_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "construction_contractors_faq",
+    "freshnessState": "review_pending"
+  }
+}

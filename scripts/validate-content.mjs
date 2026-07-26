@@ -101,6 +101,22 @@ function validateRouteCardGroup(record, fieldName) {
   });
 }
 
+function validateFeatureCardGroup(record, fieldName) {
+  const items = record[fieldName];
+  assert(Array.isArray(items), `${record.id}: ${fieldName} must be an array`);
+  assert(items.length > 0, `${record.id}: ${fieldName} must include at least one item`);
+
+  const seenIds = new Set();
+  items.forEach((item, index) => {
+    assert(item?.id, `${record.id}: ${fieldName}[${index}].id is required`);
+    assert(typeof item?.title === 'string' && item.title.length > 0, `${record.id}: ${fieldName}[${index}].title is required`);
+    assert(typeof item?.description === 'string' && item.description.length > 0, `${record.id}: ${fieldName}[${index}].description is required`);
+    assert(item?.iconKey, `${record.id}: ${fieldName}[${index}].iconKey is required`);
+    assert(!seenIds.has(item.id), `${record.id}: duplicate ${fieldName} id "${item.id}"`);
+    seenIds.add(item.id);
+  });
+}
+
 function validateClaimReview(record) {
   assert(Array.isArray(record.claimIds), `${record.id}: claimIds must be an array`);
   const claimIds = new Set();
@@ -187,6 +203,16 @@ function validateScalableTemplateContract(record, route) {
 
   if (record.templateId === 'use_case_page') {
     validateRouteCardGroup(record, 'bestFitProducts');
+    validateRouteCardGroup(record, 'alternativePaths');
+  }
+
+  if (record.templateId === 'industry_page') {
+    assert(record.shortLabel, `${record.id}: shortLabel is required for industry pages`);
+    assert(record.whoItFitsHeading, `${record.id}: whoItFitsHeading is required for industry pages`);
+    assert(record.bestFitHeading, `${record.id}: bestFitHeading is required for industry pages`);
+    assert(record.industryFocusHeading, `${record.id}: industryFocusHeading is required for industry pages`);
+    validateRouteCardGroup(record, 'bestFitProducts');
+    validateFeatureCardGroup(record, 'underwritingFocusCards');
     validateRouteCardGroup(record, 'alternativePaths');
   }
 }

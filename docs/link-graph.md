@@ -4,10 +4,10 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 
 ## Summary
 
-- Indexable canonical routes: 24
-- Hub links: 23
-- Contextual links: 108
-- Next-step links: 24
+- Indexable canonical routes: 27
+- Hub links: 26
+- Contextual links: 131
+- Next-step links: 27
 - Orphans detected: 0
 
 ## Route Inventory
@@ -15,25 +15,28 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 | Route ID | Path | Hub | Contextual | Next | Inbound |
 | --- | --- | --- | --- | --- | --- |
 | `home` | `/` | 0 | 7 | 1 | 7 |
-| `financing` | `/financing` | 1 | 13 | 1 | 23 |
-| `sba_7a` | `/sba-7a` | 1 | 3 | 1 | 14 |
+| `financing` | `/financing` | 1 | 16 | 1 | 26 |
+| `sba_7a` | `/sba-7a` | 1 | 3 | 1 | 16 |
 | `sba_504` | `/sba-504` | 1 | 3 | 1 | 8 |
-| `business_acquisition` | `/business-acquisition` | 1 | 3 | 1 | 5 |
+| `business_acquisition` | `/business-acquisition` | 1 | 3 | 1 | 6 |
 | `working_capital` | `/working-capital` | 1 | 6 | 1 | 12 |
-| `term_loan` | `/term-loan` | 1 | 3 | 1 | 8 |
-| `line_of_credit` | `/line-of-credit` | 1 | 3 | 1 | 6 |
-| `equipment_financing` | `/equipment-financing` | 1 | 3 | 1 | 4 |
-| `buy_a_business` | `/use-cases/buy-a-business` | 1 | 5 | 1 | 1 |
-| `owner_occupied_real_estate` | `/use-cases/owner-occupied-real-estate` | 1 | 6 | 1 | 3 |
-| `cash_flow_needs` | `/use-cases/cash-flow-needs` | 1 | 7 | 1 | 2 |
-| `equipment_purchase` | `/use-cases/equipment-purchase` | 1 | 6 | 1 | 3 |
-| `business_expansion` | `/use-cases/business-expansion` | 1 | 6 | 1 | 4 |
+| `term_loan` | `/term-loan` | 1 | 3 | 1 | 9 |
+| `line_of_credit` | `/line-of-credit` | 1 | 3 | 1 | 8 |
+| `equipment_financing` | `/equipment-financing` | 1 | 3 | 1 | 7 |
+| `buy_a_business` | `/use-cases/buy-a-business` | 1 | 6 | 1 | 2 |
+| `owner_occupied_real_estate` | `/use-cases/owner-occupied-real-estate` | 1 | 6 | 1 | 4 |
+| `cash_flow_needs` | `/use-cases/cash-flow-needs` | 1 | 7 | 1 | 3 |
+| `equipment_purchase` | `/use-cases/equipment-purchase` | 1 | 7 | 1 | 6 |
+| `business_expansion` | `/use-cases/business-expansion` | 1 | 7 | 1 | 5 |
 | `refinance_business_debt` | `/use-cases/refinance-business-debt` | 1 | 6 | 1 | 3 |
-| `how_it_works` | `/how-it-works` | 1 | 2 | 1 | 16 |
+| `franchise_businesses` | `/industries/franchise-businesses` | 1 | 6 | 1 | 2 |
+| `trucking_companies` | `/industries/trucking-companies` | 1 | 5 | 1 | 2 |
+| `construction_contractors` | `/industries/construction-contractors` | 1 | 6 | 1 | 2 |
+| `how_it_works` | `/how-it-works` | 1 | 2 | 1 | 19 |
 | `about` | `/about` | 1 | 2 | 1 | 2 |
 | `resources` | `/resources` | 1 | 6 | 1 | 6 |
 | `resource_sba_7a_vs_504` | `/resources/sba-7a-vs-504` | 1 | 4 | 1 | 6 |
-| `resource_preparing_documents` | `/resources/preparing-your-documents` | 1 | 4 | 1 | 9 |
+| `resource_preparing_documents` | `/resources/preparing-your-documents` | 1 | 4 | 1 | 10 |
 | `resource_working_capital_vs_term_loan` | `/resources/working-capital-vs-term-loan` | 1 | 4 | 1 | 7 |
 | `privacy` | `/privacy` | 1 | 2 | 1 | 2 |
 | `terms` | `/terms` | 1 | 2 | 1 | 2 |
@@ -81,6 +84,9 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 - `refinance_business_debt` /use-cases/refinance-business-debt — The refinance-business-debt use-case page compares the financing routes most often reviewed when the goal is restructuring, consolidating, or replacing existing business obligations.
+- `franchise_businesses` /industries/franchise-businesses — The franchise-businesses page explains how franchise-specific disclosure, brand-eligibility, and startup-versus-acquisition differences shape which financing paths tend to fit.
+- `trucking_companies` /industries/trucking-companies — The trucking-companies page explains how registration, tax, insurance, and fleet-asset requirements change the financing comparison for owner-operators and growing fleets.
+- `construction_contractors` /industries/construction-contractors — The construction-contractors page explains how work-in-process schedules, receivables, bonds, and equipment needs change the financing comparison for contractors and builders.
 
 ### Next step
 
@@ -220,6 +226,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
+- `franchise_businesses` /industries/franchise-businesses — The franchise-businesses page explains how franchise-specific disclosure, brand-eligibility, and startup-versus-acquisition differences shape which financing paths tend to fit.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `refinance_business_debt` /use-cases/refinance-business-debt — The refinance-business-debt use-case page compares the financing routes most often reviewed when the goal is restructuring, consolidating, or replacing existing business obligations.
 
@@ -280,6 +287,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `trucking_companies` /industries/trucking-companies — The trucking-companies page explains how registration, tax, insurance, and fleet-asset requirements change the financing comparison for owner-operators and growing fleets.
 - `resource_sba_7a_vs_504` /resources/sba-7a-vs-504 — A comparison article that distinguishes SBA 7(a) from SBA 504 and explains when each program is typically considered.
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
@@ -300,6 +308,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
+- `construction_contractors` /industries/construction-contractors — The construction-contractors page explains how work-in-process schedules, receivables, bonds, and equipment needs change the financing comparison for contractors and builders.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
@@ -323,6 +332,65 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
+
+### Next step
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## franchise_businesses
+
+### Hub page
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+
+### Related routes
+
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
+- `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
+
+### Next step
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## trucking_companies
+
+### Hub page
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+
+### Related routes
+
+- `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
+- `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
+- `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
+- `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
+- `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
+
+### Next step
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## construction_contractors
+
+### Hub page
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+
+### Related routes
+
+- `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
+- `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
 ### Next step
 

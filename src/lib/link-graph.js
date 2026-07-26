@@ -59,6 +59,7 @@ function getHubRouteId(route) {
   if (route.routeFamily === 'resources_article') return 'resources';
   if (route.templateId === 'product_page') return 'financing';
   if (route.templateId === 'use_case_page') return 'financing';
+  if (route.templateId === 'industry_page') return 'financing';
   if (route.routeId === 'financing') return 'home';
   if (route.routeId === 'resources') return 'home';
   if (route.routeId === 'about' || route.routeId === 'how_it_works') return 'home';
@@ -70,6 +71,7 @@ function getNextStepRouteId(route) {
   if (route.routeId === 'home') return 'how_it_works';
   if (route.templateId === 'product_page') return 'how_it_works';
   if (route.templateId === 'use_case_page') return 'how_it_works';
+  if (route.templateId === 'industry_page') return 'how_it_works';
   if (route.routeId === 'financing') return 'how_it_works';
   return 'financing';
 }
@@ -83,6 +85,9 @@ function getMinimumRequirements(route) {
   }
   if (route.templateId === 'use_case_page') {
     return { hub: 1, contextual: 4, next: 1 };
+  }
+  if (route.templateId === 'industry_page') {
+    return { hub: 1, contextual: 5, next: 1 };
   }
   if (route.templateId === 'resources_hub') {
     return { hub: 1, contextual: 4, next: 1 };
@@ -128,6 +133,10 @@ function getStructuredContextualRouteIds(route) {
 
   record.alternativePaths?.forEach((item) => {
     targetRouteIds.push(item.routeId);
+  });
+
+  record.underwritingFocusCards?.forEach(() => {
+    // no-op for route targets; cards are validated for substantive content elsewhere
   });
 
   return targetRouteIds;
@@ -187,6 +196,7 @@ function getContextualRouteIds(route) {
 function sectionHeading(route) {
   if (route.templateId === 'product_page') return 'Compare related paths';
   if (route.templateId === 'use_case_page') return 'Compare related paths';
+  if (route.templateId === 'industry_page') return 'Compare related paths';
   if (route.templateId === 'editorial_article' || route.templateId === 'resources_hub') return 'Keep exploring';
   if (route.routeFamily === 'legal' || route.routeFamily === 'contact') return 'Helpful next links';
   return 'Explore related routes';

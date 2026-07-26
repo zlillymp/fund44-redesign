@@ -85,6 +85,24 @@ test('use-case launch routes are canonical clean-path entries', () => {
   });
 });
 
+test('industry launch routes are canonical clean-path entries', () => {
+  const inventory = new Map(getRouteInventory().map((route) => [route.routeId, route]));
+
+  [
+    'franchise_businesses',
+    'trucking_companies',
+    'construction_contractors',
+  ].forEach((routeId) => {
+    const route = inventory.get(routeId);
+    assert.ok(route, `missing route ${routeId}`);
+    assert.equal(route.pageType, 'industry');
+    assert.equal(route.templateId, 'industry_page');
+    assert.equal(route.routeFamily, 'industry');
+    assert.equal(route.canonical, true);
+    assert.equal(route.indexable, true);
+  });
+});
+
 test('article slugs map to manifest routes', () => {
   const route = getRouteBySlug('preparing-your-documents');
   assert.ok(route);
@@ -96,4 +114,5 @@ test('structured content records remain bound to manifest route ids', () => {
   assert.equal(getContentById('page_sba_7a').routeId, 'sba_7a');
   assert.equal(getContentById('article_working_capital_vs_term_loan').routeId, 'resource_working_capital_vs_term_loan');
   assert.equal(getContentById('use_case_cash_flow_needs').routeId, 'cash_flow_needs');
+  assert.equal(getContentById('industry_trucking_companies').routeId, 'trucking_companies');
 });

@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { getAllContent, getContentById, getContentByRouteId, getProgramPages, getResourceHub, getUseCasePages } from '../src/lib/content.js';
+import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getProgramPages, getResourceHub, getUseCasePages } from '../src/lib/content.js';
 import { getRouteBySlug, getRouteInventory } from '../src/lib/routes.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
-  assert.equal(allContent.length, 19);
+  assert.equal(allContent.length, 22);
   assert.deepEqual(
     allContent.map((record) => record.id),
     [
@@ -25,6 +25,9 @@ test('structured content inventory covers the planned route set', () => {
       'use_case_equipment_purchase',
       'use_case_business_expansion',
       'use_case_refinance_business_debt',
+      'industry_franchise_businesses',
+      'industry_trucking_companies',
+      'industry_construction_contractors',
       'page_resources',
       'article_sba_7a_vs_504',
       'article_preparing_your_documents',
@@ -63,6 +66,20 @@ test('use-case pages remain discoverable through structured content', () => {
       'equipment_purchase',
       'business_expansion',
       'refinance_business_debt',
+    ],
+  );
+});
+
+test('industry pages remain discoverable through structured content', () => {
+  const industryPages = getIndustryPages();
+
+  assert.equal(industryPages.length, 3);
+  assert.deepEqual(
+    industryPages.map((page) => page.routeId),
+    [
+      'franchise_businesses',
+      'trucking_companies',
+      'construction_contractors',
     ],
   );
 });
@@ -152,5 +169,26 @@ test('use-case launch pages have unique substantive intent and real product/alte
     assert.ok(page.alternativePaths.length >= 2, `${page.routeId} should include alternative paths`);
     assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
     assert.ok(page.relatedIds.length >= 5, `${page.routeId} should include at least 5 related links`);
+  });
+});
+
+test('industry launch pages have unique substantive intent and real underwriting/document differences', () => {
+  const routeIds = [
+    'franchise_businesses',
+    'trucking_companies',
+    'construction_contractors',
+  ];
+  const pages = routeIds.map((routeId) => getContentByRouteId(routeId));
+
+  assert.equal(new Set(pages.map((page) => page.intent.primaryTopic)).size, pages.length);
+  assert.equal(new Set(pages.map((page) => page.metaDescription)).size, pages.length);
+
+  pages.forEach((page) => {
+    assert.ok(page.quickAnswer.definition.length > 90, `${page.routeId} quick answer should be substantive`);
+    assert.ok(page.bestFitProducts.length >= 3, `${page.routeId} should include best-fit products`);
+    assert.ok(page.underwritingFocusCards.length >= 3, `${page.routeId} should include underwriting focus cards`);
+    assert.ok(page.alternativePaths.length >= 3, `${page.routeId} should include alternative paths`);
+    assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
+    assert.ok(page.relatedIds.length >= 6, `${page.routeId} should include at least 6 related links`);
   });
 });

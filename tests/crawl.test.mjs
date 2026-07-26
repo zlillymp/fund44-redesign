@@ -65,6 +65,9 @@ test('llms inventory follows manifest policy and excludes article routes flagged
   assert.ok(!inventory.llmsEntries.some((entry) => entry.routeId === 'resource_sba_7a_vs_504'));
   assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'buy_a_business'));
   assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'cash_flow_needs'));
+  assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'franchise_businesses'));
+  assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'trucking_companies'));
+  assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'construction_contractors'));
 });
 
 test('rendered crawl files are deterministic and respect staging noindex', () => {
