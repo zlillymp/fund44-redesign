@@ -105,6 +105,26 @@ function validateRelationships(record) {
   record.relatedIds.forEach((relatedId) => {
     assert(contentById.has(relatedId), `${record.id}: related id "${relatedId}" does not exist`);
   });
+  if (Array.isArray(record.productCardIds)) {
+    record.productCardIds.forEach((contentId) => {
+      assert(contentById.has(contentId), `${record.id}: product card id "${contentId}" does not exist`);
+    });
+  }
+  if (Array.isArray(record.articleIds)) {
+    record.articleIds.forEach((contentId) => {
+      assert(contentById.has(contentId), `${record.id}: article id "${contentId}" does not exist`);
+    });
+  }
+  if (Array.isArray(record.matrixRows)) {
+    record.matrixRows.forEach((row, index) => {
+      assert(routeById.has(row.destinationRouteId), `${record.id}: matrixRows[${index}] destinationRouteId "${row.destinationRouteId}" does not exist`);
+    });
+  }
+  if (Array.isArray(record.decisionCards)) {
+    record.decisionCards.forEach((card, index) => {
+      assert(routeById.has(card.destinationRouteId), `${record.id}: decisionCards[${index}] destinationRouteId "${card.destinationRouteId}" does not exist`);
+    });
+  }
   assert(Array.isArray(record.disclosureIds), `${record.id}: disclosureIds must be an array`);
   assert(Array.isArray(record.citationIds), `${record.id}: citationIds must be an array`);
 }
