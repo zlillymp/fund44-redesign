@@ -8,11 +8,16 @@ import { getCanonicalRoutes } from '../src/lib/routes.js';
 test('renderRouteToHtml returns final copy for canonical routes', () => {
   const home = renderRouteToHtml('/');
   const financing = renderRouteToHtml('/financing');
+  const sba7a = renderRouteToHtml('/sba-7a');
   const article = renderRouteToHtml('/resources/sba-7a-vs-504');
   const notFound = renderRouteToHtml('/missing-route');
 
   assert.match(home.html, /Funding a business shouldn't mean starting over five times\./i);
   assert.match(financing.html, /Compare financing paths at a glance/i);
+  assert.match(financing.html, /Who this overview fits/i);
+  assert.match(financing.html, /Typical documents and how Fund44 fits/i);
+  assert.match(sba7a.html, /When SBA 7\(a\) tends to fit/i);
+  assert.match(sba7a.html, /Typical documents and how Fund44 fits/i);
   assert.match(article.html, /SBA 7\(a\) vs SBA 504/i);
   assert.match(notFound.html, /This path doesn't lead anywhere\./i);
 });

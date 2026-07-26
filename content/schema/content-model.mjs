@@ -1,3 +1,5 @@
+import { scalableTemplateFieldRequirements } from './scalable-page-contract.mjs';
+
 export const baseRequiredFields = [
   'id',
   'routeId',
@@ -39,21 +41,7 @@ export const templateRequiredFields = {
     'productCardIds',
     'ctaBanner',
   ],
-  financing_hub: [
-    'matrixRows',
-    'decisionCards',
-    'ctaBanner',
-  ],
   resources_hub: [
-    'ctaBanner',
-  ],
-  product_page: [
-    'shortLabel',
-    'glanceSpecs',
-    'whoItFitsHeading',
-    'eligibilityHeading',
-    'eligibilityCards',
-    'sectionDisclosureHtml',
     'ctaBanner',
   ],
   editorial_article: [
@@ -64,6 +52,7 @@ export const templateRequiredFields = {
     'sectionDisclosureHtml',
     'ctaBanner',
   ],
+  ...scalableTemplateFieldRequirements,
 };
 
 export const allowedFreshnessStates = new Set(['review_pending', 'published', 'reviewed']);

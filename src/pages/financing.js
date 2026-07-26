@@ -1,6 +1,6 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, relatedLinksModule } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, relatedLinksModule, sectionListCard, sectionSummaryCard } from '../components/ui.js';
 import { getBreadcrumbs, hrefForContentId, hrefForRoute } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
@@ -38,6 +38,15 @@ export function financing() {
   </section>
 
   <section class="section-tight wrap">
+    ${eyebrow('Fit and caution')}
+    <h2 class="h2 reveal mt-4 mb-8">Who this overview fits and when to go deeper</h2>
+    <div class="grid g-2 reveal" data-stagger>
+      ${sectionListCard(content.whoItFits)}
+      ${sectionListCard(content.whenItMayNotFit)}
+    </div>
+  </section>
+
+  <section class="section-tight wrap">
     ${eyebrow('Comparison matrix')}
     <h2 class="h2 reveal mt-4 mb-8">Compare financing paths at a glance</h2>
     <div class="matrix reveal">
@@ -62,6 +71,15 @@ export function financing() {
     <p class="muted mt-4 disclosure-copy">Relative speed is a general guide only. Actual timelines, amounts, and terms are determined by individual lenders.</p>
   </section>
 
+  <section class="section-tight wrap">
+    ${eyebrow('Prep and context')}
+    <h2 class="h2 reveal mt-4 mb-8">Typical documents and how Fund44 fits</h2>
+    <div class="grid g-2 reveal" data-stagger>
+      ${sectionListCard(content.typicalDocuments)}
+      ${sectionSummaryCard(content.howFund44Fits)}
+    </div>
+  </section>
+
   <section class="section wrap">
     <div class="mb-8">
       ${eyebrow('Decision helper')}
@@ -79,7 +97,7 @@ export function financing() {
         </a>
       `).join('')}
     </div>
-    <div class="mt-8">${disclosure('<strong>Fund44 is not a lender.</strong> These are general starting points, not eligibility determinations. Financing is offered by third-party providers; eligibility and terms vary by provider.')}</div>
+    <div class="mt-8">${disclosure(content.sectionDisclosureHtml)}</div>
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
