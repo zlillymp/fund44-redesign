@@ -6,13 +6,13 @@
   "templateId": "product_page",
   "title": "Business acquisition loans",
   "metaTitle": "Business acquisition loans",
-  "metaDescription": "Business acquisition loans help you finance the purchase of an existing business or a partner buyout. Fund44 matches your deal to relevant lenders and structures, including SBA 7(a) acquisition financing.",
+  "metaDescription": "Business acquisition financing can help fund the purchase of an existing business, a partner buyout, or an ownership transition. Learn the structures borrowers commonly evaluate.",
   "summary": "The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "Business acquisition",
     "title": "Business acquisition financing — fund the deal.",
-    "lead": "Buying a business, buying out a partner, or funding a transition takes a structure that fits the deal. Fund44 helps you find the paths that match your acquisition."
+    "lead": "Buying a business, buying out a partner, or funding a transition takes a structure that fits the deal. This page explains the paths borrowers commonly evaluate for acquisition financing."
   },
   "shortLabel": "Business acquisition",
   "quickAnswer": {
@@ -102,12 +102,12 @@
     {
       "id": "acq_faq_docs",
       "question": "What documents will I need for an acquisition?",
-      "answer": "Lenders typically want the target business’s financials, the purchase agreement or letter of intent, your personal financial information, and a use-of-funds summary. Fund44 lets you upload these once."
+      "answer": "Lenders commonly ask for the target business’s financials, the purchase agreement or letter of intent, your personal financial information, and a use-of-funds summary. Exact document requirements vary by lender and transaction."
     },
     {
       "id": "acq_faq_direct",
       "question": "Does Fund44 finance acquisitions directly?",
-      "answer": "No. Fund44 routes your deal to relevant third-party lenders. Eligibility, structure, and terms are decided by those lenders."
+      "answer": "No. Fund44 does not finance acquisitions directly. Eligibility, structure, and terms are decided by third-party lenders and, where applicable, SBA rules."
     }
   ],
   "relatedIds": [
@@ -124,7 +124,23 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-04",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "document_guidance",
+      "educational_editorial"
+    ]
+  },
+  "citationIds": [
+    "external_sba_buy_existing_business_2026_07_26",
+    "external_sba_change_of_ownership_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-04",
     "F44-DISC-09"

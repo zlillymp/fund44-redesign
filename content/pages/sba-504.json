@@ -6,13 +6,13 @@
   "templateId": "product_page",
   "title": "SBA 504 loans",
   "metaTitle": "SBA 504 loans",
-  "metaDescription": "SBA 504 loans provide long-term, fixed-asset financing for owner-occupied commercial real estate and major equipment. Fund44 connects you with lenders offering 504 financing.",
+  "metaDescription": "SBA 504 loans provide long-term, fixed-asset financing for owner-occupied commercial real estate and major equipment. Learn when the program commonly fits and how it differs from 7(a).",
   "summary": "The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "SBA 504",
     "title": "SBA 504 loans — for real estate and major assets.",
-    "lead": "The SBA 504 program is designed for long-term investments in fixed assets like owner-occupied property and heavy equipment. Fund44 helps you see if it fits and routes you to lenders that offer it."
+    "lead": "The SBA 504 program is designed for long-term investments in fixed assets like owner-occupied property and heavy equipment. Use this page to understand when it commonly fits and how it differs from other paths."
   },
   "shortLabel": "SBA 504",
   "quickAnswer": {
@@ -107,7 +107,7 @@
     {
       "id": "sba504_faq_direct_lender",
       "question": "Does Fund44 issue SBA 504 loans?",
-      "answer": "No. Fund44 matches you with lenders and CDCs that offer 504 financing. Eligibility and terms are decided by those providers."
+      "answer": "No. Fund44 does not issue SBA 504 loans. Eligibility and terms are decided by lenders, CDCs, and SBA program rules."
     }
   ],
   "relatedIds": [
@@ -124,7 +124,24 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-03",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_loans_overview_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-04",
     "F44-DISC-09"

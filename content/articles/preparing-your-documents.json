@@ -81,7 +81,7 @@
     },
     {
       "type": "paragraph",
-      "html": "<p>Traditionally, each lender wants its own copies in its own format. Prepare a clean set once and you remove the biggest source of friction. Fund44's shared document checklist takes this further — you upload a single time and reuse across relevant lenders.</p>"
+      "html": "<p>Traditionally, each lender wants its own copies in its own format. Prepare a clean set once and you remove one of the biggest sources of friction. Fund44 uses approved workflow wording about one document checklist and document reuse only where that support is available in the experience.</p>"
     },
     {
       "type": "heading",
@@ -107,7 +107,7 @@
     {
       "id": "article_docs_credit",
       "question": "Does uploading documents to Fund44 trigger a credit check?",
-      "answer": "Checking initial options uses information that does not affect your credit score. A lender may run a hard inquiry later if you choose to proceed."
+      "answer": "Checking the preview uses information that does not affect your credit score because the current preview does not submit an application to a lender."
     }
   ],
   "relatedIds": [
@@ -124,7 +124,28 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-07",
+    "F44-PROC-01",
+    "F44-PROC-04",
+    "F44-CRED-01"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "document_guidance",
+      "educational_editorial",
+      "workflow_availability",
+      "credit_disclosure"
+    ]
+  },
+  "citationIds": [
+    "external_wf_credit_application_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_sba_buy_existing_business_2026_07_26",
+    "internal_disc_13_workflow",
+    "internal_disc_03_preview_credit"
+  ],
   "disclosureIds": [
     "F44-DISC-04"
   ],

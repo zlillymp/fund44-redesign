@@ -100,7 +100,7 @@
     },
     {
       "type": "paragraph",
-      "html": "<p>Rather than researching each program and applying separately, you can share your goal once and let Fund44 surface the SBA paths — and non-SBA alternatives — that fit your situation.</p>"
+      "html": "<p>Use this comparison to decide whether you should explore SBA 7(a), SBA 504, or another financing path in more detail.</p>"
     }
   ],
   "sectionDisclosureHtml": "This article is educational and general in nature. It is not financial or legal advice. <strong>Fund44 is not a lender.</strong> Program rules, eligibility, and terms are set by the SBA and third-party lenders and can change.",
@@ -134,7 +134,23 @@
   },
   "publishedDate": null,
   "reviewedDate": null,
-  "citationIds": [],
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-06"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "program_detail",
+      "educational_editorial"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_loans_overview_2026_07_26"
+  ],
   "disclosureIds": [
     "F44-DISC-04"
   ],
