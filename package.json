@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "node --test",
     "validate:content": "node scripts/validate-content.mjs",
+    "validate:legal": "node scripts/validate-legal.mjs",
     "validate:routes": "node scripts/validate-routes.mjs",
     "smoke:routes": "node scripts/smoke-routes.mjs"
   },

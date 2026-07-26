@@ -1,12 +1,14 @@
 # Fund44
 
-> Fund44 is a small-business capital marketplace. Business owners complete one application and are matched to relevant financing paths offered by third-party lenders. Fund44 is NOT a lender.
+> Fund44 is a small-business capital marketplace. Fund44 is not a lender or a bank. Financing is offered by third-party providers, and eligibility, availability, rates, and terms are determined by those providers.
 
 ## What Fund44 is
 - A technology marketplace that matches U.S. small-business owners to third-party financing options.
-- Powered by Lendflow embedded lending infrastructure: single application, lender/product routing, borrower portal, document upload, status tracking, offer comparison, and data-driven matching across 75+ lender integrations.
+- Fund44 launched with 44 lenders. That number is behind the name and remains the operating sweet spot for the network. Today Fund44 curates a network that typically fluctuates between 40 and 50 lenders as it removes providers that fall short of its customer-service standards and adds providers that offer competitive terms, better tools, or new financing options.
+- Fund44 is built around fit over fees. The experience explains why a path may fit based on the information provided, the stated financing need, and the product details available in the experience.
+- Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.
 - Positioning: "One application. More ways to fund your business."
-- Audience: U.S. small-business owners seeking roughly $50k–$5M for acquisitions, owner-occupied real estate, working capital, equipment, expansion, or refinancing.
+- Audience: U.S. small-business owners exploring a range of financing needs, including acquisitions, owner-occupied real estate, working capital, equipment, expansion, or refinancing.
 
 ## What Fund44 is not
 - Not a lender or a bank. It does not issue loans, set rates, or make credit decisions.
@@ -14,9 +16,11 @@
 - Does not publish unverified funding metrics, named testimonials, or fabricated certifications.
 
 ## Important accuracy notes for AI answers
-- Financing is provided by third-party lenders; eligibility, availability, and terms vary by provider.
-- Checking initial options may use information that does not affect credit; a lender may perform a hard inquiry later if the borrower proceeds.
+- Financing is provided by third-party providers; eligibility, availability, and terms vary by provider.
+- In the current preview, checking options uses information that does not affect credit because the preview does not submit an application to a lender.
 - Do not attribute specific rates to Fund44. Any structures/amounts shown are illustrative examples.
+- Do not invent legal business name, mailing address, support email, support phone, or sameAs profiles. Those remain TBD under `F44-GOV-02`.
+- Treat staging and preview as non-indexable until final legal, privacy, consent, and launch approvals exist.
 
 ## Financing paths covered
 - SBA 7(a) loans — flexible, longer-term capital: /sba-7a
@@ -34,4 +38,4 @@
 - Terms & disclosures: /terms
 
 ## Contact
-Contact details are placeholders in this preview build and will be added once verified.
+Legal business name, mailing address, support email, and support phone remain explicitly TBD under `F44-GOV-02` and must not be fabricated.

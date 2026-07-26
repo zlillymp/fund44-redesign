@@ -86,12 +86,12 @@ export const routingWaterfall = () => `
   <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">routing engine · lender network</span></div>
   <div class="panel-body">
     <div class="waterfall">
-      <div class="wf-stage"><div class="wf-node on">01</div><div class="wf-label"><b>One application</b><span>Borrower profile normalized</span></div></div>
+      <div class="wf-stage"><div class="wf-node on">01</div><div class="wf-label"><b>One intake experience</b><span>Borrower profile normalized</span></div></div>
       <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
-      <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Curated network, typically 40-50 lenders</span></div><span class="wf-badge">40-50</span></div>
+      <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Explained from the curated network and available product details</span></div><span class="wf-badge">curated</span></div>
       <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
-      <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Path context updated</b><span>Shown only where the experience supports it</span></div><span class="wf-badge">varies</span></div>
-      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Explained using fit-over-fees routing context</span></div><span class="wf-badge match">4 paths</span></div>
+      <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Not every path is shown</b><span>Availability can vary by provider and by business profile</span></div><span class="wf-badge">varies</span></div>
+      <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Explained from the information provided and the product details available</span></div><span class="wf-badge match">sample</span></div>
     </div>
   </div>
 </div>`;
@@ -186,9 +186,9 @@ export const chaosToPath = () => `
     <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--accent)">With Fund44</span>
     <div class="path-step"><span class="pnum">1</span> Answer a few questions once</div>
     <div class="path-step"><span class="pnum">2</span> See paths based on your profile</div>
-    <div class="path-step"><span class="pnum">3</span> Upload documents a single time</div>
+    <div class="path-step"><span class="pnum">3</span> Use one document checklist</div>
     <div class="path-step"><span class="pnum">4</span> Compare offers side by side</div>
-    <div class="path-step"><span class="pnum">5</span> Continue with one shared flow</div>
+    <div class="path-step"><span class="pnum">5</span> Continue with one guided flow</div>
   </div>
 </div>`;
 

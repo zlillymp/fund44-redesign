@@ -1,5 +1,6 @@
 // SEO / metadata manager — updates <head> per route, injects JSON-LD.
-import { absoluteUrlForPath, routeSite } from './routes.js';
+import { absoluteUrlForPath, getRouteByPath, routeSite } from './routes.js';
+import { entityProfile, robotsForRoute } from './legal.js';
 
 const SITE = routeSite.siteName;
 const BASE = routeSite.baseUrl;
@@ -15,12 +16,19 @@ function upsertLink(rel, href) {
   el.setAttribute('href', href);
 }
 
-export function setMeta({ title, description, path = '/', jsonld = [] }) {
+function removeMeta(attr, key) {
+  document.head.querySelector(`meta[${attr}="${key}"]`)?.remove();
+}
+
+export function setMeta({ title, description, path = '/', robots, jsonld = [] }) {
   const fullTitle = path === '/' ? `${title}` : `${title} · ${SITE}`;
   document.title = fullTitle;
   const canonical = absoluteUrlForPath(path);
+  const route = getRouteByPath(path);
+  const resolvedRobots = robots || robotsForRoute(route);
   upsertMeta('name', 'description', description);
   upsertLink('canonical', canonical);
+  upsertMeta('name', 'robots', resolvedRobots);
   // Open Graph
   upsertMeta('property', 'og:site_name', SITE);
   upsertMeta('property', 'og:type', path === '/' ? 'website' : 'article');
@@ -32,6 +40,11 @@ export function setMeta({ title, description, path = '/', jsonld = [] }) {
   upsertMeta('name', 'twitter:card', 'summary_large_image');
   upsertMeta('name', 'twitter:title', fullTitle);
   upsertMeta('name', 'twitter:description', description);
+  if (resolvedRobots.startsWith('noindex')) {
+    upsertMeta('name', 'googlebot', 'noindex,nofollow');
+  } else {
+    removeMeta('name', 'googlebot');
+  }
 
   // JSON-LD — clear previous route-scoped scripts
   document.querySelectorAll('script[data-jsonld="route"]').forEach((s) => s.remove());
@@ -52,9 +65,9 @@ export const ld = {
     name: 'Fund44',
     url: BASE,
     description:
-      'Fund44 is a small-business capital marketplace. Owners apply once and are matched to relevant financing paths from third-party lenders using embedded lending infrastructure.',
+      'Fund44 is a small-business capital marketplace that curates third-party financing paths for small-business owners.',
     slogan: 'One application. More ways to fund your business.',
-    sameAs: ['https://faster-funding.com'],
+    ...(entityProfile.hasVerifiedSameAs ? { sameAs: entityProfile.sameAs } : {}),
   }),
   financialService: () => ({
     '@context': 'https://schema.org',
@@ -62,7 +75,7 @@ export const ld = {
     name: 'Fund44',
     url: BASE,
     description:
-      'A capital marketplace that matches U.S. small-business owners to third-party financing options including SBA 7(a), SBA 504, business acquisition loans, term loans, lines of credit, equipment financing, and invoice factoring. Fund44 is not a lender.',
+      'A capital marketplace that helps small-business owners review third-party financing paths. Fund44 is not a lender.',
     areaServed: 'US',
     disambiguatingDescription:
       'Fund44 is not a lender or a bank. Financing is provided by third-party lenders; eligibility and terms vary by provider.',
@@ -98,3 +111,7 @@ export const ld = {
     mainEntityOfPage: absoluteUrlForPath(path),
   }),
 };
+
+export function routeRobots(route) {
+  return robotsForRoute(route);
+}

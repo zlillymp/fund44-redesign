@@ -8,4 +8,6 @@
   Fonts: Switzer (display), Satoshi (body), IBM Plex Mono (data)
   Accessibility: Skip link, keyboard-navigable menu/dialog, WCAG AA contrast, prefers-reduced-motion
   Theme: Light + dark, system default with manual toggle
-  Note: Preview build. Legal copy and contact details pending review.
+  Indexing: staging / preview should remain noindex until final legal, privacy, consent, and launch approvals exist
+  Identity: legal business name, mailing address, support email, and support phone remain TBD under F44-GOV-02 and are intentionally withheld
+  sameAs: omitted until verified; do not infer or publish unverified profiles
