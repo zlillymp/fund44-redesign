@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-crawl-files.mjs && vite build && node scripts/prerender.mjs",
+    "build:link-graph": "node scripts/build-link-graph.mjs",
     "preview": "vite preview",
     "test": "node --test",
     "validate:citations": "node scripts/validate-citations.mjs",

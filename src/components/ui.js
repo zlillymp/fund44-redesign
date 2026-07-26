@@ -223,3 +223,24 @@ export const stepRow = (steps) => `
       <p class="muted" style="font-size:var(--text-sm)">${s.p}</p>
     </div>`).join('')}
 </div>`;
+
+export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => `
+<section class="section-tight wrap">
+  ${eyebrow(eb)}
+  <h2 class="h2 reveal mt-4 mb-8" style="font-size:var(--text-xl)">${heading}</h2>
+  <div class="grid g-3 reveal" data-stagger>
+    ${groups.map((group) => `
+      <section class="card" aria-labelledby="${group.id}">
+        <h3 id="${group.id}" style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.02em">${group.title}</h3>
+        <ul role="list" style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)">
+          ${group.items.map((item) => `
+            <li>
+              <a href="${item.href}" class="accent-text" data-link-relation="${item.relation}" data-analytics-route-id="${item.targetAnalyticsRouteId}" style="font-weight:600;display:inline-flex;gap:.35rem;align-items:center">${item.label} ${icon.arrow}</a>
+              <p class="muted" style="font-size:var(--text-sm);margin-top:.45rem">${item.description}</p>
+            </li>
+          `).join('')}
+        </ul>
+      </section>
+    `).join('')}
+  </div>
+</section>`;

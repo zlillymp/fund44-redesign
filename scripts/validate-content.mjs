@@ -9,6 +9,7 @@ import {
   baseRequiredFields,
   templateRequiredFields,
 } from '../content/schema/content-model.mjs';
+import { validateLinkGraph } from '../src/lib/link-graph.js';
 
 const routes = routeManifest.routes;
 const routeById = new Map(routes.map((route) => [route.routeId, route]));
@@ -211,6 +212,13 @@ contentRecords.forEach((record) => {
 if (errors.length > 0) {
   console.error('Structured content validation failed:\n');
   errors.forEach((error) => console.error(`- ${error}`));
+  process.exit(1);
+}
+
+const linkGraphValidation = validateLinkGraph();
+if (linkGraphValidation.errors.length > 0) {
+  console.error('Structured content validation failed:\n');
+  linkGraphValidation.errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 

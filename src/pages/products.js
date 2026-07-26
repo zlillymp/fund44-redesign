@@ -1,8 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featItem } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featItem, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForContentId } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 function renderListItems(items) {
   return items.map((item) => `
@@ -17,6 +18,7 @@ function renderProgramPage(contentId) {
   const content = getContentById(contentId);
   const crumbs = getBreadcrumbs(content.routeId);
   const faqItems = content.commonQuestions.map((item) => ({ q: item.question, a: item.answer }));
+  const linkModule = getLinkModuleForRoute(content.routeId);
 
   setMeta({
     title: content.metaTitle,
@@ -70,6 +72,8 @@ function renderProgramPage(contentId) {
   </section>
 
   ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+
+  ${relatedLinksModule(linkModule)}
 
   <section class="section wrap wrap-default">
     ${eyebrow(`${content.shortLabel} FAQ`)}

@@ -1,6 +1,6 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { eyebrow, disclosure } from '../components/ui.js';
+import { eyebrow, disclosure, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import {
   disclosures,
@@ -11,6 +11,7 @@ import {
   liveDisclosuresBlocked,
   unresolvedIdentityFields,
 } from '../lib/legal.js';
+import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 function legalHead(crumbs, title, updated) {
   return `
@@ -34,6 +35,7 @@ const section = (h, body) => `
 
 export function privacy() {
   const crumbs = getBreadcrumbs('privacy');
+  const linkModule = getLinkModuleForRoute('privacy');
   setMeta({
     title: 'Privacy — governance draft',
     description: 'Governance draft privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
@@ -72,11 +74,13 @@ export function privacy() {
           .join('')}
       </ul>`)}
     ${section('Contact', `<p>Privacy questions will use the verified support channel once it exists. Until then, see the controlled placeholders on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a>. ${disclosures.contactPlaceholder}</p>`)}
-  </section>`;
+  </section>
+  ${relatedLinksModule(linkModule)}`;
 }
 
 export function terms() {
   const crumbs = getBreadcrumbs('terms');
+  const linkModule = getLinkModuleForRoute('terms');
   setMeta({
     title: 'Terms & disclosures — governance draft',
     description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in governance-draft form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
@@ -110,11 +114,13 @@ export function terms() {
         ${unresolvedIdentityFields.map((field) => `<li>${describeField(field.key)}</li>`).join('')}
       </ul>`)}
     ${section('Contact', `<p>Questions about these terms will route through the verified support channel once those details are approved. Until then, our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> keeps every unresolved value visibly marked as TBD.</p>`)}
-  </section>`;
+  </section>
+  ${relatedLinksModule(linkModule)}`;
 }
 
 export function contact() {
   const crumbs = getBreadcrumbs('contact');
+  const linkModule = getLinkModuleForRoute('contact');
   setMeta({
     title: 'Contact Fund44',
     description: 'Fund44 contact and entity placeholders are intentionally controlled until legal business name, mailing address, support email, and support phone are verified.',
@@ -167,7 +173,8 @@ export function contact() {
     <div class="mt-8" style="text-align:center">
       <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
     </div>
-  </section>`;
+  </section>
+  ${relatedLinksModule(linkModule)}`;
 }
 
 function describeField(fieldKey) {
