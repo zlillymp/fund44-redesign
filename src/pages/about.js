@@ -1,7 +1,7 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, disclosure, eyebrow, chaosToPath, featItem } from '../components/ui.js';
-import { getBreadcrumbs } from '../lib/routes.js';
+import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import { disclosures } from '../lib/legal.js';
 
 const CRUMBS = getBreadcrumbs('about');
@@ -10,7 +10,7 @@ export function about() {
   setMeta({
     title: 'About Fund44 — why we built it',
     description: 'Fund44 is a small-business capital marketplace built to make financing paths easier to compare without inventing lender counts, guarantees, or unsupported workflow promises.',
-    path: '/about',
+    path: hrefForRoute('about'),
     jsonld: [ld.breadcrumb(CRUMBS), ld.org()],
   });
 

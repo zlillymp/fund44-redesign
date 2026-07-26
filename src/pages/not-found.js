@@ -1,12 +1,12 @@
 import { icon } from '../lib/svg.js';
 import { setMeta } from '../lib/seo.js';
-import { getCtaDestination } from '../lib/routes.js';
+import { getCtaDestination, hrefForRoute } from '../lib/routes.js';
 
 export function notFound() {
   setMeta({
     title: 'Page not found',
     description: 'The page you were looking for could not be found. Explore Fund44 financing options instead.',
-    path: '/404',
+    path: hrefForRoute('not_found'),
   });
   return `
   <section class="section wrap center" style="min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center">

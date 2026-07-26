@@ -2,14 +2,10 @@ import './styles.css';
 import './product.css';
 import { header, footer } from './components/shell.js';
 import { initFlow } from './components/flow.js';
-import { pageRenderers } from './pages/index.js';
-import { getRouteMatch, isLegacyHashRoute, normalizePathname, resolveLegacyHashPath, shouldHighlightRoute } from './lib/routes.js';
+import { renderRouteToHtml } from './pages/index.js';
+import { isLegacyHashRoute, normalizePathname, resolveLegacyHashPath, shouldHighlightRoute } from './lib/routes.js';
 
-const app = document.getElementById('app');
-
-function currentMatch() {
-  return getRouteMatch(window.location.pathname);
-}
+const app = typeof document !== 'undefined' ? document.getElementById('app') : null;
 
 function migrateLegacyHashRoute() {
   const { hash, search } = window.location;
@@ -46,23 +42,6 @@ function scrollToAnchor(hash) {
     target.focus({ preventScroll: true });
   }
   return true;
-}
-
-function getRenderer(match) {
-  const route = match.route;
-  if (route.routeId === 'not_found') {
-    return () => pageRenderers.notFound(match.requestedPath);
-  }
-
-  if (route.slug) {
-    return () => pageRenderers.article(route.slug);
-  }
-
-  const renderer = pageRenderers[route.pageKey];
-  if (!renderer) {
-    throw new Error(`No renderer registered for page key "${route.pageKey}"`);
-  }
-  return renderer;
 }
 
 // theme toggle (system default, no localStorage)
@@ -167,9 +146,7 @@ function setActiveNav(currentRouteId) {
 }
 
 async function render({ preserveScroll = false } = {}) {
-  const match = currentMatch();
-  const renderer = getRenderer(match);
-  const html = renderer();
+  const { match, html } = renderRouteToHtml(window.location.pathname);
   app.innerHTML = html;
   if (!preserveScroll) {
     window.scrollTo(0, 0);
@@ -256,4 +233,6 @@ function boot() {
   });
 }
 
-boot();
+if (typeof window !== 'undefined' && app) {
+  boot();
+}

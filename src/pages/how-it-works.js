@@ -1,7 +1,7 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, routingWaterfall, docChecklist, statusTimeline, offerComparison, featItem } from '../components/ui.js';
-import { getBreadcrumbs } from '../lib/routes.js';
+import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import { disclosures } from '../lib/legal.js';
 
 const CRUMBS = getBreadcrumbs('how_it_works');
@@ -24,7 +24,7 @@ export function howItWorks() {
   setMeta({
     title: 'How Fund44 works',
     description: 'See the conservative product-workflow draft for Fund44: routing explanations, one document checklist, document reuse where supported, status tracking, and offer comparison when available in the experience.',
-    path: '/how-it-works',
+    path: hrefForRoute('how_it_works'),
     jsonld: [ld.breadcrumb(CRUMBS), ld.faq(FAQ)],
   });
 
