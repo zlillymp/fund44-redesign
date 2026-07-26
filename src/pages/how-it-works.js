@@ -47,24 +47,24 @@ export function howItWorks() {
   <section class="section-tight wrap">
     <div class="grid g-4 reveal" data-stagger>
       ${STEPS.map((s) => `
-        <div class="card" style="display:flex;flex-direction:column;gap:var(--space-4)">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span class="fi-mark" style="width:40px;height:40px">${s.ic}</span>
-            <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--faint)">${s.n}</span>
+        <div class="card card-stack">
+          <div class="section-row-rule section-row-rule-plain">
+            <span class="fi-mark fi-mark-md">${s.ic}</span>
+            <span class="text-meta">${s.n}</span>
           </div>
-          <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.02em">${s.h}</h3>
-          <p class="muted" style="font-size:var(--text-sm)">${s.p}</p>
+          <h3 class="title-lg">${s.h}</h3>
+          <p class="muted text-body-sm">${s.p}</p>
         </div>`).join('')}
     </div>
   </section>
 
   <!-- Detailed: routing -->
-  <section class="section inverted" style="background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:44px 44px">
+  <section class="section inverted section-grid-dark">
     <div class="wrap">
       <div class="feature-split">
         <div class="fs-text">
           ${eyebrow('Step 2 · in detail')}
-          <h2 class="h2 reveal mt-4" style="color:var(--on-dark)">Routing explained in plain language</h2>
+          <h2 class="h2 reveal mt-4 role-title-on-dark">Routing explained in plain language</h2>
           <p class="lead reveal mt-4">${disclosures.fitOverFees}</p>
           <div class="feat-list reveal mt-8">
             ${featItem(icon.route, 'Curated network story', disclosures.networkStory)}
@@ -83,18 +83,18 @@ export function howItWorks() {
       <div class="fs-text">
         ${eyebrow('Step 3 · in detail')}
         <h2 class="h2 reveal mt-4">One document checklist, with reuse where supported</h2>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">${disclosures.fasterProcess}</p>
+        <p class="lead reveal mt-4 text-body-base">${disclosures.fasterProcess}</p>
       </div>
     </div>
-    <div class="feature-split" style="margin-top:clamp(2rem,6vw,5rem)">
+    <div class="feature-split section-gap-feature">
       <div class="fs-text">
         ${eyebrow('Step 4 · in detail')}
         <h2 class="h2 reveal mt-4">Track status and compare offers</h2>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">Status tracking and offer comparison can be available in the experience when those steps are supported. Exact timing, available paths, and workflow details can vary by provider and by business profile.</p>
+        <p class="lead reveal mt-4 text-body-base">Status tracking and offer comparison can be available in the experience when those steps are supported. Exact timing, available paths, and workflow details can vary by provider and by business profile.</p>
       </div>
       <div class="fs-viz">${statusTimeline()}</div>
     </div>
-    <div class="reveal" style="margin-top:clamp(2rem,6vw,5rem)">${offerComparison()}</div>
+    <div class="reveal section-gap-feature">${offerComparison()}</div>
   </section>
 
   <section class="section-tight wrap">

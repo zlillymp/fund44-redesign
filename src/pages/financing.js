@@ -52,14 +52,14 @@ export function financing() {
                 <td class="muted">${row.structure}</td>
                 <td class="muted">${row.amount}</td>
                 <td class="muted">${row.speed}</td>
-                <td><a href="${hrefForRoute(row.destinationRouteId)}" class="accent-text" style="font-weight:600;display:inline-flex;gap:.3rem;align-items:center;white-space:nowrap">View ${icon.arrow}</a></td>
+                <td><a href="${hrefForRoute(row.destinationRouteId)}" class="accent-text btn-link copy-accent-link-row nowrap">View ${icon.arrow}</a></td>
               </tr>
             `).join('')}
           </tbody>
         </table>
       </div>
     </div>
-    <p class="muted mt-4" style="font-size:var(--text-xs);font-family:var(--font-mono)">Relative speed is a general guide only. Actual timelines, amounts, and terms are determined by individual lenders.</p>
+    <p class="muted mt-4 disclosure-copy">Relative speed is a general guide only. Actual timelines, amounts, and terms are determined by individual lenders.</p>
   </section>
 
   <section class="section wrap">
@@ -70,11 +70,11 @@ export function financing() {
     </div>
     <div class="grid g-2 reveal" data-stagger>
       ${content.decisionCards.map((card) => `
-        <a href="${hrefForRoute(card.destinationRouteId)}" class="card card-hover" style="display:flex;gap:var(--space-4);align-items:flex-start">
-          <span class="fi-mark" style="width:44px;height:44px;flex-shrink:0">${icon[card.iconKey]}</span>
+        <a href="${hrefForRoute(card.destinationRouteId)}" class="card card-hover card-row">
+          <span class="fi-mark fi-mark-lg">${icon[card.iconKey]}</span>
           <div>
-            <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.02em">${card.title}</h3>
-            <p class="muted mt-4" style="font-size:var(--text-sm);margin-top:.5rem">${card.description}</p>
+            <h3 class="title-lg">${card.title}</h3>
+            <p class="muted text-body-sm inline-note">${card.description}</p>
           </div>
         </a>
       `).join('')}

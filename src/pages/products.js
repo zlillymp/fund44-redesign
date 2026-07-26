@@ -7,9 +7,9 @@ import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 function renderListItems(items) {
   return items.map((item) => `
-    <li style="display:flex;gap:var(--space-3);align-items:flex-start">
-      <span style="color:var(--accent-deep);flex-shrink:0;margin-top:2px">${icon.check}</span>
-      <span style="color:var(--ink-2)">${item}</span>
+    <li class="list-check">
+      <span class="list-check-mark">${icon.check}</span>
+      <span class="list-check-copy">${item}</span>
     </li>
   `).join('');
 }
@@ -50,17 +50,17 @@ function renderProgramPage(contentId) {
       <div class="fs-text">
         ${eyebrow('When it fits')}
         <h2 class="h2 reveal mt-4">${content.whoItFitsHeading}</h2>
-        <ul role="list" class="mt-6 reveal" style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <ul role="list" class="mt-6 reveal section-card-list">
           ${renderListItems(content.whoItFits.items)}
         </ul>
       </div>
       <div class="fs-viz">
-        <div class="card reveal" style="background:var(--surface)">
-          <div class="eyebrow" style="margin-bottom:var(--space-4)">At a glance</div>
+        <div class="card reveal info-grid-card">
+          <div class="eyebrow mb-4">At a glance</div>
           ${content.glanceSpecs.map(([label, value]) => `
-            <div style="display:flex;justify-content:space-between;padding:var(--space-4) 0;border-bottom:1px solid var(--line);font-size:var(--text-sm)">
+            <div class="section-row-rule">
               <span class="muted">${label}</span>
-              <b style="font-weight:600;text-align:right;max-width:60%">${value}</b>
+              <b class="value-stack">${value}</b>
             </div>
           `).join('')}
         </div>

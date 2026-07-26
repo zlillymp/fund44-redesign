@@ -48,12 +48,12 @@ export const ctaBanner = (
 <section class="section-tight wrap">
   <div class="cta-banner reveal">
     <div class="tex-grid"></div>
-    <div class="cta-banner-inner" style="display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;align-items:center">
+    <div class="cta-banner-inner layout-spread">
       <div>
-        <h2 class="h2" style="max-width:18ch">${heading}</h2>
-        <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">${sub}</p>
+        <h2 class="h2 cta-banner-heading">${heading}</h2>
+        <p class="lead cta-banner-copy">${sub}</p>
       </div>
-      <div class="wrap-btns">
+      <div class="cta-banner-actions">
         <button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
           ctaId,
           startSurface,
@@ -61,7 +61,7 @@ export const ctaBanner = (
           productContextRouteId,
           productContextTitle,
         })}>Preview funding paths ${icon.arrow}</button>
-        <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('learn_how_it_works').href}" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">How it works</a>
+        <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('learn_how_it_works').href}">How it works</a>
       </div>
     </div>
   </div>
@@ -106,7 +106,7 @@ export const matchDashboard = () => `
       ].map(([n,m,p]) => `
         <div class="match-row">
           <div><div class="mr-name">${n}</div><div class="mr-meta">${m}</div></div>
-          <div class="match-fit"><span class="fit-bar"><i style="width:0" data-fit="${p}"></i></span><span class="fit-pct">${p}%</span></div>
+          <div class="match-fit"><span class="fit-bar"><i class="fit-bar-fill" style="width:0" data-fit="${p}"></i></span><span class="fit-pct">${p}%</span></div>
         </div>`).join('')}
     </div>
   </div>
@@ -119,9 +119,9 @@ export const routingWaterfall = () => `
   <div class="panel-body">
     <div class="waterfall">
       <div class="wf-stage"><div class="wf-node on">01</div><div class="wf-label"><b>One intake experience</b><span>Borrower profile normalized</span></div></div>
-      <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
+      <div class="wf-stage"><div class="wf-line wf-line-offset"></div></div>
       <div class="wf-stage"><div class="wf-node on">02</div><div class="wf-label"><b>Product routing</b><span>Explained from the curated network and available product details</span></div><span class="wf-badge">curated</span></div>
-      <div class="wf-stage"><div class="wf-line" style="margin-left:22px"></div></div>
+      <div class="wf-stage"><div class="wf-line wf-line-offset"></div></div>
       <div class="wf-stage"><div class="wf-node pass">✕</div><div class="wf-label"><b>Not every path is shown</b><span>Availability can vary by provider and by business profile</span></div><span class="wf-badge">varies</span></div>
       <div class="wf-stage"><div class="wf-node on">03</div><div class="wf-label"><b>Relevant paths surfaced</b><span>Explained from the information provided and the product details available</span></div><span class="wf-badge match">sample</span></div>
     </div>
@@ -197,7 +197,7 @@ export const offerComparison = () => `
         <div class="offer-line"><span>Fit</span><b>Flexible</b></div>
       </div>
     </div>
-    <p class="muted" style="font-size:var(--text-xs);margin-top:var(--space-4);font-family:var(--font-mono)">Illustrative structures for demonstration. Actual offers, amounts, and terms are set by lenders.</p>
+    <p class="muted disclosure-copy">Illustrative structures for demonstration. Actual offers, amounts, and terms are set by lenders.</p>
   </div>
 </div>`;
 
@@ -205,17 +205,17 @@ export const offerComparison = () => `
 export const chaosToPath = () => `
 <div class="chaos-wrap reveal">
   <div class="chaos-box tex-dots">
-    <span style="position:absolute;top:14px;left:16px;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--muted)">Before Fund44</span>
-    <span class="chaos-note" style="top:48px;left:20px;--r:-4deg">Lender A — reapply</span>
-    <span class="chaos-note" style="top:96px;left:120px;--r:3deg">Lender B — new docs</span>
-    <span class="chaos-note" style="top:150px;left:30px;--r:-2deg">Broker calls</span>
-    <span class="chaos-note" style="top:60px;left:150px;--r:5deg">Bank C — declined</span>
-    <span class="chaos-note" style="top:190px;left:110px;--r:-6deg">Spreadsheet #4</span>
-    <span class="chaos-note" style="top:120px;left:24px;--r:2deg">Which fits?</span>
+    <span class="text-meta chaos-label">Before Fund44</span>
+    <span class="chaos-note" style="top:48px;left:20px;--r:-4deg;">Lender A — reapply</span>
+    <span class="chaos-note" style="top:96px;left:120px;--r:3deg;">Lender B — new docs</span>
+    <span class="chaos-note" style="top:150px;left:30px;--r:-2deg;">Broker calls</span>
+    <span class="chaos-note" style="top:60px;left:150px;--r:5deg;">Bank C — declined</span>
+    <span class="chaos-note" style="top:190px;left:110px;--r:-6deg;">Spreadsheet #4</span>
+    <span class="chaos-note" style="top:120px;left:24px;--r:2deg;">Which fits?</span>
   </div>
   <div class="chaos-arrow">${icon.arrow}</div>
   <div class="path-box">
-    <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--accent)">With Fund44</span>
+    <span class="text-label accent-text">With Fund44</span>
     <div class="path-step"><span class="pnum">1</span> Answer a few questions once</div>
     <div class="path-step"><span class="pnum">2</span> See paths based on your profile</div>
     <div class="path-step"><span class="pnum">3</span> Use one document checklist</div>
@@ -237,45 +237,45 @@ export const pageHero = ({
   cta = true,
   flowContext = {},
 }) => `
-<section class="section-tight wrap" style="padding-top:clamp(2rem,4vw,3.5rem)">
+<section class="section-tight wrap section-page-head">
   ${breadcrumb(crumbs)}
   <div class="mt-6">${eb ? `<span class="eyebrow reveal">${eb}</span>` : ''}</div>
-  <h1 class="h1 reveal mt-4" style="max-width:18ch">${title}</h1>
+  <h1 class="h1 reveal mt-4 title-page">${title}</h1>
   <p class="lead reveal mt-6">${lead}</p>
   ${cta ? `<div class="wrap-btns reveal mt-8">${primaryCta('Preview my funding paths', flowContext)}${secondaryCta()}</div>` : ''}
 </section>`;
 
 // definition / "what is" answer block for AEO
 export const answerBlock = (term, def) => `
-<div class="card answer-card reveal">
-  <div class="eyebrow" style="margin-bottom:var(--space-3)">Quick answer</div>
-  <p style="font-size:var(--text-lg);color:var(--ink);line-height:1.5"><strong>${term}</strong> ${def}</p>
+<div class="card card-shell reveal">
+  <div class="eyebrow mb-4">Quick answer</div>
+  <p class="text-body-lg role-title-default copy-leading"><strong>${term}</strong> ${def}</p>
 </div>`;
 
 // simple 3-step process
 export const stepRow = (steps) => `
 <div class="grid g-4 reveal" data-stagger>
   ${steps.map((s, i) => `
-    <div class="card" style="display:flex;flex-direction:column;gap:var(--space-3)">
-      <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--muted)">0${i + 1}</span>
-      <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.02em">${s.h}</h3>
-      <p class="muted" style="font-size:var(--text-sm)">${s.p}</p>
+    <div class="card card-stack-compact">
+      <span class="text-meta">0${i + 1}</span>
+      <h3 class="title-lg">${s.h}</h3>
+      <p class="muted text-body-sm">${s.p}</p>
     </div>`).join('')}
 </div>`;
 
 export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => `
 <section class="section-tight wrap">
   ${eyebrow(eb)}
-  <h2 class="h2 reveal mt-4 mb-8" style="font-size:var(--text-xl)">${heading}</h2>
+  <h2 class="h2 reveal mt-4 mb-8 title-xl">${heading}</h2>
   <div class="grid g-3 reveal" data-stagger>
     ${groups.map((group) => `
       <section class="card" aria-labelledby="${group.id}">
-        <h3 id="${group.id}" style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;letter-spacing:-0.02em">${group.title}</h3>
-        <ul role="list" style="display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-5)">
+        <h3 id="${group.id}" class="title-lg">${group.title}</h3>
+        <ul role="list" class="section-card-list mt-6">
           ${group.items.map((item) => `
             <li>
-              <a href="${item.href}" class="accent-text" data-link-relation="${item.relation}" data-analytics-route-id="${item.targetAnalyticsRouteId}" style="font-weight:600;display:inline-flex;gap:.35rem;align-items:center">${item.label} ${icon.arrow}</a>
-              <p class="muted" style="font-size:var(--text-sm);margin-top:.45rem">${item.description}</p>
+              <a href="${item.href}" class="accent-text btn-link copy-accent-link-row" data-link-relation="${item.relation}" data-analytics-route-id="${item.targetAnalyticsRouteId}">${item.label} ${icon.arrow}</a>
+              <p class="muted text-body-sm inline-note">${item.description}</p>
             </li>
           `).join('')}
         </ul>
