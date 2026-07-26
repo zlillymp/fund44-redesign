@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { header, footer } from '../src/components/shell.js';
+import { renderLlmsTxt, renderRobotsTxt, renderRouteAttributionJson, renderSitemapXml } from '../src/lib/crawl.js';
 import { getCanonicalRoutes, normalizePathname } from '../src/lib/routes.js';
 import { readLastMeta, serializeHead } from '../src/lib/seo.js';
 import { renderRouteToHtml } from '../src/pages/index.js';
@@ -87,6 +88,11 @@ const written = [];
 for (const routePath of uniqueRoutes) {
   written.push(await writeRoute(routePath));
 }
+
+await fs.writeFile(path.join(distDir, 'sitemap.xml'), renderSitemapXml(), 'utf8');
+await fs.writeFile(path.join(distDir, 'robots.txt'), renderRobotsTxt(), 'utf8');
+await fs.writeFile(path.join(distDir, 'llms.txt'), renderLlmsTxt(), 'utf8');
+await fs.writeFile(path.join(distDir, 'route-attribution.json'), renderRouteAttributionJson(), 'utf8');
 
 console.log('Prerendered routes:');
 console.table(written.map((entry) => ({

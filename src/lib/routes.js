@@ -1,6 +1,6 @@
 import { routeManifest } from '../../content/manifest.mjs';
 
-const { site, routes, navigation, ctaDestinations, llms } = routeManifest;
+const { site, routes, navigation, ctaDestinations } = routeManifest;
 
 const routeById = new Map(routes.map((route) => [route.routeId, route]));
 const routeByPath = new Map(routes.filter((route) => route.path && route.path !== '*').map((route) => [route.path, route]));
@@ -205,30 +205,45 @@ export function getCtaDestination(ctaId) {
 }
 
 export function getLlmsInventories() {
+  const llmsRoutes = routes.filter((route) => route.crawl?.llms);
   return {
-    financingPaths: llms.financingPaths.map((routeId) => {
-      const route = ensureRoute(routeId);
-      return {
-        routeId,
+    financingPaths: llmsRoutes
+      .filter((route) => route.routeFamily === 'financing_program')
+      .map((route) => ({
+        routeId: route.routeId,
         label: route.title,
         description: route.panelDescription || '',
         path: route.path,
-      };
-    }),
-    keyPages: llms.keyPages.map((routeId) => {
-      const route = ensureRoute(routeId);
-      return {
-        routeId,
+      })),
+    keyPages: llmsRoutes
+      .filter((route) => route.routeFamily !== 'financing_program')
+      .map((route) => ({
+        routeId: route.routeId,
         label: route.title,
         path: route.path,
-      };
-    }),
+      })),
   };
+}
+
+export function getLlmsEntries() {
+  const inventory = getLlmsInventories();
+  return [
+    ...inventory.financingPaths.map((item) => ({
+      ...item,
+      section: 'financing_paths',
+      loc: absoluteUrlForPath(item.path),
+    })),
+    ...inventory.keyPages.map((item) => ({
+      ...item,
+      section: 'key_pages',
+      loc: absoluteUrlForPath(item.path),
+    })),
+  ];
 }
 
 export function getSitemapEntries() {
   return getCanonicalRoutes()
-    .filter((route) => route.crawl?.sitemap)
+    .filter((route) => route.crawl?.sitemap && route.crawl?.indexable)
     .map((route) => ({
       routeId: route.routeId,
       path: route.path,
@@ -236,6 +251,10 @@ export function getSitemapEntries() {
       changefreq: route.crawl.changefreq,
       priority: route.crawl.priority,
     }));
+}
+
+export function getIndexableRouteInventory() {
+  return getRouteInventory().filter((route) => route.canonical && route.indexable);
 }
 
 export function getRouteInventory() {

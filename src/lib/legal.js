@@ -1,18 +1,27 @@
 import { absoluteUrlForPath } from './routes.js';
 
 const LEGAL_ENV = (globalThis?.__FUND44_LEGAL_ENV__ || import.meta.env?.VITE_FUND44_ENV || import.meta.env?.MODE || 'staging').toLowerCase();
+const PRODUCTION_INDEXING_APPROVED = String(
+  globalThis?.__FUND44_PRODUCTION_INDEXING_APPROVED__
+  ?? import.meta.env?.VITE_FUND44_PRODUCTION_INDEXING_APPROVED
+  ?? 'false'
+).toLowerCase() === 'true';
 
 export const legalEnv = LEGAL_ENV === 'production' ? 'production' : 'staging';
 export const isProductionLegalEnv = legalEnv === 'production';
+export const productionIndexingApproved = PRODUCTION_INDEXING_APPROVED;
 
 export const indexingPolicy = {
   env: legalEnv,
-  allowIndexing: isProductionLegalEnv,
-  metaRobots: isProductionLegalEnv ? 'index,follow' : 'noindex,nofollow',
-  xRobots: isProductionLegalEnv ? 'index,follow' : 'noindex, nofollow',
-  note: isProductionLegalEnv
-    ? 'Production is the only mode allowed to present indexable metadata.'
-    : 'Staging and preview remain non-indexable until final legal, SEO, and launch approvals are complete.',
+  productionIndexingApproved,
+  allowIndexing: Boolean(isProductionLegalEnv && productionIndexingApproved),
+  metaRobots: isProductionLegalEnv && productionIndexingApproved ? 'index,follow' : 'noindex,nofollow',
+  xRobots: isProductionLegalEnv && productionIndexingApproved ? 'index,follow' : 'noindex, nofollow',
+  note: isProductionLegalEnv && productionIndexingApproved
+    ? 'Production indexing is enabled because the legal launch gate has been approved.'
+    : isProductionLegalEnv
+      ? 'Production indexing remains blocked because F44-GOV-02 is still incomplete and final legal, privacy, consent, and entity approvals are missing.'
+      : 'Staging and preview remain non-indexable until final legal, SEO, and launch approvals are complete.',
 };
 
 const verifiedEntity = {
@@ -158,5 +167,9 @@ export function robotsForRoute(route) {
 }
 
 export function humanReadableIndexingMode() {
-  return indexingPolicy.allowIndexing ? 'production-indexable' : 'staging-noindex';
+  if (indexingPolicy.allowIndexing) {
+    return 'production-indexable';
+  }
+
+  return indexingPolicy.env === 'production' ? 'production-noindex-blocked' : 'staging-noindex';
 }

@@ -1,0 +1,194 @@
+{
+  "generatedAt": "deterministic-manifest-build",
+  "site": {
+    "siteName": "Fund44",
+    "baseUrl": "https://fund44.com"
+  },
+  "indexingPolicy": {
+    "env": "staging",
+    "allowIndexing": false,
+    "metaRobots": "noindex,nofollow"
+  },
+  "routes": [
+    {
+      "routeId": "home",
+      "analyticsRouteId": "home",
+      "routeFamily": "home",
+      "pageType": "home",
+      "templateId": "home_page",
+      "path": "/",
+      "loc": "https://fund44.com/",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "about",
+      "analyticsRouteId": "about",
+      "routeFamily": "brand",
+      "pageType": "financing_hub",
+      "templateId": "brand_page",
+      "path": "/about",
+      "loc": "https://fund44.com/about",
+      "canonical": true,
+      "indexable": true,
+      "landing": false
+    },
+    {
+      "routeId": "business_acquisition",
+      "analyticsRouteId": "business_acquisition",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/business-acquisition",
+      "loc": "https://fund44.com/business-acquisition",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "contact",
+      "analyticsRouteId": "contact",
+      "routeFamily": "contact",
+      "pageType": "contact",
+      "templateId": "contact_page",
+      "path": "/contact",
+      "loc": "https://fund44.com/contact",
+      "canonical": true,
+      "indexable": true,
+      "landing": false
+    },
+    {
+      "routeId": "financing",
+      "analyticsRouteId": "financing",
+      "routeFamily": "financing_hub",
+      "pageType": "financing_hub",
+      "templateId": "financing_hub",
+      "path": "/financing",
+      "loc": "https://fund44.com/financing",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "how_it_works",
+      "analyticsRouteId": "how_it_works",
+      "routeFamily": "conversion_support",
+      "pageType": "financing_hub",
+      "templateId": "process_page",
+      "path": "/how-it-works",
+      "loc": "https://fund44.com/how-it-works",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "privacy",
+      "analyticsRouteId": "privacy",
+      "routeFamily": "legal",
+      "pageType": "legal",
+      "templateId": "legal_page",
+      "path": "/privacy",
+      "loc": "https://fund44.com/privacy",
+      "canonical": true,
+      "indexable": true,
+      "landing": false
+    },
+    {
+      "routeId": "resources",
+      "analyticsRouteId": "resources",
+      "routeFamily": "resources_hub",
+      "pageType": "article",
+      "templateId": "resources_hub",
+      "path": "/resources",
+      "loc": "https://fund44.com/resources",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "analyticsRouteId": "resource_preparing_documents",
+      "routeFamily": "resources_article",
+      "pageType": "article",
+      "templateId": "editorial_article",
+      "path": "/resources/preparing-your-documents",
+      "loc": "https://fund44.com/resources/preparing-your-documents",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "resource_sba_7a_vs_504",
+      "analyticsRouteId": "resource_sba_7a_vs_504",
+      "routeFamily": "resources_article",
+      "pageType": "article",
+      "templateId": "editorial_article",
+      "path": "/resources/sba-7a-vs-504",
+      "loc": "https://fund44.com/resources/sba-7a-vs-504",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "resource_working_capital_vs_term_loan",
+      "analyticsRouteId": "resource_working_capital_vs_term_loan",
+      "routeFamily": "resources_article",
+      "pageType": "article",
+      "templateId": "editorial_article",
+      "path": "/resources/working-capital-vs-term-loan",
+      "loc": "https://fund44.com/resources/working-capital-vs-term-loan",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "sba_504",
+      "analyticsRouteId": "sba_504",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/sba-504",
+      "loc": "https://fund44.com/sba-504",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "sba_7a",
+      "analyticsRouteId": "sba_7a",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/sba-7a",
+      "loc": "https://fund44.com/sba-7a",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "terms",
+      "analyticsRouteId": "terms",
+      "routeFamily": "legal",
+      "pageType": "legal",
+      "templateId": "legal_page",
+      "path": "/terms",
+      "loc": "https://fund44.com/terms",
+      "canonical": true,
+      "indexable": true,
+      "landing": false
+    },
+    {
+      "routeId": "working_capital",
+      "analyticsRouteId": "working_capital",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/working-capital",
+      "loc": "https://fund44.com/working-capital",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    }
+  ]
+}
