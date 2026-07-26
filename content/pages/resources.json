@@ -1,0 +1,116 @@
+{
+  "id": "page_resources",
+  "routeId": "resources",
+  "slug": "resources",
+  "pageType": "article",
+  "templateId": "resources_hub",
+  "title": "Learning hub — small-business funding resources",
+  "metaTitle": "Learning hub — small-business funding resources",
+  "metaDescription": "Plain-language guides on SBA loans, document prep, and choosing the right financing. Learn how business funding works and how Fund44 matches you to relevant paths.",
+  "summary": "The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Learning hub",
+    "title": "Clear guides to funding your business.",
+    "lead": "No jargon, no hype — just plain-language explanations of how small-business financing works and how to choose what fits."
+  },
+  "quickAnswer": {
+    "term": "The learning hub",
+    "definition": "is Fund44's structured article collection for financing education, document preparation, and comparison guidance."
+  },
+  "whoItFits": {
+    "heading": "Who this hub fits",
+    "items": [
+      "Borrowers researching financing before starting the preview flow.",
+      "Users comparing SBA and non-SBA paths in plain language.",
+      "Visitors who want educational content connected to the main funding routes."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this hub may not fit",
+    "items": [
+      "Users who want a direct product explanation rather than a guide article.",
+      "Borrowers looking for legal, tax, or provider-specific advice."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical documents discussed across the hub",
+    "items": [
+      "Tax returns",
+      "Bank statements",
+      "Personal financial statement",
+      "Debt schedule",
+      "Purchase agreement or letter of intent for acquisitions"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "The learning hub supports organic and comparison intent by connecting educational articles to product and preview routes.",
+    "bullets": [
+      "Keeps article copy in structured content instead of template literals.",
+      "Connects each article to canonical slugs and related pages.",
+      "Supports future citation and freshness workflows without changing route ownership."
+    ]
+  },
+  "commonQuestions": [
+    {
+      "id": "resources_faq_educational",
+      "question": "Are these articles financial or legal advice?",
+      "answer": "No. The learning hub is educational content intended to explain financing concepts in plain language."
+    },
+    {
+      "id": "resources_faq_related_paths",
+      "question": "How do these articles connect to funding options?",
+      "answer": "Each article links to related program pages and the financing overview so you can move from education into comparison and preview when you are ready."
+    }
+  ],
+  "articleIds": [
+    "article_sba_7a_vs_504",
+    "article_preparing_your_documents",
+    "article_working_capital_vs_term_loan"
+  ],
+  "ctaBanner": {
+    "heading": "Ready to move from reading to matching?",
+    "subheading": "Preview the financing paths relevant to your business."
+  },
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_working_capital"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "financing_learning_hub",
+    "contentGroup": "resources_hub",
+    "audienceStage": "education",
+    "funnelRole": "assist"
+  },
+  "measurement": {
+    "routeFamily": "resources_hub",
+    "ctaIds": [
+      "resources_article_card",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "resources_hub_faq",
+    "freshnessState": "review_pending"
+  }
+}

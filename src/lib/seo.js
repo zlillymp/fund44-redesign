@@ -86,15 +86,15 @@ export const ld = {
       acceptedAnswer: { '@type': 'Answer', text: q.a },
     })),
   }),
-  article: ({ title, description, path, date }) => ({
+  article: ({ title, description, path, date, reviewedDate, authorName, reviewerName }) => ({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
     description,
-    datePublished: date,
-    dateModified: date,
-    author: { '@type': 'Organization', name: 'Fund44' },
-    publisher: { '@type': 'Organization', name: 'Fund44' },
+    ...(date ? { datePublished: date } : {}),
+    ...(reviewedDate || date ? { dateModified: reviewedDate || date } : {}),
+    ...(authorName ? { author: { '@type': 'Person', name: authorName } } : {}),
+    ...(reviewerName ? { editor: { '@type': 'Person', name: reviewerName } } : {}),
     mainEntityOfPage: absoluteUrlForPath(path),
   }),
 };

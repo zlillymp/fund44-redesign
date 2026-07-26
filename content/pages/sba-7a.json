@@ -1,0 +1,156 @@
+{
+  "id": "page_sba_7a",
+  "routeId": "sba_7a",
+  "slug": "sba-7a",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "SBA 7(a) loans",
+  "metaTitle": "SBA 7(a) loans",
+  "metaDescription": "SBA 7(a) loans are flexible, longer-term small-business loans partially guaranteed by the U.S. Small Business Administration. Fund44 matches you to lenders offering 7(a) financing for acquisitions, working capital, and growth.",
+  "summary": "The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "SBA 7(a)",
+    "title": "SBA 7(a) loans — flexible capital for growth.",
+    "lead": "The SBA 7(a) program is one of the most versatile small-business loan types. Fund44 helps you see whether it fits your goal and connects you with lenders that offer it."
+  },
+  "shortLabel": "SBA 7(a)",
+  "quickAnswer": {
+    "term": "An SBA 7(a) loan",
+    "definition": "is a small-business loan partially guaranteed by the U.S. Small Business Administration and issued by approved lenders. It can be used for working capital, business acquisition, equipment, refinancing, and more — typically with longer terms than conventional loans."
+  },
+  "whoItFitsHeading": "A single loan type for many needs",
+  "whoItFits": {
+    "heading": "When SBA 7(a) tends to fit",
+    "items": [
+      "Acquiring an existing business or buying out a partner",
+      "Working capital to support operations and growth",
+      "Purchasing equipment or making leasehold improvements",
+      "Refinancing certain existing business debt",
+      "Expansion into a new location or market"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When SBA 7(a) may not fit as well",
+    "items": [
+      "Projects focused only on owner-occupied commercial real estate or heavy equipment may point more directly to SBA 504.",
+      "Borrowers who need a simpler flexible-cash-flow structure may prefer a line of credit or other working-capital option."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical documents lenders may request",
+    "items": [
+      "Business financial statements",
+      "Tax returns",
+      "Personal financial information",
+      "Use-of-funds summary",
+      "Supporting business-plan or acquisition materials when relevant"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 helps a borrower decide whether SBA 7(a) belongs in the mix and routes them toward providers that offer it.",
+    "bullets": [
+      "Explains the program in plain language.",
+      "Places SBA 7(a) alongside other structured paths for comparison.",
+      "Keeps lender eligibility and final terms clearly outside Fund44's control."
+    ]
+  },
+  "glanceSpecs": [
+    ["Program", "SBA 7(a)"],
+    ["Common uses", "Acquisition, working capital, expansion"],
+    ["Typical term", "Longer-term (varies by use)"],
+    ["Max amount", "Up to $5M"],
+    ["Guarantee", "Partially SBA-guaranteed"],
+    ["Issued by", "SBA-approved third-party lenders"]
+  ],
+  "eligibilityHeading": "What lenders typically look at",
+  "eligibilityCards": [
+    {
+      "id": "sba7a_for_profit",
+      "iconKey": "building",
+      "title": "For-profit U.S. business",
+      "description": "The SBA program is for eligible for-profit businesses operating in the United States."
+    },
+    {
+      "id": "sba7a_repay",
+      "iconKey": "scale",
+      "title": "Ability to repay",
+      "description": "Lenders review cash flow, revenue, and the business plan behind the request."
+    },
+    {
+      "id": "sba7a_owner_profile",
+      "iconKey": "shield",
+      "title": "Owner background",
+      "description": "Personal credit, experience, and a personal guarantee are commonly part of underwriting."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender or the SBA.</strong> SBA 7(a) eligibility and terms are determined by SBA-approved lenders and SBA program rules, not by Fund44. Requirements and availability vary. This page is educational and is not a commitment to lend.",
+  "ctaBanner": {
+    "heading": "See if SBA 7(a) fits your plan.",
+    "subheading": "Answer a few questions and preview whether 7(a) — or another path — is a strong match."
+  },
+  "commonQuestions": [
+    {
+      "id": "sba7a_faq_use",
+      "question": "What can an SBA 7(a) loan be used for?",
+      "answer": "Common uses include business acquisition, working capital, equipment, leasehold improvements, expansion, and refinancing certain business debt. Allowed uses are defined by SBA program rules and the lender."
+    },
+    {
+      "id": "sba7a_faq_amount",
+      "question": "How much can I borrow with an SBA 7(a) loan?",
+      "answer": "The SBA 7(a) program supports loans up to $5 million. The amount you may qualify for depends on your business profile and the lender’s underwriting."
+    },
+    {
+      "id": "sba7a_faq_pg",
+      "question": "Is a personal guarantee required?",
+      "answer": "Lenders commonly require a personal guarantee from owners with significant ownership. Specific requirements are set by each lender and SBA rules."
+    },
+    {
+      "id": "sba7a_faq_direct_lender",
+      "question": "Does Fund44 issue SBA 7(a) loans?",
+      "answer": "No. Fund44 is a marketplace. It matches you with SBA-approved lenders in its network. Eligibility and terms are decided by those lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_sba_7a_vs_504"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "sba_7a_loans",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "sba_7a_faq",
+    "freshnessState": "review_pending"
+  }
+}

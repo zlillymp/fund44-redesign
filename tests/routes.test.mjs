@@ -11,6 +11,7 @@ import {
   resolveLegacyHashPath,
   shouldHighlightRoute,
 } from '../src/lib/routes.js';
+import { getContentById } from '../src/lib/content.js';
 
 test('normalizePathname collapses trailing slash and index.html', () => {
   assert.equal(normalizePathname('/financing/'), '/financing');
@@ -55,4 +56,9 @@ test('article slugs map to manifest routes', () => {
   assert.ok(route);
   assert.equal(route.routeId, 'resource_preparing_documents');
   assert.equal(absoluteUrlForPath(route.path), 'https://fund44.com/resources/preparing-your-documents');
+});
+
+test('structured content records remain bound to manifest route ids', () => {
+  assert.equal(getContentById('page_sba_7a').routeId, 'sba_7a');
+  assert.equal(getContentById('article_working_capital_vs_term_loan').routeId, 'resource_working_capital_vs_term_loan');
 });

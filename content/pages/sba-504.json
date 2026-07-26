@@ -1,0 +1,154 @@
+{
+  "id": "page_sba_504",
+  "routeId": "sba_504",
+  "slug": "sba-504",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "SBA 504 loans",
+  "metaTitle": "SBA 504 loans",
+  "metaDescription": "SBA 504 loans provide long-term, fixed-asset financing for owner-occupied commercial real estate and major equipment. Fund44 connects you with lenders offering 504 financing.",
+  "summary": "The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "SBA 504",
+    "title": "SBA 504 loans — for real estate and major assets.",
+    "lead": "The SBA 504 program is designed for long-term investments in fixed assets like owner-occupied property and heavy equipment. Fund44 helps you see if it fits and routes you to lenders that offer it."
+  },
+  "shortLabel": "SBA 504",
+  "quickAnswer": {
+    "term": "An SBA 504 loan",
+    "definition": "is a long-term, fixed-asset financing program from the U.S. Small Business Administration, delivered through Certified Development Companies and lenders. It is typically used to buy, build, or improve owner-occupied commercial real estate or to purchase major equipment."
+  },
+  "whoItFitsHeading": "Built for long-term fixed assets",
+  "whoItFits": {
+    "heading": "When SBA 504 tends to fit",
+    "items": [
+      "Purchasing owner-occupied commercial real estate",
+      "Constructing or renovating an existing facility",
+      "Buying long-life, heavy equipment or machinery",
+      "Financing significant capital improvements"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When SBA 504 may not fit as well",
+    "items": [
+      "Working capital and inventory needs generally point to other structures.",
+      "Borrowers without a qualifying owner-occupied asset project may find a different product is more flexible."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Typical documents lenders may request",
+    "items": [
+      "Project or property details",
+      "Business financial statements",
+      "Cash-flow support materials",
+      "Ownership and occupancy details"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 helps a borrower compare SBA 504 with adjacent options and understand when a fixed-asset structure may be the better fit.",
+    "bullets": [
+      "Frames the owner-occupied and fixed-asset use case clearly.",
+      "Points visitors to comparison content and related programs.",
+      "Separates education from lender or CDC underwriting decisions."
+    ]
+  },
+  "glanceSpecs": [
+    ["Program", "SBA 504"],
+    ["Common uses", "Owner-occupied real estate, major equipment"],
+    ["Structure", "Long-term, fixed-asset"],
+    ["Occupancy", "Owner-occupied requirement applies"],
+    ["Delivered via", "CDCs and approved lenders"],
+    ["Issued by", "Third-party lenders / CDCs"]
+  ],
+  "eligibilityHeading": "What tends to matter for 504",
+  "eligibilityCards": [
+    {
+      "id": "sba504_occupancy",
+      "iconKey": "key",
+      "title": "Owner-occupied use",
+      "description": "The 504 program generally requires the business to occupy a qualifying share of the property."
+    },
+    {
+      "id": "sba504_assets",
+      "iconKey": "building",
+      "title": "Eligible fixed assets",
+      "description": "Proceeds are directed to qualifying long-term assets such as real estate and heavy equipment."
+    },
+    {
+      "id": "sba504_repay",
+      "iconKey": "scale",
+      "title": "Repayment strength",
+      "description": "Lenders assess business cash flow and project viability during underwriting."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender, a CDC, or the SBA.</strong> SBA 504 eligibility, occupancy rules, and terms are set by SBA program rules, CDCs, and approved lenders — not by Fund44. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Financing property or major equipment?",
+    "subheading": "Preview whether SBA 504 or another path is the strongest fit for your project."
+  },
+  "commonQuestions": [
+    {
+      "id": "sba504_faq_use",
+      "question": "What is the SBA 504 loan used for?",
+      "answer": "SBA 504 financing is generally used for owner-occupied commercial real estate, construction or renovation, and major long-life equipment. It is not typically used for working capital or inventory."
+    },
+    {
+      "id": "sba504_faq_diff",
+      "question": "What is the difference between SBA 504 and 7(a)?",
+      "answer": "SBA 504 is focused on long-term fixed assets like real estate and heavy equipment, while SBA 7(a) is more flexible and can cover working capital, acquisition, and more. See our SBA 7(a) vs 504 guide in the learning hub."
+    },
+    {
+      "id": "sba504_faq_owner_occ",
+      "question": "Does 504 require owner occupancy?",
+      "answer": "Yes — the 504 program includes owner-occupancy requirements for real estate. The exact thresholds are defined by SBA program rules and your lender or CDC."
+    },
+    {
+      "id": "sba504_faq_direct_lender",
+      "question": "Does Fund44 issue SBA 504 loans?",
+      "answer": "No. Fund44 matches you with lenders and CDCs that offer 504 financing. Eligibility and terms are decided by those providers."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_working_capital",
+    "article_sba_7a_vs_504"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "citationIds": [],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "sba_504_loans",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "sba_504_faq",
+    "freshnessState": "review_pending"
+  }
+}
