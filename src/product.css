@@ -114,14 +114,15 @@
 .dialog-backdrop.open { opacity:1; visibility:visible; }
 .dialog {
   background: var(--role-surface-base); width: 100%; max-width: 560px; border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  max-height: 94dvh; overflow-y: auto; transform: translateY(30px); transition: transform 320ms var(--ease-out);
+  max-height: min(94dvh, 100svh - var(--space-4)); overflow-y: auto; transform: translateY(30px); transition: transform 320ms var(--ease-out);
   border: 1px solid var(--role-line-subtle); box-shadow: var(--elevation-overlay);
+  overscroll-behavior: contain;
 }
 @media (min-width: 700px){ .dialog { border-radius: var(--radius-xl); } }
 .dialog-backdrop.open .dialog { transform: none; }
 .dialog-head { position: sticky; top:0; background: var(--role-surface-base); padding: var(--space-5) var(--space-6) var(--space-4); border-bottom:1px solid var(--role-line-subtle); z-index:2; }
 .dialog-head-row { display:flex; justify-content: space-between; align-items:center; margin-bottom: var(--space-4); }
-.dialog-close { width:38px; height:38px; border-radius: var(--radius-full); border:1px solid var(--role-line-strong); display:flex; align-items:center; justify-content:center; color: var(--role-text-muted); }
+.dialog-close { width:44px; height:44px; border-radius: var(--radius-full); border:1px solid var(--role-line-strong); display:flex; align-items:center; justify-content:center; color: var(--role-text-muted); flex-shrink: 0; }
 .dialog-close:hover { color: var(--role-text-primary); border-color: var(--role-text-primary); }
 .progress-track { height: 4px; background: var(--role-surface-subtle); border-radius:99px; overflow:hidden; }
 .progress-fill { height:100%; background: var(--role-accent-fill-strong); border-radius:99px; transition: width 400ms var(--ease-out); }
@@ -133,7 +134,7 @@
 .field > label { display:block; font-size: var(--text-sm); font-weight:600; margin-bottom: var(--space-2); }
 .field .hint { font-size: var(--text-xs); color: var(--role-text-muted); font-weight:400; }
 .input, .select {
-  width:100%; padding: .85rem 1rem; border:1px solid var(--role-line-strong); border-radius: var(--radius-md);
+  width:100%; min-height: 48px; padding: .85rem 1rem; border:1px solid var(--role-line-strong); border-radius: var(--radius-md);
   background: var(--role-surface-base); font-size: var(--text-base); transition: border-color var(--transition), box-shadow var(--transition);
 }
 .input:focus, .select:focus { outline:none; border-color: var(--role-text-primary); box-shadow: 0 0 0 3px var(--role-focus-ring); }
@@ -145,6 +146,7 @@
 .choice {
   border:1px solid var(--role-line-strong); border-radius: var(--radius-md); padding: var(--space-4); text-align:left;
   transition: border-color var(--transition), background var(--transition), transform var(--transition); background: var(--role-surface-base);
+  min-height: 48px;
 }
 .choice:hover { border-color: var(--role-text-primary); transform: translateY(-2px); }
 .choice:focus-visible { outline-offset: 2px; }
@@ -175,10 +177,10 @@
 }
 .check-option input {
   margin-top: 0.2rem;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   accent-color: var(--role-accent-fill-strong);
-  flex: 0 0 18px;
+  flex: 0 0 20px;
 }
 .checklist-list {
   display: flex;
@@ -219,6 +221,16 @@
   }
   .dialog-foot {
     flex-direction: column;
+  }
+  .dialog {
+    max-height: calc(100dvh - 2px);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+  .dialog-body,
+  .dialog-head,
+  .dialog-foot,
+  .dialog-note {
+    padding-inline: var(--space-4);
   }
 }
 

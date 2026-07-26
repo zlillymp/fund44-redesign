@@ -134,11 +134,22 @@ export const sectionSummaryCard = ({ heading, summary, bullets = [] }) => `
 // FAQ block (also returns items for JSON-LD upstream)
 export const faqBlock = (items, faqGroup = 'faq_group') => `
 <div class="faq reveal">
-  ${items.map((it, index) => `
+  ${items.map((it, index) => {
+    const faqId = escapeAttribute(it.id || `${faqGroup}_${index + 1}`);
+    const idBase = `faq-${escapeAttribute(faqGroup)}-${faqId}`;
+    const answerId = `${idBase}-answer`;
+    const questionId = `${idBase}-question`;
+    return `
     <div class="faq-item">
-      <button class="faq-q" aria-expanded="false" data-faq-id="${escapeAttribute(it.id || `${faqGroup}_${index + 1}`)}" data-faq-group="${escapeAttribute(faqGroup)}" data-faq-position="${index + 1}"><span>${it.q}</span><span class="chev">${icon.plus}</span></button>
-      <div class="faq-a"><div class="faq-a-inner">${it.a}</div></div>
-    </div>`).join('')}
+      <button class="faq-q" id="${questionId}" aria-expanded="false" aria-controls="${answerId}" data-faq-id="${faqId}" data-faq-group="${escapeAttribute(faqGroup)}" data-faq-position="${index + 1}">
+        <span>${it.q}</span>
+        <span class="chev" aria-hidden="true">${icon.plus}</span>
+      </button>
+      <div class="faq-a" id="${answerId}" role="region" aria-labelledby="${questionId}" hidden>
+        <div class="faq-a-inner">${it.a}</div>
+      </div>
+    </div>`;
+  }).join('')}
 </div>`;
 
 // ---------- PRODUCT VISUALIZATIONS ----------

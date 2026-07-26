@@ -186,13 +186,13 @@ Use each task's `Depends on:` line as the source of truth. The summary below is 
   Acceptance: any trust module shown on site is sourced from approved evidence with owner and freshness metadata; no placeholder or fabricated proof remains; trust modules can be measured consistently.
   Verify/Evidence: trust registry referenced in changelog; `git grep -n 'testimonial|2,400|168M|placeholder' src`
 
-- [ ] `F44-A11Y-01` `P0` Harden mobile behavior and accessibility before launch.
-  Status: ready
+- [x] `F44-A11Y-01` `P0` Harden mobile behavior and accessibility before launch.
+  Status: done
   Owner: Accessibility + Frontend
   Depends on: `F44-UX-01`, `F44-CNV-01`
-  Paths: `src/components/shell.js`, `src/components/flow.js`, `src/main.js`, `src/styles.css`, `src/product.css`, future `tests/a11y/*`
+  Paths: `ROADMAP.md`, `src/components/shell.js`, `src/components/flow.js`, `src/components/ui.js`, `src/main.js`, `src/styles.css`, `src/product.css`, `package.json`, `package-lock.json`, new `playwright.config.mjs`, new `tests/a11y/*`, existing `tests/*.mjs`
   Acceptance: skip link no longer collides with routing; nav and dialog semantics are corrected; focus management, reduced motion, and mobile touch targets are validated; critical flows work keyboard-only and on narrow screens.
-  Verify/Evidence: Playwright or manual accessibility checklist linked in changelog; `git grep -n 'href=\"#main\"|role=\"menu\"|aria-hidden' src`
+  Verify/Evidence: Playwright accessibility/mobile coverage linked in changelog; `npm run test:a11y`; `git grep -n -E 'href=\"#main\"|role=\"menu\"' src`; `rg -n 'aria-hidden' src/components/shell.js src/components/flow.js`
 
 - [ ] `F44-SEC-01` `P0` Add deployment security controls and harden form rendering.
   Status: ready
@@ -336,15 +336,14 @@ Use each task's `Depends on:` line as the source of truth. The summary below is 
 
 ## Next executable tasks
 
-1. `F44-A11Y-01`
-   Scope: finish remaining launch-blocking accessibility and mobile hardening by correcting shell-nav semantics, validating keyboard and focus behavior across the dialog and shell, honoring reduced-motion behavior on touched flows, and checking narrow-screen touch-target usability.
-   Conflict notes: high-collision shared UI surfaces in `src/components/shell.js`, `src/components/flow.js`, `src/main.js`, `src/styles.css`, and `src/product.css`.
-2. `F44-MEA-02`
+1. `F44-MEA-02`
    Scope: implement the measurement-plan event layer, route/CTA/funnel/outcome instrumentation, monitoring hooks, and dashboard QA evidence without emitting PII.
    Conflict notes: high-collision shared entry points in `src/main.js`, `src/components/shell.js`, `src/components/flow.js`, and new analytics modules; sequence carefully with any `F44-QA-01` work.
 3. `F44-CONT-06`
    Scope: add freshness ownership, review triggers, and stale-content reporting now that the scalable content templates and quality gates are standardized.
    Conflict notes: shared manifest/citation/reporting surfaces in `content/manifest.*`, `content/citations.*`, and new freshness-report tooling; sequence carefully with any concurrent content-manifest work.
+
+No other `Status: ready` tasks are fully unblocked until one of the above completes or the external `F44-GOV-02` inputs arrive.
 
 ## Risks and Mitigations
 

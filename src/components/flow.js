@@ -73,6 +73,7 @@ let isBootstrappingFromStorage = false;
 let trackedFlowKey = null;
 let trackedStepViewKey = null;
 let trackedOutcomeKey = null;
+let previouslyFocusedInsideFlow = null;
 
 function currentEligibilityMode(state = flowState) {
   return state.context.activeMode || state.context.requestedMode || ELIGIBILITY_MODES.preview;
@@ -191,6 +192,25 @@ function flowRecommendationCtaId(item) {
   }
 }
 
+function queueFocus(target, attempts = 2) {
+  if (!target) return;
+  const tryFocus = () => {
+    if (!target?.isConnected) return;
+    focusElementWithoutScroll(target);
+    if (document.activeElement !== target && attempts > 0) {
+      window.setTimeout(() => queueFocus(target, attempts - 1), 32);
+    }
+  };
+
+  window.setTimeout(() => {
+    if (typeof window.requestAnimationFrame === 'function') {
+      window.requestAnimationFrame(tryFocus);
+      return;
+    }
+    tryFocus();
+  }, 0);
+}
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -267,9 +287,11 @@ function renderModeCards() {
   const activeMode = flowState.context.activeMode;
   const previewSelected = activeMode === ELIGIBILITY_MODES.preview;
   const liveSelected = activeMode === ELIGIBILITY_MODES.live;
+  const error = getFieldError(flowState, FIELD_IDS.mode);
+  const errorId = `${FIELD_IDS.mode}-error`;
 
   return `
-    <div class="field${getFieldError(flowState, FIELD_IDS.mode) ? ' err' : ''}">
+    <div class="field${error ? ' err' : ''}">
       <div class="choice-grid choice-grid-stack" role="radiogroup" aria-label="Eligibility mode">
         <button
           type="button"
@@ -277,6 +299,7 @@ function renderModeCards() {
           data-mode-choice="${ELIGIBILITY_MODES.preview}"
           role="radio"
           aria-checked="${previewSelected}"
+          aria-describedby="${error ? errorId : ''}"
         >
           <b>${getModeLabel(ELIGIBILITY_MODES.preview)}</b>
           <span>${getModeDescription(ELIGIBILITY_MODES.preview)}</span>
@@ -287,19 +310,22 @@ function renderModeCards() {
           data-mode-choice="${ELIGIBILITY_MODES.live}"
           role="radio"
           aria-checked="${liveSelected}"
+          aria-describedby="${error ? errorId : ''}"
         >
           <b>${getModeLabel(ELIGIBILITY_MODES.live)}</b>
           <span>${getModeDescription(ELIGIBILITY_MODES.live)}</span>
         </button>
       </div>
-      <p class="field-err" data-err="${FIELD_IDS.mode}">${escapeHtml(getFieldError(flowState, FIELD_IDS.mode))}</p>
+      <p class="field-err" id="${errorId}" data-err="${FIELD_IDS.mode}">${escapeHtml(error)}</p>
     </div>
   `;
 }
 
 function renderUseOptions() {
+  const error = getFieldError(flowState, FIELD_IDS.use);
+  const errorId = `${FIELD_IDS.use}-error`;
   return `
-    <div class="field${getFieldError(flowState, FIELD_IDS.use) ? ' err' : ''}">
+    <div class="field${error ? ' err' : ''}">
       <div class="choice-grid" role="radiogroup" aria-label="Use of funds">
         ${USE_OPTIONS.map((option) => `
           <button
@@ -309,28 +335,39 @@ function renderUseOptions() {
             data-val="${option.value}"
             role="radio"
             aria-checked="${flowState.values.use === option.value}"
+            aria-describedby="${error ? errorId : ''}"
           >
             <b>${escapeHtml(option.label)}</b>
             <span>${escapeHtml(option.description)}</span>
           </button>
         `).join('')}
       </div>
-      <p class="field-err" data-err="${FIELD_IDS.use}">${escapeHtml(getFieldError(flowState, FIELD_IDS.use))}</p>
+      <p class="field-err" id="${errorId}" data-err="${FIELD_IDS.use}">${escapeHtml(error)}</p>
     </div>
   `;
 }
 
 function renderSelectField({ fieldId, label, hint = '', options, value, placeholder, errorId }) {
+  const error = getFieldError(flowState, errorId);
+  const hintId = hint ? `f-${fieldId}-hint` : '';
+  const errorMessageId = `f-${fieldId}-error`;
+  const describedBy = [hintId, error ? errorMessageId : ''].filter(Boolean).join(' ');
   return `
-    <div class="field${getFieldError(flowState, errorId) ? ' err' : ''}">
-      <label for="f-${fieldId}">${escapeHtml(label)}${hint ? ` <span class="hint">${escapeHtml(hint)}</span>` : ''}</label>
-      <select class="select" id="f-${fieldId}" data-field="${fieldId}">
+    <div class="field${error ? ' err' : ''}">
+      <label for="f-${fieldId}">${escapeHtml(label)}${hint ? ` <span class="hint" id="${hintId}">${escapeHtml(hint)}</span>` : ''}</label>
+      <select
+        class="select"
+        id="f-${fieldId}"
+        data-field="${fieldId}"
+        aria-invalid="${error ? 'true' : 'false'}"
+        ${describedBy ? `aria-describedby="${describedBy}"` : ''}
+      >
         <option value="">${escapeHtml(placeholder)}</option>
         ${options.map((option) => `
           <option value="${escapeHtml(option)}" ${value === option ? 'selected' : ''}>${escapeHtml(option)}</option>
         `).join('')}
       </select>
-      <p class="field-err" data-err="${errorId}">${escapeHtml(getFieldError(flowState, errorId))}</p>
+      <p class="field-err" id="${errorMessageId}" data-err="${errorId}">${escapeHtml(error)}</p>
     </div>
   `;
 }
@@ -338,9 +375,13 @@ function renderSelectField({ fieldId, label, hint = '', options, value, placehol
 function renderConsentReview() {
   const consentItems = getConsentChecklist(flowState);
   const nextStepItems = getNextStepChecklist(flowState);
+  const previewError = getFieldError(flowState, FIELD_IDS.previewConsent);
+  const previewErrorId = `${FIELD_IDS.previewConsent}-error`;
+  const nextStepError = getFieldError(flowState, FIELD_IDS.nextStepConsent);
+  const nextStepErrorId = `${FIELD_IDS.nextStepConsent}-error`;
 
   return `
-    <div class="field consent-card${getFieldError(flowState, FIELD_IDS.previewConsent) ? ' err' : ''}">
+    <div class="field consent-card${previewError ? ' err' : ''}">
       <div class="eyebrow mb-4">Current mode</div>
       <p class="muted text-body-sm">${escapeHtml(getModeDescription(flowState.context.activeMode))}</p>
       <label class="check-option" for="f-preview-consent">
@@ -349,16 +390,18 @@ function renderConsentReview() {
           type="checkbox"
           data-field="${FIELD_IDS.previewConsent}"
           ${flowState.values.previewConsent ? 'checked' : ''}
+          aria-invalid="${previewError ? 'true' : 'false'}"
+          aria-describedby="preview-consent-items${previewError ? ` ${previewErrorId}` : ''}"
         />
         <span>I understand the current mode boundary.</span>
       </label>
-      <ul role="list" class="checklist-list">
+      <ul role="list" class="checklist-list" id="preview-consent-items">
         ${consentItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
       </ul>
-      <p class="field-err" data-err="${FIELD_IDS.previewConsent}">${escapeHtml(getFieldError(flowState, FIELD_IDS.previewConsent))}</p>
+      <p class="field-err" id="${previewErrorId}" data-err="${FIELD_IDS.previewConsent}">${escapeHtml(previewError)}</p>
     </div>
 
-    <div class="field consent-card${getFieldError(flowState, FIELD_IDS.nextStepConsent) ? ' err' : ''}">
+    <div class="field consent-card${nextStepError ? ' err' : ''}">
       <div class="eyebrow mb-4">What happens next</div>
       <p class="muted text-body-sm">${escapeHtml(getEntryContextSummary(flowState))}</p>
       <label class="check-option" for="f-next-step-consent">
@@ -367,16 +410,18 @@ function renderConsentReview() {
           type="checkbox"
           data-field="${FIELD_IDS.nextStepConsent}"
           ${flowState.values.nextStepConsent ? 'checked' : ''}
+          aria-invalid="${nextStepError ? 'true' : 'false'}"
+          aria-describedby="next-step-items${nextStepError ? ` ${nextStepErrorId}` : ''}"
         />
         <span>I understand the next step in this build.</span>
       </label>
-      <ul role="list" class="checklist-list">
+      <ul role="list" class="checklist-list" id="next-step-items">
         ${nextStepItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
       </ul>
-      <p class="field-err" data-err="${FIELD_IDS.nextStepConsent}">${escapeHtml(getFieldError(flowState, FIELD_IDS.nextStepConsent))}</p>
+      <p class="field-err" id="${nextStepErrorId}" data-err="${FIELD_IDS.nextStepConsent}">${escapeHtml(nextStepError)}</p>
     </div>
 
-    <div class="dialog-note dialog-note-inline">
+    <div class="dialog-note dialog-note-inline" id="flowConsentBoundaryNote">
       <strong>Preview and privacy boundary.</strong> ${escapeHtml(disclosures.previewFlow)} ${escapeHtml(disclosures.previewPrivacy)}
     </div>
   `;
@@ -559,12 +604,8 @@ function renderDialog() {
 function mount() {
   backdrop = document.createElement('div');
   backdrop.className = 'dialog-backdrop';
-  backdrop.setAttribute('role', 'dialog');
-  backdrop.setAttribute('aria-modal', 'true');
-  backdrop.setAttribute('aria-labelledby', 'flowDialogTitle');
-  backdrop.setAttribute('aria-describedby', 'flowDialogAnnouncement');
   backdrop.innerHTML = `
-    <div class="dialog" id="flowDialog" tabindex="-1">
+    <div class="dialog" id="flowDialog" role="dialog" aria-modal="true" aria-labelledby="flowDialogTitle" aria-describedby="flowDialogAnnouncement" tabindex="-1">
       <p class="sr-only" id="flowDialogAnnouncement" aria-live="polite"></p>
     </div>
   `;
@@ -577,18 +618,36 @@ function mount() {
 }
 
 function focusPrimaryInteractiveElement() {
-  const selector = [
+  const selectors = [
     '[data-mode-choice]',
     '[data-choice]',
-    '.dialog-close',
     '.select',
     'input[type="checkbox"]',
     '[data-flow-next]',
+    '.dialog-close',
     'a.btn',
-  ].join(', ');
+  ];
 
-  const target = backdrop.querySelector(selector);
-  target?.focus();
+  const target = selectors
+    .map((selector) => backdrop.querySelector(selector))
+    .find(Boolean);
+  previouslyFocusedInsideFlow = target || null;
+  queueFocus(target);
+}
+
+function getFocusableElements(root = backdrop) {
+  if (!root) return [];
+  return [...root.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  )].filter((element) => !element.hasAttribute('hidden') && !element.closest('[hidden]'));
+}
+
+function focusElementWithoutScroll(target) {
+  target?.focus?.({ preventScroll: true });
+}
+
+function shouldReduceMotion() {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
 function syncStorage() {
@@ -612,7 +671,7 @@ function paint({ focus = true } = {}) {
   maybeTrackFlowLifecycle();
 
   if (focus) {
-    queueMicrotask(() => focusPrimaryInteractiveElement());
+    queueMicrotask(focusPrimaryInteractiveElement);
   }
 }
 
@@ -647,10 +706,12 @@ function openFlow(trigger = null, { resume = false } = {}) {
     }
   }
 
-  lastFocus = document.activeElement;
+  lastFocus = trigger || document.activeElement;
+  previouslyFocusedInsideFlow = null;
   markOpenState(true);
   paint();
   backdrop.classList.add('open');
+  backdrop.removeAttribute('aria-hidden');
   document.body.style.overflow = 'hidden';
 
   if (!historyEntryActive && !isBootstrappingFromStorage) {
@@ -661,8 +722,10 @@ function openFlow(trigger = null, { resume = false } = {}) {
 
 function closeFlow({ fromHistory = false } = {}) {
   if (!backdrop?.classList.contains('open')) return;
+  const returnFocusTarget = lastFocus;
 
   backdrop.classList.remove('open');
+  backdrop.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
   markOpenState(false);
   syncStorage();
@@ -675,7 +738,8 @@ function closeFlow({ fromHistory = false } = {}) {
     replaceFlowHistoryState();
   }
 
-  lastFocus?.focus?.();
+  queueFocus(returnFocusTarget);
+  previouslyFocusedInsideFlow = null;
   resetTrackedFlowEvents();
 }
 
@@ -727,8 +791,8 @@ function handleFieldInput(field) {
 
 function focusFirstError() {
   const firstField = backdrop.querySelector('.field.err .choice, .field.err .select, .field.err input, .field.err button');
-  firstField?.focus();
-  firstField?.closest('.field')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  focusElementWithoutScroll(firstField);
+  firstField?.closest('.field')?.scrollIntoView({ behavior: shouldReduceMotion() ? 'auto' : 'smooth', block: 'center' });
 }
 
 function next() {
@@ -898,9 +962,63 @@ export function initFlow() {
       return;
     }
 
+    if (event.key === 'Tab') {
+      const focusable = getFocusableElements(backdrop);
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || !backdrop.contains(active))) {
+        event.preventDefault();
+        focusElementWithoutScroll(last);
+        return;
+      }
+
+      if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        focusElementWithoutScroll(first);
+      }
+    }
+
     if (event.key === 'Enter' && event.target.closest('[data-mode-choice]')) {
       event.preventDefault();
       selectFlowMode(event.target.closest('[data-mode-choice]').dataset.modeChoice);
+      return;
+    }
+
+    if ((event.key === ' ' || event.key === 'Spacebar') && event.target.closest('[data-mode-choice], [data-choice]')) {
+      event.preventDefault();
+      const choice = event.target.closest('[data-mode-choice], [data-choice]');
+      if (choice?.dataset.modeChoice) {
+        selectFlowMode(choice.dataset.modeChoice);
+      } else if (choice?.dataset.choice) {
+        handleChoice(choice);
+      }
+      return;
+    }
+
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight' || event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      const current = event.target.closest('[data-mode-choice], [data-choice]');
+      if (!current) return;
+      const fieldSelector = current.hasAttribute('data-mode-choice')
+        ? '[data-mode-choice]'
+        : `[data-choice="${current.dataset.choice}"]`;
+      const choices = [...backdrop.querySelectorAll(fieldSelector)];
+      if (!choices.length) return;
+      const currentIndex = choices.indexOf(current);
+      if (currentIndex === -1) return;
+      event.preventDefault();
+      const direction = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1;
+      const nextIndex = (currentIndex + direction + choices.length) % choices.length;
+      const target = choices[nextIndex];
+      focusElementWithoutScroll(target);
+      if (target.dataset.modeChoice) {
+        selectFlowMode(target.dataset.modeChoice);
+      } else {
+        handleChoice(target);
+      }
     }
   });
 
