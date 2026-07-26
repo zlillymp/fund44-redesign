@@ -7,16 +7,26 @@ export function header() {
   const navItems = getPrimaryNavigation();
   const mobileItems = getMobileNavigation();
   return `
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#app" class="skip-link">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <div class="wrap nav">
       ${logo()}
       <nav class="nav-links" aria-label="Primary">
         ${navItems.map((n) => n.panel ? `
-          <div class="nav-item">
-            <a class="nav-link" href="${n.href}" data-nav-route="${n.routeId}" data-nav-section="primary" data-nav-label="${n.label}" data-destination-route-id="${n.routeId}">${n.label}</a>
-            <div class="nav-panel" role="menu">
-              ${n.panel.map((p) => `<a href="${p.href}" role="menuitem" data-nav-section="primary_panel" data-nav-label="${p.label}" data-destination-route-id="${p.routeId}"><strong>${p.label}</strong><span>${p.description}</span></a>`).join('')}
+          <div class="nav-item nav-item-has-panel">
+            <a
+              class="nav-link"
+              href="${n.href}"
+              data-nav-route="${n.routeId}"
+              data-nav-section="primary"
+              data-nav-label="${n.label}"
+              data-destination-route-id="${n.routeId}"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-panel-${n.routeId}"
+            >${n.label}</a>
+            <div class="nav-panel" id="nav-panel-${n.routeId}">
+              ${n.panel.map((p) => `<a href="${p.href}" data-nav-section="primary_panel" data-nav-label="${p.label}" data-destination-route-id="${p.routeId}"><strong>${p.label}</strong><span>${p.description}</span></a>`).join('')}
             </div>
           </div>` : `<a class="nav-link" href="${n.href}" data-nav-route="${n.routeId}" data-nav-section="primary" data-nav-label="${n.label}" data-destination-route-id="${n.routeId}">${n.label}</a>`).join('')}
       </nav>
@@ -31,21 +41,23 @@ export function header() {
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
     <div class="wrap mobile-menu-wrap">
       <div class="mobile-menu-head">
+        <span class="sr-only" id="mobileMenuTitle">Site menu</span>
         ${logo()}
-        <button class="theme-toggle" data-menu-close aria-label="Close menu">${icon.close}</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch color theme"></button>
+        <button class="menu-btn mobile-menu-close" data-menu-close aria-label="Close menu">${icon.close}</button>
       </div>
-      <nav class="mobile-links" aria-label="Mobile">
-        ${mobileItems.map((item) => `<a href="${item.href}" data-nav-section="mobile" data-nav-label="${item.label}" data-destination-route-id="${item.routeId}"${item.className ? ` class="${item.className}"` : ''}>${item.label}</a>`).join('')}
-      </nav>
       <div class="mobile-menu-cta">
         <button class="btn btn-primary btn-lg btn-block" data-analytics-cta-id="preview_funding_paths" data-analytics-cta-label="Preview funding paths" data-analytics-cta-type="primary" data-analytics-cta-placement="mobile_menu_primary" ${flowTriggerAttributes({
           ctaId: 'preview_funding_paths',
           startSurface: 'mobile_menu_primary',
         })}>Preview funding paths ${icon.arrow}</button>
       </div>
+      <nav class="mobile-links" aria-label="Mobile">
+        ${mobileItems.map((item) => `<a href="${item.href}" data-nav-section="mobile" data-nav-label="${item.label}" data-destination-route-id="${item.routeId}"${item.className ? ` class="${item.className}"` : ''}>${item.label}</a>`).join('')}
+      </nav>
     </div>
   </div>`;
 }

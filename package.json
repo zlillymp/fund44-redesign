@@ -9,6 +9,7 @@
     "build:link-graph": "node scripts/build-link-graph.mjs",
     "preview": "vite preview",
     "test": "node --test",
+    "test:a11y": "playwright test",
     "validate:citations": "node scripts/validate-citations.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:crawl": "node scripts/validate-crawl-files.mjs",
@@ -20,6 +21,7 @@
     "smoke:routes": "node scripts/smoke-routes.mjs"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.2",
     "vite": "^8.1.5"
   }
 }
