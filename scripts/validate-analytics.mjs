@@ -115,6 +115,16 @@ useCaseRoutes.forEach((routeId) => {
   assert(html.includes('data-analytics-cta-id="use_case_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
 });
 
+const industryRoutes = getAllContent()
+  .filter((record) => record.templateId === 'industry_page')
+  .map((record) => record.routeId);
+
+industryRoutes.forEach((routeId) => {
+  const html = routeHtml.get(routeId) || '';
+  assert(html.includes('data-analytics-cta-id="industry_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
+  assert(html.includes('data-analytics-cta-id="industry_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+});
+
 const notFoundHtml = routeHtml.get('not_found') || '';
 assert(notFoundHtml.includes('data-analytics-cta-id="back_home"'), '404 route must expose the back-home CTA id');
 assert(notFoundHtml.includes('data-analytics-cta-id="explore_financing"'), '404 route must expose the financing CTA id');

@@ -76,6 +76,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fund44.com/industries/franchise-businesses</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/industries/trucking-companies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/industries/construction-contractors</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fund44.com/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

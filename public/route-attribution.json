@@ -95,6 +95,42 @@
       "landing": true
     },
     {
+      "routeId": "construction_contractors",
+      "analyticsRouteId": "construction_contractors",
+      "routeFamily": "industry",
+      "pageType": "industry",
+      "templateId": "industry_page",
+      "path": "/industries/construction-contractors",
+      "loc": "https://fund44.com/industries/construction-contractors",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "franchise_businesses",
+      "analyticsRouteId": "franchise_businesses",
+      "routeFamily": "industry",
+      "pageType": "industry",
+      "templateId": "industry_page",
+      "path": "/industries/franchise-businesses",
+      "loc": "https://fund44.com/industries/franchise-businesses",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "trucking_companies",
+      "analyticsRouteId": "trucking_companies",
+      "routeFamily": "industry",
+      "pageType": "industry",
+      "templateId": "industry_page",
+      "path": "/industries/trucking-companies",
+      "loc": "https://fund44.com/industries/trucking-companies",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
       "routeId": "line_of_credit",
       "analyticsRouteId": "line_of_credit",
       "routeFamily": "financing_program",

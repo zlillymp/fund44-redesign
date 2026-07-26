@@ -1,0 +1,213 @@
+{
+  "id": "industry_trucking_companies",
+  "routeId": "trucking_companies",
+  "slug": "trucking-companies",
+  "pageType": "industry",
+  "templateId": "industry_page",
+  "title": "Trucking company financing",
+  "metaTitle": "Trucking company financing",
+  "metaDescription": "Trucking companies often compare equipment financing, lines of credit, term loans, and SBA-backed options based on tractors, trailers, authority setup, and fleet cash-flow needs. Review the industry-specific document and fit differences.",
+  "summary": "The trucking-companies page explains how registration, tax, insurance, and fleet-asset requirements change the financing comparison for owner-operators and growing fleets.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Industry financing: trucking companies",
+    "title": "Trucking financing usually starts with the truck file, not just the loan amount.",
+    "lead": "Owner-operators and fleet operators often compare equipment financing, term loans, lines of credit, and SBA-backed options. The right first path usually depends on whether the need is tractors or trailers, authority and insurance setup, or working capital for fuel, repairs, and payroll."
+  },
+  "shortLabel": "Trucking companies",
+  "quickAnswer": {
+    "term": "Trucking company financing",
+    "definition": "often starts with equipment financing, line-of-credit, term-loan, or SBA-backed comparisons, because lenders usually need to understand the vehicle mix, operating authority, insurance filings, and heavy-vehicle tax records alongside the business financials."
+  },
+  "whoItFitsHeading": "When this industry page fits best",
+  "bestFitHeading": "Common financing starting points for trucking companies",
+  "bestFitProducts": [
+    {
+      "routeId": "equipment_financing",
+      "title": "Equipment financing",
+      "description": "Often the first comparison when the request is centered on tractors, trailers, or other revenue-producing rolling stock.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "line_of_credit",
+      "title": "Business lines of credit",
+      "description": "Often relevant when the bigger issue is fuel, repairs, driver payroll timing, or other recurring operating gaps.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "term_loan",
+      "title": "Business term loans",
+      "description": "Worth comparing when the company needs a fixed amount for one-time fleet growth, shop improvements, or refinancing an existing obligation.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When trucking-company financing tends to fit",
+    "items": [
+      "Buying or refinancing tractors, trailers, or other business vehicles tied directly to hauling revenue",
+      "Covering recurring operating needs such as fuel, repairs, and payroll between customer payments",
+      "Growing from one truck to a small fleet where compliance and insurance records become part of the underwriting picture",
+      "Comparing a targeted vehicle structure against a broader working-capital or term-debt option"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the business is not actually operating commercial vehicles, another industry or use-case page may match the financing need more cleanly.",
+      "If the request is mostly for owner-occupied property or a business acquisition, the real-estate or acquisition pages are usually better first comparisons."
+    ]
+  },
+  "industryFocusHeading": "Trucking-specific underwriting and operating questions",
+  "underwritingFocusCards": [
+    {
+      "id": "trucking_authority",
+      "iconKey": "shield",
+      "title": "Authority and registration status",
+      "description": "Interstate trucking requests often need the borrower to show USDOT registration, the right operating authority, and the associated filing record before the financing conversation can move very far."
+    },
+    {
+      "id": "trucking_insurance",
+      "iconKey": "building",
+      "title": "Insurance and filing continuity",
+      "description": "FMCSA does not grant operating authority until the required financial-responsibility filings are on file, so insurance setup and maintenance can matter alongside the loan request."
+    },
+    {
+      "id": "trucking_tax",
+      "iconKey": "file",
+      "title": "Vehicle tax and fleet records",
+      "description": "Heavy-vehicle tax filings and unit-level vehicle information help separate a simple equipment purchase from a broader fleet or operating-capital request."
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common trucking-financing document examples",
+    "items": [
+      "Truck or trailer quotes, invoices, or unit lists",
+      "USDOT and operating-authority details plus BOC-3 and insurance-filing status where applicable",
+      "Form 2290 records or Schedule 1 support for heavy vehicles",
+      "Recent business financials and cash-flow support showing how the fleet earns and collects revenue"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate trucking-specific compliance and fleet-asset questions from generic equipment or working-capital copy before routing the borrower into the most relevant product pages.",
+    "bullets": [
+      "Highlights why authority, insurance filings, and heavy-vehicle records can change the document checklist for the same financing amount.",
+      "Connects trucking borrowers to equipment, line-of-credit, term-loan, and broader financing routes without implying a guaranteed approval path.",
+      "Keeps lender participation, collateral treatment, and final pricing decisions with third-party providers."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the need shifts",
+  "alternativePaths": [
+    {
+      "routeId": "equipment_purchase",
+      "title": "Equipment purchase",
+      "description": "Use the broader equipment-intent page if the main question is just how to finance one asset rather than how fleet operations affect the loan file.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "cash_flow_needs",
+      "title": "Cash-flow needs",
+      "description": "Use this page if the real issue is recurring fuel, repair, or payroll timing rather than a vehicle purchase.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "financing",
+      "title": "Financing overview",
+      "description": "Step back to the full map if you still need to compare trucking-specific equipment, working-capital, and SBA paths side by side.",
+      "iconKey": "layers"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Trucking-financing eligibility, lender participation, collateral requirements, timelines, and terms are determined by third-party lenders and by the business profile. Regulatory filings and tax records may also affect the comparison. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Buying trucks or covering fleet cash-flow gaps?",
+    "subheading": "Preview which financing paths may fit before you commit to one structure."
+  },
+  "commonQuestions": [
+    {
+      "id": "trucking_faq_start",
+      "question": "What financing paths do trucking companies commonly compare first?",
+      "answer": "Equipment financing, lines of credit, term loans, and SBA-backed options are common starting points, depending on whether the need is a vehicle purchase, recurring operating cash, or a broader fleet-growth project."
+    },
+    {
+      "id": "trucking_faq_usdot",
+      "question": "Why do USDOT and operating-authority details matter?",
+      "answer": "FMCSA registration rules make USDOT and, for certain interstate for-hire operations, operating-authority status part of the operating picture. Those records help lenders understand whether the fleet is already set up to run the work tied to the financing request."
+    },
+    {
+      "id": "trucking_faq_2290",
+      "question": "Why does Form 2290 come up for some trucking requests?",
+      "answer": "IRS Form 2290 covers heavy highway vehicle use tax for certain vehicles with a taxable gross weight of 55,000 pounds or more, so it can become part of the record package for heavier commercial units."
+    },
+    {
+      "id": "trucking_faq_direct",
+      "question": "Does Fund44 lend directly to trucking companies?",
+      "answer": "No. Fund44 does not lend directly to trucking companies. Third-party lenders determine eligibility, structure, and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_equipment_financing",
+    "page_line_of_credit",
+    "page_term_loan",
+    "use_case_equipment_purchase",
+    "use_case_cash_flow_needs"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-01",
+    "F44-PROD-05",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_fmcsa_usdot_number_2026_07_26",
+    "external_fmcsa_operating_authority_2026_07_26",
+    "external_fmcsa_boc3_2026_07_26",
+    "external_fmcsa_insurance_filing_2026_07_26",
+    "external_irs_form_2290_2026_07_26",
+    "external_irs_trucking_tax_center_2026_07_26",
+    "external_wf_businessline_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "trucking_company_financing",
+    "contentGroup": "industry",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "industry",
+    "ctaIds": [
+      "preview_funding_paths",
+      "industry_best_fit_link",
+      "industry_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "trucking_companies_faq",
+    "freshnessState": "review_pending"
+  }
+}

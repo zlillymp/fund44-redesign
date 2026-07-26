@@ -39,6 +39,9 @@
 - Equipment purchase: /use-cases/equipment-purchase
 - Business expansion: /use-cases/business-expansion
 - Refinance business debt: /use-cases/refinance-business-debt
+- Franchise business financing: /industries/franchise-businesses
+- Trucking company financing: /industries/trucking-companies
+- Construction contractor financing: /industries/construction-contractors
 - How it works: /how-it-works
 - About Fund44: /about
 - Resources: /resources

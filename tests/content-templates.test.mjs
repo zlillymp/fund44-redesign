@@ -83,3 +83,38 @@ test('use-case cluster records satisfy the scalable section contract', () => {
     assert.equal(record.indexability.indexable, true);
   });
 });
+
+test('industry cluster records satisfy the scalable section contract', () => {
+  const records = [
+    getContentById('industry_franchise_businesses'),
+    getContentById('industry_trucking_companies'),
+    getContentById('industry_construction_contractors'),
+  ];
+
+  records.forEach((record) => {
+    assert.ok(record.quickAnswer.term);
+    assert.ok(record.quickAnswer.definition);
+    assert.ok(record.shortLabel);
+    assert.ok(record.whoItFitsHeading);
+    assert.ok(record.bestFitHeading);
+    assert.ok(record.industryFocusHeading);
+    assert.ok(record.whoItFits.heading);
+    assert.ok(record.whoItFits.items.length > 0);
+    assert.ok(record.whenItMayNotFit.heading);
+    assert.ok(record.whenItMayNotFit.items.length > 0);
+    assert.ok(record.typicalDocuments.heading);
+    assert.ok(record.typicalDocuments.items.length > 0);
+    assert.ok(record.howFund44Fits.heading);
+    assert.ok(record.howFund44Fits.summary);
+    assert.ok(record.howFund44Fits.bullets.length > 0);
+    assert.ok(record.bestFitProducts.length >= 3);
+    assert.ok(record.underwritingFocusCards.length >= 3);
+    assert.ok(record.alternativePaths.length >= 3);
+    assert.ok(record.commonQuestions.length > 0);
+    assert.ok(record.sectionDisclosureHtml);
+    assert.ok(record.disclosureIds.length > 0);
+    assert.ok(record.citationIds.length > 0);
+    assert.ok(record.measurement.ctaIds.length > 0);
+    assert.equal(record.indexability.indexable, true);
+  });
+});

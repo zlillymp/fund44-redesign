@@ -1,0 +1,210 @@
+{
+  "id": "industry_franchise_businesses",
+  "routeId": "franchise_businesses",
+  "slug": "franchise-businesses",
+  "pageType": "industry",
+  "templateId": "industry_page",
+  "title": "Franchise business financing",
+  "metaTitle": "Franchise business financing",
+  "metaDescription": "Franchise businesses often compare SBA 7(a), acquisition financing, term loans, and equipment financing depending on whether the need is a new unit, resale, or buildout. Review the industry-specific documents and fit differences.",
+  "summary": "The franchise-businesses page explains how franchise-specific disclosure, brand-eligibility, and startup-versus-acquisition differences shape which financing paths tend to fit.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Industry financing: franchise businesses",
+    "title": "Financing a franchise means reviewing the brand documents before you pick the loan.",
+    "lead": "Franchise borrowers often compare SBA 7(a), acquisition financing, term loans, and equipment financing. The right starting point usually depends on whether the project is a resale, a new unit, or a buildout with equipment and working-capital needs."
+  },
+  "shortLabel": "Franchise businesses",
+  "quickAnswer": {
+    "term": "Franchise business financing",
+    "definition": "often starts with SBA 7(a), acquisition financing, or term-loan comparisons, because lenders usually need to understand the franchise agreement, the brand's eligibility status, and whether the request covers a purchase, a new opening, or equipment and buildout costs."
+  },
+  "whoItFitsHeading": "When this industry page fits best",
+  "bestFitHeading": "Common financing starting points for franchise businesses",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "Often part of the first comparison when the franchise request blends startup costs, transfer fees, working capital, or an acquisition.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Often relevant when the borrower is purchasing an existing franchise location or buying out an owner rather than opening from scratch.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "equipment_financing",
+      "title": "Equipment financing",
+      "description": "Worth comparing when the deal includes a meaningful equipment package tied to opening or upgrading the unit.",
+      "iconKey": "truck"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When franchise-business financing tends to fit",
+    "items": [
+      "Opening a new unit with a franchise agreement, disclosure package, and defined opening budget",
+      "Buying an existing franchise location where the deal includes transfer, training, and operating-continuity questions",
+      "Projects where brand standards, equipment lists, and required fees shape the total financing need",
+      "Borrowers who need to compare one broader loan against a more targeted acquisition or equipment structure"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the business is not actually operating under a franchise or brand agreement, the broader acquisition or startup pages are usually the cleaner first comparison.",
+      "If the primary need is only short-term operating cash after the unit is already open, a working-capital or line-of-credit path may be the better starting point."
+    ]
+  },
+  "industryFocusHeading": "Franchise-specific underwriting and operating questions",
+  "underwritingFocusCards": [
+    {
+      "id": "franchise_documents",
+      "iconKey": "file",
+      "title": "Disclosure and agreement package",
+      "description": "Franchise requests usually add a disclosure review layer because the FTC's Franchise Rule requires a disclosure document, and lenders often need to understand the franchise agreement and related brand materials."
+    },
+    {
+      "id": "franchise_brand_eligibility",
+      "iconKey": "shield",
+      "title": "Brand eligibility and structure",
+      "description": "SBA-backed franchise requests often turn on whether the brand appears in the SBA Franchise Directory and whether the project is a new unit, a resale, or another structure under the brand."
+    },
+    {
+      "id": "franchise_budget",
+      "iconKey": "cash",
+      "title": "Opening budget versus purchase price",
+      "description": "Underwriting usually looks different when the ask covers a new-unit opening budget, transfer fees, and equipment rather than the purchase price of an operating location."
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common franchise-financing document examples",
+    "items": [
+      "Franchise disclosure document",
+      "Franchise agreement or transfer agreement",
+      "Opening budget or purchase summary showing fees, equipment, and working-capital needs",
+      "Brand-eligibility support such as SBA Franchise Directory matching and related business financials if the location is being acquired"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate franchise-specific financing questions from generic acquisition or startup copy and to route visitors into the product pages that usually anchor the comparison.",
+    "bullets": [
+      "Highlights why disclosure documents and brand eligibility can matter before a lender comparison is meaningful.",
+      "Connects franchise borrowers to SBA 7(a), acquisition, equipment, and broader financing routes without implying one guaranteed structure.",
+      "Keeps final eligibility, lender participation, and underwriting decisions with third-party lenders and program rules."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the deal scope changes",
+  "alternativePaths": [
+    {
+      "routeId": "buy_a_business",
+      "title": "Buy a business",
+      "description": "Use the broader acquisition-intent page if the main question is whether you are buying an operating business rather than evaluating brand-specific franchise documents.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "equipment_purchase",
+      "title": "Equipment purchase",
+      "description": "Use this path if the deal is really centered on kitchen, service, or branded equipment rather than the full franchise transaction.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organize the disclosure, agreement, budget, and financial documents before moving deeper into lender comparisons.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Franchise-financing eligibility, brand participation, lender availability, timelines, and terms are determined by third-party lenders and, where applicable, SBA program rules. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Reviewing a franchise opening, resale, or transfer?",
+    "subheading": "Preview the financing paths that may fit before you commit to one structure."
+  },
+  "commonQuestions": [
+    {
+      "id": "franchise_faq_start",
+      "question": "What financing paths do franchise businesses commonly compare first?",
+      "answer": "SBA 7(a), acquisition financing, term loans, and equipment financing are common starting points, depending on whether the request is for a resale, a new unit, equipment, or a broader opening budget."
+    },
+    {
+      "id": "franchise_faq_fdd",
+      "question": "Why does the franchise disclosure document matter?",
+      "answer": "The FTC's Franchise Rule requires franchisors to provide a disclosure document with specific information, so it often becomes one of the documents borrowers and lenders review early when evaluating a franchise opportunity."
+    },
+    {
+      "id": "franchise_faq_directory",
+      "question": "Why does the SBA Franchise Directory come up in financing conversations?",
+      "answer": "SBA publishes a Franchise Directory that lenders and CDCs use when evaluating the eligibility of a small business operating under a franchising agreement. That makes brand status part of the early screening for some SBA-backed comparisons."
+    },
+    {
+      "id": "franchise_faq_direct",
+      "question": "Does Fund44 approve franchise financing directly?",
+      "answer": "No. Fund44 does not approve or issue franchise financing directly. Lenders determine eligibility, structure, and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_business_acquisition",
+    "page_equipment_financing",
+    "use_case_buy_a_business",
+    "article_preparing_your_documents"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-04",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_ftc_franchise_rule_2026_07_26",
+    "external_sba_franchise_directory_2026_07_26",
+    "external_sba_buy_existing_business_2026_07_26",
+    "external_sba_7a_loans_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "franchise_business_financing",
+    "contentGroup": "industry",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "industry",
+    "ctaIds": [
+      "preview_funding_paths",
+      "industry_best_fit_link",
+      "industry_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "franchise_businesses_faq",
+    "freshnessState": "review_pending"
+  }
+}

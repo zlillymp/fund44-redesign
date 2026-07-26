@@ -135,6 +135,27 @@
       "description": "Equipment financing or an SBA loan can spread the cost over time for a specific asset purchase.",
       "destinationRouteId": "equipment_purchase",
       "iconKey": "truck"
+    },
+    {
+      "id": "decision_franchise",
+      "title": "I am financing a franchise opening or transfer",
+      "description": "Review how disclosure documents, brand eligibility, and startup-versus-resale structure change the comparison.",
+      "destinationRouteId": "franchise_businesses",
+      "iconKey": "building"
+    },
+    {
+      "id": "decision_trucking",
+      "title": "I run a trucking company",
+      "description": "Compare equipment, working-capital, and term-debt paths with authority, insurance, and fleet records in view.",
+      "destinationRouteId": "trucking_companies",
+      "iconKey": "truck"
+    },
+    {
+      "id": "decision_construction",
+      "title": "I am a construction contractor",
+      "description": "Compare working-capital, equipment, and SBA paths with work-in-process, receivables, and bond context.",
+      "destinationRouteId": "construction_contractors",
+      "iconKey": "route"
     }
   ],
   "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> The financing overview is educational and is meant to help you compare common product categories. Eligibility, provider availability, timelines, and terms vary by provider and by business profile.",
@@ -172,7 +193,10 @@
     "use_case_cash_flow_needs",
     "use_case_equipment_purchase",
     "use_case_business_expansion",
-    "use_case_refinance_business_debt"
+    "use_case_refinance_business_debt",
+    "industry_franchise_businesses",
+    "industry_trucking_companies",
+    "industry_construction_contractors"
   ],
   "contributors": {
     "authorId": null,

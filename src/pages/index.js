@@ -9,6 +9,11 @@ import {
   businessExpansionUseCase,
   refinanceBusinessDebtUseCase,
 } from './use-cases.js';
+import {
+  franchiseBusinessesIndustry,
+  truckingCompaniesIndustry,
+  constructionContractorsIndustry,
+} from './industries.js';
 import { howItWorks } from './how-it-works.js';
 import { about } from './about.js';
 import { resources, article } from './resources.js';
@@ -32,6 +37,9 @@ export const pageRenderers = {
   equipmentPurchaseUseCase,
   businessExpansionUseCase,
   refinanceBusinessDebtUseCase,
+  franchiseBusinessesIndustry,
+  truckingCompaniesIndustry,
+  constructionContractorsIndustry,
   howItWorks,
   about,
   resources,
