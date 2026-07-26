@@ -10,18 +10,24 @@
     "preview": "vite preview",
     "test": "node --test",
     "test:a11y": "playwright test",
+    "test:release": "playwright test --config=playwright.release.config.mjs",
+    "qa:release": "node scripts/run-release-gates.mjs",
     "validate:citations": "node scripts/validate-citations.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:crawl": "node scripts/validate-crawl-files.mjs",
     "validate:design": "node scripts/validate-design-tokens.mjs",
     "validate:analytics": "node scripts/validate-analytics.mjs",
+    "validate:links": "node scripts/validate-broken-links.mjs",
     "validate:legal": "node scripts/validate-legal.mjs",
+    "validate:performance": "node scripts/validate-performance-budgets.mjs",
     "validate:routes": "node scripts/validate-routes.mjs",
     "validate:prerender": "node scripts/validate-prerender.mjs",
+    "validate:workflows": "node scripts/validate-workflows.mjs",
     "smoke:routes": "node scripts/smoke-routes.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "yaml": "^2.8.1"
   }
 }
