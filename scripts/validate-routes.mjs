@@ -1,5 +1,6 @@
 import { routeManifest } from '../content/manifest.mjs';
-import { getRouteInventory, getSitemapEntries, getLlmsEntries, hrefForRoute } from '../src/lib/routes.js';
+import { hrefForRoute } from '../src/lib/routes.js';
+import { getRouteInventory, getSitemapEntries, getLlmsEntries } from '../src/lib/route-inventory.js';
 import { getAllContent } from '../src/lib/content.js';
 
 const errors = [];

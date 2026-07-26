@@ -4,11 +4,14 @@ import {
   allowedAudienceStages,
   allowedEvidenceScopes,
   allowedBlockTypes,
+  allowedFreshnessActions,
+  allowedFreshnessOwnerStates,
   allowedFreshnessStates,
   allowedFunnelRoles,
   baseRequiredFields,
   templateRequiredFields,
 } from '../content/schema/content-model.mjs';
+import { getContentFreshnessByContentId } from '../src/lib/freshness.js';
 import {
   getScalableTemplateContract,
   getScalableTemplateContracts,
@@ -50,6 +53,20 @@ function validateContributors(record) {
     (contributors.reviewerId !== null && contributors.reviewerId !== undefined) || contributors.reviewerPlaceholder,
     `${record.id}: contributors.reviewerId or contributors.reviewerPlaceholder is required`
   );
+}
+
+function validateFreshness(record) {
+  const { freshness } = record;
+  assert(typeof freshness === 'object' && freshness !== null, `${record.id}: freshness must be an object`);
+  assert(typeof freshness.reviewWindowDays === 'number' && freshness.reviewWindowDays > 0, `${record.id}: freshness.reviewWindowDays must be a positive number`);
+  assert(Array.isArray(freshness.reviewTriggers), `${record.id}: freshness.reviewTriggers must be an array`);
+  assert(freshness.reviewTriggers.length > 0, `${record.id}: freshness.reviewTriggers must include at least one trigger`);
+  assert(typeof freshness.ownerRole === 'string' && freshness.ownerRole.length > 0, `${record.id}: freshness.ownerRole is required`);
+  assert(typeof freshness.reviewerRole === 'string' && freshness.reviewerRole.length > 0, `${record.id}: freshness.reviewerRole is required`);
+  assert(allowedFreshnessOwnerStates.has(freshness.ownerState), `${record.id}: freshness.ownerState is invalid`);
+  assert(allowedFreshnessOwnerStates.has(freshness.reviewerState), `${record.id}: freshness.reviewerState is invalid`);
+  assert(allowedFreshnessActions.has(freshness.staleAction), `${record.id}: freshness.staleAction is invalid`);
+  assert(allowedFreshnessActions.has(freshness.expiredAction), `${record.id}: freshness.expiredAction is invalid`);
 }
 
 function validateQuickAnswer(record) {
@@ -155,10 +172,12 @@ function validateIndexability(record, route) {
 }
 
 function validateMeasurement(record, route) {
+  const freshness = getContentFreshnessByContentId(record.id);
   assert(record.measurement?.routeFamily === route.routeFamily, `${record.id}: measurement.routeFamily must match route family`);
   assert(Array.isArray(record.measurement?.ctaIds) && record.measurement.ctaIds.length > 0, `${record.id}: measurement.ctaIds must be a non-empty array`);
   assert(record.measurement?.faqGroup, `${record.id}: measurement.faqGroup is required`);
   assert(allowedFreshnessStates.has(record.measurement?.freshnessState), `${record.id}: measurement.freshnessState is invalid`);
+  assert(record.measurement?.freshnessState === freshness?.state, `${record.id}: measurement.freshnessState must match derived freshness state`);
   assert(allowedAudienceStages.has(record.intent?.audienceStage), `${record.id}: intent.audienceStage is invalid`);
   assert(allowedFunnelRoles.has(record.intent?.funnelRole), `${record.id}: intent.funnelRole is invalid`);
   assert(record.intent?.contentGroup, `${record.id}: intent.contentGroup is required`);
@@ -286,6 +305,7 @@ contentRecords.forEach((record) => {
   const route = validateRouteBinding(record);
   validateTemplateSpecific(record);
   validateContributors(record);
+  validateFreshness(record);
   validateQuickAnswer(record);
   validateQuestionGroup(record);
   validateClaimReview(record);

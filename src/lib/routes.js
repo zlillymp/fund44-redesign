@@ -53,10 +53,6 @@ export function getCanonicalRoutes() {
   return routes.filter((route) => route.crawl?.canonical);
 }
 
-export function getIndexableRoutes() {
-  return getCanonicalRoutes().filter((route) => route.crawl?.indexable);
-}
-
 export function getRouteByPath(pathname) {
   return routeByPath.get(normalizePathname(pathname)) || null;
 }
@@ -223,54 +219,6 @@ export function getLlmsInventories() {
         path: route.path,
       })),
   };
-}
-
-export function getLlmsEntries() {
-  const inventory = getLlmsInventories();
-  return [
-    ...inventory.financingPaths.map((item) => ({
-      ...item,
-      section: 'financing_paths',
-      loc: absoluteUrlForPath(item.path),
-    })),
-    ...inventory.keyPages.map((item) => ({
-      ...item,
-      section: 'key_pages',
-      loc: absoluteUrlForPath(item.path),
-    })),
-  ];
-}
-
-export function getSitemapEntries() {
-  return getCanonicalRoutes()
-    .filter((route) => route.crawl?.sitemap && route.crawl?.indexable)
-    .map((route) => ({
-      routeId: route.routeId,
-      path: route.path,
-      loc: absoluteUrlForPath(route.path),
-      changefreq: route.crawl.changefreq,
-      priority: route.crawl.priority,
-    }));
-}
-
-export function getIndexableRouteInventory() {
-  return getRouteInventory().filter((route) => route.canonical && route.indexable);
-}
-
-export function getRouteInventory() {
-  return routes.map((route) => ({
-    routeId: route.routeId,
-    analyticsRouteId: route.analyticsRouteId,
-    path: route.path,
-    pageKey: route.pageKey,
-    pageType: route.pageType,
-    templateId: route.templateId,
-    routeFamily: route.routeFamily,
-    contentId: route.contentId || '',
-    canonical: Boolean(route.crawl?.canonical),
-    indexable: Boolean(route.crawl?.indexable),
-    landing: Boolean(route.crawl?.landing),
-  }));
 }
 
 export function shouldHighlightRoute(currentRouteId, navRouteId) {

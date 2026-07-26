@@ -18,6 +18,7 @@ const steps = [
   { name: 'validate:legal', command: ['npm', 'run', 'validate:legal'] },
   { name: 'validate:crawl', command: ['npm', 'run', 'validate:crawl'] },
   { name: 'validate:design', command: ['npm', 'run', 'validate:design'] },
+  { name: 'validate:freshness', command: ['npm', 'run', 'validate:freshness'] },
   { name: 'validate:analytics', command: ['npm', 'run', 'validate:analytics'] },
   { name: 'validate:workflows', command: ['npm', 'run', 'validate:workflows'] },
   { name: 'test', command: ['npm', 'test'] },

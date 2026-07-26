@@ -1,4 +1,5 @@
-import { absoluteUrlForPath, routeSite, getIndexableRouteInventory, getLlmsEntries, getSitemapEntries } from './routes.js';
+import { absoluteUrlForPath, routeSite } from './routes.js';
+import { getIndexableRouteInventory, getLlmsEntries, getSitemapEntries } from './route-inventory.js';
 import { indexingPolicy } from './legal.js';
 
 function escapeXml(value = '') {

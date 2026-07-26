@@ -1,5 +1,6 @@
 import { getRouteMatch, absoluteUrlForPath } from './routes.js';
 import { getContentByRouteId } from './content.js';
+import { freshnessAnalyticsStateForRoute } from './freshness-runtime.js';
 import { indexingPolicy } from './legal.js';
 
 export const ANALYTICS_EVENT_VERSION = '2026-07-26.f44-mea-02';
@@ -544,7 +545,7 @@ export function trackRouteResolved({ pathname, referrerRouteId = null } = {}) {
     trackEvent('content_view', {
       content_group: content.intent?.contentGroup || '',
       primary_topic: content.intent?.primaryTopic || '',
-      freshness_state: content.measurement?.freshnessState || '',
+      freshness_state: freshnessAnalyticsStateForRoute(route.routeId),
       eligibility_mode: 'none',
     }, context);
   }

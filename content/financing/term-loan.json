@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Structure", "Fixed amount, fixed schedule"],
-    ["Common uses", "Expansion, equipment, refinancing"],
-    ["Funding pattern", "Disbursed up front"],
-    ["Repayment", "Regular installments"],
-    ["Relative flexibility", "Less flexible than revolving credit"],
-    ["Issued by", "Third-party lenders"]
+    [
+      "Structure",
+      "Fixed amount, fixed schedule"
+    ],
+    [
+      "Common uses",
+      "Expansion, equipment, refinancing"
+    ],
+    [
+      "Funding pattern",
+      "Disbursed up front"
+    ],
+    [
+      "Repayment",
+      "Regular installments"
+    ],
+    [
+      "Relative flexibility",
+      "Less flexible than revolving credit"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders"
+    ]
   ],
   "eligibilityHeading": "What term-loan lenders often review",
   "eligibilityCards": [

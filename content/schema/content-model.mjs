@@ -20,6 +20,7 @@ export const baseRequiredFields = [
   'commonQuestions',
   'relatedIds',
   'contributors',
+  'freshness',
   'publishedDate',
   'reviewedDate',
   'claimIds',
@@ -55,10 +56,12 @@ export const templateRequiredFields = {
   ...scalableTemplateFieldRequirements,
 };
 
-export const allowedFreshnessStates = new Set(['review_pending', 'published', 'reviewed']);
+export const allowedFreshnessStates = new Set(['review_pending', 'current', 'upcoming_review', 'stale', 'expired']);
 export const allowedAudienceStages = new Set(['entry', 'consideration', 'comparison', 'education']);
 export const allowedFunnelRoles = new Set(['entry', 'consideration', 'assist']);
 export const allowedBlockTypes = new Set(['paragraph', 'heading', 'list', 'blockquote']);
+export const allowedFreshnessOwnerStates = new Set(['role_assigned_identity_tbd', 'named_approved']);
+export const allowedFreshnessActions = new Set(['none', 'review', 'noindex', 'block']);
 export const allowedEvidenceScopes = new Set([
   'marketplace_disclosure',
   'network_story',

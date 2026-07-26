@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getProgramPages, getResourceHub, getUseCasePages } from '../src/lib/content.js';
-import { getRouteBySlug, getRouteInventory } from '../src/lib/routes.js';
+import { getRouteBySlug } from '../src/lib/routes.js';
+import { getRouteInventory } from '../src/lib/route-inventory.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
@@ -126,6 +127,10 @@ test('claim-bearing content records declare evidence scopes and citation ids', (
       assert.ok(record.claimReview.evidenceScopes.length > 0, `${record.id} should declare evidence scopes`);
       assert.ok(record.citationIds.length > 0, `${record.id} should reference at least one citation`);
     }
+
+    assert.equal(typeof record.freshness, 'object', `${record.id} is missing freshness metadata`);
+    assert.equal(record.freshness.reviewWindowDays, 90, `${record.id} should use the current content review window`);
+    assert.ok(record.freshness.reviewTriggers.length > 0, `${record.id} should declare freshness review triggers`);
   });
 });
 
