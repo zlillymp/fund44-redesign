@@ -1,5 +1,6 @@
 import { icon } from '../lib/svg.js';
 import { getCtaDestination, hrefForRoute } from '../lib/routes.js';
+import { flowTriggerAttributes } from '../lib/eligibility/trigger.js';
 
 // ---------- Shared section pieces ----------
 export const eyebrow = (t) => `<span class="eyebrow reveal">${t}</span>`;
@@ -11,14 +12,39 @@ export const breadcrumb = (crumbs) => `
       : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
   </nav>`;
 
-export const primaryCta = (label = 'Preview my funding paths') =>
-  `<button class="btn btn-primary btn-lg" data-open-flow>${label} ${icon.arrow}</button>`;
+export const primaryCta = (
+  label = 'Preview my funding paths',
+  {
+    ctaId = 'preview_funding_paths',
+    startSurface = 'page_hero_primary',
+    requestedMode = 'preview',
+    productContextRouteId = '',
+    productContextTitle = '',
+  } = {},
+) =>
+  `<button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
+    ctaId,
+    startSurface,
+    requestedMode,
+    productContextRouteId,
+    productContextTitle,
+  })}>${label} ${icon.arrow}</button>`;
 
 export const secondaryCta = (label = 'Explore financing', href = getCtaDestination('explore_financing').href) =>
   `<a class="btn btn-ghost btn-lg" href="${href}">${label}</a>`;
 
 // mid-page CTA banner
-export const ctaBanner = (heading, sub) => `
+export const ctaBanner = (
+  heading,
+  sub,
+  {
+    ctaId = 'cta_banner_preview_funding_paths',
+    startSurface = 'cta_banner_primary',
+    requestedMode = 'preview',
+    productContextRouteId = '',
+    productContextTitle = '',
+  } = {},
+) => `
 <section class="section-tight wrap">
   <div class="cta-banner reveal">
     <div class="tex-grid"></div>
@@ -28,7 +54,13 @@ export const ctaBanner = (heading, sub) => `
         <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">${sub}</p>
       </div>
       <div class="wrap-btns">
-        <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
+        <button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
+          ctaId,
+          startSurface,
+          requestedMode,
+          productContextRouteId,
+          productContextTitle,
+        })}>Preview funding paths ${icon.arrow}</button>
         <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('learn_how_it_works').href}" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">How it works</a>
       </div>
     </div>
@@ -197,13 +229,20 @@ export const featItem = (ic, h, p) => `
 <div class="feat-item"><span class="fi-mark">${ic}</span><div><h4>${h}</h4><p>${p}</p></div></div>`;
 
 // interior page hero with breadcrumb
-export const pageHero = ({ crumbs, eyebrow: eb, title, lead, cta = true }) => `
+export const pageHero = ({
+  crumbs,
+  eyebrow: eb,
+  title,
+  lead,
+  cta = true,
+  flowContext = {},
+}) => `
 <section class="section-tight wrap" style="padding-top:clamp(2rem,4vw,3.5rem)">
   ${breadcrumb(crumbs)}
   <div class="mt-6">${eb ? `<span class="eyebrow reveal">${eb}</span>` : ''}</div>
   <h1 class="h1 reveal mt-4" style="max-width:18ch">${title}</h1>
   <p class="lead reveal mt-6">${lead}</p>
-  ${cta ? `<div class="wrap-btns reveal mt-8">${primaryCta()}${secondaryCta()}</div>` : ''}
+  ${cta ? `<div class="wrap-btns reveal mt-8">${primaryCta('Preview my funding paths', flowContext)}${secondaryCta()}</div>` : ''}
 </section>`;
 
 // definition / "what is" answer block for AEO

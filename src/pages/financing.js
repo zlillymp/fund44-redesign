@@ -25,6 +25,12 @@ export function financing() {
     eyebrow: content.hero.eyebrow,
     title: content.hero.title,
     lead: content.hero.lead,
+    flowContext: {
+      ctaId: 'preview_funding_paths',
+      startSurface: 'financing_page_hero',
+      productContextRouteId: content.routeId,
+      productContextTitle: content.title,
+    },
   })}
 
   <section class="section-tight wrap wrap-default">
@@ -76,7 +82,12 @@ export function financing() {
     <div class="mt-8">${disclosure('<strong>Fund44 is not a lender.</strong> These are general starting points, not eligibility determinations. Financing is offered by third-party providers; eligibility and terms vary by provider.')}</div>
   </section>
 
-  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
+    ctaId: 'cta_banner_preview_funding_paths',
+    startSurface: 'financing_cta_banner',
+    productContextRouteId: content.routeId,
+    productContextTitle: content.title,
+  })}
 
   ${relatedLinksModule(linkModule)}
 

@@ -171,7 +171,15 @@ export function contact() {
       </ul>
     </div>
     <div class="mt-8" style="text-align:center">
-      <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
+      <button
+        class="btn btn-primary btn-lg"
+        data-open-flow
+        data-cta-id="preview_funding_paths"
+        data-start-surface="contact_page_primary"
+        data-flow-mode="preview"
+        data-flow-product-route-id="contact"
+        data-flow-product-title="Contact"
+      >Preview funding paths ${icon.arrow}</button>
     </div>
   </section>
   ${relatedLinksModule(linkModule)}`;

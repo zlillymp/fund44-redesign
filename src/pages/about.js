@@ -22,6 +22,12 @@ export function about() {
     eyebrow: 'Why Fund44',
     title: 'Small-business capital, without the runaround.',
     lead: 'Fund44 exists for one reason: finding the right funding should not mean starting over for every lender. We turn a fragmented search into one clear, comparable path.',
+    flowContext: {
+      ctaId: 'preview_funding_paths',
+      startSurface: 'about_page_hero',
+      productContextRouteId: 'about',
+      productContextTitle: 'About Fund44',
+    },
   })}
 
   <section class="section-tight wrap">
@@ -70,7 +76,12 @@ export function about() {
     <div class="mt-8">${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.noGuarantees} ${disclosures.illustrative}`)}</div>
   </section>
 
-  ${ctaBanner('See what Fund44 can find for you.', 'One application. More ways to fund your business. Preview your options now.')}
+  ${ctaBanner('See what Fund44 can find for you.', disclosures.previewFlow, {
+    ctaId: 'cta_banner_preview_funding_paths',
+    startSurface: 'about_cta_banner',
+    productContextRouteId: 'about',
+    productContextTitle: 'About Fund44',
+  })}
 
   ${relatedLinksModule(linkModule)}
   `;

@@ -119,11 +119,25 @@ export const disclosures = {
     'Business approved the conservative disclosure drafts currently used on this site. Formal counsel review is still recommended before broad production launch.',
 };
 
+export const liveEligibilityGate = {
+  enabled: false,
+  summary:
+    'Live application is intentionally disabled in the current build. Approved consent copy, backend submission handling, privacy/retention language, and provider handoff rules are still missing.',
+  missingInputs: [
+    'Approved live privacy, sharing, retention, and consent language',
+    'A reviewed backend or integration for live submission',
+    'Approved provider handoff and failure-handling rules',
+    'Launch-approved analytics/consent behavior for live mode',
+  ],
+};
+
 export const liveDisclosuresBlocked = {
   privacyConsent:
     'Final live privacy, sharing, retention, consent, and user-rights language is not approved yet. Staging should continue using noindex behavior and preview-boundary disclosures until counsel-approved live copy exists.',
   sameAs:
     'Verified sameAs entries are not available yet. The site must omit sameAs rather than invent or infer profiles.',
+  liveEligibility:
+    'Live application remains disabled until approved consent language, backend handoff logic, privacy/retention rules, and provider-review behavior are implemented and reviewed.',
 };
 
 export const legalApprovalChecklist = [

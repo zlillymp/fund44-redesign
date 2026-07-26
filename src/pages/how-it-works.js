@@ -34,8 +34,14 @@ export function howItWorks() {
   ${pageHero({
     crumbs: CRUMBS,
     eyebrow: 'How it works',
-    title: 'From one application to matched offers.',
+    title: 'From one intake to clearer path review.',
     lead: 'Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience.',
+    flowContext: {
+      ctaId: 'preview_funding_paths',
+      startSurface: 'how_it_works_hero',
+      productContextRouteId: 'how_it_works',
+      productContextTitle: 'How Fund44 works',
+    },
   })}
 
   <section class="section-tight wrap">
@@ -95,7 +101,12 @@ export function howItWorks() {
     ${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.marketplacePreview} ${disclosures.noGuarantees}`)}
   </section>
 
-  ${ctaBanner('Ready to see your paths?', 'Start the eligibility preview. It shows sample results only and keeps the current preview data in your browser.')}
+  ${ctaBanner('Ready to see your paths?', disclosures.previewFlow, {
+    ctaId: 'cta_banner_preview_funding_paths',
+    startSurface: 'how_it_works_cta_banner',
+    productContextRouteId: 'how_it_works',
+    productContextTitle: 'How Fund44 works',
+  })}
 
   ${relatedLinksModule(linkModule)}
 
