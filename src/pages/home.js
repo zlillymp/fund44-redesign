@@ -34,7 +34,10 @@ export function home() {
         ${content.hero.lead}
       </p>
       <div class="wrap-btns reveal mt-8">
-        ${primaryCta('Preview my funding paths')}
+        ${primaryCta('Preview my funding paths', {
+          ctaId: 'preview_funding_paths',
+          startSurface: 'home_hero_primary',
+        })}
         ${secondaryCta('Compare financing options')}
       </div>
       <div class="hero-proof reveal mt-8" aria-label="Fund44 financing coverage">
@@ -130,7 +133,10 @@ export function home() {
     </div>
   </section>
 
-  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
+    ctaId: 'cta_banner_preview_funding_paths',
+    startSurface: 'home_cta_banner',
+  })}
 
   ${relatedLinksModule(linkModule)}
 

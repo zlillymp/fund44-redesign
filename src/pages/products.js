@@ -33,6 +33,12 @@ function renderProgramPage(contentId) {
     eyebrow: content.hero.eyebrow,
     title: content.hero.title,
     lead: content.hero.lead,
+    flowContext: {
+      ctaId: 'preview_funding_paths',
+      startSurface: 'program_page_hero',
+      productContextRouteId: content.routeId,
+      productContextTitle: content.title,
+    },
   })}
 
   <section class="section-tight wrap wrap-default">
@@ -71,7 +77,12 @@ function renderProgramPage(contentId) {
     <div class="mt-8">${disclosure(content.sectionDisclosureHtml)}</div>
   </section>
 
-  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading)}
+  ${ctaBanner(content.ctaBanner.heading, content.ctaBanner.subheading, {
+    ctaId: 'cta_banner_preview_funding_paths',
+    startSurface: 'program_cta_banner',
+    productContextRouteId: content.routeId,
+    productContextTitle: content.title,
+  })}
 
   ${relatedLinksModule(linkModule)}
 

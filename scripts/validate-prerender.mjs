@@ -35,7 +35,7 @@ const failures = [];
 const canonicalRoutes = getCanonicalRoutes();
 const expectedCopyByPath = new Map([
   ['/about', 'Small-business capital, without the runaround.'],
-  ['/how-it-works', 'From one application to matched offers.'],
+  ['/how-it-works', 'From one intake to clearer path review.'],
   ['/privacy', 'Privacy'],
   ['/terms', 'Terms & disclosures'],
   ['/contact', 'This page is designed to make unresolved identity and contact fields obvious.'],

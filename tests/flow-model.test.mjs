@@ -1,0 +1,118 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+
+import {
+  ELIGIBILITY_MODES,
+  OUTCOME_CATEGORIES,
+  STEP_IDS,
+  advanceState,
+  createInitialEligibilityState,
+  deriveOutcome,
+  getCurrentSequence,
+  getStepCount,
+  restartState,
+  selectMode,
+  updateField,
+} from '../src/lib/eligibility/model.js';
+
+test('preview flow uses explicit stable step ids', () => {
+  const state = selectMode(createInitialEligibilityState({ requestedMode: 'preview' }), ELIGIBILITY_MODES.preview);
+
+  assert.deepEqual(getCurrentSequence(state), [
+    STEP_IDS.modeSelect,
+    STEP_IDS.useOfFunds,
+    STEP_IDS.fundingAmount,
+    STEP_IDS.businessProfile,
+    STEP_IDS.consentReview,
+    STEP_IDS.outcome,
+  ]);
+  assert.equal(getStepCount(state), 6);
+});
+
+test('live flow remains blocked but still preserves pre-contact steps', () => {
+  const state = selectMode(createInitialEligibilityState({ requestedMode: 'live' }), ELIGIBILITY_MODES.live);
+
+  assert.deepEqual(getCurrentSequence(state), [
+    STEP_IDS.modeSelect,
+    STEP_IDS.useOfFunds,
+    STEP_IDS.fundingAmount,
+    STEP_IDS.businessProfile,
+    STEP_IDS.consentReview,
+    STEP_IDS.liveUnavailable,
+  ]);
+  assert.equal(state.currentStepId, STEP_IDS.useOfFunds);
+});
+
+test('validation blocks advance until required fields are present', () => {
+  let state = selectMode(createInitialEligibilityState(), ELIGIBILITY_MODES.preview);
+  state = advanceState(state);
+
+  assert.equal(state.currentStepId, STEP_IDS.useOfFunds);
+  assert.equal(state.errors.use, 'Choose the financing goal you want to review.');
+});
+
+test('preview outcome uses advisory qualified bucket for operating profiles', () => {
+  let state = selectMode(createInitialEligibilityState({ requestedMode: 'preview' }), ELIGIBILITY_MODES.preview);
+  state = updateField(state, 'use', 'acquisition');
+  state = updateField(state, 'amount', '$350k-$750k');
+  state = updateField(state, 'tib', '2-5 years');
+  state = updateField(state, 'revenue', '$500k-$1M');
+  state = updateField(state, 'stateCode', 'CA');
+  state = updateField(state, 'previewConsent', true);
+  state = updateField(state, 'nextStepConsent', true);
+
+  const outcome = deriveOutcome(state);
+
+  assert.equal(outcome.outcomeCategory, OUTCOME_CATEGORIES.qualified);
+  assert.equal(outcome.outcomeReasonCode, 'operating_profile');
+  assert.ok(outcome.recommendations.some((item) => item.routeId === 'business_acquisition'));
+});
+
+test('early-stage profiles map to manual review without implying denial', () => {
+  let state = selectMode(createInitialEligibilityState({ requestedMode: 'preview' }), ELIGIBILITY_MODES.preview);
+  state = updateField(state, 'use', 'working');
+  state = updateField(state, 'amount', '$150k-$350k');
+  state = updateField(state, 'tib', 'Under 1 year');
+  state = updateField(state, 'revenue', '$250k-$500k');
+  state = updateField(state, 'stateCode', 'TX');
+
+  const outcome = deriveOutcome(state);
+
+  assert.equal(outcome.outcomeCategory, OUTCOME_CATEGORIES.manualReview);
+  assert.equal(outcome.outcomeReasonCode, 'early_stage_profile');
+  assert.equal(outcome.recommendedNextStep, 'review_docs_and_contact');
+});
+
+test('planning-stage profile maps to not-fit routing guidance', () => {
+  let state = selectMode(createInitialEligibilityState({ requestedMode: 'preview' }), ELIGIBILITY_MODES.preview);
+  state = updateField(state, 'use', 'expansion');
+  state = updateField(state, 'amount', '$50k-$150k');
+  state = updateField(state, 'tib', 'Still planning / pre-revenue');
+  state = updateField(state, 'revenue', 'Under $100k');
+  state = updateField(state, 'stateCode', 'NY');
+
+  const outcome = deriveOutcome(state);
+
+  assert.equal(outcome.outcomeCategory, OUTCOME_CATEGORIES.notFit);
+  assert.equal(outcome.outcomeReasonCode, 'planning_stage');
+  assert.ok(outcome.recommendations.some((item) => item.routeId === 'resources'));
+});
+
+test('restart keeps entry context but resets answers and mode selection state', () => {
+  let state = selectMode(createInitialEligibilityState({
+    requestedMode: 'preview',
+    entryRouteId: 'working_capital',
+    productContextRouteId: 'working_capital',
+  }), ELIGIBILITY_MODES.preview);
+
+  state = updateField(state, 'use', 'working');
+  state = updateField(state, 'amount', '$150k-$350k');
+
+  const reset = restartState(state);
+
+  assert.equal(reset.currentStepId, STEP_IDS.modeSelect);
+  assert.equal(reset.values.use, '');
+  assert.equal(reset.values.amount, '');
+  assert.equal(reset.context.entryRouteId, 'working_capital');
+  assert.equal(reset.context.productContextRouteId, 'working_capital');
+});
