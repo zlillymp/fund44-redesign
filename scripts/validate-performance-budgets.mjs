@@ -10,9 +10,9 @@ const budgets = [
   {
     name: 'bundle_js_max_bytes',
     pattern: /^assets\/.+\.js$/,
-    maxBytes: 230_000,
+    maxBytes: 280_000,
     kind: 'largest-match',
-    rationale: 'Keep the single shipped JS entry under a conservative post-baseline ceiling.',
+    rationale: 'Keep the single shipped JS entry under a conservative ceiling after the first manifest-driven financing and use-case clusters raised the structured-content baseline.',
   },
   {
     name: 'bundle_css_max_bytes',
@@ -24,23 +24,23 @@ const budgets = [
   {
     name: 'html_entry_max_bytes',
     pattern: /^index\.html$/,
-    maxBytes: 60_000,
+    maxBytes: 62_000,
     kind: 'largest-match',
-    rationale: 'Keep the heaviest prerendered entry HTML within a manageable static payload.',
+    rationale: 'Keep the heaviest prerendered entry HTML within a manageable static payload as canonical landing-page coverage expands.',
   },
   {
     name: 'html_per_page_max_bytes',
     pattern: /\.html$/,
-    maxBytes: 60_000,
+    maxBytes: 62_000,
     kind: 'all-matches',
-    rationale: 'Prevent individual prerendered pages from growing well beyond the current copy footprint.',
+    rationale: 'Prevent individual prerendered pages from growing well beyond the current copy footprint after the first use-case launch.',
   },
   {
     name: 'asset_total_max_bytes',
     pattern: /^assets\//,
-    maxBytes: 300_000,
+    maxBytes: 325_000,
     kind: 'sum-matches',
-    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI.',
+    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI while tracking the larger manifest-backed content baseline.',
   },
 ];
 

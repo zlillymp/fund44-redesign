@@ -1,0 +1,192 @@
+{
+  "id": "use_case_business_expansion",
+  "routeId": "business_expansion",
+  "slug": "business-expansion",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Business expansion financing",
+  "metaTitle": "Business expansion financing",
+  "metaDescription": "Expansion plans often start with SBA 7(a), term-loan, and line-of-credit comparisons. Learn which routes commonly fit a new location, renovation, or growth initiative.",
+  "summary": "The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: business expansion",
+    "title": "Expanding the business? Start with the routes built for defined growth plans.",
+    "lead": "Expansion projects can look very different depending on whether the need is a new location, a defined renovation, more operating flexibility, or a mix of several costs. This page compares the routes borrowers usually evaluate first."
+  },
+  "shortLabel": "Business expansion",
+  "quickAnswer": {
+    "term": "Business expansion financing",
+    "definition": "usually starts with SBA 7(a), term-loan, and line-of-credit comparisons because a growth plan can combine one-time project costs with recurring operating needs, and the right route depends on how the expansion is structured."
+  },
+  "whoItFitsHeading": "When this borrower-goal page is the right first stop",
+  "bestFitHeading": "The growth-focused routes borrowers most often compare first",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) is often a first comparison when the expansion plan includes multiple eligible uses of funds rather than one narrow asset purchase.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "term_loan",
+      "title": "Business term loans",
+      "description": "A term loan can fit expansion plans with a defined budget, timeline, and repayment structure.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "line_of_credit",
+      "title": "Business lines of credit",
+      "description": "A line of credit can belong in the mix when part of the expansion need is ongoing or unpredictable rather than fixed once.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When business-expansion financing tends to fit",
+    "items": [
+      "Opening a new location or growing into a larger footprint",
+      "Funding a defined renovation, rollout, or growth initiative",
+      "Comparing broader-use SBA capital with a conventional fixed-schedule loan",
+      "Expansion plans where the project cost, timeline, and use of funds can be documented clearly"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the true need is only owner-occupied real estate or a single major equipment purchase, a fixed-asset route is usually the better first comparison.",
+      "If the business is still planning and cannot yet define the growth project, educational and document-prep guidance may be more useful than a product comparison."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for expansion requests",
+    "items": [
+      "Project or expansion plan summary",
+      "Recent business financial statements",
+      "Bank statements",
+      "Use-of-funds schedule tied to the growth plan"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate expansion intent from pure working-capital or fixed-asset requests and route visitors into the product pages that usually anchor the comparison.",
+    "bullets": [
+      "Keeps growth-project comparisons distinct from acquisition, property, or operating-gap pages.",
+      "Connects the borrowing goal to SBA 7(a), term-loan, line-of-credit, and document-prep guidance.",
+      "Avoids implying that Fund44 or any single provider guarantees which route will ultimately win."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the project narrows or broadens",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "If the expansion plan is really a property project, compare the fixed-asset real-estate route next.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "equipment_purchase",
+      "title": "Equipment purchase",
+      "description": "If most of the budget is for machinery or vehicles rather than a broader growth plan, the equipment route may fit better.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organizing the project summary, financials, and use-of-funds details makes an expansion comparison more concrete before lender review.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Expansion-related eligibility, SBA availability, product structure, timelines, and final terms are determined by third-party lenders and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Comparing financing for a growth project?",
+    "subheading": "Preview whether SBA 7(a), a term loan, or a more flexible path best matches the expansion you are planning."
+  },
+  "commonQuestions": [
+    {
+      "id": "business_expansion_faq_start",
+      "question": "What financing routes are commonly compared for expansion?",
+      "answer": "Borrowers often start with SBA 7(a), term-loan, and line-of-credit comparisons because expansion plans can mix one-time project costs with ongoing operating needs."
+    },
+    {
+      "id": "business_expansion_faq_7a",
+      "question": "Why is SBA 7(a) often part of an expansion comparison?",
+      "answer": "SBA 7(a) is a flexible program that can cover several business purposes, which makes it a common starting point when the expansion plan is broader than one narrow fixed-asset purchase."
+    },
+    {
+      "id": "business_expansion_faq_docs",
+      "question": "What documents usually matter for an expansion request?",
+      "answer": "Common examples include a project summary, recent business financial statements, bank statements, and a clear use-of-funds schedule. Exact requirements vary by lender and by project."
+    },
+    {
+      "id": "business_expansion_faq_direct",
+      "question": "Does Fund44 fund the expansion directly?",
+      "answer": "No. Fund44 does not fund expansion requests directly. Lenders decide eligibility, structure, and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_term_loan",
+    "page_line_of_credit",
+    "article_preparing_your_documents",
+    "use_case_owner_occupied_real_estate",
+    "use_case_equipment_purchase"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_wf_credit_application_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "business_expansion_financing",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "business_expansion_faq",
+    "freshnessState": "review_pending"
+  }
+}

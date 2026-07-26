@@ -105,6 +105,16 @@ assert(financingHtml.includes('data-analytics-cta-id="compare_financing_matrix_r
 assert(financingHtml.includes('data-analytics-cta-id="decision_helper_link"'), 'financing route must expose decision-helper CTA tracking');
 assert(financingHtml.includes('data-disclosure-id="financing_decision_helper_disclosure"'), 'financing route must expose its disclosure tracking id');
 
+const useCaseRoutes = getAllContent()
+  .filter((record) => record.templateId === 'use_case_page')
+  .map((record) => record.routeId);
+
+useCaseRoutes.forEach((routeId) => {
+  const html = routeHtml.get(routeId) || '';
+  assert(html.includes('data-analytics-cta-id="use_case_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
+  assert(html.includes('data-analytics-cta-id="use_case_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+});
+
 const notFoundHtml = routeHtml.get('not_found') || '';
 assert(notFoundHtml.includes('data-analytics-cta-id="back_home"'), '404 route must expose the back-home CTA id');
 assert(notFoundHtml.includes('data-analytics-cta-id="explore_financing"'), '404 route must expose the financing CTA id');

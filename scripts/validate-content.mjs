@@ -83,6 +83,24 @@ function validateQuestionGroup(record) {
   });
 }
 
+function validateRouteCardGroup(record, fieldName) {
+  const items = record[fieldName];
+  assert(Array.isArray(items), `${record.id}: ${fieldName} must be an array`);
+  assert(items.length > 0, `${record.id}: ${fieldName} must include at least one item`);
+
+  const seenRouteIds = new Set();
+  items.forEach((item, index) => {
+    assert(item?.routeId, `${record.id}: ${fieldName}[${index}].routeId is required`);
+    assert(routeById.has(item.routeId), `${record.id}: ${fieldName}[${index}] route "${item.routeId}" does not exist`);
+    assert(item.routeId !== record.routeId, `${record.id}: ${fieldName}[${index}] must not point back to the current route`);
+    assert(item?.title, `${record.id}: ${fieldName}[${index}].title is required`);
+    assert(item?.description, `${record.id}: ${fieldName}[${index}].description is required`);
+    assert(item?.iconKey, `${record.id}: ${fieldName}[${index}].iconKey is required`);
+    assert(!seenRouteIds.has(item.routeId), `${record.id}: duplicate ${fieldName} route "${item.routeId}"`);
+    seenRouteIds.add(item.routeId);
+  });
+}
+
 function validateClaimReview(record) {
   assert(Array.isArray(record.claimIds), `${record.id}: claimIds must be an array`);
   const claimIds = new Set();
@@ -166,6 +184,11 @@ function validateScalableTemplateContract(record, route) {
   assert(record.sectionDisclosureHtml, `${record.id}: sectionDisclosureHtml is required for scalable template ${record.templateId}`);
   assert(Array.isArray(record.disclosureIds) && record.disclosureIds.length > 0, `${record.id}: disclosureIds must include at least one disclosure for scalable templates`);
   assert(Array.isArray(record.citationIds) && record.citationIds.length > 0, `${record.id}: citationIds must include at least one citation for scalable templates`);
+
+  if (record.templateId === 'use_case_page') {
+    validateRouteCardGroup(record, 'bestFitProducts');
+    validateRouteCardGroup(record, 'alternativePaths');
+  }
 }
 
 function validateRelationships(record) {

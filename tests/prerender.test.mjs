@@ -10,6 +10,8 @@ test('renderRouteToHtml returns final copy for canonical routes', () => {
   const financing = renderRouteToHtml('/financing');
   const sba7a = renderRouteToHtml('/sba-7a');
   const termLoan = renderRouteToHtml('/term-loan');
+  const buyBusiness = renderRouteToHtml('/use-cases/buy-a-business');
+  const cashFlowNeeds = renderRouteToHtml('/use-cases/cash-flow-needs');
   const article = renderRouteToHtml('/resources/sba-7a-vs-504');
   const notFound = renderRouteToHtml('/missing-route');
 
@@ -21,6 +23,10 @@ test('renderRouteToHtml returns final copy for canonical routes', () => {
   assert.match(sba7a.html, /Typical documents and how Fund44 fits/i);
   assert.match(termLoan.html, /When a term loan tends to fit/i);
   assert.match(termLoan.html, /Questions about Term loan/i);
+  assert.match(buyBusiness.html, /The most common starting points when the goal is buying a business/i);
+  assert.match(buyBusiness.html, /Compare these alternatives if the deal changes shape/i);
+  assert.match(cashFlowNeeds.html, /The most common starting points for recurring operating needs/i);
+  assert.match(cashFlowNeeds.html, /Questions about cash-flow needs/i);
   assert.match(article.html, /SBA 7\(a\) vs SBA 504/i);
   assert.match(notFound.html, /This path doesn't lead anywhere\./i);
 });

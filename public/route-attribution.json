@@ -215,6 +215,78 @@
       "landing": false
     },
     {
+      "routeId": "business_expansion",
+      "analyticsRouteId": "business_expansion",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/business-expansion",
+      "loc": "https://fund44.com/use-cases/business-expansion",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "buy_a_business",
+      "analyticsRouteId": "buy_a_business",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/buy-a-business",
+      "loc": "https://fund44.com/use-cases/buy-a-business",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "cash_flow_needs",
+      "analyticsRouteId": "cash_flow_needs",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/cash-flow-needs",
+      "loc": "https://fund44.com/use-cases/cash-flow-needs",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "equipment_purchase",
+      "analyticsRouteId": "equipment_purchase",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/equipment-purchase",
+      "loc": "https://fund44.com/use-cases/equipment-purchase",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "owner_occupied_real_estate",
+      "analyticsRouteId": "owner_occupied_real_estate",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/owner-occupied-real-estate",
+      "loc": "https://fund44.com/use-cases/owner-occupied-real-estate",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "refinance_business_debt",
+      "analyticsRouteId": "refinance_business_debt",
+      "routeFamily": "use_case",
+      "pageType": "use_case",
+      "templateId": "use_case_page",
+      "path": "/use-cases/refinance-business-debt",
+      "loc": "https://fund44.com/use-cases/refinance-business-debt",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
       "routeId": "working_capital",
       "analyticsRouteId": "working_capital",
       "routeFamily": "financing_program",

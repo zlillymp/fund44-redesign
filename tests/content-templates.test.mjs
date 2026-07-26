@@ -48,3 +48,38 @@ test('current financing and SBA cluster records satisfy the scalable section con
     assert.equal(record.indexability.indexable, true);
   });
 });
+
+test('use-case cluster records satisfy the scalable section contract', () => {
+  const records = [
+    getContentById('use_case_buy_a_business'),
+    getContentById('use_case_owner_occupied_real_estate'),
+    getContentById('use_case_cash_flow_needs'),
+    getContentById('use_case_equipment_purchase'),
+    getContentById('use_case_business_expansion'),
+    getContentById('use_case_refinance_business_debt'),
+  ];
+
+  records.forEach((record) => {
+    assert.ok(record.quickAnswer.term);
+    assert.ok(record.quickAnswer.definition);
+    assert.ok(record.whoItFitsHeading);
+    assert.ok(record.bestFitHeading);
+    assert.ok(record.whoItFits.heading);
+    assert.ok(record.whoItFits.items.length > 0);
+    assert.ok(record.whenItMayNotFit.heading);
+    assert.ok(record.whenItMayNotFit.items.length > 0);
+    assert.ok(record.typicalDocuments.heading);
+    assert.ok(record.typicalDocuments.items.length > 0);
+    assert.ok(record.howFund44Fits.heading);
+    assert.ok(record.howFund44Fits.summary);
+    assert.ok(record.howFund44Fits.bullets.length > 0);
+    assert.ok(record.bestFitProducts.length >= 2);
+    assert.ok(record.alternativePaths.length >= 2);
+    assert.ok(record.commonQuestions.length > 0);
+    assert.ok(record.sectionDisclosureHtml);
+    assert.ok(record.disclosureIds.length > 0);
+    assert.ok(record.citationIds.length > 0);
+    assert.ok(record.measurement.ctaIds.length > 0);
+    assert.equal(record.indexability.indexable, true);
+  });
+});

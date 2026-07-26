@@ -1,0 +1,192 @@
+{
+  "id": "use_case_refinance_business_debt",
+  "routeId": "refinance_business_debt",
+  "slug": "refinance-business-debt",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Business debt refinance",
+  "metaTitle": "Business debt refinance",
+  "metaDescription": "Refinancing existing business debt often starts with SBA 7(a), term-loan, and broader working-capital comparisons. Learn which routes commonly fit a refinance review.",
+  "summary": "The refinance-business-debt use-case page compares the financing routes most often reviewed when the goal is restructuring, consolidating, or replacing existing business obligations.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: refinance business debt",
+    "title": "Refinancing debt? Start with the routes built for restructuring an existing obligation.",
+    "lead": "A refinance question is different from a growth project or an equipment purchase because the existing debt matters as much as the new structure. This page compares the routes borrowers most often review first."
+  },
+  "shortLabel": "Refinance business debt",
+  "quickAnswer": {
+    "term": "Business debt refinance",
+    "definition": "usually starts with SBA 7(a), term-loan, and broader working-capital comparisons because the right route depends on the existing debt, the business’s cash flow, and whether the request is only a refinance or part of a larger financing plan."
+  },
+  "whoItFitsHeading": "When this borrower-goal page is the right first stop",
+  "bestFitHeading": "The refinance routes borrowers most often compare first",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) is often part of the refinance comparison when the business wants a broader-use SBA structure rather than a narrow product.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "term_loan",
+      "title": "Business term loans",
+      "description": "A term loan can be worth comparing when the goal is replacing one obligation with a defined new repayment structure.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines of credit",
+      "description": "A broader working-capital comparison can help if the refinance question overlaps with recurring operating pressure.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When business-debt refinance tends to fit",
+    "items": [
+      "Replacing or restructuring an existing business obligation with a different schedule or product type",
+      "Consolidating several obligations into a clearer financing plan",
+      "Comparing SBA-backed and conventional structures before deciding how broad the new facility needs to be",
+      "Situations where the current debt terms, balances, and business cash flow can already be documented"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the real need is new operating capital rather than replacing existing debt, a working-capital route may be the better first comparison.",
+      "If the business is still planning and cannot yet document the current obligations, educational guidance may be more useful than a product comparison."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for refinance requests",
+    "items": [
+      "Current debt schedule or payoff details",
+      "Recent business financial statements",
+      "Bank statements",
+      "Use-of-funds explanation showing what will be refinanced"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate refinance intent from new-money growth requests and point visitors to the routes that usually anchor an existing-debt comparison.",
+    "bullets": [
+      "Frames refinance as its own borrowing goal rather than treating it as generic working capital.",
+      "Connects the goal to SBA 7(a), term-loan, working-capital, and document-prep guidance.",
+      "Avoids implying that Fund44 or any provider guarantees better terms, approval, or payoff treatment."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the need is broader than a refinance",
+  "alternativePaths": [
+    {
+      "routeId": "cash_flow_needs",
+      "title": "Cash-flow needs",
+      "description": "If the pressure is really ongoing operating cash rather than the current debt structure, compare the cash-flow route next.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "business_expansion",
+      "title": "Business expansion",
+      "description": "If the refinance is tied to a larger growth plan, expansion guidance may matter more than a pure debt-restructure view.",
+      "iconKey": "spark"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organizing payoff details, statements, and use-of-funds context makes a refinance comparison clearer before lender review.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Refinance eligibility, payoff requirements, SBA availability, timelines, and final terms are determined by third-party lenders and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Comparing routes to replace existing debt?",
+    "subheading": "Preview whether SBA 7(a), a term loan, or a broader working-capital path deserves the deeper review first."
+  },
+  "commonQuestions": [
+    {
+      "id": "refinance_debt_faq_start",
+      "question": "What financing routes are commonly compared for refinancing business debt?",
+      "answer": "Borrowers often start with SBA 7(a), term-loan, and broader working-capital comparisons because the best fit depends on the current obligation and whether the request is only a refinance or part of a larger financing plan."
+    },
+    {
+      "id": "refinance_debt_faq_7a",
+      "question": "Can SBA 7(a) be part of a refinance comparison?",
+      "answer": "Yes. SBA 7(a) can cover certain refinance situations, subject to SBA rules and lender underwriting."
+    },
+    {
+      "id": "refinance_debt_faq_docs",
+      "question": "What documents usually matter for a refinance request?",
+      "answer": "Common examples include the current debt schedule or payoff information, recent business financial statements, bank statements, and a clear explanation of what will be refinanced. Exact requirements vary by lender."
+    },
+    {
+      "id": "refinance_debt_faq_direct",
+      "question": "Does Fund44 refinance the debt directly?",
+      "answer": "No. Fund44 does not refinance business debt directly. Lenders determine whether a refinance route is available and what terms apply."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_term_loan",
+    "page_working_capital",
+    "article_preparing_your_documents",
+    "use_case_cash_flow_needs",
+    "use_case_business_expansion"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_wf_credit_application_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "refinance_business_debt",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "refinance_business_debt_faq",
+    "freshnessState": "review_pending"
+  }
+}

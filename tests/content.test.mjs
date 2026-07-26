@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { getAllContent, getContentById, getContentByRouteId, getProgramPages, getResourceHub } from '../src/lib/content.js';
+import { getAllContent, getContentById, getContentByRouteId, getProgramPages, getResourceHub, getUseCasePages } from '../src/lib/content.js';
 import { getRouteBySlug, getRouteInventory } from '../src/lib/routes.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
-  assert.equal(allContent.length, 13);
+  assert.equal(allContent.length, 19);
   assert.deepEqual(
     allContent.map((record) => record.id),
     [
@@ -19,6 +19,12 @@ test('structured content inventory covers the planned route set', () => {
       'page_term_loan',
       'page_line_of_credit',
       'page_equipment_financing',
+      'use_case_buy_a_business',
+      'use_case_owner_occupied_real_estate',
+      'use_case_cash_flow_needs',
+      'use_case_equipment_purchase',
+      'use_case_business_expansion',
+      'use_case_refinance_business_debt',
       'page_resources',
       'article_sba_7a_vs_504',
       'article_preparing_your_documents',
@@ -42,6 +48,23 @@ test('financing program pages remain discoverable through structured content', (
 
   assert.equal(programPages.length, 7);
   assert.deepEqual(programPages.map((page) => page.routeId), ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital', 'term_loan', 'line_of_credit', 'equipment_financing']);
+});
+
+test('use-case pages remain discoverable through structured content', () => {
+  const useCasePages = getUseCasePages();
+
+  assert.equal(useCasePages.length, 6);
+  assert.deepEqual(
+    useCasePages.map((page) => page.routeId),
+    [
+      'buy_a_business',
+      'owner_occupied_real_estate',
+      'cash_flow_needs',
+      'equipment_purchase',
+      'business_expansion',
+      'refinance_business_debt',
+    ],
+  );
 });
 
 test('resource hub article inventory points to structured editorial records', () => {
@@ -106,5 +129,28 @@ test('national financing launch pages have unique substantive intent and non-thi
     assert.ok(page.quickAnswer.definition.length > 80, `${page.routeId} quick answer should be substantive`);
     assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
     assert.ok(page.relatedIds.length >= 4, `${page.routeId} should include at least 4 related links`);
+  });
+});
+
+test('use-case launch pages have unique substantive intent and real product/alternative comparisons', () => {
+  const routeIds = [
+    'buy_a_business',
+    'owner_occupied_real_estate',
+    'cash_flow_needs',
+    'equipment_purchase',
+    'business_expansion',
+    'refinance_business_debt',
+  ];
+  const pages = routeIds.map((routeId) => getContentByRouteId(routeId));
+
+  assert.equal(new Set(pages.map((page) => page.intent.primaryTopic)).size, pages.length);
+  assert.equal(new Set(pages.map((page) => page.metaDescription)).size, pages.length);
+
+  pages.forEach((page) => {
+    assert.ok(page.quickAnswer.definition.length > 90, `${page.routeId} quick answer should be substantive`);
+    assert.ok(page.bestFitProducts.length >= 2, `${page.routeId} should include best-fit products`);
+    assert.ok(page.alternativePaths.length >= 2, `${page.routeId} should include alternative paths`);
+    assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
+    assert.ok(page.relatedIds.length >= 5, `${page.routeId} should include at least 5 related links`);
   });
 });

@@ -63,6 +63,8 @@ test('llms inventory follows manifest policy and excludes article routes flagged
     llmsAllowedRouteIds.sort(),
   );
   assert.ok(!inventory.llmsEntries.some((entry) => entry.routeId === 'resource_sba_7a_vs_504'));
+  assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'buy_a_business'));
+  assert.ok(inventory.llmsEntries.some((entry) => entry.routeId === 'cash_flow_needs'));
 });
 
 test('rendered crawl files are deterministic and respect staging noindex', () => {
