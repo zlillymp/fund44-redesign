@@ -265,17 +265,21 @@ function initFaq() {
     ans.style.maxHeight = open ? `${ans.scrollHeight}px` : '0';
   };
 
+  const trackFaqOpen = (q) => {
+    trackFaqExpand({
+      faqId: q.dataset.faqId || '',
+      faqGroup: q.dataset.faqGroup || '',
+      faqPosition: Number(q.dataset.faqPosition || '0'),
+    });
+  };
+
   document.body.addEventListener('click', (e) => {
     const q = e.target.closest('.faq-q');
     if (!q) return;
     const isOpening = q.getAttribute('aria-expanded') !== 'true';
     toggleFaq(q);
     if (isOpening) {
-      trackFaqExpand({
-        faqId: q.dataset.faqId || '',
-        faqGroup: q.dataset.faqGroup || '',
-        faqPosition: Number(q.dataset.faqPosition || '0'),
-      });
+      trackFaqOpen(q);
     }
   });
 
@@ -284,7 +288,11 @@ function initFaq() {
     if (!q) return;
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
       e.preventDefault();
+      const isOpening = q.getAttribute('aria-expanded') !== 'true';
       toggleFaq(q);
+      if (isOpening) {
+        trackFaqOpen(q);
+      }
     }
   });
 }
