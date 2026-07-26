@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Structure", "Asset-backed loan or lease"],
-    ["Common uses", "Machinery, vehicles, equipment"],
-    ["Collateral", "Often the equipment itself"],
-    ["Funding pattern", "Sized to the equipment cost"],
-    ["Best for", "Specific asset purchases"],
-    ["Issued by", "Third-party lenders or finance companies"]
+    [
+      "Structure",
+      "Asset-backed loan or lease"
+    ],
+    [
+      "Common uses",
+      "Machinery, vehicles, equipment"
+    ],
+    [
+      "Collateral",
+      "Often the equipment itself"
+    ],
+    [
+      "Funding pattern",
+      "Sized to the equipment cost"
+    ],
+    [
+      "Best for",
+      "Specific asset purchases"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders or finance companies"
+    ]
   ],
   "eligibilityHeading": "What equipment-financing lenders often review",
   "eligibilityCards": [

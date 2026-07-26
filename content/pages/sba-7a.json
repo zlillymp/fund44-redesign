@@ -57,12 +57,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Program", "SBA 7(a)"],
-    ["Common uses", "Acquisition, working capital, expansion"],
-    ["Typical term", "Longer-term (varies by use)"],
-    ["Max amount", "Up to $5M"],
-    ["Guarantee", "Partially SBA-guaranteed"],
-    ["Issued by", "SBA-approved third-party lenders"]
+    [
+      "Program",
+      "SBA 7(a)"
+    ],
+    [
+      "Common uses",
+      "Acquisition, working capital, expansion"
+    ],
+    [
+      "Typical term",
+      "Longer-term (varies by use)"
+    ],
+    [
+      "Max amount",
+      "Up to $5M"
+    ],
+    [
+      "Guarantee",
+      "Partially SBA-guaranteed"
+    ],
+    [
+      "Issued by",
+      "SBA-approved third-party lenders"
+    ]
   ],
   "eligibilityHeading": "What lenders typically look at",
   "eligibilityCards": [

@@ -1,4 +1,5 @@
 import { absoluteUrlForPath } from './routes.js';
+import { routeIsFreshnessBlocked, routeIsFreshnessNoindexed } from './freshness-runtime.js';
 
 const LEGAL_ENV = (globalThis?.__FUND44_LEGAL_ENV__ || import.meta.env?.VITE_FUND44_ENV || import.meta.env?.MODE || 'staging').toLowerCase();
 const PRODUCTION_INDEXING_APPROVED = String(
@@ -173,6 +174,10 @@ export const legalApprovalChecklist = [
 ];
 
 export function allowIndexingForRoute(route) {
+  if (!route) return false;
+  if (routeIsFreshnessBlocked(route.routeId) || routeIsFreshnessNoindexed(route.routeId)) {
+    return false;
+  }
   return Boolean(indexingPolicy.allowIndexing && route?.crawl?.indexable);
 }
 

@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Line of credit", "Revolving, draw as needed"],
-    ["Term loan", "Fixed amount, fixed schedule"],
-    ["Equipment financing", "Secured by the equipment"],
-    ["Working-capital role", "Flexible operating needs"],
-    ["Relative speed", "Varies by provider"],
-    ["Issued by", "Third-party lenders"]
+    [
+      "Line of credit",
+      "Revolving, draw as needed"
+    ],
+    [
+      "Term loan",
+      "Fixed amount, fixed schedule"
+    ],
+    [
+      "Equipment financing",
+      "Secured by the equipment"
+    ],
+    [
+      "Working-capital role",
+      "Flexible operating needs"
+    ],
+    [
+      "Relative speed",
+      "Varies by provider"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders"
+    ]
   ],
   "eligibilityHeading": "What flexible lenders look at",
   "eligibilityCards": [

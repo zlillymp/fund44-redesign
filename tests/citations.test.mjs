@@ -7,6 +7,16 @@ import { getAllContent } from '../src/lib/content.js';
 import { validateCitationGraph } from '../scripts/validate-citations.mjs';
 
 const claimRegisterText = readFileSync(new URL('../docs/claims-register.md', import.meta.url), 'utf8');
+const fixtureFreshness = {
+  ownerRole: 'SEO content',
+  reviewerRole: 'Content ops',
+  ownerState: 'role_assigned_identity_tbd',
+  reviewerState: 'role_assigned_identity_tbd',
+  reviewWindowDays: 180,
+  reviewTriggers: ['Fixture review trigger'],
+  staleAction: 'noindex',
+  expiredAction: 'block',
+};
 
 test('current structured content passes citation validation', () => {
   const result = validateCitationGraph({
@@ -16,6 +26,11 @@ test('current structured content passes citation validation', () => {
   });
 
   assert.deepEqual(result.errors, []);
+  citationRegistry.forEach((citation) => {
+    assert.equal(typeof citation.freshness, 'object');
+    assert.ok(citation.freshness.reviewWindowDays > 0);
+    assert.ok(citation.freshness.reviewTriggers.length > 0);
+  });
 });
 
 test('citation validation fails on missing, duplicate, and expired citations', () => {
@@ -41,6 +56,7 @@ test('citation validation fails on missing, duplicate, and expired citations', (
         reviewedDate: '2026-01-01',
         expiresDate: '2026-01-31',
         approvalStatus: 'current_reviewed',
+        freshness: fixtureFreshness,
         allowedScopes: ['program_detail'],
         claimIds: ['F44-PROD-02'],
       },
@@ -77,6 +93,7 @@ test('citation validation requires an external source for product scopes and blo
         reviewedDate: '2026-07-25',
         expiresDate: null,
         approvalStatus: 'business_approved_draft',
+        freshness: fixtureFreshness,
         allowedScopes: ['workflow_availability'],
         claimIds: ['F44-PROD-05'],
       },

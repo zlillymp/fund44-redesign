@@ -188,6 +188,7 @@ test('route resolution emits page_view, content_view, and 404_view with manifest
     assert.equal(contentView.event_name, 'content_view');
     assert.equal(contentView.payload.content_id, 'page_financing');
     assert.equal(contentView.payload.primary_topic, 'financing_options_overview');
+    assert.equal(contentView.payload.freshness_state, 'review_pending');
 
     assert.equal(missingPageView.event_name, 'page_view');
     assert.equal(missingPageView.payload.route_id, 'not_found');

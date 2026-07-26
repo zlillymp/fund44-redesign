@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Common structures", "SBA 7(a), conventional term"],
-    ["Typical use", "Acquisition, partner buyout"],
-    ["Deal inputs", "Business financials, purchase terms"],
-    ["May include", "Seller financing component"],
-    ["Amount", "Sized to the transaction"],
-    ["Issued by", "Third-party lenders"]
+    [
+      "Common structures",
+      "SBA 7(a), conventional term"
+    ],
+    [
+      "Typical use",
+      "Acquisition, partner buyout"
+    ],
+    [
+      "Deal inputs",
+      "Business financials, purchase terms"
+    ],
+    [
+      "May include",
+      "Seller financing component"
+    ],
+    [
+      "Amount",
+      "Sized to the transaction"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders"
+    ]
   ],
   "eligibilityHeading": "What lenders weigh on a deal",
   "eligibilityCards": [

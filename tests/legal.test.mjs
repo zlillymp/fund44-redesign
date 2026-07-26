@@ -11,6 +11,7 @@ import {
 } from '../src/lib/legal.js';
 import { getContentById } from '../src/lib/content.js';
 import { getRoute } from '../src/lib/routes.js';
+import { getContentFreshnessByRouteId } from '../src/lib/freshness.js';
 
 test('staging defaults to noindex while approvals remain incomplete', () => {
   assert.equal(indexingPolicy.env, 'staging');
@@ -34,6 +35,13 @@ test('identity placeholders stay visibly unresolved until verified', () => {
 test('sameAs remains omitted until verified', () => {
   assert.equal(entityProfile.hasVerifiedSameAs, false);
   assert.deepEqual(entityProfile.sameAs, []);
+});
+
+test('freshness policy does not suppress indexing for pending-first-review canonical routes', () => {
+  const homeFreshness = getContentFreshnessByRouteId('home');
+  assert.equal(homeFreshness.policyNoindex, false);
+  assert.equal(homeFreshness.policyBlocked, false);
+  assert.equal(robotsForRoute(getRoute('home')), 'noindex,nofollow');
 });
 
 test('approved conservative disclosure wording is centralized', () => {

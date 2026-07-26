@@ -7,6 +7,8 @@ import { getAllContent } from '../src/lib/content.js';
 import {
   allowedCitationTypes,
   allowedEvidenceScopes,
+  allowedFreshnessActions,
+  allowedFreshnessOwnerStates,
   allowedInternalApprovalStatuses,
   externalEvidenceRequiredScopes,
 } from '../content/schema/content-model.mjs';
@@ -64,6 +66,35 @@ export function validateCitationGraph({
 
     if (!citation.sourceLabel) {
       fail(`${citation.id}: sourceLabel is required`);
+    }
+
+    if (typeof citation.freshness !== 'object' || citation.freshness === null) {
+      fail(`${citation.id}: freshness metadata is required`);
+    } else {
+      if (!citation.freshness.ownerRole) {
+        fail(`${citation.id}: freshness.ownerRole is required`);
+      }
+      if (!citation.freshness.reviewerRole) {
+        fail(`${citation.id}: freshness.reviewerRole is required`);
+      }
+      if (!allowedFreshnessOwnerStates.has(citation.freshness.ownerState)) {
+        fail(`${citation.id}: freshness.ownerState "${citation.freshness.ownerState}" is invalid`);
+      }
+      if (!allowedFreshnessOwnerStates.has(citation.freshness.reviewerState)) {
+        fail(`${citation.id}: freshness.reviewerState "${citation.freshness.reviewerState}" is invalid`);
+      }
+      if (typeof citation.freshness.reviewWindowDays !== 'number' || citation.freshness.reviewWindowDays <= 0) {
+        fail(`${citation.id}: freshness.reviewWindowDays must be a positive number`);
+      }
+      if (!Array.isArray(citation.freshness.reviewTriggers) || citation.freshness.reviewTriggers.length === 0) {
+        fail(`${citation.id}: freshness.reviewTriggers must be a non-empty array`);
+      }
+      if (!allowedFreshnessActions.has(citation.freshness.staleAction)) {
+        fail(`${citation.id}: freshness.staleAction "${citation.freshness.staleAction}" is invalid`);
+      }
+      if (!allowedFreshnessActions.has(citation.freshness.expiredAction)) {
+        fail(`${citation.id}: freshness.expiredAction "${citation.freshness.expiredAction}" is invalid`);
+      }
     }
 
     if (!citation.reviewedDate || !/^\d{4}-\d{2}-\d{2}$/.test(citation.reviewedDate)) {

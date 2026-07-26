@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Structure", "Revolving credit facility"],
-    ["Common uses", "Cash flow, inventory, seasonality"],
-    ["Funding pattern", "Draw as needed up to a limit"],
-    ["Repayment", "Varies by facility and draw"],
-    ["Best for", "Recurring or unpredictable needs"],
-    ["Issued by", "Third-party lenders"]
+    [
+      "Structure",
+      "Revolving credit facility"
+    ],
+    [
+      "Common uses",
+      "Cash flow, inventory, seasonality"
+    ],
+    [
+      "Funding pattern",
+      "Draw as needed up to a limit"
+    ],
+    [
+      "Repayment",
+      "Varies by facility and draw"
+    ],
+    [
+      "Best for",
+      "Recurring or unpredictable needs"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders"
+    ]
   ],
   "eligibilityHeading": "What line-of-credit lenders often review",
   "eligibilityCards": [

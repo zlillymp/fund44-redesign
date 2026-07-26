@@ -21,7 +21,22 @@ import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with {
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
 import articleWorkingCapitalVsTermLoan from '../../content/articles/working-capital-vs-term-loan.json' with { type: 'json' };
 
-const records = [
+export const CONTENT_FRESHNESS_POLICY = Object.freeze({
+  ownerRole: 'Content ops',
+  reviewerRole: 'SEO content',
+  ownerState: 'role_assigned_identity_tbd',
+  reviewerState: 'role_assigned_identity_tbd',
+  reviewWindowDays: 90,
+  reviewTriggers: [
+    'Monthly content review cadence',
+    'Any approved claim, disclosure, route, or template change that affects the page',
+    'Any referenced citation becoming upcoming, stale, or expired',
+  ],
+  staleAction: 'noindex',
+  expiredAction: 'block',
+});
+
+const rawRecords = [
   homePage,
   financingPage,
   sba7aPage,
@@ -45,6 +60,11 @@ const records = [
   articlePreparingDocuments,
   articleWorkingCapitalVsTermLoan,
 ];
+
+const records = rawRecords.map((record) => ({
+  ...record,
+  freshness: CONTENT_FRESHNESS_POLICY,
+}));
 
 const contentById = new Map(records.map((record) => [record.id, record]));
 const contentByRouteId = new Map(records.map((record) => [record.routeId, record]));

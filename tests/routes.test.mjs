@@ -4,13 +4,13 @@ import {
   absoluteUrlForPath,
   getBreadcrumbs,
   getRouteBySlug,
-  getRouteInventory,
   hrefForRoute,
   hrefForSlug,
   normalizePathname,
   resolveLegacyHashPath,
   shouldHighlightRoute,
 } from '../src/lib/routes.js';
+import { getRouteInventory } from '../src/lib/route-inventory.js';
 import { getContentById } from '../src/lib/content.js';
 
 test('normalizePathname collapses trailing slash and index.html', () => {

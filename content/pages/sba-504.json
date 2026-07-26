@@ -55,12 +55,30 @@
     ]
   },
   "glanceSpecs": [
-    ["Program", "SBA 504"],
-    ["Common uses", "Owner-occupied real estate, major equipment"],
-    ["Structure", "Long-term, fixed-asset"],
-    ["Occupancy", "Owner-occupied requirement applies"],
-    ["Delivered via", "CDCs and approved lenders"],
-    ["Issued by", "Third-party lenders / CDCs"]
+    [
+      "Program",
+      "SBA 504"
+    ],
+    [
+      "Common uses",
+      "Owner-occupied real estate, major equipment"
+    ],
+    [
+      "Structure",
+      "Long-term, fixed-asset"
+    ],
+    [
+      "Occupancy",
+      "Owner-occupied requirement applies"
+    ],
+    [
+      "Delivered via",
+      "CDCs and approved lenders"
+    ],
+    [
+      "Issued by",
+      "Third-party lenders / CDCs"
+    ]
   ],
   "eligibilityHeading": "What tends to matter for 504",
   "eligibilityCards": [

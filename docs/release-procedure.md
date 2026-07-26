@@ -8,6 +8,7 @@ This document defines the repository-local release gate and the GitHub Actions w
 
 - Run one deterministic release gate locally and in CI.
 - Catch regressions in structured content, routing, legal/indexing controls, crawl outputs, analytics instrumentation, design-token usage, prerendering, broken links, performance budgets, route smoke, and browser accessibility/mobile behavior.
+- Catch stale or expired content/citation/governance freshness states before release.
 - Produce actionable logs and artifacts instead of a pass/fail only result.
 
 ## Local release gate
@@ -28,16 +29,17 @@ npm run qa:release
 4. `npm run validate:legal`
 5. `npm run validate:crawl`
 6. `npm run validate:design`
-7. `npm run validate:analytics`
-8. `npm run validate:workflows`
-9. `npm test`
-10. `npm run build`
-11. `npm run validate:prerender`
-12. `npm run validate:links`
-13. `npm run validate:performance`
-14. `npm run smoke:routes`
-15. `npm run test:a11y`
-16. `npm run test:release`
+7. `npm run validate:freshness`
+8. `npm run validate:analytics`
+9. `npm run validate:workflows`
+10. `npm test`
+11. `npm run build`
+12. `npm run validate:prerender`
+13. `npm run validate:links`
+14. `npm run validate:performance`
+15. `npm run smoke:routes`
+16. `npm run test:a11y`
+17. `npm run test:release`
 
 ## Release artifacts
 
@@ -57,6 +59,8 @@ If a gate fails, inspect the matching `artifacts/release-gates/<step>.log` file 
 
 - Citation/content/route/legal/crawl/design/analytics validators:
   - existing repository contracts that keep manifests, structured content, governed wording, crawl assets, semantic tokens, and analytics taxonomy coherent
+- Freshness validation:
+  - deterministic review-window, stale/noindex, and expired/block checks across structured content, citations, governance records, and generated crawl/LLM assets
 - Workflow validation:
   - YAML parseability, required triggers, minimal permissions, and pinned GitHub Action SHAs
 - Unit tests:
@@ -116,6 +120,7 @@ Until those approvals exist:
 - [ ] `ROADMAP.md` status and changelog reflect real verification evidence.
 - [ ] `npm run validate:workflows` passes.
 - [ ] `npm run qa:release` passes.
+- [ ] `npm run report:freshness` has been reviewed when content, citations, governance docs, or crawl assets changed.
 - [ ] CI release-gate workflow passes on the PR.
 - [ ] Preview smoke checks and route behavior are correct.
 - [ ] No production-indexing toggle or legal/entity fabrication was introduced.
