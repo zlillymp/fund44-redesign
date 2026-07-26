@@ -2,27 +2,28 @@ import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, routingWaterfall, docChecklist, statusTimeline, offerComparison, featItem } from '../components/ui.js';
 import { getBreadcrumbs } from '../lib/routes.js';
+import { disclosures } from '../lib/legal.js';
 
 const CRUMBS = getBreadcrumbs('how_it_works');
 
 const FAQ = [
-  { q: 'How long does the process take?', a: 'The initial options preview takes a few minutes. Full timelines depend on the product and the lenders you proceed with. Fund44 does not guarantee any specific funding speed.' },
-  { q: 'Do I have to upload documents more than once?', a: 'No. Fund44 keeps a shared document checklist so you upload financial documents a single time and reuse them across relevant lenders.' },
-  { q: 'What data does Fund44 collect?', a: 'Fund44 collects the business and contact details needed to match you with relevant lenders. In this preview, no data is sent externally. In the live product, you control what is shared. See our privacy page.' },
+  { q: 'How long does the process take?', a: disclosures.fasterProcess },
+  { q: 'Do I have to upload documents more than once?', a: 'Fund44 is designed around one document checklist and document reuse where supported in the workflow. Exact document steps can vary by provider and by business profile.' },
+  { q: 'What data does Fund44 collect?', a: 'In the current preview, the information you enter stays in your browser and is used only to personalize the on-screen demo result. Final live privacy, sharing, retention, and consent language remains pending approval.' },
   { q: 'Will my credit be affected?', a: 'Checking your initial options can use information that does not affect your credit score. If you choose to proceed with a lender, that lender may later perform a hard credit inquiry.' },
 ];
 
 const STEPS = [
-  { n: '01', h: 'Answer a few questions', p: 'Tell us your use of funds, amount, time in business, revenue, and state. It takes minutes.', ic: icon.route },
-  { n: '02', h: 'Get matched to paths', p: 'Your profile can be screened across 75+ lender integrations using business and product criteria.', ic: icon.layers },
-  { n: '03', h: 'Upload documents once', p: 'A single shared checklist feeds every relevant lender. No re-submitting the same paperwork.', ic: icon.file },
-  { n: '04', h: 'Compare & continue', p: 'Review offers side by side, understand each path, and continue with one secure flow.', ic: icon.scale },
+  { n: '01', h: 'Answer a few questions', p: 'Share the business details the preview asks for so the on-screen result can be tailored to your situation.', ic: icon.route },
+  { n: '02', h: 'Review relevant paths', p: 'See the paths the experience can explain based on your financing need, profile, and the product details available.', ic: icon.layers },
+  { n: '03', h: 'Prepare documents', p: 'The workflow is designed around one document checklist and document reuse where supported.', ic: icon.file },
+  { n: '04', h: 'Compare and continue', p: 'Status tracking and offer comparison can be available in the experience when those steps are supported.', ic: icon.scale },
 ];
 
 export function howItWorks() {
   setMeta({
     title: 'How Fund44 works',
-    description: 'See how Fund44 turns one application into matched financing paths: answer a few questions, get routed to relevant lenders, upload documents once, and compare offers in a single secure experience.',
+    description: 'See the conservative product-workflow draft for Fund44: routing explanations, one document checklist, document reuse where supported, status tracking, and offer comparison when available in the experience.',
     path: '/how-it-works',
     jsonld: [ld.breadcrumb(CRUMBS), ld.faq(FAQ)],
   });
@@ -32,7 +33,7 @@ export function howItWorks() {
     crumbs: CRUMBS,
     eyebrow: 'How it works',
     title: 'From one application to matched offers.',
-    lead: 'Fund44 runs on embedded lending infrastructure. Here is exactly what happens between “check my options” and choosing a lender — no black box.',
+    lead: 'Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience.',
   })}
 
   <section class="section-tight wrap">
@@ -55,11 +56,11 @@ export function howItWorks() {
       <div class="feature-split">
         <div class="fs-text">
           ${eyebrow('Step 2 · in detail')}
-          <h2 class="h2 reveal mt-4" style="color:var(--on-dark)">Routing that ranks by fit</h2>
-          <p class="lead reveal mt-4">Your single application is normalized into a clean profile and screened against a network of 75+ lender integrations. Products that don't serve your size, geography, or use of funds are filtered out. What's left is surfaced and ranked by how well it fits your situation.</p>
+          <h2 class="h2 reveal mt-4" style="color:var(--on-dark)">Routing explained in plain language</h2>
+          <p class="lead reveal mt-4">${disclosures.fitOverFees}</p>
           <div class="feat-list reveal mt-8">
-            ${featItem(icon.route, 'Data-driven matching', 'Decision support screens your profile against relevant products automatically.')}
-            ${featItem(icon.eye, 'You see the reasoning', 'Each surfaced path shows why it appears — no opaque scoring.')}
+            ${featItem(icon.route, 'Curated network story', disclosures.networkStory)}
+            ${featItem(icon.eye, 'Routing explanation', 'The experience explains why a path may fit based on the information provided and the product details available.')}
           </div>
         </div>
         <div class="fs-viz">${routingWaterfall()}</div>
@@ -73,15 +74,15 @@ export function howItWorks() {
       <div class="fs-viz">${docChecklist()}</div>
       <div class="fs-text">
         ${eyebrow('Step 3 · in detail')}
-        <h2 class="h2 reveal mt-4">Upload once, reuse everywhere</h2>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">A shared borrower portal shows exactly what's needed and what's in. Documents flow to relevant lenders without you re-submitting the same files.</p>
+        <h2 class="h2 reveal mt-4">One document checklist, with reuse where supported</h2>
+        <p class="lead reveal mt-4" style="font-size:var(--text-base)">${disclosures.fasterProcess}</p>
       </div>
     </div>
     <div class="feature-split" style="margin-top:clamp(2rem,6vw,5rem)">
       <div class="fs-text">
         ${eyebrow('Step 4 · in detail')}
         <h2 class="h2 reveal mt-4">Track status and compare offers</h2>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">Follow your application through each stage, then weigh offers side by side with plain-language framing before you proceed with any lender.</p>
+        <p class="lead reveal mt-4" style="font-size:var(--text-base)">Status tracking and offer comparison can be available in the experience when those steps are supported. Exact timing, available paths, and workflow details can vary by provider and by business profile.</p>
       </div>
       <div class="fs-viz">${statusTimeline()}</div>
     </div>
@@ -89,10 +90,10 @@ export function howItWorks() {
   </section>
 
   <section class="section-tight wrap">
-    ${disclosure('<strong>Fund44 is not a lender.</strong> Fund44 matches borrowers with third-party lenders and provides tools to apply, track, and compare. Eligibility, offers, and terms are determined by the lenders. Checking initial options uses information that does not affect your credit; a hard inquiry may occur later if you proceed. No approval, funding, or timeline is guaranteed.')}
+    ${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.marketplacePreview} ${disclosures.noGuarantees}`)}
   </section>
 
-  ${ctaBanner('Ready to see your paths?', 'Start the eligibility preview — it takes a few minutes and shows sample results only.')}
+  ${ctaBanner('Ready to see your paths?', 'Start the eligibility preview. It shows sample results only and keeps the current preview data in your browser.')}
 
   <section class="section wrap wrap-default">
     ${eyebrow('Process FAQ')}

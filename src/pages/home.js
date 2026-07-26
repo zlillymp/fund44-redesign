@@ -1,7 +1,7 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { eyebrow, primaryCta, secondaryCta, ctaBanner, disclosure, faqBlock, matchDashboard, routingWaterfall, docChecklist, statusTimeline, offerComparison, chaosToPath, featItem } from '../components/ui.js';
-import { hrefForContentId, hrefForRoute } from '../lib/routes.js';
+import { hrefForContentId } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
 
 function renderFeatureItems(items) {
@@ -106,7 +106,7 @@ export function home() {
         ${eyebrow(content.status.eyebrow)}
         <h3 class="h3 reveal mt-4">${content.status.heading}</h3>
         <p class="lead reveal mt-4" style="font-size:var(--text-base)">${content.status.lead}</p>
-        <div class="mt-6">${disclosure('<strong>Fund44 is not a lender.</strong> Financing is offered by third-party providers, and eligibility and terms vary by provider. Checking initial options uses information that does not affect your credit; a lender may perform a hard inquiry later if you choose to proceed. Fund44 does not guarantee approval, funding, or any specific timeline.')}</div>
+        <div class="mt-6">${disclosure(content.status.disclosureHtml)}</div>
       </div>
     </div>
   </section>

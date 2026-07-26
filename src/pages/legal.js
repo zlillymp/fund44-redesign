@@ -2,6 +2,15 @@ import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
 import { eyebrow, disclosure } from '../components/ui.js';
 import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
+import {
+  disclosures,
+  humanReadableIndexingMode,
+  identityDisplay,
+  indexingPolicy,
+  legalApprovalChecklist,
+  liveDisclosuresBlocked,
+  unresolvedIdentityFields,
+} from '../lib/legal.js';
 
 function legalHead(crumbs, title, updated) {
   return `
@@ -11,8 +20,8 @@ function legalHead(crumbs, title, updated) {
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
     <div class="reveal mt-4" style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center">
-      <span class="legal-flag">${icon.info} Preview — legal review required</span>
-      <span class="muted" style="font-size:var(--text-sm)">Last updated: placeholder</span>
+      <span class="legal-flag">${icon.info} ${indexingPolicy.allowIndexing ? 'Production-indexable legal mode' : 'Staging / preview noindex legal mode'}</span>
+      <span class="muted" style="font-size:var(--text-sm)">${updated ? 'Updated for the current governance draft on 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
     </div>
   </section>`;
 }
@@ -26,8 +35,8 @@ const section = (h, body) => `
 export function privacy() {
   const crumbs = getBreadcrumbs('privacy');
   setMeta({
-    title: 'Privacy — preview',
-    description: 'How Fund44 approaches privacy: what information is collected to match you with lenders, how it is used, and the controls you have. Preview copy pending legal review.',
+    title: 'Privacy — governance draft',
+    description: 'Governance draft privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
     path: '/privacy',
     jsonld: [ld.breadcrumb(crumbs)],
   });
@@ -35,32 +44,42 @@ export function privacy() {
   return `
   ${legalHead(crumbs, 'Privacy', true)}
   <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
-    ${disclosure('<strong>This is placeholder preview copy.</strong> It describes intended privacy practices in plain language for demonstration and must be reviewed and finalized by qualified legal counsel before publication. It does not yet constitute a binding privacy policy.')}
+    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} ${liveDisclosuresBlocked.privacyConsent}`)}
     ${section('What we collect', `
-      <p>To match you with relevant financing options, Fund44 collects the information you provide — such as your use of funds, desired amount, time in business, revenue range, state, and contact details — plus documents you choose to upload.</p>
-      <p><strong>In this preview, no information is transmitted to any server or third party.</strong> The eligibility flow runs entirely in your browser and shows sample results only.</p>`)}
+      <p>${disclosures.previewPrivacy}</p>
+      <p>The preview asks for limited business and contact inputs so the on-screen demo can be personalized. The exact live collection categories, sharing boundaries, retention periods, and consent steps are still pending approval.</p>`)}
     ${section('Why we collect it', `
-      <p>Business and financial details are used to screen your profile against relevant lender products and to surface paths that fit. Contact details are used to share your results and next steps.</p>`)}
+      <p>${disclosures.fitOverFees}</p>
+      <p>For the current preview build, the information is used only to tailor the sample on-screen result in your browser. It is not a published final privacy notice for any live submission workflow.</p>`)}
     ${section('How information is shared', `
-      <p>In the live product, information you submit may be shared with third-party lenders you are matched to, so they can evaluate your request. <strong>Fund44 is not a lender</strong> and does not make lending decisions. You control which lenders you choose to proceed with.</p>`)}
+      <p>${disclosures.marketplacePreview}</p>
+      <p>${liveDisclosuresBlocked.privacyConsent}</p>`)}
     ${section('Your controls', `
+      <p>Final user-rights procedures, contact methods for privacy requests, consent records, and retention handling are not approved yet. Those items remain blocked and must be finalized before launch.</p>
       <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
-        <li>Choose what to share and which lenders to proceed with.</li>
-        <li>Request access to, correction of, or deletion of your information.</li>
-        <li>Opt out of non-essential communications.</li>
-      </ul>
-      <p>Specific rights and request procedures (including any applicable state privacy rights) will be finalized during legal review.</p>`)}
+        <li>Staging and preview remain non-indexable while privacy and consent approvals are incomplete.</li>
+        <li>Unverified identity and contact fields are intentionally withheld instead of being guessed.</li>
+        <li>SameAs profiles remain omitted until verified.</li>
+      </ul>`)}
     ${section('Credit information', `
-      <p>Checking your initial options can use information that does not affect your credit score. If you choose to proceed with a lender, that lender may perform a hard credit inquiry as part of its own underwriting.</p>`)}
-    ${section('Contact', `<p>Privacy questions can be directed to the contact placeholder on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
+      <p>${disclosures.creditPreview}</p>
+      <p>If a live provider handoff is introduced later, any provider-run inquiry language must be reviewed again with the final consent flow.</p>`)}
+    ${section('What still needs approval', `
+      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+        ${legalApprovalChecklist
+          .filter((item) => item.area === 'Privacy and consent' || item.area === 'Security' || item.area === 'Identity')
+          .map((item) => `<li><strong>${item.area}:</strong> ${item.detail}</li>`)
+          .join('')}
+      </ul>`)}
+    ${section('Contact', `<p>Privacy questions will use the verified support channel once it exists. Until then, see the controlled placeholders on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a>. ${disclosures.contactPlaceholder}</p>`)}
   </section>`;
 }
 
 export function terms() {
   const crumbs = getBreadcrumbs('terms');
   setMeta({
-    title: 'Terms & disclosures — preview',
-    description: 'Fund44 terms and marketplace disclosures in plain language. Fund44 is not a lender; financing is offered by third-party providers. Preview copy pending legal review.',
+    title: 'Terms & disclosures — governance draft',
+    description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in governance-draft form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
     path: '/terms',
     jsonld: [ld.breadcrumb(crumbs)],
   });
@@ -68,19 +87,29 @@ export function terms() {
   return `
   ${legalHead(crumbs, 'Terms & disclosures', true)}
   <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
-    ${disclosure('<strong>This is placeholder preview copy.</strong> These terms and disclosures are drafted in plain language for demonstration and require review and finalization by qualified legal counsel before they take effect. They are not yet a binding agreement.')}
+    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} Final legal business identity, support details, consent flow, retention terms, and sameAs references remain blocked.`)}
     ${section('Marketplace disclosure', `
-      <p><strong>Fund44 is not a lender or a bank.</strong> Fund44 is a technology marketplace that helps small-business owners find and compare financing options offered by third-party lenders. Financing is provided by those lenders.</p>
-      <p><strong>Eligibility, availability, rates, and terms vary by provider</strong> and are determined by each lender — not by Fund44. Being matched to a path is not an offer, an approval, or a guarantee of funding.</p>`)}
+      <p>${disclosures.marketplacePreview}</p>
+      <p>${disclosures.networkStory}</p>`)}
+    ${section('How paths are explained', `
+      <p>${disclosures.fitOverFees}</p>
+      <p>${disclosures.fasterProcess}</p>`)}
     ${section('No guarantees', `
-      <p>Fund44 does not guarantee approval, funding, or any specific timeline, rate, or amount. Any structures, amounts, or timelines shown on this site are illustrative or interface examples for demonstration only.</p>`)}
+      <p>${disclosures.noGuarantees}</p>
+      <p>${disclosures.illustrative}</p>`)}
     ${section('Credit inquiries', `
-      <p>Checking your initial options may use information that does not affect your credit score. Lenders you choose to proceed with may later perform a hard credit inquiry as part of their underwriting. Fund44 does not make "no credit impact" promises about a lender's own process.</p>`)}
+      <p>${disclosures.creditPreview}</p>
+      <p>If you later proceed with a provider in a live workflow, that provider may apply its own underwriting steps. Final provider-handoff language is still pending legal and product approval.</p>`)}
     ${section('Educational content', `
-      <p>Content on this site, including the learning hub, is general and educational. It is not financial, legal, or tax advice. Program rules (including SBA programs) and lender requirements change and are set by those entities.</p>`)}
-    ${section('Preview status', `
-      <p>This site is a preview build. Any figures, testimonials, or metrics are illustrative or interface data. Fund44 does not publish unverified funding claims, named testimonials, or fabricated certifications.</p>`)}
-    ${section('Contact', `<p>Questions about these terms can be directed to the contact placeholder on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> once verified contact details are added.</p>`)}
+      <p>${disclosures.educational}</p>`)}
+    ${section('Indexing and entity status', `
+      <p><strong>Current indexing mode:</strong> ${humanReadableIndexingMode()}. ${indexingPolicy.note}</p>
+      <p><strong>sameAs policy:</strong> ${liveDisclosuresBlocked.sameAs}</p>`)}
+    ${section('Identity and contact status', `
+      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+        ${unresolvedIdentityFields.map((field) => `<li>${describeField(field.key)}</li>`).join('')}
+      </ul>`)}
+    ${section('Contact', `<p>Questions about these terms will route through the verified support channel once those details are approved. Until then, our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> keeps every unresolved value visibly marked as TBD.</p>`)}
   </section>`;
 }
 
@@ -88,29 +117,59 @@ export function contact() {
   const crumbs = getBreadcrumbs('contact');
   setMeta({
     title: 'Contact Fund44',
-    description: 'Get in touch with Fund44. Contact details are placeholders in this preview build and will be added once verified.',
+    description: 'Fund44 contact and entity placeholders are intentionally controlled until legal business name, mailing address, support email, and support phone are verified.',
     path: '/contact',
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
+  const generalEmail = identityDisplay('supportEmail');
+  const phone = identityDisplay('supportPhone');
+  const address = identityDisplay('mailingAddress');
+  const legalName = identityDisplay('legalBusinessName');
+
   return `
   ${legalHead(crumbs, 'Contact', false)}
   <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
-    <p class="lead reveal">We'd like to hear from you. Verified contact details will be added before launch — the entries below are clearly marked placeholders.</p>
+    ${disclosure(`<strong>Controlled TBD state.</strong> ${disclosures.contactPlaceholder}`)}
+    <p class="lead reveal">This page is designed to make unresolved identity and contact fields obvious. Nothing below should be mistaken for final production contact data.</p>
     <div class="grid g-2 reveal mt-8" data-stagger>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">General</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">hello@[placeholder-domain]</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">Placeholder — not yet an active address.</p>
+        <div class="eyebrow" style="margin-bottom:var(--space-3)">Legal business name</div>
+        <p style="font-family:var(--font-mono);color:var(--muted)">${legalName.value}</p>
+        <p class="muted mt-4" style="font-size:var(--text-sm)">${legalName.note}</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">Funding help</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">apply@[placeholder-domain]</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">Placeholder — use the options preview to get started.</p>
+        <div class="eyebrow" style="margin-bottom:var(--space-3)">Mailing address</div>
+        <p style="font-family:var(--font-mono);color:var(--muted)">${address.value}</p>
+        <p class="muted mt-4" style="font-size:var(--text-sm)">${address.note}</p>
       </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:var(--space-3)">Support email</div>
+        <p style="font-family:var(--font-mono);color:var(--muted)">${generalEmail.value}</p>
+        <p class="muted mt-4" style="font-size:var(--text-sm)">${generalEmail.note}</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:var(--space-3)">Support phone</div>
+        <p style="font-family:var(--font-mono);color:var(--muted)">${phone.value}</p>
+        <p class="muted mt-4" style="font-size:var(--text-sm)">${phone.note}</p>
+      </div>
+    </div>
+    <div class="card reveal mt-8">
+      <div class="eyebrow" style="margin-bottom:var(--space-3)">What still blocks launch-ready contact publishing</div>
+      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+        <li>Verified legal business name</li>
+        <li>Verified mailing address</li>
+        <li>Verified support email</li>
+        <li>Verified support phone</li>
+        <li>Final privacy, consent, and retention language with the corresponding support workflows</li>
+      </ul>
     </div>
     <div class="mt-8" style="text-align:center">
       <button class="btn btn-primary btn-lg" data-open-flow>Preview funding paths ${icon.arrow}</button>
     </div>
   </section>`;
+}
+
+function describeField(fieldKey) {
+  return identityDisplay(fieldKey).note;
 }

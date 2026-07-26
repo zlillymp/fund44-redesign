@@ -1,5 +1,6 @@
 import { logo, logoMark, icon } from '../lib/svg.js';
 import { getCtaDestination, getFooterNavigation, getMobileNavigation, getPrimaryNavigation, hrefForRoute } from '../lib/routes.js';
+import { disclosures, humanReadableIndexingMode } from '../lib/legal.js';
 
 export function header() {
   const navItems = getPrimaryNavigation();
@@ -67,7 +68,7 @@ export function footer() {
             ${logoMark(28)}
             <span style="font-family:var(--font-display);font-weight:600;font-size:1.25rem;letter-spacing:-0.04em">Fund<span style="color:var(--accent)">44</span></span>
           </a>
-          <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--on-dark-muted);max-width:34ch">A small-business capital marketplace. Apply once; get matched to relevant financing paths from a network of third-party lenders.</p>
+          <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--on-dark-muted);max-width:34ch">${disclosures.marketplacePreview}</p>
         </div>
         ${footerGroups.map((group) => `
           <div class="footer-col">
@@ -80,11 +81,12 @@ export function footer() {
       </div>
 
       <div class="footer-disclosure">
-        <p><strong style="color:var(--on-dark)">Fund44 is not a lender or a bank.</strong> Fund44 is a technology marketplace that helps small-business owners find and compare financing options offered by third-party lenders. Financing is provided by those lenders. Eligibility, availability, rates, and terms vary by provider and are determined by each lender — not by Fund44.</p>
-        <p>Checking your initial options may use information that does not affect your credit score. Lenders you choose to proceed with may later perform a hard credit inquiry as part of their own underwriting. Fund44 does not guarantee approval, funding, or any specific timeline, rate, or amount.</p>
+        <p><strong style="color:var(--on-dark)">Marketplace disclosure.</strong> ${disclosures.marketplacePreview}</p>
+        <p>${disclosures.networkStory}</p>
+        <p>${disclosures.creditPreview} ${disclosures.noGuarantees}</p>
         <p style="display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center">
-          <span>© ${new Date().getFullYear()} Fund44. Preview site.</span>
-          <span style="font-family:var(--font-mono);border:1px dashed var(--on-dark-line);padding:.25rem .55rem;border-radius:6px;font-size:11px;letter-spacing:.05em;text-transform:uppercase">Preview — legal review required</span>
+          <span>© ${new Date().getFullYear()} Fund44. ${humanReadableIndexingMode()}.</span>
+          <span style="font-family:var(--font-mono);border:1px dashed var(--on-dark-line);padding:.25rem .55rem;border-radius:6px;font-size:11px;letter-spacing:.05em;text-transform:uppercase">Counsel review still recommended</span>
         </p>
       </div>
     </div>
