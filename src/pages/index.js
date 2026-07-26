@@ -1,6 +1,6 @@
 import { home } from './home.js';
 import { financing } from './financing.js';
-import { sba7a, sba504, acquisition, workingCapital } from './products.js';
+import { sba7a, sba504, acquisition, workingCapital, termLoan, lineOfCredit, equipmentFinancing } from './products.js';
 import { howItWorks } from './how-it-works.js';
 import { about } from './about.js';
 import { resources, article } from './resources.js';
@@ -15,6 +15,9 @@ export const pageRenderers = {
   sba504,
   acquisition,
   workingCapital,
+  termLoan,
+  lineOfCredit,
+  equipmentFinancing,
   howItWorks,
   about,
   resources,

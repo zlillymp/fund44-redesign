@@ -13,10 +13,13 @@ import { indexingPolicy } from '../src/lib/legal.js';
 
 test('crawl inventory coverage is deterministic and duplicate-free', () => {
   const inventory = getCrawlInventory();
+  const expectedSitemapCount = routeManifest.routes.filter((route) => route.crawl?.canonical && route.crawl?.indexable && route.crawl?.sitemap).length;
+  const expectedLlmsCount = routeManifest.routes.filter((route) => route.crawl?.llms).length;
+  const expectedAttributionCount = routeManifest.routes.filter((route) => route.crawl?.canonical && route.crawl?.indexable).length;
 
-  assert.equal(inventory.sitemapEntries.length, 15);
-  assert.equal(inventory.llmsEntries.length, 12);
-  assert.equal(inventory.routeAttribution.length, 15);
+  assert.equal(inventory.sitemapEntries.length, expectedSitemapCount);
+  assert.equal(inventory.llmsEntries.length, expectedLlmsCount);
+  assert.equal(inventory.routeAttribution.length, expectedAttributionCount);
 
   const sitemapLocs = inventory.sitemapEntries.map((entry) => entry.loc);
   const llmsLocs = inventory.llmsEntries.map((entry) => entry.loc);

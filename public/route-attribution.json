@@ -59,6 +59,18 @@
       "landing": false
     },
     {
+      "routeId": "equipment_financing",
+      "analyticsRouteId": "equipment_financing",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/equipment-financing",
+      "loc": "https://fund44.com/equipment-financing",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
       "routeId": "financing",
       "analyticsRouteId": "financing",
       "routeFamily": "financing_hub",
@@ -78,6 +90,18 @@
       "templateId": "process_page",
       "path": "/how-it-works",
       "loc": "https://fund44.com/how-it-works",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "line_of_credit",
+      "analyticsRouteId": "line_of_credit",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/line-of-credit",
+      "loc": "https://fund44.com/line-of-credit",
       "canonical": true,
       "indexable": true,
       "landing": true
@@ -162,6 +186,18 @@
       "templateId": "product_page",
       "path": "/sba-7a",
       "loc": "https://fund44.com/sba-7a",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "term_loan",
+      "analyticsRouteId": "term_loan",
+      "routeFamily": "financing_program",
+      "pageType": "program_page",
+      "templateId": "product_page",
+      "path": "/term-loan",
+      "loc": "https://fund44.com/term-loan",
       "canonical": true,
       "indexable": true,
       "landing": true

@@ -26,6 +26,9 @@
 - SBA 504 loans — Real estate & major equipment: /sba-504
 - Business acquisition — Buy a business or partner out: /business-acquisition
 - Working capital & lines of credit — Day-to-day cash flow: /working-capital
+- Business term loans — One-time projects and planned growth: /term-loan
+- Business lines of credit — Recurring cash-flow flexibility: /line-of-credit
+- Equipment financing — Asset-backed equipment purchases: /equipment-financing
 
 ## Key pages
 - Home: /

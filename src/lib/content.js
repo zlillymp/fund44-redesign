@@ -4,6 +4,9 @@ import sba7aPage from '../../content/pages/sba-7a.json' with { type: 'json' };
 import sba504Page from '../../content/pages/sba-504.json' with { type: 'json' };
 import acquisitionPage from '../../content/pages/business-acquisition.json' with { type: 'json' };
 import workingCapitalPage from '../../content/pages/working-capital.json' with { type: 'json' };
+import termLoanPage from '../../content/financing/term-loan.json' with { type: 'json' };
+import lineOfCreditPage from '../../content/financing/line-of-credit.json' with { type: 'json' };
+import equipmentFinancingPage from '../../content/financing/equipment-financing.json' with { type: 'json' };
 import resourcesPage from '../../content/pages/resources.json' with { type: 'json' };
 import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with { type: 'json' };
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
@@ -16,6 +19,9 @@ const records = [
   sba504Page,
   acquisitionPage,
   workingCapitalPage,
+  termLoanPage,
+  lineOfCreditPage,
+  equipmentFinancingPage,
   resourcesPage,
   articleSba7aVs504,
   articlePreparingDocuments,

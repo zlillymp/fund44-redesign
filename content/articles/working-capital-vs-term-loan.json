@@ -49,7 +49,7 @@
     "summary": "Fund44 uses this article to connect flexible-product education to the working-capital route and preview flow.",
     "bullets": [
       "Explains the core difference in plain language.",
-      "Links directly to the working-capital route.",
+      "Links directly to the working-capital, term-loan, and line-of-credit routes.",
       "Keeps the article educational rather than prescriptive."
     ]
   },
@@ -104,9 +104,10 @@
   ],
   "relatedIds": [
     "page_working_capital",
+    "page_term_loan",
+    "page_line_of_credit",
     "page_financing",
-    "article_preparing_your_documents",
-    "article_sba_7a_vs_504"
+    "article_preparing_your_documents"
   ],
   "contributors": {
     "authorId": null,

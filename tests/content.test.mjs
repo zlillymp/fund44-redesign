@@ -6,7 +6,7 @@ import { getRouteBySlug, getRouteInventory } from '../src/lib/routes.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
-  assert.equal(allContent.length, 10);
+  assert.equal(allContent.length, 13);
   assert.deepEqual(
     allContent.map((record) => record.id),
     [
@@ -16,6 +16,9 @@ test('structured content inventory covers the planned route set', () => {
       'page_sba_504',
       'page_business_acquisition',
       'page_working_capital',
+      'page_term_loan',
+      'page_line_of_credit',
+      'page_equipment_financing',
       'page_resources',
       'article_sba_7a_vs_504',
       'article_preparing_your_documents',
@@ -37,8 +40,8 @@ test('route ids and slugs map cleanly between manifest and structured content', 
 test('financing program pages remain discoverable through structured content', () => {
   const programPages = getProgramPages();
 
-  assert.equal(programPages.length, 4);
-  assert.deepEqual(programPages.map((page) => page.routeId), ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital']);
+  assert.equal(programPages.length, 7);
+  assert.deepEqual(programPages.map((page) => page.routeId), ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital', 'term_loan', 'line_of_credit', 'equipment_financing']);
 });
 
 test('resource hub article inventory points to structured editorial records', () => {
@@ -83,5 +86,25 @@ test('claim-bearing content records declare evidence scopes and citation ids', (
       assert.ok(record.claimReview.evidenceScopes.length > 0, `${record.id} should declare evidence scopes`);
       assert.ok(record.citationIds.length > 0, `${record.id} should reference at least one citation`);
     }
+  });
+});
+
+test('national financing launch pages have unique substantive intent and non-thin content blocks', () => {
+  const routeIds = ['term_loan', 'line_of_credit', 'equipment_financing'];
+  const pages = routeIds.map((routeId) => getContentByRouteId(routeId));
+
+  assert.deepEqual(
+    new Set(pages.map((page) => page.intent.primaryTopic)).size,
+    pages.length,
+  );
+  assert.deepEqual(
+    new Set(pages.map((page) => page.metaDescription)).size,
+    pages.length,
+  );
+
+  pages.forEach((page) => {
+    assert.ok(page.quickAnswer.definition.length > 80, `${page.routeId} quick answer should be substantive`);
+    assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
+    assert.ok(page.relatedIds.length >= 4, `${page.routeId} should include at least 4 related links`);
   });
 });

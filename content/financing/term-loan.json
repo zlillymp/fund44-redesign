@@ -1,0 +1,171 @@
+{
+  "id": "page_term_loan",
+  "routeId": "term_loan",
+  "slug": "term-loan",
+  "pageType": "program_page",
+  "templateId": "product_page",
+  "title": "Business term loans",
+  "metaTitle": "Business term loans",
+  "metaDescription": "Business term loans provide a lump sum repaid on a fixed schedule for planned one-time needs like expansion, equipment, or refinancing. Learn when a term loan commonly fits.",
+  "summary": "The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Business term loans",
+    "title": "Business term loans for planned costs and growth projects.",
+    "lead": "A term loan is built for a specific need with a defined cost and repayment schedule. Use this page to understand when term financing commonly fits and when another structure may be more flexible."
+  },
+  "shortLabel": "Term loan",
+  "quickAnswer": {
+    "term": "A business term loan",
+    "definition": "is a fixed amount of capital borrowed up front and repaid on a set schedule over time. It is commonly used for one-time business needs such as expansion, equipment, refinancing, or a defined growth project."
+  },
+  "whoItFitsHeading": "A fixed amount for a defined need",
+  "whoItFits": {
+    "heading": "When a term loan tends to fit",
+    "items": [
+      "A one-time project with a clear budget",
+      "Expansion or renovation with defined costs",
+      "Equipment or asset purchases that do not require a revolving facility",
+      "Refinancing certain existing business debt"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When a term loan may not fit as well",
+    "items": [
+      "Recurring cash-flow gaps may point more directly to a line of credit or another flexible working-capital structure.",
+      "Projects centered on owner-occupied real estate or SBA-specific goals may require comparing SBA 7(a) or SBA 504 first."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common term-loan document examples",
+    "items": [
+      "Recent business financial statements",
+      "Bank statements",
+      "Tax returns",
+      "Use-of-funds summary"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to explain where a fixed-amount loan fits in the broader financing mix without implying lender decisions or guaranteed approval.",
+    "bullets": [
+      "Separates planned one-time borrowing needs from revolving cash-flow products.",
+      "Connects term-loan research to the financing hub, line-of-credit comparison content, and the preview flow.",
+      "Keeps product availability, timelines, and underwriting under third-party lender control."
+    ]
+  },
+  "glanceSpecs": [
+    ["Structure", "Fixed amount, fixed schedule"],
+    ["Common uses", "Expansion, equipment, refinancing"],
+    ["Funding pattern", "Disbursed up front"],
+    ["Repayment", "Regular installments"],
+    ["Relative flexibility", "Less flexible than revolving credit"],
+    ["Issued by", "Third-party lenders"]
+  ],
+  "eligibilityHeading": "What term-loan lenders often review",
+  "eligibilityCards": [
+    {
+      "id": "term_loan_cash_flow",
+      "iconKey": "cash",
+      "title": "Repayment capacity",
+      "description": "Lenders commonly review revenue, cash flow, and debt obligations to understand whether the business can support fixed payments."
+    },
+    {
+      "id": "term_loan_project",
+      "iconKey": "route",
+      "title": "Defined use of funds",
+      "description": "A term loan is usually easier to size when the project, asset, or refinancing goal is clearly described."
+    },
+    {
+      "id": "term_loan_history",
+      "iconKey": "clock",
+      "title": "Operating history",
+      "description": "Time in business and recent operating performance often shape how a lender underwrites the request."
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Business term-loan eligibility, product availability, timelines, and terms are determined by third-party lenders and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Planning a one-time project or investment?",
+    "subheading": "Preview whether a term loan, an SBA path, or a more flexible option fits the need you are trying to fund."
+  },
+  "commonQuestions": [
+    {
+      "id": "term_loan_faq_how_it_works",
+      "question": "How does a business term loan work?",
+      "answer": "A term loan provides a lump sum up front and is repaid over time on a fixed schedule. That structure can work well when the amount needed and the business purpose are already defined."
+    },
+    {
+      "id": "term_loan_faq_vs_loc",
+      "question": "What is the difference between a term loan and a line of credit?",
+      "answer": "A term loan suits a one-time planned expense, while a line of credit is designed for ongoing or unpredictable borrowing needs. The right fit depends on whether you need a fixed amount once or ongoing access to capital."
+    },
+    {
+      "id": "term_loan_faq_docs",
+      "question": "What documents may be needed for a term loan?",
+      "answer": "Common examples include business financials, bank statements, tax returns, and a clear use-of-funds summary. Exact requirements vary by lender and by the financing request."
+    },
+    {
+      "id": "term_loan_faq_direct",
+      "question": "Does Fund44 issue business term loans?",
+      "answer": "No. Fund44 does not issue business term loans. Eligibility and terms are determined by third-party lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_working_capital",
+    "page_line_of_credit",
+    "article_working_capital_vs_term_loan"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_wf_credit_application_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "business_term_loans",
+    "contentGroup": "program_page",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "financing_program",
+    "ctaIds": [
+      "preview_funding_paths",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "term_loan_faq",
+    "freshnessState": "review_pending"
+  }
+}

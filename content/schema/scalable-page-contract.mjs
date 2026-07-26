@@ -66,7 +66,7 @@ export const scalableTemplateContracts = [
     routeFamilies: ['financing_program'],
     clusterId: 'national_financing',
     launchTask: 'F44-CONT-02',
-    currentRouteIds: ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital'],
+    currentRouteIds: ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital', 'term_loan', 'line_of_credit', 'equipment_financing'],
     standardSections: standardSectionKeys,
     requiredFields: scalableTemplateFieldRequirements.product_page,
     evidenceFields: scalableEvidenceFieldKeys,

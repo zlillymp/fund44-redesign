@@ -51,6 +51,19 @@ test('route inventory exposes manifest-backed analytics identifiers', () => {
   assert.equal(route.canonical, true);
 });
 
+test('national financing launch routes are canonical clean-path entries', () => {
+  const inventory = new Map(getRouteInventory().map((route) => [route.routeId, route]));
+
+  ['term_loan', 'line_of_credit', 'equipment_financing'].forEach((routeId) => {
+    const route = inventory.get(routeId);
+    assert.ok(route, `missing route ${routeId}`);
+    assert.equal(route.pageType, 'program_page');
+    assert.equal(route.templateId, 'product_page');
+    assert.equal(route.canonical, true);
+    assert.equal(route.indexable, true);
+  });
+});
+
 test('article slugs map to manifest routes', () => {
   const route = getRouteBySlug('preparing-your-documents');
   assert.ok(route);

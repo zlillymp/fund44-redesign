@@ -6,17 +6,17 @@
   "templateId": "financing_hub",
   "title": "Small-business financing options",
   "metaTitle": "Small-business financing options",
-  "metaDescription": "Compare SBA 7(a), SBA 504, business acquisition loans, term loans, lines of credit, equipment financing, and factoring. Review how these paths differ and decide where to go deeper next.",
-  "summary": "The financing hub compares the main product categories on the site and gives visitors a route into the best-fitting program page based on their business goal.",
+  "metaDescription": "Compare SBA 7(a), SBA 504, business acquisition financing, working capital, term loans, lines of credit, and equipment financing. Review how these paths differ and where to go deeper next.",
+  "summary": "The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.",
   "contentVersion": "2026-07-26",
   "hero": {
     "eyebrow": "Financing overview",
     "title": "Every path to capital, in one place.",
-    "lead": "Review SBA loans, acquisition financing, term loans, lines of credit, equipment financing, and factoring in one place. Start with your goal and use this overview to decide which paths deserve a deeper look."
+    "lead": "Review SBA loans, acquisition financing, term loans, lines of credit, equipment financing, and working-capital paths in one place. Start with your goal and use this overview to decide which paths deserve a deeper look."
   },
   "quickAnswer": {
     "term": "Business financing",
-    "definition": "is capital a company borrows to fund operations, growth, acquisitions, or assets. It comes in many forms — SBA loans, term loans, lines of credit, equipment financing, and factoring — each suited to different needs, timelines, and business profiles."
+    "definition": "is capital a company borrows to fund operations, growth, acquisitions, or assets. It comes in many forms — SBA loans, term loans, lines of credit, equipment financing, and working-capital structures — each suited to different needs and business profiles."
   },
   "whoItFits": {
     "heading": "Who this overview fits",
@@ -86,7 +86,7 @@
       "structure": "Fixed, 1-7 yr",
       "amount": "Mid-range",
       "speed": "Varies",
-      "destinationRouteId": "working_capital"
+      "destinationRouteId": "term_loan"
     },
     {
       "id": "matrix_line_of_credit",
@@ -95,7 +95,7 @@
       "structure": "Revolving",
       "amount": "Flexible",
       "speed": "Varies",
-      "destinationRouteId": "working_capital"
+      "destinationRouteId": "line_of_credit"
     },
     {
       "id": "matrix_equipment_financing",
@@ -104,7 +104,7 @@
       "structure": "Asset life",
       "amount": "Equipment cost",
       "speed": "Varies",
-      "destinationRouteId": "working_capital"
+      "destinationRouteId": "equipment_financing"
     }
   ],
   "decisionCards": [
@@ -125,15 +125,15 @@
     {
       "id": "decision_cash_flow",
       "title": "I need cash flow for operations",
-      "description": "Lines of credit and short-term working capital fit recurring gaps.",
+      "description": "Lines of credit and working-capital structures fit recurring gaps.",
       "destinationRouteId": "working_capital",
       "iconKey": "cash"
     },
     {
       "id": "decision_equipment",
       "title": "I need equipment",
-      "description": "Equipment financing or an SBA loan can spread the cost over its useful life.",
-      "destinationRouteId": "working_capital",
+      "description": "Equipment financing or an SBA loan can spread the cost over time for a specific asset purchase.",
+      "destinationRouteId": "equipment_financing",
       "iconKey": "truck"
     }
   ],
@@ -142,7 +142,7 @@
     {
       "id": "financing_faq_right_type",
       "question": "Which financing type is right for my business?",
-      "answer": "It depends on your use of funds, time in business, revenue, and how quickly you need capital. SBA loans often suit longer-term needs and larger amounts, while lines of credit, term loans, equipment financing, and factoring solve different working-capital or asset-specific needs."
+      "answer": "It depends on your use of funds, time in business, revenue, and how you expect to use the capital. SBA loans often suit broader or longer-term needs, while lines of credit, term loans, equipment financing, and working-capital structures solve different recurring or asset-specific needs."
     },
     {
       "id": "financing_faq_multiple_options",
@@ -163,7 +163,10 @@
     "page_sba_7a",
     "page_sba_504",
     "page_business_acquisition",
-    "page_working_capital"
+    "page_working_capital",
+    "page_term_loan",
+    "page_line_of_credit",
+    "page_equipment_financing"
   ],
   "contributors": {
     "authorId": null,

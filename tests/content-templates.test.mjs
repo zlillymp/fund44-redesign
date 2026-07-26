@@ -23,6 +23,9 @@ test('current financing and SBA cluster records satisfy the scalable section con
     getContentById('page_sba_504'),
     getContentById('page_business_acquisition'),
     getContentById('page_working_capital'),
+    getContentById('page_term_loan'),
+    getContentById('page_line_of_credit'),
+    getContentById('page_equipment_financing'),
   ];
 
   records.forEach((record) => {

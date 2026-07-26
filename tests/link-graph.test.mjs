@@ -7,7 +7,7 @@ test('link graph covers every canonical indexable route without harmful validati
   const graph = getLinkGraph();
   const validation = validateLinkGraph(graph);
 
-  assert.equal(graph.nodes.length, 15);
+  assert.equal(graph.nodes.length, 18);
   assert.equal(validation.errors.length, 0);
 });
 
@@ -22,6 +22,24 @@ test('product pages expose hub, contextual, and next-step modules', () => {
   assert.ok(contextual.items.some((item) => item.targetRouteId === 'resource_sba_7a_vs_504'));
   assert.ok(contextual.items.some((item) => item.targetRouteId === 'sba_504'));
   assert.equal(next.items[0].targetRouteId, 'how_it_works');
+});
+
+test('new national financing routes receive hub/contextual/next coverage and inbound links', () => {
+  const graph = getLinkGraph();
+  const validation = validateLinkGraph(graph);
+  const inbound = validation.inboundCounts;
+
+  ['term_loan', 'line_of_credit', 'equipment_financing'].forEach((routeId) => {
+    const module = getLinkModuleForRoute(routeId);
+    const hub = module.groups.find((group) => group.relation === 'hub');
+    const contextual = module.groups.find((group) => group.relation === 'contextual');
+    const next = module.groups.find((group) => group.relation === 'next');
+
+    assert.equal(hub.items[0].targetRouteId, 'financing');
+    assert.ok(contextual.items.length >= 3);
+    assert.equal(next.items[0].targetRouteId, 'how_it_works');
+    assert.ok((inbound.get(routeId) || 0) > 0, `${routeId} should have at least one inbound link`);
+  });
 });
 
 test('article pages route visitors back to the hub and onward to related comparisons', () => {
