@@ -1,10 +1,11 @@
-import fs from 'node:fs';
 import { routeManifest } from '../content/manifest.mjs';
-import { getRouteInventory, getSitemapEntries, getLlmsInventories, hrefForRoute } from '../src/lib/routes.js';
+import { getRouteInventory, getSitemapEntries, getLlmsEntries, hrefForRoute } from '../src/lib/routes.js';
+import { getAllContent } from '../src/lib/content.js';
 
 const errors = [];
 const warnings = [];
 const { routes, navigation } = routeManifest;
+const contentByRouteId = new Map(getAllContent().map((record) => [record.routeId, record]));
 
 function assert(condition, message) {
   if (!condition) errors.push(message);
@@ -65,15 +66,26 @@ for (const group of navigation.footer) {
   }
 }
 
-const sitemapXml = fs.readFileSync(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
-for (const entry of getSitemapEntries()) {
-  assert(sitemapXml.includes(entry.loc), `Sitemap is missing ${entry.loc}`);
+const sitemapEntries = getSitemapEntries();
+for (const entry of sitemapEntries) {
+  assert(entry.loc.startsWith('https://fund44.com/'), `Sitemap entry ${entry.routeId} must use canonical absolute URLs.`);
+  assert(!entry.loc.includes('#/'), `Sitemap entry ${entry.routeId} must not contain a hash URL.`);
 }
 
-const llmsText = fs.readFileSync(new URL('../public/llms.txt', import.meta.url), 'utf8');
-const llmsInventory = getLlmsInventories();
-for (const item of [...llmsInventory.financingPaths, ...llmsInventory.keyPages]) {
-  assert(llmsText.includes(item.path), `llms.txt is missing path ${item.path}`);
+for (const item of getLlmsEntries()) {
+  assert(item.loc.startsWith('https://fund44.com/'), `llms entry ${item.routeId} must use canonical absolute URLs.`);
+  assert(!item.loc.includes('#/'), `llms entry ${item.routeId} must not contain a hash URL.`);
+  const route = routes.find((candidate) => candidate.routeId === item.routeId);
+  assert(Boolean(route?.crawl?.llms), `llms entry ${item.routeId} must come from a route with crawl.llms=true.`);
+}
+
+for (const route of routes.filter((candidate) => candidate.contentId)) {
+  const record = contentByRouteId.get(route.routeId);
+  if (!record) continue;
+  assert(record.indexability.canonical === Boolean(route.crawl?.canonical), `${route.routeId}: content canonical flag must align with manifest`);
+  assert(record.indexability.indexable === Boolean(route.crawl?.indexable), `${route.routeId}: content indexable flag must align with manifest`);
+  assert(record.indexability.sitemap === Boolean(route.crawl?.sitemap), `${route.routeId}: content sitemap flag must align with manifest`);
+  assert(record.indexability.llms === Boolean(route.crawl?.llms), `${route.routeId}: content llms flag must align with manifest`);
 }
 
 const inventory = getRouteInventory();

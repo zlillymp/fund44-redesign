@@ -14,6 +14,7 @@ import { getRoute } from '../src/lib/routes.js';
 
 test('staging defaults to noindex while approvals remain incomplete', () => {
   assert.equal(indexingPolicy.env, 'staging');
+  assert.equal(indexingPolicy.productionIndexingApproved, false);
   assert.equal(indexingPolicy.allowIndexing, false);
   assert.equal(humanReadableIndexingMode(), 'staging-noindex');
   assert.equal(robotsForRoute(getRoute('home')), 'noindex,nofollow');

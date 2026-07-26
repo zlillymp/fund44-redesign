@@ -1,14 +1,14 @@
 User-agent: *
-Allow: /
+Disallow: /
 
 # AI / LLM crawlers explicitly welcomed for accurate representation
 User-agent: GPTBot
-Allow: /
+Disallow: /
 User-agent: PerplexityBot
-Allow: /
+Disallow: /
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
 Sitemap: https://fund44.com/sitemap.xml

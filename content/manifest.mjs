@@ -306,9 +306,4 @@ export const routeManifest = {
     learn_how_it_works: { routeId: 'how_it_works' },
     back_home: { routeId: 'home' },
   },
-  llms: {
-    financingPaths: ['sba_7a', 'sba_504', 'business_acquisition', 'working_capital'],
-    keyPages: ['home', 'financing', 'how_it_works', 'about', 'resources', 'privacy', 'terms'],
-  },
 };
-
