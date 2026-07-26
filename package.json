@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "test": "node --test",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:legal": "node scripts/validate-legal.mjs",
     "validate:routes": "node scripts/validate-routes.mjs",
+    "validate:prerender": "node scripts/validate-prerender.mjs",
     "smoke:routes": "node scripts/smoke-routes.mjs"
   },
   "devDependencies": {

@@ -25,8 +25,38 @@ async function serveFile(pathname) {
     };
   }
 
+  const cleanUrlCandidate = join(root.pathname, `${cleaned}.html`);
+  const cleanUrlInfo = await stat(cleanUrlCandidate).catch(() => null);
+  if (cleanUrlInfo?.isFile()) {
+    return {
+      status: cleaned === '404' ? 404 : 200,
+      body: await readFile(cleanUrlCandidate),
+      type: 'text/html; charset=utf-8',
+    };
+  }
+
+  const indexCandidate = join(root.pathname, cleaned, 'index.html');
+  const indexInfo = await stat(indexCandidate).catch(() => null);
+  if (indexInfo?.isFile()) {
+    return {
+      status: cleaned === '404' ? 404 : 200,
+      body: await readFile(indexCandidate),
+      type: 'text/html; charset=utf-8',
+    };
+  }
+
+  const notFoundHtml = new URL('404.html', root);
+  const notFoundInfo = await stat(notFoundHtml).catch(() => null);
+  if (notFoundInfo?.isFile()) {
+    return {
+      status: 404,
+      body: await readFile(notFoundHtml),
+      type: 'text/html; charset=utf-8',
+    };
+  }
+
   return {
-    status: 200,
+    status: 404,
     body: await readFile(new URL('index.html', root)),
     type: 'text/html; charset=utf-8',
   };
@@ -60,8 +90,11 @@ try {
     if (response.status !== 200) {
       throw new Error(`Expected 200 for ${route.path}, got ${response.status}`);
     }
-    if (!response.text.includes('<div id="app"></div>')) {
-      throw new Error(`Expected SPA shell for ${route.path}`);
+    if (!response.text.includes('<div id="app">')) {
+      throw new Error(`Expected prerendered app shell for ${route.path}`);
+    }
+    if (!response.text.includes('<link rel="canonical"')) {
+      throw new Error(`Expected route-specific metadata for ${route.path}`);
     }
   }
 
@@ -79,7 +112,15 @@ try {
     throw new Error('Expected home entry response to include built asset references.');
   }
 
-  console.log('Preview route smoke passed for clean-path direct loads and SPA fallback.');
+  const notFoundResponse = await fetchText('http://127.0.0.1:4173/does-not-exist');
+  if (notFoundResponse.status !== 404) {
+    throw new Error(`Expected 404 for unknown route, got ${notFoundResponse.status}`);
+  }
+  if (!notFoundResponse.text.includes("This path doesn't lead anywhere.")) {
+    throw new Error('Expected prerendered 404 content for unknown route.');
+  }
+
+  console.log('Preview route smoke passed for prerendered clean-path direct loads, SPA hydration assets, and 404 handling.');
 } finally {
   server.close();
 }

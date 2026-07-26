@@ -37,7 +37,7 @@ export function privacy() {
   setMeta({
     title: 'Privacy — governance draft',
     description: 'Governance draft privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
-    path: '/privacy',
+    path: hrefForRoute('privacy'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
@@ -80,7 +80,7 @@ export function terms() {
   setMeta({
     title: 'Terms & disclosures — governance draft',
     description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in governance-draft form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
-    path: '/terms',
+    path: hrefForRoute('terms'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
@@ -118,7 +118,7 @@ export function contact() {
   setMeta({
     title: 'Contact Fund44',
     description: 'Fund44 contact and entity placeholders are intentionally controlled until legal business name, mailing address, support email, and support phone are verified.',
-    path: '/contact',
+    path: hrefForRoute('contact'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
