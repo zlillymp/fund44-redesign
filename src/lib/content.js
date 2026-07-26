@@ -16,6 +16,9 @@ import refinanceBusinessDebtUseCase from '../../content/use-cases/refinance-busi
 import franchiseBusinessesIndustry from '../../content/industries/franchise-businesses.json' with { type: 'json' };
 import truckingCompaniesIndustry from '../../content/industries/trucking-companies.json' with { type: 'json' };
 import constructionContractorsIndustry from '../../content/industries/construction-contractors.json' with { type: 'json' };
+import californiaStatePage from '../../content/states/california.json' with { type: 'json' };
+import floridaStatePage from '../../content/states/florida.json' with { type: 'json' };
+import newYorkStatePage from '../../content/states/new-york.json' with { type: 'json' };
 import resourcesPage from '../../content/pages/resources.json' with { type: 'json' };
 import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with { type: 'json' };
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
@@ -55,6 +58,9 @@ const rawRecords = [
   franchiseBusinessesIndustry,
   truckingCompaniesIndustry,
   constructionContractorsIndustry,
+  californiaStatePage,
+  floridaStatePage,
+  newYorkStatePage,
   resourcesPage,
   articleSba7aVs504,
   articlePreparingDocuments,
@@ -103,6 +109,10 @@ export function getUseCasePages() {
 
 export function getIndustryPages() {
   return records.filter((record) => record.templateId === 'industry_page');
+}
+
+export function getStatePages() {
+  return records.filter((record) => record.templateId === 'state_page');
 }
 
 export function getResourceHub() {

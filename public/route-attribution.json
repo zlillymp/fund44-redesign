@@ -227,6 +227,42 @@
       "landing": true
     },
     {
+      "routeId": "california_sba_loans",
+      "analyticsRouteId": "california_sba_loans",
+      "routeFamily": "state",
+      "pageType": "state",
+      "templateId": "state_page",
+      "path": "/states/california-sba-loans",
+      "loc": "https://fund44.com/states/california-sba-loans",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "florida_sba_loans",
+      "analyticsRouteId": "florida_sba_loans",
+      "routeFamily": "state",
+      "pageType": "state",
+      "templateId": "state_page",
+      "path": "/states/florida-sba-loans",
+      "loc": "https://fund44.com/states/florida-sba-loans",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
+      "routeId": "new_york_sba_loans",
+      "analyticsRouteId": "new_york_sba_loans",
+      "routeFamily": "state",
+      "pageType": "state",
+      "templateId": "state_page",
+      "path": "/states/new-york-sba-loans",
+      "loc": "https://fund44.com/states/new-york-sba-loans",
+      "canonical": true,
+      "indexable": true,
+      "landing": true
+    },
+    {
       "routeId": "term_loan",
       "analyticsRouteId": "term_loan",
       "routeFamily": "financing_program",

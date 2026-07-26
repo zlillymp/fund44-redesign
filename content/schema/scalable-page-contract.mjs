@@ -56,6 +56,17 @@ export const scalableTemplateFieldRequirements = {
     'ctaBanner',
   ],
   state_page: [
+    'shortLabel',
+    'stateCode',
+    'whoItFitsHeading',
+    'bestFitHeading',
+    'bestFitProducts',
+    'stateSupportHeading',
+    'stateSupportCards',
+    'stateContextHeading',
+    'stateContextCards',
+    'alternativePathsHeading',
+    'alternativePaths',
     'sectionDisclosureHtml',
     'ctaBanner',
   ],
@@ -131,7 +142,7 @@ export const scalableTemplateContracts = [
     standardSections: standardSectionKeys,
     requiredFields: scalableTemplateFieldRequirements.state_page,
     evidenceFields: scalableEvidenceFieldKeys,
-    notes: 'State pages reuse the same section contract while layering only evidence-backed state specifics in later tasks.',
+    notes: 'State pages reuse the same section contract while layering only evidence-backed state-specific support resources, regional SBA context, and internal comparisons.',
   },
 ];
 

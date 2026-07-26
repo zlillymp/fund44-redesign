@@ -14,6 +14,11 @@ import {
   truckingCompaniesIndustry,
   constructionContractorsIndustry,
 } from './industries.js';
+import {
+  californiaStatePage,
+  floridaStatePage,
+  newYorkStatePage,
+} from './states.js';
 import { howItWorks } from './how-it-works.js';
 import { about } from './about.js';
 import { resources, article } from './resources.js';
@@ -40,6 +45,9 @@ export const pageRenderers = {
   franchiseBusinessesIndustry,
   truckingCompaniesIndustry,
   constructionContractorsIndustry,
+  californiaStatePage,
+  floridaStatePage,
+  newYorkStatePage,
   howItWorks,
   about,
   resources,

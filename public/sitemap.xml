@@ -91,6 +91,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fund44.com/states/california-sba-loans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/states/florida-sba-loans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/states/new-york-sba-loans</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fund44.com/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -125,6 +125,16 @@ industryRoutes.forEach((routeId) => {
   assert(html.includes('data-analytics-cta-id="industry_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
 });
 
+const stateRoutes = getAllContent()
+  .filter((record) => record.templateId === 'state_page')
+  .map((record) => record.routeId);
+
+stateRoutes.forEach((routeId) => {
+  const html = routeHtml.get(routeId) || '';
+  assert(html.includes('data-analytics-cta-id="state_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
+  assert(html.includes('data-analytics-cta-id="state_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+});
+
 const notFoundHtml = routeHtml.get('not_found') || '';
 assert(notFoundHtml.includes('data-analytics-cta-id="back_home"'), '404 route must expose the back-home CTA id');
 assert(notFoundHtml.includes('data-analytics-cta-id="explore_financing"'), '404 route must expose the financing CTA id');

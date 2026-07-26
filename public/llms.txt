@@ -42,6 +42,9 @@
 - Franchise business financing: /industries/franchise-businesses
 - Trucking company financing: /industries/trucking-companies
 - Construction contractor financing: /industries/construction-contractors
+- California SBA loan resources: /states/california-sba-loans
+- Florida SBA loan resources: /states/florida-sba-loans
+- New York SBA loan resources: /states/new-york-sba-loans
 - How it works: /how-it-works
 - About Fund44: /about
 - Resources: /resources

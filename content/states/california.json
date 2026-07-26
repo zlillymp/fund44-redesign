@@ -1,0 +1,255 @@
+{
+  "id": "state_california_sba_loans",
+  "routeId": "california_sba_loans",
+  "slug": "california-sba-loans",
+  "pageType": "state",
+  "templateId": "state_page",
+  "title": "California SBA loan resources",
+  "metaTitle": "California SBA loan resources",
+  "metaDescription": "California businesses comparing SBA financing often need to confirm the right SBA district office and local advisory partner before choosing a 7(a), 504, acquisition, or equipment path. Review official California support resources and related Fund44 explainers.",
+  "summary": "The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "State resources: California",
+    "title": "California SBA loan help starts with the right district office and local support network.",
+    "lead": "California borrowers often need to confirm which SBA district office covers their county and then pair that with a statewide advisory resource before choosing which national financing path deserves a deeper look. This page stays focused on those evidence-backed entry points."
+  },
+  "shortLabel": "California SBA loan resources",
+  "stateCode": "CA",
+  "quickAnswer": {
+    "term": "California SBA loan help",
+    "definition": "usually starts by identifying the right SBA district office and local advisory partner, because California is served by multiple SBA districts and a statewide SBDC network before a borrower decides whether SBA 7(a), SBA 504, acquisition, or equipment routes deserve a deeper review."
+  },
+  "whoItFitsHeading": "When this California page fits best",
+  "bestFitHeading": "Common financing explainers California borrowers review after finding the right local support",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "A common first comparison when the financing need is broad and the borrower wants the main SBA program explainer before speaking with a lender.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Often worth reviewing when the California project centers on owner-occupied real estate or major equipment rather than general working capital.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Useful when the borrower is buying an existing California business and wants to organize local support resources before moving deeper into deal-specific comparisons.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When California SBA-loan resource pages tend to fit",
+    "items": [
+      "You want to confirm the right California SBA district or local advising entry point before contacting lenders.",
+      "You need statewide small-business support resources in addition to the national 7(a), 504, acquisition, or equipment explainers.",
+      "You are organizing a California borrowing project and want one place to start with official public support resources.",
+      "You want to move from local guidance into Fund44’s clean product and document explainers without assuming that one product already fits."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If you already know the exact financing structure you want, the national product pages may be the faster next step.",
+      "If you need legal, tax, or licensing advice for a specific California jurisdiction, you will still need the appropriate state or local authority.",
+      "If the financing question is really about documents or route comparison rather than California support resources, the article and product explainers are usually the cleaner first stop."
+    ]
+  },
+  "stateSupportHeading": "Official California support resources to open first",
+  "stateSupportCards": [
+    {
+      "id": "ca_sba_districts",
+      "title": "California SBA district offices",
+      "description": "California borrowers may need different SBA district pages depending on county coverage, including San Francisco, Sacramento, Fresno, Los Angeles, Orange County / Inland Empire, and San Diego.",
+      "resourceLabel": "Review California district coverage",
+      "resourceUrl": "https://www.sba.gov/about-sba/sba-locations/sba-district-offices",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "ca_sbdc",
+      "title": "California SBDC network",
+      "description": "California SBDC offers statewide local advising entry points, so borrowers can find a regional center before deciding which financing explainer or document path to use next.",
+      "resourceLabel": "Find a California SBDC",
+      "resourceUrl": "https://www.californiasbdc.org/find-your-sbdc/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "ca_calosba",
+      "title": "CalOSBA funding and resource hub",
+      "description": "California’s Office of the Small Business Advocate publishes statewide small-business resources plus funding and grant directories that can help you understand the broader support landscape before lender conversations begin.",
+      "resourceLabel": "Open CalOSBA funding resources",
+      "resourceUrl": "https://calosba.ca.gov/for-small-businesses-and-non-profits/funding-opportunities-for-small-businesses-and-nonprofits/",
+      "iconKey": "cash",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "stateContextHeading": "California-specific context worth knowing before the financing comparison",
+  "stateContextCards": [
+    {
+      "id": "ca_multi_district",
+      "title": "District-office coverage depends on the county",
+      "description": "California is served by multiple SBA district offices rather than a single statewide office, so the right starting contact depends on where the business operates.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "ca_advising_layer",
+      "title": "Local advising can come before lender comparisons",
+      "description": "California SBDC is a practical first stop when a borrower still needs help organizing the business plan, financials, or use-of-funds story before comparing 7(a), 504, or acquisition paths.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "ca_state_resource_layer",
+      "title": "State resource pages can complement federal support",
+      "description": "CalOSBA adds California-wide resource and funding directories that sit alongside federal SBA district pages, which helps borrowers separate local support discovery from the eventual lender decision.",
+      "iconKey": "layers",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common California-starting document examples",
+    "items": [
+      "Recent business financial statements and tax returns",
+      "A use-of-funds summary for the California project you are evaluating",
+      "Any entity, registration, or local licensing details that the relevant California district or state resource page tells you to confirm",
+      "A purchase summary, equipment quote, or property plan if the request is tied to an acquisition or fixed-asset project"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to point California borrowers to official local support resources first and then route them into the national explainers that match the financing question they are actually researching.",
+    "bullets": [
+      "Keeps California-specific facts limited to official district, SBDC, and state small-business resources.",
+      "Connects those support resources to the relevant 7(a), 504, acquisition, and document-prep explainers without implying state-specific lender participation.",
+      "Leaves all eligibility, provider participation, and final financing decisions with agencies, counselors, and third-party lenders rather than Fund44."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if the California question becomes a product question",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Use this when the California project is really about property purchase, buildout, or refinance rather than choosing the right local support office.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "buy_a_business",
+      "title": "Buy a business",
+      "description": "Use this if the local-resource search is really in service of a California acquisition or ownership-transfer deal.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Use the document guide when the next blocker is organizing financials and supporting materials rather than finding the right California support partner.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> These California resources are educational entry points. SBA office coverage, counseling availability, financing eligibility, lender participation, timelines, and terms can vary by county, provider, and business profile.",
+  "ctaBanner": {
+    "heading": "Need help moving from California support resources into a financing comparison?",
+    "subheading": "Preview the national financing paths that may fit after you line up the right local support starting point."
+  },
+  "commonQuestions": [
+    {
+      "id": "ca_state_faq_district",
+      "question": "Does California have one SBA district office?",
+      "answer": "No. California is served by multiple SBA district offices, so the right district page depends on the county where the business operates."
+    },
+    {
+      "id": "ca_state_faq_programs",
+      "question": "Do SBA 7(a) and 504 rules change just because the business is in California?",
+      "answer": "The core SBA programs remain federal, but the district office, counseling resources, and state support pages you use before speaking with lenders can differ by region."
+    },
+    {
+      "id": "ca_state_faq_sbdc",
+      "question": "Why start with California SBDC or CalOSBA before talking about one loan?",
+      "answer": "Those resources can help you confirm the right local support channel, organize the project, and gather documents before deciding which financing explainer deserves deeper review."
+    },
+    {
+      "id": "ca_state_faq_direct",
+      "question": "Does Fund44 approve California SBA loans directly?",
+      "answer": "No. Fund44 does not approve or issue SBA loans directly in California. This page is educational and points to official support resources plus Fund44 explainers."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_preparing_your_documents",
+    "state_florida_sba_loans",
+    "state_new_york_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_san_francisco_district_2026_07_26",
+    "external_sba_sacramento_district_2026_07_26",
+    "external_sba_fresno_district_2026_07_26",
+    "external_sba_los_angeles_district_2026_07_26",
+    "external_sba_orange_county_inland_empire_district_2026_07_26",
+    "external_sba_san_diego_district_2026_07_26",
+    "external_california_sbdc_2026_07_26",
+    "external_california_sbdc_find_2026_07_26",
+    "external_calosba_resources_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "california_sba_loan_resources",
+    "contentGroup": "state",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "state",
+    "ctaIds": [
+      "preview_funding_paths",
+      "state_best_fit_link",
+      "state_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "california_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

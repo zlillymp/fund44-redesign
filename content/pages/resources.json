@@ -77,7 +77,10 @@
     "page_financing",
     "page_sba_7a",
     "page_sba_504",
-    "page_working_capital"
+    "page_working_capital",
+    "state_california_sba_loans",
+    "state_florida_sba_loans",
+    "state_new_york_sba_loans"
   ],
   "contributors": {
     "authorId": null,
