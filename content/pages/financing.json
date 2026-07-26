@@ -137,6 +137,7 @@
       "iconKey": "truck"
     }
   ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> The financing overview is educational and is meant to help you compare common product categories. Eligibility, provider availability, timelines, and terms vary by provider and by business profile.",
   "commonQuestions": [
     {
       "id": "financing_faq_right_type",
@@ -200,6 +201,7 @@
     "external_wf_prepare_credit_2026_07_26"
   ],
   "disclosureIds": [
+    "F44-DISC-04",
     "F44-DISC-09",
     "F44-DISC-12"
   ],

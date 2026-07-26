@@ -9,6 +9,11 @@ import {
   baseRequiredFields,
   templateRequiredFields,
 } from '../content/schema/content-model.mjs';
+import {
+  getScalableTemplateContract,
+  getScalableTemplateContracts,
+  standardSectionKeys,
+} from '../content/schema/scalable-page-contract.mjs';
 import { validateLinkGraph } from '../src/lib/link-graph.js';
 
 const routes = routeManifest.routes;
@@ -50,6 +55,23 @@ function validateContributors(record) {
 function validateQuickAnswer(record) {
   assert(record.quickAnswer?.term, `${record.id}: quickAnswer.term is required`);
   assert(record.quickAnswer?.definition, `${record.id}: quickAnswer.definition is required`);
+}
+
+function validateListSection(record, key) {
+  const section = record[key];
+  assert(typeof section === 'object' && section !== null, `${record.id}: ${key} must be an object`);
+  assert(section?.heading, `${record.id}: ${key}.heading is required`);
+  assert(Array.isArray(section?.items), `${record.id}: ${key}.items must be an array`);
+  assert(section.items.length > 0, `${record.id}: ${key}.items must include at least one item`);
+}
+
+function validateHowFund44Fits(record) {
+  const section = record.howFund44Fits;
+  assert(typeof section === 'object' && section !== null, `${record.id}: howFund44Fits must be an object`);
+  assert(section?.heading, `${record.id}: howFund44Fits.heading is required`);
+  assert(section?.summary, `${record.id}: howFund44Fits.summary is required`);
+  assert(Array.isArray(section?.bullets), `${record.id}: howFund44Fits.bullets must be an array`);
+  assert(section.bullets.length > 0, `${record.id}: howFund44Fits.bullets must include at least one item`);
 }
 
 function validateQuestionGroup(record) {
@@ -128,6 +150,24 @@ function validateTemplateSpecific(record) {
   required.forEach((fieldName) => assertRequired(record, fieldName));
 }
 
+function validateScalableTemplateContract(record, route) {
+  const contract = getScalableTemplateContract(record.templateId);
+  if (!contract) return;
+
+  assert(record.pageType === contract.pageType, `${record.id}: pageType must match scalable template contract for ${record.templateId}`);
+  assert(contract.routeFamilies.includes(route.routeFamily), `${record.id}: route family "${route.routeFamily}" is not allowed for scalable template ${record.templateId}`);
+
+  standardSectionKeys.forEach((sectionKey) => assertRequired(record, sectionKey));
+  validateListSection(record, 'whoItFits');
+  validateListSection(record, 'whenItMayNotFit');
+  validateListSection(record, 'typicalDocuments');
+  validateHowFund44Fits(record);
+
+  assert(record.sectionDisclosureHtml, `${record.id}: sectionDisclosureHtml is required for scalable template ${record.templateId}`);
+  assert(Array.isArray(record.disclosureIds) && record.disclosureIds.length > 0, `${record.id}: disclosureIds must include at least one disclosure for scalable templates`);
+  assert(Array.isArray(record.citationIds) && record.citationIds.length > 0, `${record.id}: citationIds must include at least one citation for scalable templates`);
+}
+
 function validateRelationships(record) {
   assert(Array.isArray(record.relatedIds), `${record.id}: relatedIds must be an array`);
   record.relatedIds.forEach((relatedId) => {
@@ -204,9 +244,17 @@ contentRecords.forEach((record) => {
   validateBodyBlocks(record);
 
   if (route) {
+    validateScalableTemplateContract(record, route);
     validateIndexability(record, route);
     validateMeasurement(record, route);
   }
+});
+
+const scalableContracts = getScalableTemplateContracts();
+const scalableTemplateIds = new Set(scalableContracts.map((contract) => contract.templateId));
+
+['financing_hub', 'product_page', 'use_case_page', 'industry_page', 'state_page'].forEach((templateId) => {
+  assert(scalableTemplateIds.has(templateId), `Missing scalable template contract for ${templateId}`);
 });
 
 if (errors.length > 0) {

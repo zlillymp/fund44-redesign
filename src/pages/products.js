@@ -1,18 +1,9 @@
 import { icon } from '../lib/svg.js';
 import { setMeta, ld } from '../lib/seo.js';
-import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featItem, relatedLinksModule } from '../components/ui.js';
+import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featItem, relatedLinksModule, sectionListCard, sectionSummaryCard } from '../components/ui.js';
 import { getBreadcrumbs, hrefForContentId } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
-
-function renderListItems(items) {
-  return items.map((item) => `
-    <li class="list-check">
-      <span class="list-check-mark">${icon.check}</span>
-      <span class="list-check-copy">${item}</span>
-    </li>
-  `).join('');
-}
 
 function renderProgramPage(contentId) {
   const content = getContentById(contentId);
@@ -46,25 +37,29 @@ function renderProgramPage(contentId) {
   </section>
 
   <section class="section-tight wrap">
-    <div class="feature-split">
-      <div class="fs-text">
-        ${eyebrow('When it fits')}
-        <h2 class="h2 reveal mt-4">${content.whoItFitsHeading}</h2>
-        <ul role="list" class="mt-6 reveal section-card-list">
-          ${renderListItems(content.whoItFits.items)}
-        </ul>
+    ${eyebrow('Fit and caution')}
+    <h2 class="h2 reveal mt-4 mb-8">${content.whoItFitsHeading}</h2>
+    <div class="grid g-2 reveal" data-stagger>
+      ${sectionListCard(content.whoItFits)}
+      ${sectionListCard(content.whenItMayNotFit)}
+    </div>
+  </section>
+
+  <section class="section-tight wrap">
+    ${eyebrow('Prep and context')}
+    <h2 class="h2 reveal mt-4 mb-8">Typical documents and how Fund44 fits</h2>
+    <div class="grid g-3 reveal" data-stagger>
+      <div class="card card-shell info-grid-card">
+        <div class="eyebrow mb-4">At a glance</div>
+        ${content.glanceSpecs.map(([label, value]) => `
+          <div class="section-row-rule">
+            <span class="muted">${label}</span>
+            <b class="value-stack">${value}</b>
+          </div>
+        `).join('')}
       </div>
-      <div class="fs-viz">
-        <div class="card reveal info-grid-card">
-          <div class="eyebrow mb-4">At a glance</div>
-          ${content.glanceSpecs.map(([label, value]) => `
-            <div class="section-row-rule">
-              <span class="muted">${label}</span>
-              <b class="value-stack">${value}</b>
-            </div>
-          `).join('')}
-        </div>
-      </div>
+      ${sectionListCard(content.typicalDocuments)}
+      ${sectionSummaryCard(content.howFund44Fits)}
     </div>
   </section>
 

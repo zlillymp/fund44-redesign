@@ -74,6 +74,33 @@ export const disclosure = (text) => `
   <p>${text}</p>
 </div>`;
 
+function renderSectionListItems(items = []) {
+  return items.map((item) => `
+    <li class="list-check">
+      <span class="list-check-mark">${icon.check}</span>
+      <span class="list-check-copy">${item}</span>
+    </li>
+  `).join('');
+}
+
+export const sectionListCard = ({ heading, items = [], summary = '' }) => `
+<div class="card card-shell">
+  <h3 class="title-lg">${heading}</h3>
+  ${summary ? `<p class="muted text-body-sm inline-note mt-4">${summary}</p>` : ''}
+  <ul role="list" class="section-card-list mt-6">
+    ${renderSectionListItems(items)}
+  </ul>
+</div>`;
+
+export const sectionSummaryCard = ({ heading, summary, bullets = [] }) => `
+<div class="card card-shell">
+  <h3 class="title-lg">${heading}</h3>
+  <p class="muted text-body-sm inline-note mt-4">${summary}</p>
+  <ul role="list" class="section-card-list mt-6">
+    ${renderSectionListItems(bullets)}
+  </ul>
+</div>`;
+
 // FAQ block (also returns items for JSON-LD upstream)
 export const faqBlock = (items) => `
 <div class="faq reveal">
