@@ -33,6 +33,12 @@
 ## Key pages
 - Home: /
 - Financing overview: /financing
+- Buy a business: /use-cases/buy-a-business
+- Owner-occupied real estate: /use-cases/owner-occupied-real-estate
+- Cash-flow needs: /use-cases/cash-flow-needs
+- Equipment purchase: /use-cases/equipment-purchase
+- Business expansion: /use-cases/business-expansion
+- Refinance business debt: /use-cases/refinance-business-debt
 - How it works: /how-it-works
 - About Fund44: /about
 - Resources: /resources

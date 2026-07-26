@@ -1,0 +1,185 @@
+{
+  "id": "use_case_owner_occupied_real_estate",
+  "routeId": "owner_occupied_real_estate",
+  "slug": "owner-occupied-real-estate",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Owner-occupied real estate financing",
+  "metaTitle": "Owner-occupied real estate financing",
+  "metaDescription": "Owner-occupied real estate projects usually start with SBA 504 and SBA 7(a) comparisons. Learn which fixed-asset routes commonly fit a purchase, build, or refinance plan.",
+  "summary": "The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: owner-occupied real estate",
+    "title": "Financing owner-occupied property starts with the fixed-asset routes.",
+    "lead": "Property purchases, build-outs, and refinance projects usually call for a different comparison set than working-capital or acquisition requests. This page brings those real-estate paths into one place."
+  },
+  "shortLabel": "Owner-occupied real estate",
+  "quickAnswer": {
+    "term": "Owner-occupied real estate financing",
+    "definition": "usually begins with SBA 504 and SBA 7(a) comparisons because those routes commonly cover property projects used directly by the business, while working-capital products are generally meant for different needs."
+  },
+  "whoItFitsHeading": "When this borrower-goal page is the right starting point",
+  "bestFitHeading": "The real-estate routes borrowers most often compare first",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Start here when the project is centered on owner-occupied property, construction, or major long-life fixed assets.",
+      "iconKey": "key"
+    },
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) is worth comparing when the project needs more flexibility than a single fixed-asset use of funds.",
+      "iconKey": "building"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When owner-occupied real-estate financing tends to fit",
+    "items": [
+      "Buying commercial property that the business will occupy",
+      "Building out, renovating, or improving a facility tied directly to operations",
+      "Comparing fixed-asset routes before choosing between SBA 504 and a more flexible SBA structure",
+      "Projects where property details, occupancy plan, and business financials can already be documented"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the business really needs inventory or day-to-day operating cash, working-capital products are usually the better first comparison.",
+      "If there is no qualifying owner-occupied project, a more flexible route may fit better than a fixed-asset structure."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for owner-occupied projects",
+    "items": [
+      "Project or property details",
+      "Business financial statements",
+      "Cash-flow support materials",
+      "Ownership and occupancy details"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to keep owner-occupied real-estate intent separate from general growth or working-capital needs and point the visitor to the program pages that commonly anchor the comparison.",
+    "bullets": [
+      "Centers the comparison on fixed-asset routes rather than blending property needs into generic product copy.",
+      "Connects the borrowing goal to SBA 504, SBA 7(a), and comparison guidance about how the programs differ.",
+      "Keeps eligibility, occupancy thresholds, and final structure under lender, CDC, and SBA control."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the project scope shifts",
+  "alternativePaths": [
+    {
+      "routeId": "business_expansion",
+      "title": "Business expansion",
+      "description": "If the project includes broader growth needs beyond a property transaction, compare expansion-focused guidance as well.",
+      "iconKey": "spark"
+    },
+    {
+      "routeId": "equipment_financing",
+      "title": "Equipment financing",
+      "description": "If the request narrows from a full property project to a specific asset purchase, an equipment-specific route may be the better comparison.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "resource_sba_7a_vs_504",
+      "title": "SBA 7(a) vs SBA 504",
+      "description": "Use the side-by-side article if the main question is whether flexibility or a fixed-asset structure matters more.",
+      "iconKey": "scale"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender, a CDC, or the SBA.</strong> Real-estate eligibility, occupancy rules, collateral requirements, and final terms are determined by third-party lenders, CDCs, and SBA program rules. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Working on a property or facility project?",
+    "subheading": "Preview whether SBA 504, SBA 7(a), or another route deserves the first deeper review."
+  },
+  "commonQuestions": [
+    {
+      "id": "owner_real_estate_faq_start",
+      "question": "What routes are usually compared for owner-occupied real estate?",
+      "answer": "Borrowers commonly start with SBA 504 and SBA 7(a) because both can play a role in property projects, though 504 is built more specifically for qualifying long-term fixed assets."
+    },
+    {
+      "id": "owner_real_estate_faq_504",
+      "question": "Why is SBA 504 often part of the conversation?",
+      "answer": "SBA 504 is designed for owner-occupied commercial real estate and major equipment, which makes it a common fixed-asset comparison point for property projects."
+    },
+    {
+      "id": "owner_real_estate_faq_docs",
+      "question": "What documents usually matter for an owner-occupied property request?",
+      "answer": "Common examples include project or property details, business financial statements, cash-flow support, and ownership or occupancy information. Exact requirements vary by lender, CDC, and project."
+    },
+    {
+      "id": "owner_real_estate_faq_direct",
+      "question": "Does Fund44 provide the property financing directly?",
+      "answer": "No. Fund44 does not provide property financing directly. Lenders, CDCs, and SBA program rules determine the final structure and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_504",
+    "page_sba_7a",
+    "article_sba_7a_vs_504",
+    "use_case_business_expansion",
+    "use_case_equipment_purchase"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-03",
+    "F44-PROD-02",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_loans_overview_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "owner_occupied_real_estate_financing",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "owner_occupied_real_estate_faq",
+    "freshnessState": "review_pending"
+  }
+}

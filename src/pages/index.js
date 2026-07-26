@@ -1,6 +1,14 @@
 import { home } from './home.js';
 import { financing } from './financing.js';
 import { sba7a, sba504, acquisition, workingCapital, termLoan, lineOfCredit, equipmentFinancing } from './products.js';
+import {
+  buyBusinessUseCase,
+  ownerOccupiedRealEstateUseCase,
+  cashFlowNeedsUseCase,
+  equipmentPurchaseUseCase,
+  businessExpansionUseCase,
+  refinanceBusinessDebtUseCase,
+} from './use-cases.js';
 import { howItWorks } from './how-it-works.js';
 import { about } from './about.js';
 import { resources, article } from './resources.js';
@@ -18,6 +26,12 @@ export const pageRenderers = {
   termLoan,
   lineOfCredit,
   equipmentFinancing,
+  buyBusinessUseCase,
+  ownerOccupiedRealEstateUseCase,
+  cashFlowNeedsUseCase,
+  equipmentPurchaseUseCase,
+  businessExpansionUseCase,
+  refinanceBusinessDebtUseCase,
   howItWorks,
   about,
   resources,
@@ -34,10 +48,9 @@ function getRenderer(match) {
     return () => pageRenderers.notFound(match.requestedPath);
   }
 
-  if (route.slug) {
+  if (route.templateId === 'editorial_article' && route.slug) {
     return () => pageRenderers.article(route.slug);
   }
-
   const renderer = pageRenderers[route.pageKey];
   if (!renderer) {
     throw new Error(`No renderer registered for page key "${route.pageKey}"`);

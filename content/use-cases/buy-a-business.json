@@ -1,0 +1,190 @@
+{
+  "id": "use_case_buy_a_business",
+  "routeId": "buy_a_business",
+  "slug": "buy-a-business",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Financing to buy a business",
+  "metaTitle": "Financing to buy a business",
+  "metaDescription": "Buying a business often starts with acquisition financing, SBA 7(a), and conventional term-loan comparisons. Learn which routes commonly fit the deal you are evaluating.",
+  "summary": "The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: buy a business",
+    "title": "Buying a business? Start with the financing paths built for the deal.",
+    "lead": "The right starting point depends on the target business, the purchase structure, and whether the transaction needs working capital alongside the acquisition. This page compares the paths borrowers most often review first."
+  },
+  "shortLabel": "Buy a business",
+  "quickAnswer": {
+    "term": "Financing to buy a business",
+    "definition": "usually starts with acquisition-focused financing, SBA 7(a), or conventional term debt, depending on the target company, purchase structure, and whether the request also includes working capital or transition costs."
+  },
+  "whoItFitsHeading": "When this borrower-goal page fits best",
+  "bestFitHeading": "The most common starting points when the goal is buying a business",
+  "bestFitProducts": [
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Start here when the request is centered on purchasing an operating business, buying out a partner, or funding an ownership transition.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) is often part of the comparison when the deal includes goodwill, working capital, or a broader use of funds than the purchase itself.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "term_loan",
+      "title": "Business term loans",
+      "description": "Conventional term debt can be worth comparing when the target business cash flow supports a fixed repayment structure.",
+      "iconKey": "cash"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When buying-a-business financing tends to fit",
+    "items": [
+      "Buying an established, cash-flowing business rather than starting from scratch",
+      "Buying out a partner or shareholder with a defined transition plan",
+      "Evaluating SBA-backed and conventional debt side by side before choosing a structure",
+      "Transactions where the purchase terms, target financials, and use of funds can already be documented"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If there is no target business, letter of intent, or clear purchase structure yet, the deal usually needs more definition before financing comparisons become useful.",
+      "If the real need is short-term operating cash rather than an acquisition, working-capital routes are usually the better first comparison."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for buying a business",
+    "items": [
+      "Target business financial statements",
+      "Purchase agreement or letter of intent",
+      "Personal financial information from the buyer",
+      "Use-of-funds summary showing the transaction structure"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate acquisition intent from other borrowing goals and route visitors into the product pages that commonly anchor a purchase transaction.",
+    "bullets": [
+      "Keeps the comparison focused on acquisition structures instead of blending it into generic working-capital copy.",
+      "Connects the borrowing goal to acquisition, SBA 7(a), and term-loan product pages plus document-prep guidance.",
+      "Avoids implying that Fund44, or any one lender, decides whether the deal will be approved."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the deal changes shape",
+  "alternativePaths": [
+    {
+      "routeId": "refinance_business_debt",
+      "title": "Refinance business debt",
+      "description": "If the transaction also depends on cleaning up existing obligations, review refinance-focused guidance before assuming one structure will do both jobs.",
+      "iconKey": "scale"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Acquisition requests usually move more clearly when target financials, purchase terms, and borrower documents are organized early.",
+      "iconKey": "file"
+    },
+    {
+      "routeId": "financing",
+      "title": "Financing overview",
+      "description": "Step back to the full financing map if you still need to compare acquisition routes with working-capital, equipment, or SBA alternatives.",
+      "iconKey": "layers"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Acquisition-related eligibility, structure, documentation requirements, and final terms are determined by third-party lenders and, where applicable, SBA program rules. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Comparing acquisition options for one deal?",
+    "subheading": "Preview the paths that may fit your transaction before you decide which structure deserves a deeper review."
+  },
+  "commonQuestions": [
+    {
+      "id": "buy_business_faq_start",
+      "question": "What financing paths are commonly compared when buying a business?",
+      "answer": "Borrowers often start with acquisition financing, SBA 7(a), and conventional term debt, depending on the deal structure and whether the request also includes working capital or transition costs."
+    },
+    {
+      "id": "buy_business_faq_sba",
+      "question": "Can SBA 7(a) be used to buy a business?",
+      "answer": "Yes. SBA 7(a) is commonly used for business acquisitions and partner buyouts, subject to SBA rules and lender underwriting."
+    },
+    {
+      "id": "buy_business_faq_docs",
+      "question": "What documents usually matter most for a business purchase?",
+      "answer": "Common examples include the target business’s financial statements, the purchase agreement or letter of intent, personal financial information from the buyer, and a clear use-of-funds summary. Exact requirements vary by lender and by transaction."
+    },
+    {
+      "id": "buy_business_faq_direct",
+      "question": "Does Fund44 finance the acquisition directly?",
+      "answer": "No. Fund44 does not finance business purchases directly. Lenders decide eligibility, structure, and terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_business_acquisition",
+    "page_sba_7a",
+    "page_term_loan",
+    "article_preparing_your_documents",
+    "use_case_refinance_business_debt"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-04",
+    "F44-PROD-02",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_buy_existing_business_2026_07_26",
+    "external_sba_change_of_ownership_2026_07_26",
+    "external_sba_7a_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "buy_a_business_financing",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "buy_a_business_faq",
+    "freshnessState": "review_pending"
+  }
+}

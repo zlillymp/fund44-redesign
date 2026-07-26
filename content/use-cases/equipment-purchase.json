@@ -1,0 +1,192 @@
+{
+  "id": "use_case_equipment_purchase",
+  "routeId": "equipment_purchase",
+  "slug": "equipment-purchase",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Equipment purchase financing",
+  "metaTitle": "Equipment purchase financing",
+  "metaDescription": "Buying machinery, vehicles, or other long-life assets usually starts with equipment-financing, SBA 504, and SBA 7(a) comparisons. Learn which routes commonly fit the purchase.",
+  "summary": "The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: equipment purchase",
+    "title": "Buying equipment? Start with the asset-specific routes first.",
+    "lead": "Equipment requests can sit somewhere between a pure asset-backed structure and a broader SBA project. This page compares the paths borrowers most often review before choosing which one deserves a deeper look."
+  },
+  "shortLabel": "Equipment purchase",
+  "quickAnswer": {
+    "term": "Equipment purchase financing",
+    "definition": "usually begins with equipment-financing, SBA 504, and SBA 7(a) comparisons because the right route depends on the asset type, project scope, and whether the request includes only equipment or a broader fixed-asset plan."
+  },
+  "whoItFitsHeading": "When this borrower-goal page is the right starting point",
+  "bestFitHeading": "The routes most often compared when equipment is the main goal",
+  "bestFitProducts": [
+    {
+      "routeId": "equipment_financing",
+      "title": "Equipment financing",
+      "description": "Start here when the request is centered on a specific machine, vehicle, or other asset that supports the financing structure.",
+      "iconKey": "truck"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "SBA 504 becomes a strong comparison point when the project is part of a larger fixed-asset plan or includes major long-life equipment.",
+      "iconKey": "key"
+    },
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) is worth comparing when the request needs more flexibility than a single asset-backed structure.",
+      "iconKey": "building"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When equipment-purchase financing tends to fit",
+    "items": [
+      "Buying machinery, vehicles, or other long-life business equipment",
+      "Replacing or upgrading equipment tied directly to business operations",
+      "Comparing an equipment-specific structure with broader SBA fixed-asset routes",
+      "Projects where the equipment details, quote, and business financial support can already be documented"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the business primarily needs recurring operating cash rather than a specific asset, a working-capital route is usually the better first comparison.",
+      "If the equipment request is only one part of a wider property or expansion project, the broader project route may matter more than the single asset."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for equipment requests",
+    "items": [
+      "Equipment quote, invoice, or vendor proposal",
+      "Recent business financial statements",
+      "Bank statements",
+      "Business tax returns"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to separate equipment intent from broader growth or operating needs and point visitors to the routes that commonly anchor the comparison.",
+    "bullets": [
+      "Frames an equipment purchase as a specific borrowing goal instead of burying it inside generic working-capital copy.",
+      "Connects the goal to equipment financing, SBA 504, SBA 7(a), and comparison guidance that explains how the routes differ.",
+      "Keeps collateral treatment, eligibility, and final structure under third-party lender and program control."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the request broadens",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "If the equipment purchase is part of a broader facility or property project, compare the real-estate route as well.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "business_expansion",
+      "title": "Business expansion",
+      "description": "If the asset purchase supports a larger growth plan, the broader expansion route may be the better first comparison.",
+      "iconKey": "spark"
+    },
+    {
+      "routeId": "resource_sba_7a_vs_504",
+      "title": "SBA 7(a) vs SBA 504",
+      "description": "Use the comparison guide if the key question is whether flexibility or a fixed-asset structure matters more.",
+      "iconKey": "scale"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Equipment-financing availability, collateral treatment, SBA eligibility, timelines, and final terms are determined by third-party lenders or finance companies and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Comparing equipment routes for one purchase?",
+    "subheading": "Preview whether equipment financing, SBA 504, SBA 7(a), or another path deserves the deeper review first."
+  },
+  "commonQuestions": [
+    {
+      "id": "equipment_purchase_faq_start",
+      "question": "What financing routes are usually compared for an equipment purchase?",
+      "answer": "Borrowers often start with equipment financing, SBA 504, and SBA 7(a) because the best fit depends on whether the request is only for equipment or part of a broader fixed-asset project."
+    },
+    {
+      "id": "equipment_purchase_faq_504",
+      "question": "Why compare SBA 504 with equipment financing?",
+      "answer": "Equipment financing is often focused on the equipment itself, while SBA 504 is a broader fixed-asset program used for qualifying major equipment and owner-occupied real estate projects."
+    },
+    {
+      "id": "equipment_purchase_faq_docs",
+      "question": "What documents usually matter for an equipment request?",
+      "answer": "Common examples include an equipment quote or invoice, business financial statements, bank statements, and business tax returns. Exact document requirements vary by lender and by the asset."
+    },
+    {
+      "id": "equipment_purchase_faq_direct",
+      "question": "Does Fund44 provide the equipment financing directly?",
+      "answer": "No. Fund44 does not provide equipment financing directly. Lenders or finance companies determine eligibility and final terms."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_equipment_financing",
+    "page_sba_504",
+    "page_sba_7a",
+    "article_sba_7a_vs_504",
+    "use_case_owner_occupied_real_estate",
+    "use_case_business_expansion"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-03",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_usbank_equipment_financing_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_7a_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "equipment_purchase_financing",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "equipment_purchase_faq",
+    "freshnessState": "review_pending"
+  }
+}

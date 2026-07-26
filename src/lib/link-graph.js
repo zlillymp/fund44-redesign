@@ -58,6 +58,7 @@ function getHubRouteId(route) {
   if (route.routeId === 'home') return null;
   if (route.routeFamily === 'resources_article') return 'resources';
   if (route.templateId === 'product_page') return 'financing';
+  if (route.templateId === 'use_case_page') return 'financing';
   if (route.routeId === 'financing') return 'home';
   if (route.routeId === 'resources') return 'home';
   if (route.routeId === 'about' || route.routeId === 'how_it_works') return 'home';
@@ -68,6 +69,7 @@ function getHubRouteId(route) {
 function getNextStepRouteId(route) {
   if (route.routeId === 'home') return 'how_it_works';
   if (route.templateId === 'product_page') return 'how_it_works';
+  if (route.templateId === 'use_case_page') return 'how_it_works';
   if (route.routeId === 'financing') return 'how_it_works';
   return 'financing';
 }
@@ -78,6 +80,9 @@ function getMinimumRequirements(route) {
   }
   if (route.templateId === 'product_page') {
     return { hub: 1, contextual: 3, next: 1 };
+  }
+  if (route.templateId === 'use_case_page') {
+    return { hub: 1, contextual: 4, next: 1 };
   }
   if (route.templateId === 'resources_hub') {
     return { hub: 1, contextual: 4, next: 1 };
@@ -115,6 +120,14 @@ function getStructuredContextualRouteIds(route) {
 
   record.decisionCards?.forEach((card) => {
     targetRouteIds.push(card.destinationRouteId);
+  });
+
+  record.bestFitProducts?.forEach((item) => {
+    targetRouteIds.push(item.routeId);
+  });
+
+  record.alternativePaths?.forEach((item) => {
+    targetRouteIds.push(item.routeId);
   });
 
   return targetRouteIds;
@@ -173,6 +186,7 @@ function getContextualRouteIds(route) {
 
 function sectionHeading(route) {
   if (route.templateId === 'product_page') return 'Compare related paths';
+  if (route.templateId === 'use_case_page') return 'Compare related paths';
   if (route.templateId === 'editorial_article' || route.templateId === 'resources_hub') return 'Keep exploring';
   if (route.routeFamily === 'legal' || route.routeFamily === 'contact') return 'Helpful next links';
   return 'Explore related routes';

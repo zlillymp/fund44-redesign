@@ -7,6 +7,12 @@ import workingCapitalPage from '../../content/pages/working-capital.json' with {
 import termLoanPage from '../../content/financing/term-loan.json' with { type: 'json' };
 import lineOfCreditPage from '../../content/financing/line-of-credit.json' with { type: 'json' };
 import equipmentFinancingPage from '../../content/financing/equipment-financing.json' with { type: 'json' };
+import buyBusinessUseCase from '../../content/use-cases/buy-a-business.json' with { type: 'json' };
+import ownerOccupiedRealEstateUseCase from '../../content/use-cases/owner-occupied-real-estate.json' with { type: 'json' };
+import cashFlowNeedsUseCase from '../../content/use-cases/cash-flow-needs.json' with { type: 'json' };
+import equipmentPurchaseUseCase from '../../content/use-cases/equipment-purchase.json' with { type: 'json' };
+import businessExpansionUseCase from '../../content/use-cases/business-expansion.json' with { type: 'json' };
+import refinanceBusinessDebtUseCase from '../../content/use-cases/refinance-business-debt.json' with { type: 'json' };
 import resourcesPage from '../../content/pages/resources.json' with { type: 'json' };
 import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with { type: 'json' };
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
@@ -22,6 +28,12 @@ const records = [
   termLoanPage,
   lineOfCreditPage,
   equipmentFinancingPage,
+  buyBusinessUseCase,
+  ownerOccupiedRealEstateUseCase,
+  cashFlowNeedsUseCase,
+  equipmentPurchaseUseCase,
+  businessExpansionUseCase,
+  refinanceBusinessDebtUseCase,
   resourcesPage,
   articleSba7aVs504,
   articlePreparingDocuments,
@@ -57,6 +69,10 @@ export function getContentBySlug(slug) {
 
 export function getProgramPages() {
   return records.filter((record) => record.templateId === 'product_page');
+}
+
+export function getUseCasePages() {
+  return records.filter((record) => record.templateId === 'use_case_page');
 }
 
 export function getResourceHub() {

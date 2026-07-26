@@ -46,6 +46,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://fund44.com/use-cases/buy-a-business</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/use-cases/owner-occupied-real-estate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/use-cases/cash-flow-needs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/use-cases/equipment-purchase</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/use-cases/business-expansion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fund44.com/use-cases/refinance-business-debt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fund44.com/how-it-works</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

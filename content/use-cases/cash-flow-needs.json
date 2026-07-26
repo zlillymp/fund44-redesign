@@ -1,0 +1,190 @@
+{
+  "id": "use_case_cash_flow_needs",
+  "routeId": "cash_flow_needs",
+  "slug": "cash-flow-needs",
+  "pageType": "use_case",
+  "templateId": "use_case_page",
+  "title": "Cash-flow financing",
+  "metaTitle": "Cash-flow financing",
+  "metaDescription": "Recurring operating gaps usually start with working-capital, line-of-credit, and term-loan comparisons. Learn which cash-flow routes commonly fit and when to compare something else.",
+  "summary": "The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "Borrowing intent: cash-flow needs",
+    "title": "Need operating flexibility? Start with the recurring-cash-flow routes.",
+    "lead": "Working-capital questions are usually about repeat borrowing patterns, seasonal swings, and how quickly cash has to turn back into the business. This page compares the routes borrowers most often evaluate first."
+  },
+  "shortLabel": "Cash-flow needs",
+  "quickAnswer": {
+    "term": "Cash-flow financing",
+    "definition": "usually starts with working-capital, line-of-credit, or term-loan comparisons because recurring operating needs are different from acquisitions, property projects, and other one-time fixed-asset requests."
+  },
+  "whoItFitsHeading": "When this borrower-goal page is the right first stop",
+  "bestFitHeading": "The most common starting points for recurring operating needs",
+  "bestFitProducts": [
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines of credit",
+      "description": "Start here when the need is broader than one product and you want to compare flexible structures before committing to one.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "line_of_credit",
+      "title": "Business lines of credit",
+      "description": "A line of credit is often the first comparison when the business expects recurring or unpredictable borrowing needs.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "term_loan",
+      "title": "Business term loans",
+      "description": "A term loan can belong in the mix when the cash need is still defined enough to support a fixed amount and schedule.",
+      "iconKey": "clock"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When cash-flow financing tends to fit",
+    "items": [
+      "Recurring payroll, supplier, or operating gaps rather than a single fixed-asset purchase",
+      "Seasonal inventory or revenue timing needs that can repeat during the year",
+      "Borrowers comparing revolving access to capital with a fixed lump-sum structure",
+      "Businesses that can document recent cash flow, revenue, and borrowing context"
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the actual goal is buying property, heavy equipment, or another long-life asset, fixed-asset routes usually fit better than a cash-flow structure.",
+      "If the request is really about purchasing a business, acquisition financing is usually the better first comparison."
+    ]
+  },
+  "typicalDocuments": {
+    "heading": "Common document examples for cash-flow requests",
+    "items": [
+      "Recent bank statements",
+      "Business financial statements",
+      "Revenue support materials",
+      "Short use-of-funds context for how the facility will be used"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to keep recurring-cash-flow intent separate from asset or acquisition requests and point visitors to the routes that usually matter first.",
+    "bullets": [
+      "Clarifies when a revolving structure belongs in the comparison and when a fixed amount may still make more sense.",
+      "Connects the borrowing goal to the working-capital hub, line-of-credit page, term-loan comparison article, and document guidance.",
+      "Avoids promising timelines, approvals, or one-size-fits-all product availability."
+    ]
+  },
+  "alternativePathsHeading": "Compare these alternatives if the need becomes more defined",
+  "alternativePaths": [
+    {
+      "routeId": "refinance_business_debt",
+      "title": "Refinance business debt",
+      "description": "If the problem is really existing debt structure rather than day-to-day working capital, compare refinance-focused guidance next.",
+      "iconKey": "scale"
+    },
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "SBA 7(a) can be worth comparing when the request expands beyond recurring operating needs into a broader financing plan.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organizing statements, revenue support, and use-of-funds context makes working-capital comparisons clearer before lender review.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Working-capital eligibility, line-of-credit availability, funding speed, and final terms are determined by third-party lenders and vary by provider and by business profile. This page is educational only.",
+  "ctaBanner": {
+    "heading": "Comparing recurring-cash-flow options?",
+    "subheading": "Preview whether a line of credit, term loan, or broader working-capital path better fits how your business uses capital."
+  },
+  "commonQuestions": [
+    {
+      "id": "cash_flow_faq_start",
+      "question": "What financing paths are usually compared for recurring cash-flow needs?",
+      "answer": "Borrowers often start with working-capital, line-of-credit, and term-loan comparisons because each route handles recurring operating needs differently."
+    },
+    {
+      "id": "cash_flow_faq_loc",
+      "question": "When does a line of credit fit better than a term loan?",
+      "answer": "A line of credit is usually the better comparison when the business expects to borrow, repay, and borrow again over time. A term loan fits better when the amount and purpose are more fixed."
+    },
+    {
+      "id": "cash_flow_faq_docs",
+      "question": "What documents usually matter for a cash-flow request?",
+      "answer": "Common examples include bank statements, business financial statements, revenue support, and a short explanation of how the facility will be used. Exact requirements vary by lender."
+    },
+    {
+      "id": "cash_flow_faq_direct",
+      "question": "Does Fund44 issue working-capital products directly?",
+      "answer": "No. Fund44 does not issue working-capital products directly. Third-party lenders decide whether a line of credit, term loan, or another structure is available."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_working_capital",
+    "page_line_of_credit",
+    "page_term_loan",
+    "article_working_capital_vs_term_loan",
+    "article_preparing_your_documents",
+    "use_case_refinance_business_debt"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_wf_businessline_2026_07_26",
+    "external_chase_business_loans_2026_07_26",
+    "external_wf_prepare_credit_2026_07_26",
+    "external_wf_credit_application_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "cash_flow_financing",
+    "contentGroup": "use_case",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "use_case",
+    "ctaIds": [
+      "preview_funding_paths",
+      "use_case_best_fit_link",
+      "use_case_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "cash_flow_needs_faq",
+    "freshnessState": "review_pending"
+  }
+}

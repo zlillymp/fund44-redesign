@@ -112,28 +112,28 @@
       "id": "decision_buy_business",
       "title": "I want to buy a business",
       "description": "Acquisition financing and SBA 7(a) are common starting points.",
-      "destinationRouteId": "business_acquisition",
+      "destinationRouteId": "buy_a_business",
       "iconKey": "route"
     },
     {
       "id": "decision_property",
       "title": "I need to buy or refinance property",
       "description": "SBA 504 and SBA 7(a) are built for owner-occupied real estate.",
-      "destinationRouteId": "sba_504",
+      "destinationRouteId": "owner_occupied_real_estate",
       "iconKey": "building"
     },
     {
       "id": "decision_cash_flow",
       "title": "I need cash flow for operations",
       "description": "Lines of credit and working-capital structures fit recurring gaps.",
-      "destinationRouteId": "working_capital",
+      "destinationRouteId": "cash_flow_needs",
       "iconKey": "cash"
     },
     {
       "id": "decision_equipment",
       "title": "I need equipment",
       "description": "Equipment financing or an SBA loan can spread the cost over time for a specific asset purchase.",
-      "destinationRouteId": "equipment_financing",
+      "destinationRouteId": "equipment_purchase",
       "iconKey": "truck"
     }
   ],
@@ -166,7 +166,13 @@
     "page_working_capital",
     "page_term_loan",
     "page_line_of_credit",
-    "page_equipment_financing"
+    "page_equipment_financing",
+    "use_case_buy_a_business",
+    "use_case_owner_occupied_real_estate",
+    "use_case_cash_flow_needs",
+    "use_case_equipment_purchase",
+    "use_case_business_expansion",
+    "use_case_refinance_business_debt"
   ],
   "contributors": {
     "authorId": null,

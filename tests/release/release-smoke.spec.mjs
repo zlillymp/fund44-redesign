@@ -55,7 +55,7 @@ test.describe('release browser smoke', () => {
     }).toBe(true);
 
     await page.locator('a[data-analytics-cta-id="decision_helper_link"]').first().click();
-    await expect(page).toHaveURL(/\/sba-7a|\/sba-504|\/business-acquisition|\/working-capital/);
+    await expect(page).toHaveURL(/\/use-cases\/buy-a-business|\/use-cases\/owner-occupied-real-estate|\/use-cases\/cash-flow-needs|\/use-cases\/equipment-purchase/);
 
     await expect.poll(async () => {
       const queue = await analyticsQueue(page);
