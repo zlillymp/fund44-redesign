@@ -101,40 +101,40 @@ export function article(slug) {
     .slice(0, 2);
 
   return `
-  <section class="section-tight wrap" style="padding-top:clamp(2rem,4vw,3.5rem)">
+  <section class="section-tight wrap section-page-head">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
       <a href="${hrefForRoute('home')}">Home</a><span class="sep">/</span>
       <a href="${hrefForRoute('resources')}">Resources</a><span class="sep">/</span>
-      <span aria-current="page" style="max-width:40ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${content.title}</span>
+      <span aria-current="page" class="article-crumb-current">${content.title}</span>
     </nav>
     <div class="mt-6"><span class="eyebrow reveal">${content.category}</span></div>
-    <h1 class="h1 reveal mt-4" style="max-width:22ch">${content.title}</h1>
-    <div class="ac-meta reveal mt-4" style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--muted)">${content.readTimeMinutes} min read</div>
+    <h1 class="h1 reveal mt-4 title-section">${content.title}</h1>
+    <div class="ac-meta reveal mt-4 article-hero-meta">${content.readTimeMinutes} min read</div>
   </section>
 
   <section class="section-tight wrap wrap-default">
-    <div class="ac-thumb reveal" style="aspect-ratio:2/1;max-width:100%;margin-bottom:var(--space-10)">${renderThumb(content.thumbKey)}</div>
+    <div class="ac-thumb reveal article-thumb-wide">${renderThumb(content.thumbKey)}</div>
     <article class="prose reveal mx-auto">${renderBodyBlocks(content.bodyBlocks)}</article>
 
-    <div class="mt-12" style="max-width:68ch;margin-inline:auto">${disclosure(content.sectionDisclosureHtml)}</div>
+    <div class="mt-12 copy-reading">${disclosure(content.sectionDisclosureHtml)}</div>
 
-    <div class="mt-12" style="max-width:68ch;margin-inline:auto">
+    <div class="mt-12 copy-reading">
       ${eyebrow('Questions')}
-      <h2 class="h2 reveal mt-4 mb-8" style="font-size:var(--text-xl)">Related questions</h2>
+      <h2 class="h2 reveal mt-4 mb-8 title-xl">Related questions</h2>
       ${faqBlock(faqItems)}
     </div>
   </section>
 
   <section class="section-tight wrap">
     ${eyebrow('Keep reading')}
-    <h2 class="h2 reveal mt-4 mb-8" style="font-size:var(--text-xl)">More from the learning hub</h2>
+    <h2 class="h2 reveal mt-4 mb-8 title-xl">More from the learning hub</h2>
     <div class="grid g-2 reveal" data-stagger>
       ${others.map((item) => `
         <a href="${hrefForContentId(item.id)}" class="card card-hover article-card">
           <div class="ac-cat">${item.category}</div>
           <h3>${item.title}</h3>
           <p>${item.metaDescription}</p>
-          <span class="mt-4 accent-text" style="font-weight:600;font-size:var(--text-sm);display:inline-flex;gap:.4rem;align-items:center;margin-top:var(--space-4)">Read ${icon.arrow}</span>
+          <span class="mt-4 accent-text btn-link article-link-row">Read ${icon.arrow}</span>
         </a>
       `).join('')}
     </div>

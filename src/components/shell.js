@@ -32,7 +32,7 @@ export function header() {
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <div class="wrap" style="padding-inline:0;display:flex;flex-direction:column;flex:1">
+    <div class="wrap mobile-menu-wrap">
       <div class="mobile-menu-head">
         ${logo()}
         <button class="theme-toggle" data-menu-close aria-label="Close menu">${icon.close}</button>
@@ -55,30 +55,30 @@ export function footer() {
   return `
   <footer class="site-footer">
     <div class="wrap">
-      <div class="cta-banner" style="margin-bottom:var(--space-16)">
+      <div class="cta-banner footer-banner">
         <div class="tex-grid"></div>
-        <div class="cta-banner-inner" style="display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;align-items:center">
+        <div class="cta-banner-inner layout-spread">
           <div>
-            <h2 class="h2" style="max-width:16ch">More ways to review funding paths.</h2>
-            <p class="lead" style="margin-top:var(--space-4);color:var(--on-dark-muted)">Explore the financing paths Fund44 is designed to support before the live application launches.</p>
+            <h2 class="h2 cta-banner-heading-compact">More ways to review funding paths.</h2>
+            <p class="lead cta-banner-copy">Explore the financing paths Fund44 is designed to support before the live application launches.</p>
           </div>
-          <div class="wrap-btns">
+          <div class="cta-banner-actions">
             <button class="btn btn-primary btn-lg" ${flowTriggerAttributes({
               ctaId: 'cta_banner_preview_funding_paths',
               startSurface: 'footer_banner_primary',
             })}>Preview funding paths ${icon.arrow}</button>
-            <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('explore_financing').href}" style="background:transparent;border-color:var(--on-dark-line);color:var(--on-dark)">Explore financing</a>
+            <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('explore_financing').href}">Explore financing</a>
           </div>
         </div>
       </div>
 
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="${hrefForRoute('home')}" class="logo" style="display:inline-flex;align-items:center;gap:.5rem;color:var(--on-dark)">
+          <a href="${hrefForRoute('home')}" class="logo on-dark footer-logo-lockup">
             ${logoMark(28)}
-            <span style="font-family:var(--font-display);font-weight:600;font-size:1.25rem;letter-spacing:-0.04em">Fund<span style="color:var(--accent)">44</span></span>
+            <span class="logo-wordmark logo-wordmark-compact">Fund<span class="logo-accent">44</span></span>
           </a>
-          <p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--on-dark-muted);max-width:34ch">${disclosures.marketplacePreview}</p>
+          <p class="footer-brand-copy">${disclosures.marketplacePreview}</p>
         </div>
         ${footerGroups.map((group) => `
           <div class="footer-col">
@@ -91,12 +91,12 @@ export function footer() {
       </div>
 
       <div class="footer-disclosure">
-        <p><strong style="color:var(--on-dark)">Marketplace disclosure.</strong> ${disclosures.marketplacePreview}</p>
+        <p><strong class="footer-strong">Marketplace disclosure.</strong> ${disclosures.marketplacePreview}</p>
         <p>${disclosures.networkStory}</p>
         <p>${disclosures.creditPreview} ${disclosures.noGuarantees}</p>
-        <p style="display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center">
+        <p class="footer-label-row">
           <span>© ${new Date().getFullYear()} Fund44. ${humanReadableIndexingMode()}.</span>
-          <span style="font-family:var(--font-mono);border:1px dashed var(--on-dark-line);padding:.25rem .55rem;border-radius:6px;font-size:11px;letter-spacing:.05em;text-transform:uppercase">Counsel review still recommended</span>
+          <span class="label-badge on-dark">Counsel review still recommended</span>
         </p>
       </div>
     </div>

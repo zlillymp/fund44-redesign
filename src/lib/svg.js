@@ -15,9 +15,9 @@ export const logoMark = (size = 28) => `
 </svg>`;
 
 export const logo = () => `
-<a href="${hrefForRoute('home')}" class="logo" aria-label="Fund44 home" style="display:inline-flex;align-items:center;gap:.55rem;color:var(--ink)">
+<a href="${hrefForRoute('home')}" class="logo" aria-label="Fund44 home">
   ${logoMark(30)}
-  <span style="font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-0.04em">Fund<span style="color:var(--accent-deep)">44</span></span>
+  <span class="logo-wordmark">Fund<span class="logo-accent">44</span></span>
 </a>`;
 
 export const icon = {

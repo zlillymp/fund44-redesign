@@ -39,13 +39,13 @@ export function about() {
       <div class="fs-text">
         ${eyebrow('Our approach')}
         <h2 class="h2 reveal mt-4">Clarity and fit, not hype.</h2>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">${disclosures.fitOverFees}</p>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">${disclosures.networkStory}</p>
-        <p class="lead reveal mt-4" style="font-size:var(--text-base)">${disclosures.fasterProcess}</p>
+        <p class="lead reveal mt-4 text-body-base">${disclosures.fitOverFees}</p>
+        <p class="lead reveal mt-4 text-body-base">${disclosures.networkStory}</p>
+        <p class="lead reveal mt-4 text-body-base">${disclosures.fasterProcess}</p>
       </div>
       <div class="fs-viz">
-        <div class="card reveal" style="background:var(--surface)">
-          <div class="eyebrow" style="margin-bottom:var(--space-5)">What Fund44 is — and isn't</div>
+        <div class="card reveal info-grid-card">
+          <div class="eyebrow mb-6">What Fund44 is — and isn't</div>
           <div class="feat-list">
             ${featItem(icon.check, 'A capital marketplace', 'We match owners to relevant financing paths from third-party lenders.')}
             ${featItem(icon.check, 'One intake experience', 'The experience is designed to reduce repeated intake and make path comparisons easier to review.')}
@@ -71,7 +71,7 @@ export function about() {
 
   <section class="section-tight wrap">
     ${eyebrow('Why the name matters')}
-    <h2 class="h2 reveal mt-4" style="max-width:22ch">A curated lender network, not a volume story.</h2>
+    <h2 class="h2 reveal mt-4 title-section">A curated lender network, not a volume story.</h2>
     <p class="lead reveal mt-4">${disclosures.networkStory}</p>
     <div class="mt-8">${disclosure(`<strong>Fund44 is not a lender.</strong> ${disclosures.noGuarantees} ${disclosures.illustrative}`)}</div>
   </section>

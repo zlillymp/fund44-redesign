@@ -15,22 +15,22 @@ import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
 function legalHead(crumbs, title, updated) {
   return `
-  <section class="section-tight wrap wrap-default" style="padding-top:clamp(2rem,4vw,3.5rem)">
+  <section class="section-tight wrap wrap-default section-page-head">
     <nav class="breadcrumb reveal" aria-label="Breadcrumb">
       ${crumbs.map((c, i) => i === crumbs.length - 1 ? `<span aria-current="page">${c.label}</span>` : `<a href="${c.path}">${c.label}</a><span class="sep">/</span>`).join('')}
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
-    <div class="reveal mt-4" style="display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center">
+    <div class="reveal mt-4 meta-row">
       <span class="legal-flag">${icon.info} ${indexingPolicy.allowIndexing ? 'Production-indexable legal mode' : 'Staging / preview noindex legal mode'}</span>
-      <span class="muted" style="font-size:var(--text-sm)">${updated ? 'Updated for the current governance draft on 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
+      <span class="muted text-body-sm">${updated ? 'Updated for the current governance draft on 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
     </div>
   </section>`;
 }
 
 const section = (h, body) => `
-  <div class="reveal" style="margin-top:var(--space-10)">
-    <h2 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:600;letter-spacing:-0.025em;margin-bottom:var(--space-4)">${h}</h2>
-    <div style="color:var(--ink-2);display:flex;flex-direction:column;gap:var(--space-4)">${body}</div>
+  <div class="reveal mt-10">
+    <h2 class="title-xl mb-4">${h}</h2>
+    <div class="section-copy-stack role-copy-default">${body}</div>
   </div>`;
 
 export function privacy() {
@@ -45,7 +45,7 @@ export function privacy() {
 
   return `
   ${legalHead(crumbs, 'Privacy', true)}
-  <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
+  <section class="wrap wrap-default section-legal-body">
     ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} ${liveDisclosuresBlocked.privacyConsent}`)}
     ${section('What we collect', `
       <p>${disclosures.previewPrivacy}</p>
@@ -58,7 +58,7 @@ export function privacy() {
       <p>${liveDisclosuresBlocked.privacyConsent}</p>`)}
     ${section('Your controls', `
       <p>Final user-rights procedures, contact methods for privacy requests, consent records, and retention handling are not approved yet. Those items remain blocked and must be finalized before launch.</p>
-      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+      <ul class="list-plain">
         <li>Staging and preview remain non-indexable while privacy and consent approvals are incomplete.</li>
         <li>Unverified identity and contact fields are intentionally withheld instead of being guessed.</li>
         <li>SameAs profiles remain omitted until verified.</li>
@@ -67,13 +67,13 @@ export function privacy() {
       <p>${disclosures.creditPreview}</p>
       <p>If a live provider handoff is introduced later, any provider-run inquiry language must be reviewed again with the final consent flow.</p>`)}
     ${section('What still needs approval', `
-      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+      <ul class="list-plain">
         ${legalApprovalChecklist
           .filter((item) => item.area === 'Privacy and consent' || item.area === 'Security' || item.area === 'Identity')
           .map((item) => `<li><strong>${item.area}:</strong> ${item.detail}</li>`)
           .join('')}
       </ul>`)}
-    ${section('Contact', `<p>Privacy questions will use the verified support channel once it exists. Until then, see the controlled placeholders on our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a>. ${disclosures.contactPlaceholder}</p>`)}
+    ${section('Contact', `<p>Privacy questions will use the verified support channel once it exists. Until then, see the controlled placeholders on our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a>. ${disclosures.contactPlaceholder}</p>`)}
   </section>
   ${relatedLinksModule(linkModule)}`;
 }
@@ -90,7 +90,7 @@ export function terms() {
 
   return `
   ${legalHead(crumbs, 'Terms & disclosures', true)}
-  <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
+  <section class="wrap wrap-default section-legal-body">
     ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} Final legal business identity, support details, consent flow, retention terms, and sameAs references remain blocked.`)}
     ${section('Marketplace disclosure', `
       <p>${disclosures.marketplacePreview}</p>
@@ -110,10 +110,10 @@ export function terms() {
       <p><strong>Current indexing mode:</strong> ${humanReadableIndexingMode()}. ${indexingPolicy.note}</p>
       <p><strong>sameAs policy:</strong> ${liveDisclosuresBlocked.sameAs}</p>`)}
     ${section('Identity and contact status', `
-      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+      <ul class="list-plain">
         ${unresolvedIdentityFields.map((field) => `<li>${describeField(field.key)}</li>`).join('')}
       </ul>`)}
-    ${section('Contact', `<p>Questions about these terms will route through the verified support channel once those details are approved. Until then, our <a href="${hrefForRoute('contact')}" class="accent-text" style="font-weight:600">contact page</a> keeps every unresolved value visibly marked as TBD.</p>`)}
+    ${section('Contact', `<p>Questions about these terms will route through the verified support channel once those details are approved. Until then, our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> keeps every unresolved value visibly marked as TBD.</p>`)}
   </section>
   ${relatedLinksModule(linkModule)}`;
 }
@@ -135,34 +135,34 @@ export function contact() {
 
   return `
   ${legalHead(crumbs, 'Contact', false)}
-  <section class="wrap wrap-default" style="padding-bottom:clamp(3rem,7vw,6rem)">
+  <section class="wrap wrap-default section-legal-body">
     ${disclosure(`<strong>Controlled TBD state.</strong> ${disclosures.contactPlaceholder}`)}
     <p class="lead reveal">This page is designed to make unresolved identity and contact fields obvious. Nothing below should be mistaken for final production contact data.</p>
     <div class="grid g-2 reveal mt-8" data-stagger>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">Legal business name</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">${legalName.value}</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">${legalName.note}</p>
+        <div class="eyebrow mb-4">Legal business name</div>
+        <p class="text-meta">${legalName.value}</p>
+        <p class="muted mt-4 text-body-sm">${legalName.note}</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">Mailing address</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">${address.value}</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">${address.note}</p>
+        <div class="eyebrow mb-4">Mailing address</div>
+        <p class="text-meta">${address.value}</p>
+        <p class="muted mt-4 text-body-sm">${address.note}</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">Support email</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">${generalEmail.value}</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">${generalEmail.note}</p>
+        <div class="eyebrow mb-4">Support email</div>
+        <p class="text-meta">${generalEmail.value}</p>
+        <p class="muted mt-4 text-body-sm">${generalEmail.note}</p>
       </div>
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:var(--space-3)">Support phone</div>
-        <p style="font-family:var(--font-mono);color:var(--muted)">${phone.value}</p>
-        <p class="muted mt-4" style="font-size:var(--text-sm)">${phone.note}</p>
+        <div class="eyebrow mb-4">Support phone</div>
+        <p class="text-meta">${phone.value}</p>
+        <p class="muted mt-4 text-body-sm">${phone.note}</p>
       </div>
     </div>
     <div class="card reveal mt-8">
-      <div class="eyebrow" style="margin-bottom:var(--space-3)">What still blocks launch-ready contact publishing</div>
-      <ul style="padding-left:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)">
+      <div class="eyebrow mb-4">What still blocks launch-ready contact publishing</div>
+      <ul class="list-plain">
         <li>Verified legal business name</li>
         <li>Verified mailing address</li>
         <li>Verified support email</li>
@@ -170,7 +170,7 @@ export function contact() {
         <li>Final privacy, consent, and retention language with the corresponding support workflows</li>
       </ul>
     </div>
-    <div class="mt-8" style="text-align:center">
+    <div class="mt-8 layout-center">
       <button
         class="btn btn-primary btn-lg"
         data-open-flow

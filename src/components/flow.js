@@ -209,8 +209,8 @@ function renderConsentReview() {
 
   return `
     <div class="field consent-card${getFieldError(flowState, FIELD_IDS.previewConsent) ? ' err' : ''}">
-      <div class="eyebrow" style="margin-bottom:var(--space-3)">Current mode</div>
-      <p class="muted" style="font-size:var(--text-sm)">${escapeHtml(getModeDescription(flowState.context.activeMode))}</p>
+      <div class="eyebrow mb-4">Current mode</div>
+      <p class="muted text-body-sm">${escapeHtml(getModeDescription(flowState.context.activeMode))}</p>
       <label class="check-option" for="f-preview-consent">
         <input
           id="f-preview-consent"
@@ -227,8 +227,8 @@ function renderConsentReview() {
     </div>
 
     <div class="field consent-card${getFieldError(flowState, FIELD_IDS.nextStepConsent) ? ' err' : ''}">
-      <div class="eyebrow" style="margin-bottom:var(--space-3)">What happens next</div>
-      <p class="muted" style="font-size:var(--text-sm)">${escapeHtml(getEntryContextSummary(flowState))}</p>
+      <div class="eyebrow mb-4">What happens next</div>
+      <p class="muted text-body-sm">${escapeHtml(getEntryContextSummary(flowState))}</p>
       <label class="check-option" for="f-next-step-consent">
         <input
           id="f-next-step-consent"
@@ -254,13 +254,13 @@ function renderLiveUnavailable() {
   return `
     <div class="dialog-body">
       <div class="success-mark success-mark-muted">${icon.info}</div>
-      <h2 class="step-title" id="flowDialogTitle" style="text-align:center">${escapeHtml(getStepDefinition(STEP_IDS.liveUnavailable, flowState).title)}</h2>
-      <p class="step-why" style="text-align:center">${escapeHtml(liveEligibilityGate.summary)}</p>
-      <div class="result-summary" style="text-align:left">
-        <div class="eyebrow" style="margin-bottom:var(--space-4)">Exact blockers</div>
+      <h2 class="step-title flow-center" id="flowDialogTitle">${escapeHtml(getStepDefinition(STEP_IDS.liveUnavailable, flowState).title)}</h2>
+      <p class="step-why flow-center">${escapeHtml(liveEligibilityGate.summary)}</p>
+      <div class="result-summary layout-left">
+        <div class="eyebrow mb-6">Exact blockers</div>
         ${liveEligibilityGate.missingInputs.map((item) => `<div class="result-path"><span class="rp-dot"></span>${escapeHtml(item)}</div>`).join('')}
       </div>
-      <div class="dialog-note dialog-note-inline" style="padding:0;text-align:left">
+      <div class="dialog-note dialog-note-inline flow-note-left">
         <strong>Current safe action.</strong> ${escapeHtml(liveDisclosuresBlocked.liveEligibility)}
       </div>
     </div>
@@ -281,12 +281,12 @@ function renderOutcomeView() {
   }
 
   return `
-    <div class="dialog-body" style="text-align:center">
+    <div class="dialog-body flow-center">
       <div class="success-mark">${outcome.outcomeCategory === OUTCOME_CATEGORIES.notFit ? icon.close : icon.check}</div>
       <span class="tag">${escapeHtml(outcome.badge)}</span>
-      <h2 class="step-title" id="flowDialogTitle" style="text-align:center;margin-top:var(--space-4)">${escapeHtml(outcome.heading)}</h2>
-      <p class="step-why" style="text-align:center">${escapeHtml(outcome.summary)}</p>
-      <div class="result-summary" style="text-align:left">
+      <h2 class="step-title mt-4" id="flowDialogTitle">${escapeHtml(outcome.heading)}</h2>
+      <p class="step-why">${escapeHtml(outcome.summary)}</p>
+      <div class="result-summary layout-left">
         <div class="rs-row"><span>Mode</span><b>${escapeHtml(getModeLabel(flowState.context.activeMode || ELIGIBILITY_MODES.preview))}</b></div>
         <div class="rs-row"><span>Use of funds</span><b>${escapeHtml(selectedUse?.label || 'Not selected')}</b></div>
         <div class="rs-row"><span>Amount</span><b>${escapeHtml(flowState.values.amount || 'Not selected')}</b></div>
@@ -304,7 +304,7 @@ function renderOutcomeView() {
           </a>
         `).join('')}
       </div>
-      <div class="dialog-note dialog-note-inline" style="padding:0;text-align:left">
+      <div class="dialog-note dialog-note-inline flow-note-left">
         <strong>What this means.</strong> ${escapeHtml(disclosures.illustrative)} ${escapeHtml(disclosures.noGuarantees)}
       </div>
     </div>
@@ -385,7 +385,7 @@ function renderDialogFrame(definition) {
         <span class="tag">${icon.route} ${escapeHtml(modeTagLabel())}</span>
         <button class="dialog-close" data-flow-close aria-label="Close">${icon.close}</button>
       </div>
-      <div class="progress-track"><div class="progress-fill" style="width:${progressPercent}%"></div></div>
+      <div class="progress-track"><div class="progress-fill" style="width:${progressPercent}%;"></div></div>
       <div class="progress-label">Step ${stepIndex} of ${stepCount} · ${escapeHtml(definition.id)}</div>
     </div>
     <div class="dialog-body">
