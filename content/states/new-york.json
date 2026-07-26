@@ -1,0 +1,271 @@
+{
+  "id": "state_new_york_sba_loans",
+  "routeId": "new_york_sba_loans",
+  "slug": "new-york-sba-loans",
+  "pageType": "state",
+  "templateId": "state_page",
+  "title": "New York SBA loan resources",
+  "metaTitle": "New York SBA loan resources",
+  "metaDescription": "New York businesses comparing SBA financing often need to confirm whether the right SBA entry point is Buffalo, Syracuse, or Metro New York and which statewide advisory resource to open next. Review official New York support pages and related Fund44 explainers.",
+  "summary": "The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "State resources: New York",
+    "title": "New York SBA loan help starts with the right district office and statewide business-support guide.",
+    "lead": "New York businesses may need Buffalo, Syracuse, or Metro New York district support before choosing which product explainer matters most. This page keeps those official local and statewide entry points together so you can move into the right financing comparison next."
+  },
+  "shortLabel": "New York SBA loan resources",
+  "stateCode": "NY",
+  "quickAnswer": {
+    "term": "New York SBA loan help",
+    "definition": "often starts by confirming whether the right SBA district entry point is Buffalo, Syracuse, or Metro New York and then pairing that with statewide SBDC or New York business-support guidance before deciding which national financing page deserves a deeper review."
+  },
+  "whoItFitsHeading": "When this New York page fits best",
+  "bestFitHeading": "Common financing explainers New York borrowers review after the local support path is clear",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "A common first comparison when the borrower wants the broad federal SBA explainer after choosing the right New York district or support partner.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Often useful when the New York project appears to center on owner-occupied real estate or major equipment rather than a purely general working-capital question.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Helpful when the state-resource search is in service of a New York purchase, succession, or buyout project rather than a simple operating-capital request.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When New York SBA-loan resource pages tend to fit",
+    "items": [
+      "You want to confirm which New York SBA district office or statewide support resource fits the business location first.",
+      "You need official New York starting points before choosing between SBA, acquisition, or document-prep explainers.",
+      "You are organizing a New York borrowing project and want federal and state support links in one place before talking with lenders.",
+      "You want to separate local support discovery from the later product and lender comparison."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If the product question is already clearly about SBA 7(a), 504, or acquisition financing, the national explainers may be the faster next click.",
+      "If you need legal, tax, or licensing advice in New York, you will still need the appropriate state or local authority.",
+      "If the next blocker is document collection rather than district or support-resource discovery, the document checklist article is usually the cleaner first stop."
+    ]
+  },
+  "stateSupportHeading": "Official New York support resources to open first",
+  "stateSupportCards": [
+    {
+      "id": "ny_metro_district",
+      "title": "Metro New York SBA District",
+      "description": "Use the Metro New York district page when the business operates in New York City, Long Island, or the surrounding counties covered from Manhattan or Hauppauge.",
+      "resourceLabel": "Open Metro New York district page",
+      "resourceUrl": "https://www.sba.gov/district/metro-new-york",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "ny_syracuse_district",
+      "title": "Syracuse SBA District",
+      "description": "Use the Syracuse district page when the business operates in the upstate counties served through central and eastern New York.",
+      "resourceLabel": "Open Syracuse district page",
+      "resourceUrl": "https://www.sba.gov/district/syracuse",
+      "iconKey": "building",
+      "relatedRouteId": "sba_504"
+    },
+    {
+      "id": "ny_buffalo_district",
+      "title": "Buffalo SBA District",
+      "description": "Use the Buffalo district page when the business operates in western New York and you want the right regional SBA contact first.",
+      "resourceLabel": "Open Buffalo district page",
+      "resourceUrl": "https://www.sba.gov/district/buffalo",
+      "iconKey": "building",
+      "relatedRouteId": "business_acquisition"
+    },
+    {
+      "id": "ny_sbdc",
+      "title": "New York SBDC regional centers",
+      "description": "New York SBDC provides statewide center coverage, which is useful when a borrower wants local advising before committing to one financing structure.",
+      "resourceLabel": "Find a New York SBDC center",
+      "resourceUrl": "https://nysbdc.org/regional-centers/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "ny_state_business",
+      "title": "New York start-a-business guide",
+      "description": "New York’s statewide business guide can help borrowers confirm state-level formation, tax, and insurance starting points before they move deeper into a financing comparison.",
+      "resourceLabel": "Open New York business guide",
+      "resourceUrl": "https://www.ny.gov/services/start-business-new-york-state",
+      "iconKey": "file",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "stateContextHeading": "New York-specific context worth knowing before the financing comparison",
+  "stateContextCards": [
+    {
+      "id": "ny_three_districts",
+      "title": "New York uses multiple district-office entry points",
+      "description": "New York businesses may need Buffalo, Syracuse, or Metro New York district support depending on where the company operates, so the correct SBA starting page is regional rather than statewide.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "ny_statewide_advising",
+      "title": "Statewide advising can come before the lender conversation",
+      "description": "New York SBDC can be the practical first stop when the borrower still needs help with planning, financial organization, or a document checklist before comparing products.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "ny_business_guide",
+      "title": "State business guides can clarify basics outside the loan choice",
+      "description": "New York’s official business guide is useful when the immediate question is still about formation, tax, insurance, or getting organized, not just which financing structure to compare.",
+      "iconKey": "layers",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common New York-starting document examples",
+    "items": [
+      "Recent business financial statements and tax returns",
+      "A use-of-funds summary for the New York project you are evaluating",
+      "Any state or local registration, insurance, or licensing details that the relevant New York support page tells you to confirm",
+      "A purchase summary, property plan, or equipment quote if the next comparison is really about acquisition or fixed-asset financing"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to point New York borrowers to the right public support resources first and then route them into the national explainers that match the financing question they uncover.",
+    "bullets": [
+      "Keeps New York-specific facts limited to official district, SBDC, and state business-support resources.",
+      "Connects those support pages to the most relevant SBA, acquisition, and document-prep explainers without implying state-specific lender availability.",
+      "Leaves counseling availability, eligibility, provider participation, and final financing decisions outside of Fund44."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if the New York question becomes a financing-structure question",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Use this when the New York project is really about property purchase, buildout, or refinance instead of district or support-resource selection.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "buy_a_business",
+      "title": "Buy a business",
+      "description": "Use this when the state-resource search is part of a New York acquisition or succession plan rather than a general SBA information search.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Use the document guide when the next blocker is organizing records before you revisit the New York support network or a lender conversation.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> These New York resources are educational entry points. SBA office coverage, counseling availability, financing eligibility, lender participation, timelines, and terms can vary by region, provider, and business profile.",
+  "ctaBanner": {
+    "heading": "Ready to move from New York support resources into a financing comparison?",
+    "subheading": "Preview the national financing paths that may fit after you identify the right New York SBA or statewide support starting point."
+  },
+  "commonQuestions": [
+    {
+      "id": "ny_state_faq_districts",
+      "question": "Does New York use one SBA district office or several?",
+      "answer": "New York uses multiple SBA district entry points, including Buffalo, Syracuse, and Metro New York, so the right page depends on where the business operates."
+    },
+    {
+      "id": "ny_state_faq_state_guide",
+      "question": "Why use the New York business guide before talking about one loan?",
+      "answer": "The state guide helps confirm formation, tax, insurance, and other startup or expansion basics that may need to be settled before a financing comparison becomes useful."
+    },
+    {
+      "id": "ny_state_faq_sbdc",
+      "question": "When should New York SBDC come before a product page?",
+      "answer": "New York SBDC is a good first stop when the borrower still needs help organizing the plan, financials, or documents before choosing between SBA, acquisition, or other financing paths."
+    },
+    {
+      "id": "ny_state_faq_direct",
+      "question": "Does Fund44 originate New York SBA loans directly?",
+      "answer": "No. Fund44 does not originate New York SBA loans directly. This page is educational and points to official support resources plus Fund44 explainers."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_preparing_your_documents",
+    "state_california_sba_loans",
+    "state_florida_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-04",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_change_of_ownership_2026_07_26",
+    "external_sba_metro_new_york_district_2026_07_26",
+    "external_sba_syracuse_district_2026_07_26",
+    "external_sba_buffalo_district_2026_07_26",
+    "external_nysbdc_regional_centers_2026_07_26",
+    "external_ny_start_business_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "new_york_sba_loan_resources",
+    "contentGroup": "state",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "state",
+    "ctaIds": [
+      "preview_funding_paths",
+      "state_best_fit_link",
+      "state_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "new_york_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

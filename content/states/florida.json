@@ -1,0 +1,260 @@
+{
+  "id": "state_florida_sba_loans",
+  "routeId": "florida_sba_loans",
+  "slug": "florida-sba-loans",
+  "pageType": "state",
+  "templateId": "state_page",
+  "title": "Florida SBA loan resources",
+  "metaTitle": "Florida SBA loan resources",
+  "metaDescription": "Florida businesses comparing SBA financing often need to confirm whether their county falls under the North Florida or South Florida district and which statewide support resource to open next. Review official Florida support pages and related Fund44 explainers.",
+  "summary": "The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.",
+  "contentVersion": "2026-07-26",
+  "hero": {
+    "eyebrow": "State resources: Florida",
+    "title": "Florida SBA loan help usually starts by confirming the right district and statewide support resource.",
+    "lead": "Florida businesses often need to confirm whether the SBA district contact is North Florida or South Florida and then decide whether a statewide advisory or state small-business resource should come next. This page keeps that entry path clear before you move into product comparisons."
+  },
+  "shortLabel": "Florida SBA loan resources",
+  "stateCode": "FL",
+  "quickAnswer": {
+    "term": "Florida SBA loan help",
+    "definition": "often starts by confirming whether the business falls under the North Florida or South Florida SBA district and then pairing that with the Florida SBDC network or another statewide business-support resource before choosing which national financing route to compare."
+  },
+  "whoItFitsHeading": "When this Florida page fits best",
+  "bestFitHeading": "Common financing explainers Florida borrowers review after the local support path is clear",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "A common first SBA comparison when the business wants the broad federal-program explainer after identifying the correct Florida district and local support entry point.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "line_of_credit",
+      "title": "Business lines of credit",
+      "description": "Often a useful second comparison when the real Florida question turns into recurring operating cash rather than a longer-term SBA structure.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines of credit",
+      "description": "Helpful when the statewide support conversation is really pointing toward short-term or recurring business needs rather than a fixed-asset project.",
+      "iconKey": "layers"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When Florida SBA-loan resource pages tend to fit",
+    "items": [
+      "You want to confirm which Florida SBA district office and statewide advisory resource should come first.",
+      "You need official Florida entry points before choosing between SBA, working-capital, or document-prep explainers.",
+      "You want one page that keeps the Florida support search distinct from the later lender or product comparison.",
+      "You are still organizing the project and need statewide public support resources before a lender conversation becomes productive."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If you already know the product question is about SBA 7(a), working capital, or a line of credit, the national explainers may be the faster next click.",
+      "If you need formal legal, tax, or licensing advice in Florida, you will still need the appropriate state or local authority.",
+      "If the immediate problem is document collection instead of Florida support discovery, the document checklist article is usually the better first stop."
+    ]
+  },
+  "stateSupportHeading": "Official Florida support resources to open first",
+  "stateSupportCards": [
+    {
+      "id": "fl_north_district",
+      "title": "North Florida SBA District",
+      "description": "Use the North Florida district page when the business operates in the counties served from Jacksonville or Orlando and you want the local SBA office contact first.",
+      "resourceLabel": "Open North Florida district page",
+      "resourceUrl": "https://www.sba.gov/district/north-florida",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "fl_south_district",
+      "title": "South Florida SBA District",
+      "description": "Use the South Florida district page when the business operates in the counties served from Miami, Ft. Pierce, or Tampa and you want the right district contact first.",
+      "resourceLabel": "Open South Florida district page",
+      "resourceUrl": "https://www.sba.gov/district/south-florida",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "fl_sbdc",
+      "title": "Florida SBDC network",
+      "description": "Florida SBDC provides a statewide advisory network, which is useful when the borrower wants help organizing cash-flow, plan, or funding questions before comparing products.",
+      "resourceLabel": "Find a Florida SBDC",
+      "resourceUrl": "https://floridasbdc.org/find/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "fl_state_small_business",
+      "title": "Florida small-business resource hub",
+      "description": "FloridaCommerce’s small-business page is a state-level starting point when you want to understand Florida business support programs alongside federal SBA guidance.",
+      "resourceLabel": "Open Florida small-business resources",
+      "resourceUrl": "https://www.floridajobs.org/small-business",
+      "iconKey": "cash",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "stateContextHeading": "Florida-specific context worth knowing before the financing comparison",
+  "stateContextCards": [
+    {
+      "id": "fl_two_districts",
+      "title": "Florida uses two district-office entry points",
+      "description": "Florida SBA support is split between North Florida and South Florida district coverage, so the first office to contact depends on where the business is based.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "fl_statewide_advising",
+      "title": "Statewide advising can help before you pick one product",
+      "description": "Florida SBDC gives borrowers a statewide consulting entry point when they still need to tighten the story, financials, or documents before a financing comparison becomes useful.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "fl_state_programs",
+      "title": "State support pages can sit alongside federal SBA guidance",
+      "description": "Florida’s small-business resource pages help borrowers separate state support-program research from the later decision about whether a 7(a), working-capital, or line-of-credit path fits best.",
+      "iconKey": "layers",
+      "relatedRouteId": "working_capital"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common Florida-starting document examples",
+    "items": [
+      "Recent business financial statements and tax returns",
+      "A use-of-funds summary that explains the Florida business need",
+      "Any state or local registration details the relevant Florida support page tells you to confirm before moving deeper",
+      "Recent bank statements or cash-flow support if the next comparison is really about working capital instead of a broader SBA project"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 uses this page to keep Florida support-resource discovery separate from the later product comparison, then routes borrowers into the national explainers that match the financing question they uncover.",
+    "bullets": [
+      "Keeps Florida-specific facts limited to official district, SBDC, and state small-business resources.",
+      "Links those resources to the national SBA and cash-flow explainers without claiming that a Florida lender or provider path is guaranteed to appear.",
+      "Leaves local counseling availability, eligibility, provider participation, and final financing decisions outside of Fund44."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if the Florida question becomes a financing-structure question",
+  "alternativePaths": [
+    {
+      "routeId": "cash_flow_needs",
+      "title": "Cash-flow needs",
+      "description": "Use this if the local support search is mostly helping you frame recurring operating needs rather than a broader SBA project.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "business_expansion",
+      "title": "Business expansion",
+      "description": "Use this when the Florida support search is really part of a location, buildout, or growth project that needs a bigger comparison.",
+      "iconKey": "route"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Use the document checklist when the next blocker is organizing records before you revisit the Florida resource network or a lender conversation.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> These Florida resources are educational entry points. SBA office coverage, counseling availability, financing eligibility, lender participation, timelines, and terms can vary by county, provider, and business profile.",
+  "ctaBanner": {
+    "heading": "Ready to move from Florida support resources into a financing comparison?",
+    "subheading": "Preview the national financing paths that may fit after you identify the right Florida SBA or statewide support starting point."
+  },
+  "commonQuestions": [
+    {
+      "id": "fl_state_faq_districts",
+      "question": "Does Florida use one SBA district office or more than one?",
+      "answer": "Florida uses both the North Florida and South Florida SBA districts, so the right office depends on the county where the business operates."
+    },
+    {
+      "id": "fl_state_faq_sbdc",
+      "question": "Why use Florida SBDC before deciding on a loan product?",
+      "answer": "Florida SBDC can help borrowers organize the project, clarify the funding need, and prepare for a cleaner product comparison before lender discussions begin."
+    },
+    {
+      "id": "fl_state_faq_cashflow",
+      "question": "What if the Florida question turns out to be mostly about working capital?",
+      "answer": "That usually means the next useful step is reviewing the working-capital or line-of-credit explainers after you finish with the local support resources."
+    },
+    {
+      "id": "fl_state_faq_direct",
+      "question": "Does Fund44 originate Florida SBA loans directly?",
+      "answer": "No. Fund44 does not originate Florida SBA loans directly. This page is educational and points to official support resources plus Fund44 explainers."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_working_capital",
+    "page_line_of_credit",
+    "article_preparing_your_documents",
+    "state_california_sba_loans",
+    "state_new_york_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-05",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_wf_businessline_2026_07_26",
+    "external_sba_north_florida_district_2026_07_26",
+    "external_sba_south_florida_district_2026_07_26",
+    "external_florida_sbdc_2026_07_26",
+    "external_florida_sbdc_find_2026_07_26",
+    "external_florida_small_business_2026_07_26"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "florida_sba_loan_resources",
+    "contentGroup": "state",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "state",
+    "ctaIds": [
+      "preview_funding_paths",
+      "state_best_fit_link",
+      "state_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "florida_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

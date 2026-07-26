@@ -135,6 +135,11 @@ test.describe('release browser smoke', () => {
       expect(box.height).toBeGreaterThan(40);
     }
 
+    await page.goto('/states/california-sba-loans');
+    await expect(page).toHaveTitle(/California SBA loan resources/i);
+    await expect(page.locator('main')).toContainText(/Official California support resources to open first/i);
+    await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute('href', 'https://fund44.com/states/california-sba-loans');
+
     await page.goto('/does-not-exist');
     await expect(page).toHaveTitle(/Page not found/i);
     await expect(page.locator('main')).toContainText("This path doesn't lead anywhere.");

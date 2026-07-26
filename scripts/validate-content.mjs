@@ -134,6 +134,48 @@ function validateFeatureCardGroup(record, fieldName) {
   });
 }
 
+function validateStateSupportCardGroup(record, fieldName) {
+  const items = record[fieldName];
+  assert(Array.isArray(items), `${record.id}: ${fieldName} must be an array`);
+  assert(items.length >= 3, `${record.id}: ${fieldName} must include at least three items`);
+
+  const seenIds = new Set();
+  items.forEach((item, index) => {
+    assert(item?.id, `${record.id}: ${fieldName}[${index}].id is required`);
+    assert(typeof item?.title === 'string' && item.title.length > 0, `${record.id}: ${fieldName}[${index}].title is required`);
+    assert(typeof item?.description === 'string' && item.description.length > 0, `${record.id}: ${fieldName}[${index}].description is required`);
+    assert(typeof item?.resourceLabel === 'string' && item.resourceLabel.length > 0, `${record.id}: ${fieldName}[${index}].resourceLabel is required`);
+    assert(typeof item?.resourceUrl === 'string' && item.resourceUrl.startsWith('https://'), `${record.id}: ${fieldName}[${index}].resourceUrl must be an https URL`);
+    assert(item?.iconKey, `${record.id}: ${fieldName}[${index}].iconKey is required`);
+    if ('relatedRouteId' in item && item.relatedRouteId !== null && item.relatedRouteId !== undefined && item.relatedRouteId !== '') {
+      assert(routeById.has(item.relatedRouteId), `${record.id}: ${fieldName}[${index}] relatedRouteId "${item.relatedRouteId}" does not exist`);
+      assert(item.relatedRouteId !== record.routeId, `${record.id}: ${fieldName}[${index}] relatedRouteId must not point back to the current route`);
+    }
+    assert(!seenIds.has(item.id), `${record.id}: duplicate ${fieldName} id "${item.id}"`);
+    seenIds.add(item.id);
+  });
+}
+
+function validateStateContextCardGroup(record, fieldName) {
+  const items = record[fieldName];
+  assert(Array.isArray(items), `${record.id}: ${fieldName} must be an array`);
+  assert(items.length >= 3, `${record.id}: ${fieldName} must include at least three items`);
+
+  const seenIds = new Set();
+  items.forEach((item, index) => {
+    assert(item?.id, `${record.id}: ${fieldName}[${index}].id is required`);
+    assert(typeof item?.title === 'string' && item.title.length > 0, `${record.id}: ${fieldName}[${index}].title is required`);
+    assert(typeof item?.description === 'string' && item.description.length > 0, `${record.id}: ${fieldName}[${index}].description is required`);
+    assert(item?.iconKey, `${record.id}: ${fieldName}[${index}].iconKey is required`);
+    if ('relatedRouteId' in item && item.relatedRouteId !== null && item.relatedRouteId !== undefined && item.relatedRouteId !== '') {
+      assert(routeById.has(item.relatedRouteId), `${record.id}: ${fieldName}[${index}] relatedRouteId "${item.relatedRouteId}" does not exist`);
+      assert(item.relatedRouteId !== record.routeId, `${record.id}: ${fieldName}[${index}] relatedRouteId must not point back to the current route`);
+    }
+    assert(!seenIds.has(item.id), `${record.id}: duplicate ${fieldName} id "${item.id}"`);
+    seenIds.add(item.id);
+  });
+}
+
 function validateClaimReview(record) {
   assert(Array.isArray(record.claimIds), `${record.id}: claimIds must be an array`);
   const claimIds = new Set();
@@ -232,6 +274,20 @@ function validateScalableTemplateContract(record, route) {
     assert(record.industryFocusHeading, `${record.id}: industryFocusHeading is required for industry pages`);
     validateRouteCardGroup(record, 'bestFitProducts');
     validateFeatureCardGroup(record, 'underwritingFocusCards');
+    validateRouteCardGroup(record, 'alternativePaths');
+  }
+
+  if (record.templateId === 'state_page') {
+    assert(record.shortLabel, `${record.id}: shortLabel is required for state pages`);
+    assert(record.stateCode, `${record.id}: stateCode is required for state pages`);
+    assert(record.whoItFitsHeading, `${record.id}: whoItFitsHeading is required for state pages`);
+    assert(record.bestFitHeading, `${record.id}: bestFitHeading is required for state pages`);
+    assert(record.stateSupportHeading, `${record.id}: stateSupportHeading is required for state pages`);
+    assert(record.stateContextHeading, `${record.id}: stateContextHeading is required for state pages`);
+    assert(record.alternativePathsHeading, `${record.id}: alternativePathsHeading is required for state pages`);
+    validateRouteCardGroup(record, 'bestFitProducts');
+    validateStateSupportCardGroup(record, 'stateSupportCards');
+    validateStateContextCardGroup(record, 'stateContextCards');
     validateRouteCardGroup(record, 'alternativePaths');
   }
 }

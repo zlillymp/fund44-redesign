@@ -13,6 +13,7 @@ test('renderRouteToHtml returns final copy for canonical routes', () => {
   const buyBusiness = renderRouteToHtml('/use-cases/buy-a-business');
   const cashFlowNeeds = renderRouteToHtml('/use-cases/cash-flow-needs');
   const truckingCompanies = renderRouteToHtml('/industries/trucking-companies');
+  const californiaState = renderRouteToHtml('/states/california-sba-loans');
   const article = renderRouteToHtml('/resources/sba-7a-vs-504');
   const notFound = renderRouteToHtml('/missing-route');
 
@@ -30,6 +31,8 @@ test('renderRouteToHtml returns final copy for canonical routes', () => {
   assert.match(cashFlowNeeds.html, /Questions about cash-flow needs/i);
   assert.match(truckingCompanies.html, /Common financing starting points for trucking companies/i);
   assert.match(truckingCompanies.html, /Trucking-specific underwriting and operating questions/i);
+  assert.match(californiaState.html, /Official California support resources to open first/i);
+  assert.match(californiaState.html, /California-specific context worth knowing before the financing comparison/i);
   assert.match(article.html, /SBA 7\(a\) vs SBA 504/i);
   assert.match(notFound.html, /This path doesn't lead anywhere\./i);
 });

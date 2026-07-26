@@ -196,7 +196,10 @@
     "use_case_refinance_business_debt",
     "industry_franchise_businesses",
     "industry_trucking_companies",
-    "industry_construction_contractors"
+    "industry_construction_contractors",
+    "state_california_sba_loans",
+    "state_florida_sba_loans",
+    "state_new_york_sba_loans"
   ],
   "contributors": {
     "authorId": null,

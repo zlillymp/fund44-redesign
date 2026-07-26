@@ -7,7 +7,7 @@ test('link graph covers every canonical indexable route without harmful validati
   const graph = getLinkGraph();
   const validation = validateLinkGraph(graph);
 
-  assert.equal(graph.nodes.length, 27);
+  assert.equal(graph.nodes.length, 30);
   assert.equal(validation.errors.length, 0);
 });
 
@@ -84,6 +84,28 @@ test('industry routes receive hub/contextual/next coverage and inbound links', (
 
     assert.equal(hub.items[0].targetRouteId, 'financing');
     assert.ok(contextual.items.length >= 5);
+    assert.equal(next.items[0].targetRouteId, 'how_it_works');
+    assert.ok((inbound.get(routeId) || 0) > 0, `${routeId} should have at least one inbound link`);
+  });
+});
+
+test('state routes receive hub/contextual/next coverage and inbound links', () => {
+  const graph = getLinkGraph();
+  const validation = validateLinkGraph(graph);
+  const inbound = validation.inboundCounts;
+
+  [
+    'california_sba_loans',
+    'florida_sba_loans',
+    'new_york_sba_loans',
+  ].forEach((routeId) => {
+    const module = getLinkModuleForRoute(routeId);
+    const hub = module.groups.find((group) => group.relation === 'hub');
+    const contextual = module.groups.find((group) => group.relation === 'contextual');
+    const next = module.groups.find((group) => group.relation === 'next');
+
+    assert.equal(hub.items[0].targetRouteId, 'financing');
+    assert.ok(contextual.items.length >= 6);
     assert.equal(next.items[0].targetRouteId, 'how_it_works');
     assert.ok((inbound.get(routeId) || 0) > 0, `${routeId} should have at least one inbound link`);
   });

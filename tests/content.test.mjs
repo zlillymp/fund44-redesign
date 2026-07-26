@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getProgramPages, getResourceHub, getUseCasePages } from '../src/lib/content.js';
+import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getProgramPages, getResourceHub, getStatePages, getUseCasePages } from '../src/lib/content.js';
 import { getRouteBySlug } from '../src/lib/routes.js';
 import { getRouteInventory } from '../src/lib/route-inventory.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
-  assert.equal(allContent.length, 22);
+  assert.equal(allContent.length, 25);
   assert.deepEqual(
     allContent.map((record) => record.id),
     [
@@ -29,6 +29,9 @@ test('structured content inventory covers the planned route set', () => {
       'industry_franchise_businesses',
       'industry_trucking_companies',
       'industry_construction_contractors',
+      'state_california_sba_loans',
+      'state_florida_sba_loans',
+      'state_new_york_sba_loans',
       'page_resources',
       'article_sba_7a_vs_504',
       'article_preparing_your_documents',
@@ -81,6 +84,20 @@ test('industry pages remain discoverable through structured content', () => {
       'franchise_businesses',
       'trucking_companies',
       'construction_contractors',
+    ],
+  );
+});
+
+test('state pages remain discoverable through structured content', () => {
+  const statePages = getStatePages();
+
+  assert.equal(statePages.length, 3);
+  assert.deepEqual(
+    statePages.map((page) => page.routeId),
+    [
+      'california_sba_loans',
+      'florida_sba_loans',
+      'new_york_sba_loans',
     ],
   );
 });
@@ -192,6 +209,28 @@ test('industry launch pages have unique substantive intent and real underwriting
     assert.ok(page.quickAnswer.definition.length > 90, `${page.routeId} quick answer should be substantive`);
     assert.ok(page.bestFitProducts.length >= 3, `${page.routeId} should include best-fit products`);
     assert.ok(page.underwritingFocusCards.length >= 3, `${page.routeId} should include underwriting focus cards`);
+    assert.ok(page.alternativePaths.length >= 3, `${page.routeId} should include alternative paths`);
+    assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
+    assert.ok(page.relatedIds.length >= 6, `${page.routeId} should include at least 6 related links`);
+  });
+});
+
+test('state launch pages have unique substantive intent and real local-support differences', () => {
+  const routeIds = [
+    'california_sba_loans',
+    'florida_sba_loans',
+    'new_york_sba_loans',
+  ];
+  const pages = routeIds.map((routeId) => getContentByRouteId(routeId));
+
+  assert.equal(new Set(pages.map((page) => page.intent.primaryTopic)).size, pages.length);
+  assert.equal(new Set(pages.map((page) => page.metaDescription)).size, pages.length);
+
+  pages.forEach((page) => {
+    assert.ok(page.quickAnswer.definition.length > 100, `${page.routeId} quick answer should be substantive`);
+    assert.ok(page.bestFitProducts.length >= 3, `${page.routeId} should include best-fit products`);
+    assert.ok(page.stateSupportCards.length >= 3, `${page.routeId} should include state support cards`);
+    assert.ok(page.stateContextCards.length >= 3, `${page.routeId} should include state context cards`);
     assert.ok(page.alternativePaths.length >= 3, `${page.routeId} should include alternative paths`);
     assert.ok(page.commonQuestions.length >= 4, `${page.routeId} should include at least 4 FAQs`);
     assert.ok(page.relatedIds.length >= 6, `${page.routeId} should include at least 6 related links`);
