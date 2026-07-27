@@ -8,9 +8,9 @@ const contentByRouteId = new Map(getAllContent().map((record) => [record.routeId
 const routeDescriptionFallbacks = {
   about: 'Learn why Fund44 was built and how it frames the marketplace in plain language.',
   how_it_works: 'See the step-by-step process, routing explanations, document flow, and comparison workflow.',
-  privacy: 'Review the current governance-draft privacy summary and staging data-handling boundaries.',
+  privacy: 'Review how Fund44 handles preview data and privacy while final policies are completed.',
   terms: 'Review the current marketplace, guarantee, credit, and disclosure language.',
-  contact: 'See the controlled TBD contact and legal-identity placeholders while GOV-02 remains blocked.',
+  contact: 'See the contact and business-identity placeholders while verified details are being completed.',
 };
 
 const contextualFallbackRouteIds = {
@@ -217,7 +217,7 @@ function sectionHeading(route) {
   if (route.templateId === 'state_page') return 'Compare related paths';
   if (route.templateId === 'editorial_article' || route.templateId === 'resources_hub') return 'Keep exploring';
   if (route.routeFamily === 'legal' || route.routeFamily === 'contact') return 'Helpful next links';
-  return 'Explore related routes';
+  return 'Explore related financing paths';
 }
 
 export function getLinkModuleForRoute(routeId) {
@@ -226,9 +226,9 @@ export function getLinkModuleForRoute(routeId) {
     throw new Error(`Link modules require an indexable canonical route: ${routeId}`);
   }
 
-  const hubGroup = buildGroup(route, 'hub', 'Hub page', [getHubRouteId(route)]);
-  const contextualGroup = buildGroup(route, 'contextual', 'Related routes', getContextualRouteIds(route));
-  const nextGroup = buildGroup(route, 'next', 'Next step', [getNextStepRouteId(route)]);
+  const hubGroup = buildGroup(route, 'hub', 'Main financing guide', [getHubRouteId(route)]);
+  const contextualGroup = buildGroup(route, 'contextual', 'Related financing paths', getContextualRouteIds(route));
+  const nextGroup = buildGroup(route, 'next', 'Where to go next', [getNextStepRouteId(route)]);
 
   return {
     routeId,

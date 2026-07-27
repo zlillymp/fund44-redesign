@@ -21,8 +21,8 @@ function legalHead(crumbs, title, updated) {
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
     <div class="reveal mt-4 meta-row">
-      <span class="legal-flag">${icon.info} ${indexingPolicy.allowIndexing ? 'Production-indexable legal mode' : 'Staging / preview noindex legal mode'}</span>
-      <span class="muted text-body-sm">${updated ? 'Updated for the current governance draft on 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
+      <span class="legal-flag">${icon.info} ${indexingPolicy.allowIndexing ? 'Production-indexable legal mode' : 'Preview version — not final'}</span>
+      <span class="muted text-body-sm">${updated ? 'Preview version updated 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
     </div>
   </section>`;
 }
@@ -37,8 +37,8 @@ export function privacy() {
   const crumbs = getBreadcrumbs('privacy');
   const linkModule = getLinkModuleForRoute('privacy');
   setMeta({
-    title: 'Privacy — governance draft',
-    description: 'Governance draft privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
+    title: 'Privacy policy (preview)',
+    description: 'Preview privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
     path: hrefForRoute('privacy'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
@@ -85,8 +85,8 @@ export function terms() {
   const crumbs = getBreadcrumbs('terms');
   const linkModule = getLinkModuleForRoute('terms');
   setMeta({
-    title: 'Terms & disclosures — governance draft',
-    description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in governance-draft form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
+    title: 'Terms & disclosures (preview)',
+    description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in preview form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
     path: hrefForRoute('terms'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
@@ -142,7 +142,7 @@ export function contact() {
   return `
   ${legalHead(crumbs, 'Contact', false)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Controlled TBD state.</strong> ${disclosures.contactPlaceholder}`, {
+    ${disclosure(`<strong>Details being finalized.</strong> ${disclosures.contactPlaceholder}`, {
       disclosureId: 'contact_page_tbd_disclosure',
       disclosureContext: 'contact_page',
     })}
