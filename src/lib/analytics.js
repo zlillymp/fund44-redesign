@@ -2,6 +2,7 @@ import { getRouteMatch, absoluteUrlForPath } from './routes.js';
 import { getContentByRouteId } from './content.js';
 import { freshnessAnalyticsStateForRoute } from './freshness-runtime.js';
 import { indexingPolicy } from './legal.js';
+import { getActiveExperimentIds, isExperimentActive } from './experiments.js';
 
 export const ANALYTICS_EVENT_VERSION = '2026-07-26.f44-mea-02';
 export const ANALYTICS_DEBUG_GLOBAL = '__FUND44_ANALYTICS_DEBUG__';
@@ -373,7 +374,9 @@ function sharedFields(context = {}, overrides = {}) {
     utm_medium: overrides.utm_medium ?? attribution.utm_medium,
     utm_campaign: overrides.utm_campaign ?? attribution.utm_campaign,
     referrer_domain: overrides.referrer_domain ?? attribution.referrer_domain,
-    experiment_ids: Array.isArray(overrides.experiment_ids) ? overrides.experiment_ids.slice() : [],
+    experiment_ids: Array.isArray(overrides.experiment_ids)
+      ? overrides.experiment_ids.slice()
+      : getActiveExperimentIds(getSessionId()),
     consent_state: overrides.consent_state || currentConsentState(),
   };
 }
@@ -838,6 +841,20 @@ export function trackA11yCheckResult({ suiteName, result, defectCount }) {
     defect_count: Number(defectCount),
     eligibility_mode: 'none',
   }, currentRouteContext());
+}
+
+export function trackExperimentExposure({ experimentId, variantId, surface }) {
+  // A killed or disabled experiment must stop emitting exposures immediately,
+  // regardless of what the caller believes is active.
+  if (!isExperimentActive(experimentId)) return false;
+
+  trackEvent('experiment_exposure', {
+    experiment_id: safeString(experimentId),
+    variant_id: safeString(variantId),
+    surface: safeString(surface),
+    eligibility_mode: 'none',
+  }, currentRouteContext());
+  return true;
 }
 
 export const analyticsEventSpec = Object.freeze(
