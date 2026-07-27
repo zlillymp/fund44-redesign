@@ -19,6 +19,9 @@ test('serialized flow state excludes contact-style fields and keeps only minimal
   let state = selectMode(createInitialEligibilityState({
     requestedMode: 'preview',
     entryRouteId: 'home',
+    productContextRouteId: 'working_capital',
+    productContextTitle: 'Injected title should be replaced',
+    funnelContextKind: 'program',
   }), ELIGIBILITY_MODES.preview);
 
   state = updateField(state, 'use', 'working');
@@ -45,6 +48,9 @@ test('serialized flow state excludes contact-style fields and keeps only minimal
     'use',
   ]);
   assert.equal(snapshot.context.entryRouteId, 'home');
+  assert.equal(snapshot.context.productContextRouteId, 'working_capital');
+  assert.equal(snapshot.context.productContextTitle, 'Working capital & lines of credit');
+  assert.equal(snapshot.context.funnelContextKind, 'program');
 });
 
 test('resumed state marks recovery and clamps unknown step ids', () => {
@@ -66,4 +72,21 @@ test('resumed state marks recovery and clamps unknown step ids', () => {
   assert.equal(resumed.recovery.piiDropped, true);
   assert.equal(resumed.values.use, 'working');
   assert.equal(resumed.values.stateCode, 'CA');
+});
+
+test('serialized flow state drops invalid persisted context values and keeps generic fallback', () => {
+  const snapshot = serializeEligibilityState({
+    ...createInitialEligibilityState({
+      requestedMode: 'preview',
+      entryRouteId: 'contact',
+      productContextRouteId: 'not_a_real_route',
+      productContextTitle: 'Injected free text',
+      funnelContextKind: 'not_allowed',
+    }),
+    isOpen: true,
+  });
+
+  assert.equal(snapshot.context.productContextRouteId, null);
+  assert.equal(snapshot.context.productContextTitle, null);
+  assert.equal(snapshot.context.funnelContextKind, 'generic');
 });

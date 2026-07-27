@@ -10,6 +10,7 @@ import {
   AMOUNT_OPTIONS,
   ELIGIBILITY_MODES,
   FIELD_IDS,
+  FUNNEL_CONTEXT_KINDS,
   OUTCOME_CATEGORIES,
   REVENUE_OPTIONS,
   STEP_IDS,
@@ -21,6 +22,8 @@ import {
   createInitialEligibilityState,
   getAnnouncement,
   getConsentChecklist,
+  getContextKindLabel,
+  getContextProofCopy,
   getCurrentSequence,
   getEntryContextSummary,
   getFieldError,
@@ -180,7 +183,18 @@ function flowRecommendationCtaId(item) {
     case 'compare':
       return 'compare_financing_after_outcome';
     case 'entry_context':
-      return 'return_to_entry_context';
+      switch (item?.contextKind) {
+        case FUNNEL_CONTEXT_KINDS.program:
+          return 'return_to_program_context';
+        case FUNNEL_CONTEXT_KINDS.useCase:
+          return 'return_to_use_case_context';
+        case FUNNEL_CONTEXT_KINDS.industry:
+          return 'return_to_industry_context';
+        case FUNNEL_CONTEXT_KINDS.state:
+          return 'return_to_state_context';
+        default:
+          return 'return_to_entry_context';
+      }
     case 'recommended_path':
       return 'recommended_path_after_outcome';
     case 'guidance':
@@ -225,6 +239,10 @@ function modeTagLabel() {
   return mode === ELIGIBILITY_MODES.live ? 'Eligibility live mode' : 'Eligibility preview';
 }
 
+function contextTagLabel() {
+  return `${getContextKindLabel(flowState.context.funnelContextKind)} context`;
+}
+
 function routeLabel(routeId) {
   try {
     return getContentByRouteId(routeId)?.title || routeId;
@@ -239,6 +257,20 @@ function routeLabel(routeId) {
 
 function recommendationLabel(item) {
   if (!item?.routeId) return '';
+  if (item.relation === 'entry_context') {
+    switch (item.contextKind) {
+      case FUNNEL_CONTEXT_KINDS.program:
+        return item.label || 'Return to this financing page';
+      case FUNNEL_CONTEXT_KINDS.useCase:
+        return item.label || 'Return to this use-case page';
+      case FUNNEL_CONTEXT_KINDS.industry:
+        return item.label || 'Return to this industry page';
+      case FUNNEL_CONTEXT_KINDS.state:
+        return item.label || 'Return to this state page';
+      default:
+        return item.label || 'Return to your starting page';
+    }
+  }
   if (item.label && item.label !== item.routeId) return item.label;
   return routeLabel(item.routeId);
 }
@@ -246,6 +278,7 @@ function recommendationLabel(item) {
 function matchedPathLabels() {
   const option = getUseOption(flowState.values.use);
   const useLabel = option?.label || 'Relevant financing path';
+  const contextKind = flowState.context.funnelContextKind;
 
   const pathMap = {
     acquisition: [
@@ -280,7 +313,17 @@ function matchedPathLabels() {
     ],
   };
 
-  return pathMap[flowState.values.use] || [useLabel, 'Financing overview', 'Resources'];
+  const contextSpecific = {
+    [FUNNEL_CONTEXT_KINDS.program]: 'Return to the product page that opened this preview',
+    [FUNNEL_CONTEXT_KINDS.useCase]: 'Keep the borrower-goal comparison tied to the use-case page that opened this preview',
+    [FUNNEL_CONTEXT_KINDS.industry]: 'Keep the next step tied to the industry-specific comparison page that opened this preview',
+    [FUNNEL_CONTEXT_KINDS.state]: 'Keep the next step tied to the state-resource page that opened this preview',
+  };
+
+  return [
+    ...(pathMap[flowState.values.use] || [useLabel, 'Financing overview']),
+    contextSpecific[contextKind] || 'Return to the page that opened this preview',
+  ].slice(0, 3);
 }
 
 function renderModeCards() {
@@ -404,6 +447,7 @@ function renderConsentReview() {
     <div class="field consent-card${nextStepError ? ' err' : ''}">
       <div class="eyebrow mb-4">What happens next</div>
       <p class="muted text-body-sm">${escapeHtml(getEntryContextSummary(flowState))}</p>
+      <p class="muted text-body-sm mt-4">${escapeHtml(getContextProofCopy(flowState.context.funnelContextKind))}</p>
       <label class="check-option" for="f-next-step-consent">
         <input
           id="f-next-step-consent"
@@ -452,6 +496,7 @@ function renderOutcomeView() {
   const outcome = flowState.outcome;
   const selectedUse = getUseOption(flowState.values.use);
   const resultPaths = matchedPathLabels();
+  const contextLabel = getContextKindLabel(flowState.context.funnelContextKind);
 
   if (!outcome) {
     return '';
@@ -463,8 +508,10 @@ function renderOutcomeView() {
       <span class="tag">${escapeHtml(outcome.badge)}</span>
       <h2 class="step-title mt-4" id="flowDialogTitle">${escapeHtml(outcome.heading)}</h2>
       <p class="step-why">${escapeHtml(outcome.summary)}</p>
+      <p class="muted text-body-sm flow-center mt-4">Started from a ${escapeHtml(contextLabel)}. The recommendations below keep that route intent attached to the next step.</p>
       <div class="result-summary layout-left">
         <div class="rs-row"><span>Mode</span><b>${escapeHtml(getModeLabel(flowState.context.activeMode || ELIGIBILITY_MODES.preview))}</b></div>
+        <div class="rs-row"><span>Entry context</span><b>${escapeHtml(flowState.context.productContextTitle || flowState.context.entryTitle || 'Generic preview entry')}</b></div>
         <div class="rs-row"><span>Use of funds</span><b>${escapeHtml(selectedUse?.label || 'Not selected')}</b></div>
         <div class="rs-row"><span>Amount</span><b>${escapeHtml(flowState.values.amount || 'Not selected')}</b></div>
         <div class="rs-row"><span>Time in business</span><b>${escapeHtml(flowState.values.tib || 'Not selected')}</b></div>
@@ -570,6 +617,7 @@ function renderDialogFrame(definition) {
     <div class="dialog-head">
       <div class="dialog-head-row">
         <span class="tag">${icon.route} ${escapeHtml(modeTagLabel())}</span>
+        <span class="tag">${icon.info} ${escapeHtml(contextTagLabel())}</span>
         <button class="dialog-close" data-flow-close aria-label="Close">${icon.close}</button>
       </div>
       <div class="progress-track"><div class="progress-fill" style="width:${progressPercent}%;"></div></div>

@@ -113,6 +113,7 @@ useCaseRoutes.forEach((routeId) => {
   const html = routeHtml.get(routeId) || '';
   assert(html.includes('data-analytics-cta-id="use_case_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
   assert(html.includes('data-analytics-cta-id="use_case_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+  assert(html.includes('data-flow-context-kind="use_case"'), `${routeId} must expose use-case funnel context markers`);
 });
 
 const industryRoutes = getAllContent()
@@ -123,6 +124,7 @@ industryRoutes.forEach((routeId) => {
   const html = routeHtml.get(routeId) || '';
   assert(html.includes('data-analytics-cta-id="industry_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
   assert(html.includes('data-analytics-cta-id="industry_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+  assert(html.includes('data-flow-context-kind="industry"'), `${routeId} must expose industry funnel context markers`);
 });
 
 const stateRoutes = getAllContent()
@@ -133,6 +135,12 @@ stateRoutes.forEach((routeId) => {
   const html = routeHtml.get(routeId) || '';
   assert(html.includes('data-analytics-cta-id="state_best_fit_link"'), `${routeId} must expose best-fit CTA tracking`);
   assert(html.includes('data-analytics-cta-id="state_alternative_link"'), `${routeId} must expose alternative-path CTA tracking`);
+  assert(html.includes('data-flow-context-kind="state"'), `${routeId} must expose state funnel context markers`);
+});
+
+['sba_7a', 'sba_504', 'business_acquisition', 'working_capital', 'term_loan', 'line_of_credit', 'equipment_financing'].forEach((routeId) => {
+  const html = routeHtml.get(routeId) || '';
+  assert(html.includes('data-flow-context-kind="program"'), `${routeId} must expose program funnel context markers`);
 });
 
 const notFoundHtml = routeHtml.get('not_found') || '';

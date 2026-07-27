@@ -15,6 +15,7 @@ import {
 import { getBreadcrumbs, hrefForContentId, hrefForRoute } from '../lib/routes.js';
 import { getContentByRouteId } from '../lib/content.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
+import { FUNNEL_CONTEXT_KINDS, getContextProofCopy } from '../lib/eligibility/model.js';
 
 function renderRouteCards(routeId, items, { analyticsCtaId, analyticsPlacement, eyebrowLabel }) {
   return `
@@ -60,11 +61,13 @@ function renderIndustry(routeId) {
     eyebrow: content.hero.eyebrow,
     title: content.hero.title,
     lead: content.hero.lead,
+    contextProof: getContextProofCopy(FUNNEL_CONTEXT_KINDS.industry),
     flowContext: {
       ctaId: 'preview_funding_paths',
       startSurface: 'industry_page_hero',
       productContextRouteId: content.routeId,
       productContextTitle: content.title,
+      funnelContextKind: FUNNEL_CONTEXT_KINDS.industry,
     },
   })}
 
@@ -127,6 +130,7 @@ function renderIndustry(routeId) {
     startSurface: 'industry_cta_banner',
     productContextRouteId: content.routeId,
     productContextTitle: content.title,
+    funnelContextKind: FUNNEL_CONTEXT_KINDS.industry,
   })}
 
   ${relatedLinksModule(linkModule)}

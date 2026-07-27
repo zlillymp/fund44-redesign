@@ -12,6 +12,7 @@ import {
   unresolvedIdentityFields,
 } from '../lib/legal.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
+import { FUNNEL_CONTEXT_KINDS } from '../lib/eligibility/model.js';
 
 function legalHead(crumbs, title, updated) {
   return `
@@ -191,7 +192,7 @@ export function contact() {
         data-start-surface="contact_page_primary"
         data-flow-mode="preview"
         data-flow-product-route-id="contact"
-        data-flow-product-title="Contact"
+        data-flow-context-kind="${FUNNEL_CONTEXT_KINDS.generic}"
       >Preview funding paths ${icon.arrow}</button>
     </div>
   </section>

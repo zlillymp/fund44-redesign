@@ -1,5 +1,10 @@
 import { getContentByRouteId } from '../content.js';
-import { getRouteMatch } from '../routes.js';
+import { getRoute, getRouteMatch } from '../routes.js';
+import {
+  FUNNEL_CONTEXT_KINDS,
+  inferFunnelContextKind,
+  normalizeFunnelContextKind,
+} from './model.js';
 import { defaultRequestedMode } from './storage.js';
 
 function escapeAttribute(value) {
@@ -15,21 +20,18 @@ export function flowTriggerAttributes({
   startSurface = 'inline',
   requestedMode = 'preview',
   productContextRouteId = '',
-  productContextTitle = '',
+  funnelContextKind = FUNNEL_CONTEXT_KINDS.generic,
 } = {}) {
   const attributes = {
     'data-open-flow': '',
     'data-cta-id': ctaId,
     'data-start-surface': startSurface,
     'data-flow-mode': defaultRequestedMode(requestedMode),
+    'data-flow-context-kind': normalizeFunnelContextKind(funnelContextKind),
   };
 
   if (productContextRouteId) {
     attributes['data-flow-product-route-id'] = productContextRouteId;
-  }
-
-  if (productContextTitle) {
-    attributes['data-flow-product-title'] = productContextTitle;
   }
 
   return Object.entries(attributes)
@@ -45,6 +47,23 @@ function tryGetContentTitle(routeId) {
   }
 }
 
+function tryGetRouteTitle(routeId) {
+  try {
+    return getRoute(routeId)?.title || null;
+  } catch {
+    return null;
+  }
+}
+
+function tryGetAllowedRouteId(routeId) {
+  if (!routeId) return null;
+  try {
+    return getRoute(routeId).routeId;
+  } catch {
+    return null;
+  }
+}
+
 export function buildFlowContextFromTrigger(trigger) {
   const match = getRouteMatch(window.location.pathname);
   const route = match.route;
@@ -52,8 +71,16 @@ export function buildFlowContextFromTrigger(trigger) {
   const requestedMode = defaultRequestedMode(trigger?.dataset?.flowMode);
   const startCtaId = trigger?.dataset?.ctaId || `${requestedMode}_funding_paths`;
   const startSurface = trigger?.dataset?.startSurface || 'inline';
-  const productContextRouteId = trigger?.dataset?.flowProductRouteId || (route.routeFamily === 'financing_program' ? route.routeId : null);
-  const productContextTitle = trigger?.dataset?.flowProductTitle || (productContextRouteId ? tryGetContentTitle(productContextRouteId) : null);
+  const fallbackRouteFamilies = new Set(['financing_program', 'use_case', 'industry', 'state']);
+  const requestedProductRouteId = trigger?.dataset?.flowProductRouteId
+    || (fallbackRouteFamilies.has(route.routeFamily) ? route.routeId : null);
+  const productContextRouteId = tryGetAllowedRouteId(requestedProductRouteId);
+  const productContextTitle = productContextRouteId
+    ? (tryGetContentTitle(productContextRouteId) || tryGetRouteTitle(productContextRouteId))
+    : null;
+  const funnelContextKind = normalizeFunnelContextKind(
+    trigger?.dataset?.flowContextKind || inferFunnelContextKind(route.routeFamily),
+  );
 
   return {
     requestedMode,
@@ -66,7 +93,9 @@ export function buildFlowContextFromTrigger(trigger) {
     entryPath: route.path,
     entryPageType: route.pageType,
     entryTitle: currentContentTitle || route.title || null,
+    entryRouteFamily: route.routeFamily || null,
     productContextRouteId,
     productContextTitle,
+    funnelContextKind,
   };
 }
