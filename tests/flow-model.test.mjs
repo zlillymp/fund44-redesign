@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   ELIGIBILITY_MODES,
+  FUNNEL_CONTEXT_KINDS,
   OUTCOME_CATEGORIES,
   STEP_IDS,
   advanceState,
@@ -115,4 +116,59 @@ test('restart keeps entry context but resets answers and mode selection state', 
   assert.equal(reset.values.amount, '');
   assert.equal(reset.context.entryRouteId, 'working_capital');
   assert.equal(reset.context.productContextRouteId, 'working_capital');
+});
+
+test('outcome recommendations preserve route-family context for program entries', () => {
+  let state = selectMode(createInitialEligibilityState({
+    requestedMode: 'preview',
+    entryRouteId: 'working_capital',
+    entryTitle: 'Working capital & lines of credit',
+    entryRouteFamily: 'financing_program',
+    productContextRouteId: 'working_capital',
+    productContextTitle: 'Working capital & lines of credit',
+    funnelContextKind: FUNNEL_CONTEXT_KINDS.program,
+  }), ELIGIBILITY_MODES.preview);
+
+  state = updateField(state, 'use', 'working');
+  state = updateField(state, 'amount', '$150k-$350k');
+  state = updateField(state, 'tib', '2-5 years');
+  state = updateField(state, 'revenue', '$500k-$1M');
+  state = updateField(state, 'stateCode', 'CA');
+
+  const outcome = deriveOutcome(state);
+  const entryContext = outcome.recommendations.find((item) => item.relation === 'entry_context');
+
+  assert.equal(entryContext.routeId, 'working_capital');
+  assert.equal(entryContext.contextKind, FUNNEL_CONTEXT_KINDS.program);
+});
+
+test('outcome recommendations preserve route-family context for use-case, industry, and state entries', () => {
+  const cases = [
+    ['buy_a_business', 'Financing to buy a business', FUNNEL_CONTEXT_KINDS.useCase],
+    ['franchise_businesses', 'Financing for franchise businesses', FUNNEL_CONTEXT_KINDS.industry],
+    ['california_sba_loans', 'California SBA loan resources', FUNNEL_CONTEXT_KINDS.state],
+  ];
+
+  for (const [routeId, title, contextKind] of cases) {
+    let state = selectMode(createInitialEligibilityState({
+      requestedMode: 'preview',
+      entryRouteId: routeId,
+      entryTitle: title,
+      productContextRouteId: routeId,
+      productContextTitle: title,
+      funnelContextKind: contextKind,
+    }), ELIGIBILITY_MODES.preview);
+
+    state = updateField(state, 'use', 'acquisition');
+    state = updateField(state, 'amount', '$350k-$750k');
+    state = updateField(state, 'tib', '2-5 years');
+    state = updateField(state, 'revenue', '$500k-$1M');
+    state = updateField(state, 'stateCode', 'CA');
+
+    const outcome = deriveOutcome(state);
+    const entryContext = outcome.recommendations.find((item) => item.relation === 'entry_context');
+
+    assert.equal(entryContext.routeId, routeId);
+    assert.equal(entryContext.contextKind, contextKind);
+  }
 });

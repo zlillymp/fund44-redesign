@@ -112,6 +112,23 @@ export const FIELD_IDS = Object.freeze({
   nextStepConsent: 'nextStepConsent',
 });
 
+export const FUNNEL_CONTEXT_KINDS = Object.freeze({
+  generic: 'generic',
+  program: 'program',
+  useCase: 'use_case',
+  industry: 'industry',
+  state: 'state',
+});
+
+export const ALLOWED_FUNNEL_CONTEXT_KINDS = new Set(Object.values(FUNNEL_CONTEXT_KINDS));
+
+const ROUTE_FAMILY_TO_CONTEXT_KIND = Object.freeze({
+  financing_program: FUNNEL_CONTEXT_KINDS.program,
+  use_case: FUNNEL_CONTEXT_KINDS.useCase,
+  industry: FUNNEL_CONTEXT_KINDS.industry,
+  state: FUNNEL_CONTEXT_KINDS.state,
+});
+
 export const PREVIEW_STEP_SEQUENCE = Object.freeze([
   STEP_IDS.modeSelect,
   STEP_IDS.useOfFunds,
@@ -161,12 +178,67 @@ const DEFAULT_CONTEXT = Object.freeze({
   entryPath: '/',
   entryPageType: null,
   entryTitle: null,
+  entryRouteFamily: null,
   productContextRouteId: null,
   productContextTitle: null,
+  funnelContextKind: FUNNEL_CONTEXT_KINDS.generic,
 });
 
 export function normalizeMode(mode) {
   return mode === ELIGIBILITY_MODES.live ? ELIGIBILITY_MODES.live : mode === ELIGIBILITY_MODES.preview ? ELIGIBILITY_MODES.preview : '';
+}
+
+export function normalizeFunnelContextKind(value) {
+  return ALLOWED_FUNNEL_CONTEXT_KINDS.has(value) ? value : FUNNEL_CONTEXT_KINDS.generic;
+}
+
+export function inferFunnelContextKind(routeFamily, fallback = FUNNEL_CONTEXT_KINDS.generic) {
+  return ROUTE_FAMILY_TO_CONTEXT_KIND[routeFamily] || normalizeFunnelContextKind(fallback);
+}
+
+export function getContextKindLabel(kind) {
+  switch (normalizeFunnelContextKind(kind)) {
+    case FUNNEL_CONTEXT_KINDS.program:
+      return 'product page';
+    case FUNNEL_CONTEXT_KINDS.useCase:
+      return 'use-case page';
+    case FUNNEL_CONTEXT_KINDS.industry:
+      return 'industry page';
+    case FUNNEL_CONTEXT_KINDS.state:
+      return 'state page';
+    default:
+      return 'page';
+  }
+}
+
+export function getContextProofCopy(kind) {
+  switch (normalizeFunnelContextKind(kind)) {
+    case FUNNEL_CONTEXT_KINDS.program:
+      return 'The preview keeps the product route you started from attached so the outcome can point back to the same financing comparison.';
+    case FUNNEL_CONTEXT_KINDS.useCase:
+      return 'The preview keeps the borrowing-intent page attached so the outcome stays grounded in the same use-case context.';
+    case FUNNEL_CONTEXT_KINDS.industry:
+      return 'The preview keeps the industry page attached so the outcome can preserve the same sector-specific comparison context.';
+    case FUNNEL_CONTEXT_KINDS.state:
+      return 'The preview keeps the state-resource page attached so the outcome can return you to the same local-support context when relevant.';
+    default:
+      return 'The preview keeps the opening page attached so the outcome can point back to the same route context.';
+  }
+}
+
+export function getContextNextStepCopy(kind) {
+  switch (normalizeFunnelContextKind(kind)) {
+    case FUNNEL_CONTEXT_KINDS.program:
+      return 'The outcome keeps the current financing route in view and can redirect to adjacent product comparisons when the selected goal points elsewhere.';
+    case FUNNEL_CONTEXT_KINDS.useCase:
+      return 'The outcome keeps the same borrower-goal context in view and can redirect to product pages that usually anchor that use case.';
+    case FUNNEL_CONTEXT_KINDS.industry:
+      return 'The outcome keeps the same industry context in view and can redirect to the product or document pages that usually matter next.';
+    case FUNNEL_CONTEXT_KINDS.state:
+      return 'The outcome keeps the same state-resource context in view and can redirect to the national financing or document pages that fit the next comparison.';
+    default:
+      return 'The outcome can return to the page you started from and route you to the next approved comparison path.';
+  }
 }
 
 export function getModeLabel(mode) {
@@ -564,18 +636,21 @@ export function getOutcomeCopy(outcomeCategory) {
 export function getOutcomeRecommendations(state, outcomeCategory) {
   const useOption = getUseOption(state.values.use);
   const recommendations = [];
+  const contextKind = normalizeFunnelContextKind(state.context.funnelContextKind);
 
   if (state.context.productContextRouteId) {
     recommendations.push({
       routeId: state.context.productContextRouteId,
       label: state.context.productContextTitle || 'Return to the page you started from',
       relation: 'entry_context',
+      contextKind,
     });
   } else if (state.context.entryRouteId && state.context.entryRouteId !== 'home') {
     recommendations.push({
       routeId: state.context.entryRouteId,
       label: state.context.entryTitle || 'Return to your starting page',
       relation: 'entry_context',
+      contextKind,
     });
   }
 
@@ -584,6 +659,7 @@ export function getOutcomeRecommendations(state, outcomeCategory) {
       routeId: useOption.recommendedRouteId,
       label: useOption.label,
       relation: 'recommended_path',
+      contextKind,
     });
   }
 
@@ -592,6 +668,7 @@ export function getOutcomeRecommendations(state, outcomeCategory) {
       routeId,
       label: routeId,
       relation: 'related_path',
+      contextKind,
     });
   });
 
@@ -600,6 +677,7 @@ export function getOutcomeRecommendations(state, outcomeCategory) {
       routeId: 'contact',
       label: 'Contact',
       relation: 'contact',
+      contextKind,
     });
   }
 
@@ -608,12 +686,14 @@ export function getOutcomeRecommendations(state, outcomeCategory) {
       routeId: 'resources',
       label: 'Resources',
       relation: 'guidance',
+      contextKind,
     });
   } else {
     recommendations.push({
       routeId: 'financing',
       label: 'Financing overview',
       relation: 'compare',
+      contextKind,
     });
   }
 
@@ -670,12 +750,13 @@ export function getAnnouncement(state) {
 }
 
 export function getEntryContextSummary(state) {
+  const contextLabel = getContextKindLabel(state.context.funnelContextKind);
   const sourceTitle = state.context.productContextTitle || state.context.entryTitle;
   if (!sourceTitle) {
-    return 'No product page context was attached to this start.';
+    return `No ${contextLabel} context was attached to this start.`;
   }
 
-  return `Started from ${sourceTitle}. That context stays attached to the preview so the outcome can point back to the page that opened it.`;
+  return `Started from ${sourceTitle}. That ${contextLabel} context stays attached to the preview so the outcome can point back to the page that opened it.`;
 }
 
 export function getConsentChecklist(state) {
@@ -703,5 +784,6 @@ export function getNextStepChecklist(state) {
   return [
     'After this step, the preview will place your answers into one of three routing buckets: qualified, manual review, or not fit.',
     'The outcome will point to pages or contact paths that fit the information you selected, without promising an approval or lender action.',
+    getContextNextStepCopy(state.context.funnelContextKind),
   ];
 }

@@ -69,7 +69,7 @@ test.describe('release browser smoke', () => {
   test('eligibility preview flow emits step, validation, outcome, disclosure, and trust analytics', async ({ page }) => {
     await page.goto('/working-capital');
 
-    await page.getByRole('button', { name: /preview my funding paths/i }).first().click();
+    await page.getByRole('button', { name: /preview funding paths/i }).first().click();
     await expect(page.locator('#flowDialog')).toBeVisible();
 
     await page.locator('[data-mode-choice="preview"]').click();
