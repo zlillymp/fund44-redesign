@@ -231,6 +231,27 @@ test('flow analytics override page_type to funnel_step and funnel_outcome', () =
   }
 });
 
+test('contextual funnel outcome CTA ids stay renderable for all route families', async () => {
+  const { renderRouteToHtml } = await import('../src/pages/index.js');
+
+  const routeExpectations = [
+    ['working_capital', 'data-flow-context-kind="program"'],
+    ['buy_a_business', 'data-flow-context-kind="use_case"'],
+    ['franchise_businesses', 'data-flow-context-kind="industry"'],
+    ['california_sba_loans', 'data-flow-context-kind="state"'],
+  ];
+
+  routeExpectations.forEach(([routeId, expectedContextMarker]) => {
+    const html = renderRouteToHtml(({
+      working_capital: '/working-capital',
+      buy_a_business: '/use-cases/buy-a-business',
+      franchise_businesses: '/industries/franchise-businesses',
+      california_sba_loans: '/states/california-sba-loans',
+    })[routeId]).html;
+    assert.match(html, new RegExp(expectedContextMarker));
+  });
+});
+
 test('session and attribution persist through sessionStorage', () => {
   const restore = installBrowserEnv({
     pathname: '/',

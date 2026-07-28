@@ -62,7 +62,6 @@ export function resources() {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'resources_hub_cta_banner',
     productContextRouteId: hub.routeId,
-    productContextTitle: hub.title,
   })}
 
   ${relatedLinksModule(linkModule)}
@@ -154,7 +153,6 @@ export function article(slug) {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'article_cta_banner',
     productContextRouteId: content.routeId,
-    productContextTitle: content.title,
   })}
 
   ${relatedLinksModule(linkModule)}

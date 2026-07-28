@@ -191,7 +191,6 @@ export function contact() {
         data-start-surface="contact_page_primary"
         data-flow-mode="preview"
         data-flow-product-route-id="contact"
-        data-flow-product-title="Contact"
       >Preview funding paths ${icon.arrow}</button>
     </div>
   </section>

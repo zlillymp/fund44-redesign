@@ -109,7 +109,7 @@ Every event below must include these properties unless explicitly not applicable
 
 | Event | When it fires | Event-specific properties |
 | --- | --- | --- |
-| `experiment_exposure` | When a user is bucketed into an active experiment. | `experiment_id`, `variant_id`, `surface` |
+| `experiment_exposure` | When an active experiment variant becomes visible to the user. | `experiment_id`, `variant_id`, `surface` |
 | `js_error` | When a client-side error is captured for monitoring. | `error_name`, `error_source`, `is_fatal` |
 | `performance_budget_result` | When automated performance checks run. | `environment`, `budget_name`, `result` |
 | `a11y_check_result` | When automated accessibility checks run in CI. | `suite_name`, `result`, `defect_count` |

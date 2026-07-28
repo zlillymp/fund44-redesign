@@ -1,10 +1,14 @@
 import {
   ELIGIBILITY_MODES,
+  FUNNEL_CONTEXT_KINDS,
   STEP_IDS,
   US_STATE_CODES,
   createResumedEligibilityState,
+  normalizeFunnelContextKind,
   normalizeMode,
 } from './model.js';
+import { getRoute } from '../routes.js';
+import { getContentByRouteId } from '../content.js';
 
 const STORAGE_KEY = 'fund44:eligibility-flow:v1';
 const HISTORY_KEY = 'fund44:eligibility-flow:history:v1';
@@ -24,6 +28,21 @@ function safeStorage() {
 }
 
 function sanitizeContext(context = {}) {
+  const allowedProductRouteId = (() => {
+    try {
+      return context.productContextRouteId ? getRoute(context.productContextRouteId).routeId : null;
+    } catch {
+      return null;
+    }
+  })();
+  const safeProductContextTitle = (() => {
+    if (!allowedProductRouteId) return null;
+    try {
+      return getContentByRouteId(allowedProductRouteId)?.title || getRoute(allowedProductRouteId)?.title || null;
+    } catch {
+      return null;
+    }
+  })();
   return {
     requestedMode: normalizeMode(context.requestedMode),
     activeMode: normalizeMode(context.activeMode),
@@ -34,9 +53,11 @@ function sanitizeContext(context = {}) {
     entryContentId: context.entryContentId || null,
     entryPath: context.entryPath || '/',
     entryPageType: context.entryPageType || null,
-    entryTitle: context.entryTitle || null,
-    productContextRouteId: context.productContextRouteId || null,
-    productContextTitle: context.productContextTitle || null,
+    entryTitle: typeof context.entryTitle === 'string' ? context.entryTitle : null,
+    entryRouteFamily: typeof context.entryRouteFamily === 'string' ? context.entryRouteFamily : null,
+    productContextRouteId: allowedProductRouteId,
+    productContextTitle: safeProductContextTitle,
+    funnelContextKind: normalizeFunnelContextKind(context.funnelContextKind || FUNNEL_CONTEXT_KINDS.generic),
   };
 }
 
