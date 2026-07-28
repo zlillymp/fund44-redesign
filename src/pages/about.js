@@ -26,7 +26,6 @@ export function about() {
       ctaId: 'preview_funding_paths',
       startSurface: 'about_page_hero',
       productContextRouteId: 'about',
-      productContextTitle: 'About Fund44',
     },
   })}
 
@@ -83,7 +82,6 @@ export function about() {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'about_cta_banner',
     productContextRouteId: 'about',
-    productContextTitle: 'About Fund44',
   })}
 
   ${relatedLinksModule(linkModule)}

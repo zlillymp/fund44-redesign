@@ -47,13 +47,13 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 
 ## home
 
-### Hub page
+### Main financing guide
 
 - None
 
-### Related routes
+### Related financing paths
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
@@ -61,18 +61,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
 - `about` /about — Learn why Fund44 was built and how it frames the marketplace in plain language.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## financing
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
@@ -94,69 +94,69 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
 - `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## sba_7a
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
 - `resource_sba_7a_vs_504` /resources/sba-7a-vs-504 — A comparison article that distinguishes SBA 7(a) from SBA 504 and explains when each program is typically considered.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## sba_504
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `resource_sba_7a_vs_504` /resources/sba-7a-vs-504 — A comparison article that distinguishes SBA 7(a) from SBA 504 and explains when each program is typically considered.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## business_acquisition
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## working_capital
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
@@ -165,69 +165,69 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## term_loan
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## line_of_credit
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## equipment_financing
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## buy_a_business
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
@@ -236,18 +236,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `refinance_business_debt` /use-cases/refinance-business-debt — The refinance-business-debt use-case page compares the financing routes most often reviewed when the goal is restructuring, consolidating, or replacing existing business obligations.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## owner_occupied_real_estate
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
@@ -256,18 +256,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## cash_flow_needs
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
@@ -277,18 +277,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `refinance_business_debt` /use-cases/refinance-business-debt — The refinance-business-debt use-case page compares the financing routes most often reviewed when the goal is restructuring, consolidating, or replacing existing business obligations.
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## equipment_purchase
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
@@ -298,18 +298,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## business_expansion
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
@@ -319,18 +319,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## refinance_business_debt
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
@@ -339,18 +339,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## franchise_businesses
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
@@ -359,18 +359,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## trucking_companies
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
@@ -378,18 +378,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## construction_contractors
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
@@ -398,18 +398,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## california_sba_loans
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
@@ -420,18 +420,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## florida_sba_loans
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
@@ -442,18 +442,18 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## new_york_sba_loans
 
-### Hub page
+### Main financing guide
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
@@ -464,50 +464,50 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
 
-### Next step
+### Where to go next
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 
 
 ## how_it_works
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
 - `about` /about — Learn why Fund44 was built and how it frames the marketplace in plain language.
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## about
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
 - `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## resources
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
@@ -519,109 +519,109 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## resource_sba_7a_vs_504
 
-### Hub page
+### Main financing guide
 
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 
-### Related routes
+### Related financing paths
 
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## resource_preparing_documents
 
-### Hub page
+### Main financing guide
 
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 
-### Related routes
+### Related financing paths
 
 - `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `resource_sba_7a_vs_504` /resources/sba-7a-vs-504 — A comparison article that distinguishes SBA 7(a) from SBA 504 and explains when each program is typically considered.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## resource_working_capital_vs_term_loan
 
-### Hub page
+### Main financing guide
 
 - `resources` /resources — The resources hub introduces educational funding content and routes visitors into structured articles connected to the route manifest.
 
-### Related routes
+### Related financing paths
 
 - `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
 - `line_of_credit` /line-of-credit — The line-of-credit page explains when a revolving business facility can fit recurring operating needs better than a one-time loan.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## privacy
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
 - `terms` /terms — Review the current marketplace, guarantee, credit, and disclosure language.
-- `contact` /contact — See the controlled TBD contact and legal-identity placeholders while GOV-02 remains blocked.
+- `contact` /contact — See the contact and business-identity placeholders while verified details are being completed.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## terms
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
-- `privacy` /privacy — Review the current governance-draft privacy summary and staging data-handling boundaries.
-- `contact` /contact — See the controlled TBD contact and legal-identity placeholders while GOV-02 remains blocked.
+- `privacy` /privacy — Review how Fund44 handles preview data and privacy while final policies are completed.
+- `contact` /contact — See the contact and business-identity placeholders while verified details are being completed.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 
 
 ## contact
 
-### Hub page
+### Main financing guide
 
 - `home` / — Fund44 turns a fragmented financing search into a more organized comparison experience so small-business owners can explore relevant funding paths without unsupported promises about outcomes or timing.
 
-### Related routes
+### Related financing paths
 
-- `privacy` /privacy — Review the current governance-draft privacy summary and staging data-handling boundaries.
+- `privacy` /privacy — Review how Fund44 handles preview data and privacy while final policies are completed.
 - `terms` /terms — Review the current marketplace, guarantee, credit, and disclosure language.
 
-### Next step
+### Where to go next
 
-- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching canonical program page based on the financing goal they are researching.
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
 

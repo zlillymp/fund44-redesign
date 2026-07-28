@@ -90,7 +90,7 @@ test.describe('FAQ, motion, and dialog behavior', () => {
   test('eligibility dialog traps focus, restores it, and keeps validation errors announced', async ({ page }, testInfo) => {
     await page.goto('/working-capital');
 
-    const opener = page.getByRole('button', { name: /preview my funding paths/i }).first();
+    const opener = page.getByRole('button', { name: /preview funding paths/i }).first();
     await opener.click();
 
     const dialog = page.locator('#flowDialog');

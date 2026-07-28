@@ -21,7 +21,7 @@ export const indexingPolicy = {
   note: isProductionLegalEnv && productionIndexingApproved
     ? 'Production indexing is enabled because the legal launch gate has been approved.'
     : isProductionLegalEnv
-      ? 'Production indexing remains blocked because F44-GOV-02 is still incomplete and final legal, privacy, consent, and entity approvals are missing.'
+      ? 'Production indexing remains off until final legal, privacy, consent, and entity approvals are complete, so robots metadata stays noindex.'
       : 'Staging and preview remain non-indexable until final legal, SEO, and launch approvals are complete.',
 };
 
@@ -78,7 +78,7 @@ export function placeholderValueFor(fieldKey) {
 
 export function describeIdentityStatus(fieldKey) {
   const label = unresolvedIdentityLabels[fieldKey] || 'Identity field';
-  return `${label} remains TBD under F44-GOV-02 and is intentionally withheld from production-ready presentation until verified.`;
+  return `${label} is still being verified and is intentionally withheld until it is confirmed.`;
 }
 
 export function identityDisplay(fieldKey) {
@@ -115,7 +115,7 @@ export const disclosures = {
   fasterProcess:
     'Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.',
   contactPlaceholder:
-    'Verified legal business identity, mailing address, support email, and support phone remain TBD under F44-GOV-02. These placeholders are intentional and must not be treated as launch-ready production details.',
+    'Verified legal business identity, mailing address, support email, and support phone are still being verified. These placeholders are intentional, are not final contact details, and will be replaced once each value is confirmed.',
   counselReview:
     'Business approved the conservative disclosure drafts currently used on this site. Formal counsel review is still recommended before broad production launch.',
 };
@@ -169,7 +169,7 @@ export const legalApprovalChecklist = [
   {
     area: 'Security',
     status: 'blocked',
-    detail: 'Security claims, controls inventory, and launch-ready retention/security statements still require approval under F44-SEC-01.',
+    detail: 'Security statements, controls inventory, and launch-ready retention/security statements are still under review and will be published once approved.',
   },
 ];
 
