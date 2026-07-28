@@ -29,7 +29,6 @@ export function financing() {
       ctaId: 'preview_funding_paths',
       startSurface: 'financing_page_hero',
       productContextRouteId: content.routeId,
-      productContextTitle: content.title,
     },
   })}
 
@@ -107,7 +106,6 @@ export function financing() {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'financing_cta_banner',
     productContextRouteId: content.routeId,
-    productContextTitle: content.title,
   })}
 
   ${relatedLinksModule(linkModule)}

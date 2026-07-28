@@ -4,6 +4,7 @@ import { pageHero, ctaBanner, faqBlock, disclosure, eyebrow, answerBlock, featIt
 import { getBreadcrumbs, hrefForContentId } from '../lib/routes.js';
 import { getContentById } from '../lib/content.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
+import { FUNNEL_CONTEXT_KINDS } from '../lib/eligibility/model.js';
 
 function renderProgramPage(contentId) {
   const content = getContentById(contentId);
@@ -28,7 +29,7 @@ function renderProgramPage(contentId) {
       ctaId: 'preview_funding_paths',
       startSurface: 'program_page_hero',
       productContextRouteId: content.routeId,
-      productContextTitle: content.title,
+      funnelContextKind: FUNNEL_CONTEXT_KINDS.program,
     },
   })}
 
@@ -79,7 +80,7 @@ function renderProgramPage(contentId) {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'program_cta_banner',
     productContextRouteId: content.routeId,
-    productContextTitle: content.title,
+    funnelContextKind: FUNNEL_CONTEXT_KINDS.program,
   })}
 
   ${relatedLinksModule(linkModule)}
