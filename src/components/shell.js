@@ -2,7 +2,6 @@ import { logo, logoMark, icon } from '../lib/svg.js';
 import { getCtaDestination, getFooterNavigation, getMobileNavigation, getPrimaryNavigation, hrefForRoute } from '../lib/routes.js';
 import { disclosures, humanReadableIndexingMode } from '../lib/legal.js';
 import { flowTriggerAttributes } from '../lib/eligibility/trigger.js';
-import { FUNNEL_CONTEXT_KINDS } from '../lib/eligibility/model.js';
 
 export function header() {
   const navItems = getPrimaryNavigation();
@@ -36,7 +35,6 @@ export function header() {
         <button class="btn btn-primary nav-cta-desktop" data-analytics-cta-id="preview_funding_paths" data-analytics-cta-label="Preview funding paths" data-analytics-cta-type="primary" data-analytics-cta-placement="header_primary" ${flowTriggerAttributes({
           ctaId: 'preview_funding_paths',
           startSurface: 'header_primary',
-          funnelContextKind: FUNNEL_CONTEXT_KINDS.generic,
         })}>Preview funding paths</button>
         <button class="menu-btn" data-menu-open aria-label="Open menu" aria-expanded="false">${icon.menu}</button>
       </div>
@@ -55,7 +53,6 @@ export function header() {
         <button class="btn btn-primary btn-lg btn-block" data-analytics-cta-id="preview_funding_paths" data-analytics-cta-label="Preview funding paths" data-analytics-cta-type="primary" data-analytics-cta-placement="mobile_menu_primary" ${flowTriggerAttributes({
           ctaId: 'preview_funding_paths',
           startSurface: 'mobile_menu_primary',
-          funnelContextKind: FUNNEL_CONTEXT_KINDS.generic,
         })}>Preview funding paths ${icon.arrow}</button>
       </div>
       <nav class="mobile-links" aria-label="Mobile">
@@ -81,7 +78,6 @@ export function footer() {
             <button class="btn btn-primary btn-lg" data-analytics-cta-id="cta_banner_preview_funding_paths" data-analytics-cta-label="Preview funding paths" data-analytics-cta-type="primary" data-analytics-cta-placement="footer_banner_primary" ${flowTriggerAttributes({
               ctaId: 'cta_banner_preview_funding_paths',
               startSurface: 'footer_banner_primary',
-              funnelContextKind: FUNNEL_CONTEXT_KINDS.generic,
             })}>Preview funding paths ${icon.arrow}</button>
             <a class="btn btn-on-dark btn-lg" href="${getCtaDestination('explore_financing').href}" data-analytics-cta-id="explore_financing" data-analytics-cta-label="Explore financing" data-analytics-cta-type="secondary" data-analytics-cta-placement="footer_banner_secondary" data-destination-route-id="financing">Explore financing</a>
           </div>

@@ -109,7 +109,6 @@ function renderState(routeId) {
       ctaId: 'preview_funding_paths',
       startSurface: 'state_page_hero',
       productContextRouteId: content.routeId,
-      productContextTitle: content.title,
       funnelContextKind: FUNNEL_CONTEXT_KINDS.state,
     },
   })}
@@ -179,7 +178,6 @@ function renderState(routeId) {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'state_cta_banner',
     productContextRouteId: content.routeId,
-    productContextTitle: content.title,
     funnelContextKind: FUNNEL_CONTEXT_KINDS.state,
   })}
 

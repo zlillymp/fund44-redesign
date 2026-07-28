@@ -20,18 +20,22 @@ export function flowTriggerAttributes({
   startSurface = 'inline',
   requestedMode = 'preview',
   productContextRouteId = '',
-  funnelContextKind = FUNNEL_CONTEXT_KINDS.generic,
+  funnelContextKind = '',
 } = {}) {
   const attributes = {
     'data-open-flow': '',
     'data-cta-id': ctaId,
     'data-start-surface': startSurface,
     'data-flow-mode': defaultRequestedMode(requestedMode),
-    'data-flow-context-kind': normalizeFunnelContextKind(funnelContextKind),
   };
+  const normalizedFunnelContextKind = normalizeFunnelContextKind(funnelContextKind);
 
   if (productContextRouteId) {
     attributes['data-flow-product-route-id'] = productContextRouteId;
+  }
+
+  if (normalizedFunnelContextKind !== FUNNEL_CONTEXT_KINDS.generic) {
+    attributes['data-flow-context-kind'] = normalizedFunnelContextKind;
   }
 
   return Object.entries(attributes)
@@ -78,9 +82,10 @@ export function buildFlowContextFromTrigger(trigger) {
   const productContextTitle = productContextRouteId
     ? (tryGetContentTitle(productContextRouteId) || tryGetRouteTitle(productContextRouteId))
     : null;
-  const funnelContextKind = normalizeFunnelContextKind(
-    trigger?.dataset?.flowContextKind || inferFunnelContextKind(route.routeFamily),
-  );
+  const explicitFunnelContextKind = normalizeFunnelContextKind(trigger?.dataset?.flowContextKind);
+  const funnelContextKind = explicitFunnelContextKind !== FUNNEL_CONTEXT_KINDS.generic
+    ? explicitFunnelContextKind
+    : inferFunnelContextKind(route.routeFamily);
 
   return {
     requestedMode,

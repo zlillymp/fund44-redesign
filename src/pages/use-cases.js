@@ -65,7 +65,6 @@ function renderUseCase(routeId) {
       ctaId: 'preview_funding_paths',
       startSurface: 'use_case_page_hero',
       productContextRouteId: content.routeId,
-      productContextTitle: content.title,
       funnelContextKind: FUNNEL_CONTEXT_KINDS.useCase,
     },
   })}
@@ -120,7 +119,6 @@ function renderUseCase(routeId) {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'use_case_cta_banner',
     productContextRouteId: content.routeId,
-    productContextTitle: content.title,
     funnelContextKind: FUNNEL_CONTEXT_KINDS.useCase,
   })}
 

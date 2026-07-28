@@ -40,7 +40,6 @@ export function howItWorks() {
       ctaId: 'preview_funding_paths',
       startSurface: 'how_it_works_hero',
       productContextRouteId: 'how_it_works',
-      productContextTitle: 'How Fund44 works',
     },
   })}
 
@@ -108,7 +107,6 @@ export function howItWorks() {
     ctaId: 'cta_banner_preview_funding_paths',
     startSurface: 'how_it_works_cta_banner',
     productContextRouteId: 'how_it_works',
-    productContextTitle: 'How Fund44 works',
   })}
 
   ${relatedLinksModule(linkModule)}

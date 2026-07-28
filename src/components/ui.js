@@ -27,8 +27,7 @@ export const primaryCta = (
     startSurface = 'page_hero_primary',
     requestedMode = 'preview',
     productContextRouteId = '',
-    productContextTitle = '',
-    funnelContextKind = 'generic',
+    funnelContextKind = '',
   } = {},
 ) =>
   `<button class="btn btn-primary btn-lg" data-analytics-cta-id="${escapeAttribute(ctaId)}" data-analytics-cta-label="${escapeAttribute(label)}" data-analytics-cta-type="primary" data-analytics-cta-placement="${escapeAttribute(startSurface)}" ${flowTriggerAttributes({
@@ -36,7 +35,6 @@ export const primaryCta = (
     startSurface,
     requestedMode,
     productContextRouteId,
-    productContextTitle,
     funnelContextKind,
   })}>${label} ${icon.arrow}</button>`;
 
@@ -62,8 +60,7 @@ export const ctaBanner = (
     startSurface = 'cta_banner_primary',
     requestedMode = 'preview',
     productContextRouteId = '',
-    productContextTitle = '',
-    funnelContextKind = 'generic',
+    funnelContextKind = '',
     secondaryCtaId = 'cta_banner_how_it_works',
     secondaryCtaLabel = 'How it works',
     secondaryCtaDestinationKey = 'learn_how_it_works',
@@ -84,7 +81,6 @@ export const ctaBanner = (
           startSurface,
           requestedMode,
           productContextRouteId,
-          productContextTitle,
           funnelContextKind,
         })}>Preview funding paths ${icon.arrow}</button>
         <a class="btn btn-on-dark btn-lg" href="${getCtaDestination(secondaryCtaDestinationKey).href}" data-analytics-cta-id="${escapeAttribute(secondaryCtaId)}" data-analytics-cta-label="${escapeAttribute(secondaryCtaLabel)}" data-analytics-cta-type="secondary" data-analytics-cta-placement="cta_banner_secondary" data-destination-route-id="${escapeAttribute(secondaryCtaRouteId)}">${secondaryCtaLabel}</a>
