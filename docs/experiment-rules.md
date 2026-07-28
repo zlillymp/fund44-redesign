@@ -18,7 +18,7 @@ binding; an experiment that cannot satisfy them does not run. Companion contract
   the hash — the session id is the existing anonymous analytics session id.
 - **Exposure tracking.** Call `trackExperimentExposure({ experimentId, variantId, surface })`
   from `src/lib/analytics.js` at the moment the variant becomes user-visible — not at
-  assignment time. It emits the `experiment_exposure` event
+  bucket-assignment time. It emits the `experiment_exposure` event
   (`experiment_id`, `variant_id`, `surface` per `docs/measurement-plan.md`) and refuses to
   emit for inactive or killed experiments.
 - **`experiment_ids` on every event.** `sharedFields()` injects the active experiment ids

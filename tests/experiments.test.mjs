@@ -8,8 +8,6 @@ import {
   getActiveExperimentIds,
   isExperimentActive,
   validateExperimentDefinition,
-  __resetExperimentRegistryForTests,
-  __setExperimentRegistryForTests,
 } from '../src/lib/experiments.js';
 import {
   getTrackedEventsForTests,
@@ -28,13 +26,14 @@ const SAMPLE_EXPERIMENT = Object.freeze({
   ],
   guardrailMetrics: ['error_free_session_rate'],
 });
+const EXPERIMENT_REGISTRY_OVERRIDE_KEY = '__FUND44_EXPERIMENT_REGISTRY_OVERRIDE__';
 
 function withRegistry(registry, run) {
-  __setExperimentRegistryForTests(registry);
+  globalThis[EXPERIMENT_REGISTRY_OVERRIDE_KEY] = registry;
   try {
     run();
   } finally {
-    __resetExperimentRegistryForTests();
+    delete globalThis[EXPERIMENT_REGISTRY_OVERRIDE_KEY];
     delete globalThis.__FUND44_EXPERIMENTS_DISABLED__;
     delete globalThis.__FUND44_EXPERIMENT_KILLSWITCH__;
   }
@@ -137,10 +136,14 @@ test('experiment definitions are validated before they can run', () => {
   const noGuardrails = validateExperimentDefinition({ ...SAMPLE_EXPERIMENT, guardrailMetrics: [] });
   assert.ok(noGuardrails.some((message) => message.includes('guardrailMetrics')));
 
-  assert.throws(
-    () => __setExperimentRegistryForTests([{ ...SAMPLE_EXPERIMENT, experimentId: 'Bad-Id' }]),
-    /snake_case/,
-  );
+  assert.throws(() => {
+    globalThis[EXPERIMENT_REGISTRY_OVERRIDE_KEY] = [{ ...SAMPLE_EXPERIMENT, experimentId: 'Bad-Id' }];
+    try {
+      getActiveAssignments('session-a');
+    } finally {
+      delete globalThis[EXPERIMENT_REGISTRY_OVERRIDE_KEY];
+    }
+  }, /snake_case/);
 });
 
 test('assignment is deterministic per session and spreads across sessions', () => {

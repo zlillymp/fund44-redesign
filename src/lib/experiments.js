@@ -20,6 +20,7 @@ export const EXPERIMENT_SURFACES = Object.freeze([
 ]);
 
 const EXPERIMENT_ID_PATTERN = /^[a-z][a-z0-9_]{2,63}$/;
+const EXPERIMENT_REGISTRY_OVERRIDE_KEY = '__FUND44_EXPERIMENT_REGISTRY_OVERRIDE__';
 
 /**
  * Registry entry shape (see docs/experiment-rules.md for the authoring rules):
@@ -36,8 +37,6 @@ const EXPERIMENT_ID_PATTERN = /^[a-z][a-z0-9_]{2,63}$/;
  */
 const EXPERIMENT_REGISTRY = Object.freeze([]);
 
-let activeRegistry = EXPERIMENT_REGISTRY;
-
 function killSwitchedIds() {
   const raw = globalThis.__FUND44_EXPERIMENT_KILLSWITCH__;
   if (!raw) return new Set();
@@ -48,6 +47,13 @@ function killSwitchedIds() {
 
 function allExperimentsDisabled() {
   return globalThis.__FUND44_EXPERIMENTS_DISABLED__ === true;
+}
+
+function getActiveRegistry() {
+  const override = globalThis[EXPERIMENT_REGISTRY_OVERRIDE_KEY];
+  if (!override) return EXPERIMENT_REGISTRY;
+  assertValidRegistry(override);
+  return override;
 }
 
 export function validateExperimentDefinition(definition) {
@@ -101,12 +107,12 @@ function assertValidRegistry(registry) {
   }
 }
 
-assertValidRegistry(activeRegistry);
+assertValidRegistry(getActiveRegistry());
 
 export function isExperimentActive(experimentId) {
   if (allExperimentsDisabled()) return false;
   if (killSwitchedIds().has(experimentId)) return false;
-  const definition = activeRegistry.find((entry) => entry.experimentId === experimentId);
+  const definition = getActiveRegistry().find((entry) => entry.experimentId === experimentId);
   return Boolean(definition?.enabled);
 }
 
@@ -141,7 +147,7 @@ export function getActiveAssignments(sessionId) {
   if (!sessionId || allExperimentsDisabled()) return [];
   const killed = killSwitchedIds();
 
-  return activeRegistry
+  return getActiveRegistry()
     .filter((definition) => definition.enabled && !killed.has(definition.experimentId))
     .map((definition) => ({
       experimentId: definition.experimentId,
@@ -156,14 +162,5 @@ export function getActiveExperimentIds(sessionId) {
 }
 
 export function getExperimentDefinition(experimentId) {
-  return activeRegistry.find((entry) => entry.experimentId === experimentId) || null;
-}
-
-export function __setExperimentRegistryForTests(registry) {
-  assertValidRegistry(registry);
-  activeRegistry = registry;
-}
-
-export function __resetExperimentRegistryForTests() {
-  activeRegistry = EXPERIMENT_REGISTRY;
+  return getActiveRegistry().find((entry) => entry.experimentId === experimentId) || null;
 }
