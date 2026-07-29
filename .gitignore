@@ -3,3 +3,9 @@ dist
 artifacts
 playwright-report
 test-results
+
+# Local operating-system and agent workspace files
+.DS_Store
+**/.DS_Store
+.claude/
+**/.thumbnail
