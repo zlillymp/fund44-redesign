@@ -8,6 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 const workflowDir = path.join(repoRoot, '.github', 'workflows');
 
+// Runtimes GitHub still supports for the Actions node runner. Keeping this list
+// explicit is what stops a workflow from silently drifting back onto an EOL Node.
+const SUPPORTED_NODE_VERSIONS = new Set(['22', '24']);
+
 const errors = [];
 
 function fail(message) {
@@ -110,6 +114,20 @@ for (const fileName of workflowFiles) {
         if (!setupNodePinned) {
           fail(`${fileName}:${jobId}: actions/setup-node must be pinned by commit SHA`);
         }
+
+        const nodeVersion = String(step.with?.['node-version'] ?? '');
+        if (!nodeVersion) {
+          fail(`${fileName}:${jobId}: actions/setup-node must declare node-version`);
+        } else if (!SUPPORTED_NODE_VERSIONS.has(nodeVersion)) {
+          fail(
+            `${fileName}:${jobId}: node-version "${nodeVersion}" is not a supported runtime `
+            + `(expected one of ${[...SUPPORTED_NODE_VERSIONS].join(', ')})`,
+          );
+        }
+
+        if (step.with?.cache !== 'npm') {
+          fail(`${fileName}:${jobId}: actions/setup-node must set cache: npm`);
+        }
       }
 
       if (/^actions\/upload-artifact@/.test(step.uses)) {
@@ -118,6 +136,13 @@ for (const fileName of workflowFiles) {
           fail(`${fileName}:${jobId}: actions/upload-artifact must be pinned by commit SHA`);
         }
       }
+    }
+  }
+
+  // A bare 40-hex pin is unreviewable, so every pin has to name the release it came from.
+  for (const [, action, comment] of raw.matchAll(/uses:\s*(\S+@[0-9a-f]{40})(.*)$/gim)) {
+    if (!/^\s*#\s*v\d+\.\d+\.\d+\s*$/.test(comment)) {
+      fail(`${fileName}: ${action} must annotate its pin with the released version, e.g. "# v1.2.3"`);
     }
   }
 
