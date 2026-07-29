@@ -240,8 +240,10 @@
   border:1px solid var(--role-line-subtle); border-left: 3px solid var(--role-accent-fill-strong); border-radius: var(--radius-md);
   background: var(--role-surface-base); font-size: var(--text-sm); color: var(--role-text-secondary); line-height:1.55;
 }
-.disclosure-bar svg { flex-shrink:0; margin-top:2px; color: var(--role-text-muted); }
-.disclosure-bar p { min-width:0; max-width:none; overflow-wrap:anywhere; }
+/* the icon ships a viewBox with no width/height, so it must be sized here or it
+   claims the whole flex row and squeezes the paragraph to zero width */
+.disclosure-bar svg { flex:0 0 auto; width:20px; height:20px; margin-top:2px; color: var(--role-text-muted); }
+.disclosure-bar p { flex:1 1 auto; min-width:0; max-width:none; overflow-wrap:anywhere; }
 .legal-flag { display:inline-flex; align-items:center; gap:.4rem; font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing:.05em; text-transform:uppercase; color: var(--role-text-muted); border:1px dashed var(--role-line-strong); padding:.3rem .6rem; border-radius: var(--radius-sm); }
 
 /* article prose */

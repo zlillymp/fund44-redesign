@@ -64,3 +64,14 @@ test('canonical route inventory remains prerenderable', () => {
     assert.ok(rendered.html.length > 100, `expected HTML body for ${route.path}`);
   });
 });
+
+test('no related-links card renders a heading above an empty list on any prerendered route', () => {
+  const groupPattern = /<h3 id="(link-group-[^"]+)"[^>]*>[\s\S]*?<ul\b[^>]*>([\s\S]*?)<\/ul>/g;
+
+  getCanonicalRoutes().forEach((route) => {
+    const { html } = renderRouteToHtml(route.path);
+    for (const [, groupId, listBody] of html.matchAll(groupPattern)) {
+      assert.match(listBody, /<li\b/, `${route.path} renders ${groupId} with an empty list`);
+    }
+  });
+});

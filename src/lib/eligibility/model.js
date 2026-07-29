@@ -211,6 +211,14 @@ export function getContextKindLabel(kind) {
   }
 }
 
+export function getContextEntryPhrase(kind) {
+  if (normalizeFunnelContextKind(kind) === FUNNEL_CONTEXT_KINDS.generic) {
+    return 'a general site page';
+  }
+  const label = getContextKindLabel(kind);
+  return `${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${label}`;
+}
+
 export function getContextProofCopy(kind) {
   switch (normalizeFunnelContextKind(kind)) {
     case FUNNEL_CONTEXT_KINDS.program:
@@ -756,7 +764,7 @@ export function getEntryContextSummary(state) {
     return `No ${contextLabel} context was attached to this start.`;
   }
 
-  return `Started from ${sourceTitle}. That ${contextLabel} context stays attached to the preview so the outcome can point back to the page that opened it.`;
+  return `Started from ${sourceTitle.replace(/[.!?]+$/, '')}. That ${contextLabel} context stays attached to the preview so the outcome can point back to the page that opened it.`;
 }
 
 export function getConsentChecklist(state) {
