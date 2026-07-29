@@ -22,6 +22,7 @@ import {
   createInitialEligibilityState,
   getAnnouncement,
   getConsentChecklist,
+  getContextEntryPhrase,
   getContextKindLabel,
   getContextProofCopy,
   getCurrentSequence,
@@ -499,7 +500,7 @@ function renderOutcomeView() {
   const outcome = flowState.outcome;
   const selectedUse = getUseOption(flowState.values.use);
   const resultPaths = matchedPathLabels();
-  const contextLabel = getContextKindLabel(flowState.context.funnelContextKind);
+  const entryPhrase = getContextEntryPhrase(flowState.context.funnelContextKind);
 
   if (!outcome) {
     return '';
@@ -511,7 +512,7 @@ function renderOutcomeView() {
       <span class="tag">${escapeHtml(outcome.badge)}</span>
       <h2 class="step-title mt-4" id="flowDialogTitle">${escapeHtml(outcome.heading)}</h2>
       <p class="step-why">${escapeHtml(outcome.summary)}</p>
-      <p class="muted text-body-sm flow-center mt-4">Started from a ${escapeHtml(contextLabel)}. The recommendations below keep that route intent attached to the next step.</p>
+      <p class="muted text-body-sm flow-center mt-4">Started from ${escapeHtml(entryPhrase)}. The recommendations below keep that route intent attached to the next step.</p>
       <div class="result-summary layout-left">
         <div class="rs-row"><span>Mode</span><b>${escapeHtml(getModeLabel(flowState.context.activeMode || ELIGIBILITY_MODES.preview))}</b></div>
         <div class="rs-row"><span>Entry context</span><b>${escapeHtml(flowState.context.productContextTitle || flowState.context.entryTitle || 'Generic preview entry')}</b></div>
