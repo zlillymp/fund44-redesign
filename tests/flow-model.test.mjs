@@ -30,7 +30,7 @@ test('preview flow uses explicit stable step ids', () => {
   assert.equal(getStepCount(state), 6);
 });
 
-test('live flow remains blocked but still preserves pre-contact steps', () => {
+test('live flow is enabled and preserves pre-contact steps with contact capture', () => {
   const state = selectMode(createInitialEligibilityState({ requestedMode: 'live' }), ELIGIBILITY_MODES.live);
 
   assert.deepEqual(getCurrentSequence(state), [
@@ -39,7 +39,8 @@ test('live flow remains blocked but still preserves pre-contact steps', () => {
     STEP_IDS.fundingAmount,
     STEP_IDS.businessProfile,
     STEP_IDS.consentReview,
-    STEP_IDS.liveUnavailable,
+    STEP_IDS.contactCapture,
+    STEP_IDS.outcome,
   ]);
   assert.equal(state.currentStepId, STEP_IDS.useOfFunds);
 });
