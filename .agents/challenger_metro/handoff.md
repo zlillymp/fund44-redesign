@@ -36,8 +36,8 @@ The Texas Metro Expansion (`F44-CONT-07`) has been empirically challenged and st
    - Command: `npm run smoke:routes` (with local socket bind permission / `BypassSandbox: true`)
    - Result: `Preview route smoke passed for prerendered clean-path direct loads, SPA hydration assets, and 404 handling.`
 
-5. **Custom Empirical Test Harness (`node scripts/test-challenger-metro.mjs`)**:
-   - Command: `node scripts/test-challenger-metro.mjs`
+5. **Custom Empirical Test Harness (`node scripts/audit-challenger-metro.mjs`)**:
+   - Command: `node scripts/audit-challenger-metro.mjs`
    - Output:
      ```text
      === STARTING EMPIRICAL CHALLENGER METRO AUDIT (F44-CONT-07) ===
@@ -116,7 +116,7 @@ The Texas Metro Expansion (`F44-CONT-07`) has been empirically challenged and st
 
 1. **Premise**: If all 10 Texas metro pages and the Texas state hub are validly registered, indexable, correctly rendered without template leaks, linked within the internal graph without orphans, supported by valid SBA/SBDC citations, and properly listed in crawl files, then `F44-CONT-07` meets its quality bar.
 2. **Step 1 (Roster & Manifest)**: `getCanonicalRoutes()` and `content/manifest.mjs` confirm 11 Texas routes with `indexable: true` and `canonical: true`.
-3. **Step 2 (Prerender & Schema)**: `scripts/test-challenger-metro.mjs` verified that `dist/` contains valid HTML for all 11 routes, with non-empty `<title>`, `<meta name="description">`, `<link rel="canonical">`, and `<script type="application/ld+json">`. No unrendered template tags or `undefined` values were found.
+3. **Step 2 (Prerender & Schema)**: `scripts/audit-challenger-metro.mjs` verified that `dist/` contains valid HTML for all 11 routes, with non-empty `<title>`, `<meta name="description">`, `<link rel="canonical">`, and `<script type="application/ld+json">`. No unrendered template tags or `undefined` values were found.
 4. **Step 3 (Link Graph)**: Inbound link counting across all 41 prerendered routes proved that every Texas metro route has 122+ inbound internal links and 0 orphan pages exist.
 5. **Step 4 (Citations)**: Every local SBA office and SBDC network card across all 11 JSON files resolves to an active entry in `citationRegistry` with valid `.gov`/`.edu` URLs.
 6. **Step 5 (Crawl & Edge Cases)**: `sitemap.xml` and `llms.txt` contain all 11 routes, and `smoke-routes.mjs` verified clean direct URL loading and 404 routing.
@@ -169,10 +169,10 @@ npm run validate:prerender
 npm run smoke:routes
 
 # 2. Run custom empirical challenger test harness
-node scripts/test-challenger-metro.mjs
+node scripts/audit-challenger-metro.mjs
 ```
 
 **Invalidation conditions**:
-- Any failure in `npm test` or `node scripts/test-challenger-metro.mjs`.
+- Any failure in `npm test` or `node scripts/audit-challenger-metro.mjs`.
 - Missing `.html` or `index.html` files in `dist/metros/texas/*`.
 - 0 inbound internal links for any Texas metro route.

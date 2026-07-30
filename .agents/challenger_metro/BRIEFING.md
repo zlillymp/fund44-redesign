@@ -39,9 +39,9 @@ None
 
 ## Key Decisions Made
 - Executed full test suite (`npm test`, `npm run build`, `npm run validate:prerender`, `npm run smoke:routes`, `npm run validate:citations`, `npm run validate:content`, `npm run validate:routes`, `npm run build:link-graph`, `npm run validate:links`).
-- Wrote and executed custom empirical test harness (`scripts/test-challenger-metro.mjs`) to stress-test HTML prerenders, schema validity, title uniqueness, citation resolution, link graph coverage, and crawl files.
+- Wrote and executed custom empirical test harness (`scripts/audit-challenger-metro.mjs`) to stress-test HTML prerenders, schema validity, title uniqueness, citation resolution, link graph coverage, and crawl files.
 
 ## Artifact Index
 - /Users/mattlilly/Documents/Projects/fund44-redesign/.agents/challenger_metro/handoff.md — Handoff report
 - /Users/mattlilly/Documents/Projects/fund44-redesign/.agents/challenger_metro/progress.md — Liveness progress log
-- /Users/mattlilly/Documents/Projects/fund44-redesign/scripts/test-challenger-metro.mjs — Empirical test harness script
+- /Users/mattlilly/Documents/Projects/fund44-redesign/scripts/audit-challenger-metro.mjs — Empirical test harness script
