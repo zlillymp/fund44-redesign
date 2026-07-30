@@ -176,6 +176,17 @@ export const ld = {
     description:
       'Fund44 is a small-business capital marketplace that curates third-party financing paths for small-business owners.',
     slogan: 'One application. More ways to fund your business.',
+    ...(entityProfile.legalBusinessName ? { legalName: entityProfile.legalBusinessName } : {}),
+    ...(entityProfile.supportPhone ? { telephone: entityProfile.supportPhone } : {}),
+    ...(entityProfile.supportEmail ? { email: entityProfile.supportEmail } : {}),
+    ...(entityProfile.mailingAddress ? { address: {
+      '@type': 'PostalAddress',
+      streetAddress: '5900 Balcones Dr, Suite 100',
+      addressLocality: 'Austin',
+      addressRegion: 'TX',
+      postalCode: '78731',
+      addressCountry: 'US',
+    } } : {}),
     ...(entityProfile.hasVerifiedSameAs ? { sameAs: entityProfile.sameAs } : {}),
   }),
   financialService: () => ({

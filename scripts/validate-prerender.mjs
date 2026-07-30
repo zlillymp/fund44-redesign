@@ -38,7 +38,7 @@ const expectedCopyByPath = new Map([
   ['/how-it-works', 'From one intake to clearer path review.'],
   ['/privacy', 'Privacy'],
   ['/terms', 'Terms & disclosures'],
-  ['/contact', 'This page is designed to make unresolved identity and contact fields obvious.'],
+  ['/contact', 'Fund44 LLC'],
 ]);
 
 for (const route of canonicalRoutes) {

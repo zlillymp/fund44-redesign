@@ -46,8 +46,8 @@ if (indexingPolicy.allowIndexing) {
   console.warn('Warning: indexing policy is in production mode. Ensure this is intentional for the current environment.');
 }
 
-if (unresolvedIdentityFields.length !== 4) {
-  failures.push(`Expected the four unresolved identity fields to remain TBD, found ${unresolvedIdentityFields.length}.`);
+if (unresolvedIdentityFields.length !== 0) {
+  failures.push(`Expected all identity fields to be verified, found ${unresolvedIdentityFields.length} still TBD: ${unresolvedIdentityFields.map((f) => f.label).join(', ')}.`);
 }
 
 for (const file of governedFiles) {

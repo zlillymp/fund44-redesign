@@ -10,9 +10,9 @@ const budgets = [
   {
     name: 'bundle_js_max_bytes',
     pattern: /^assets\/.+\.js$/,
-    maxBytes: 360_000,
+    maxBytes: 370_000,
     kind: 'largest-match',
-    rationale: 'Keep the single shipped JS entry under a conservative ceiling after the first state-resource cluster added three prerendered, manifest-backed pages and their shared structured-content inventory.',
+    rationale: 'Keep the single shipped JS entry under a conservative ceiling after webhook submission, contact capture, and GA4 transport were added to the eligibility flow.',
   },
   {
     name: 'bundle_css_max_bytes',
@@ -31,16 +31,16 @@ const budgets = [
   {
     name: 'html_per_page_max_bytes',
     pattern: /\.html$/,
-    maxBytes: 73_000,
+    maxBytes: 75_000,
     kind: 'all-matches',
     rationale: 'Prevent individual prerendered pages from growing well beyond the measured state-launch footprint while allowing evidence-backed local-resource sections and prerendered related-link modules.',
   },
   {
     name: 'asset_total_max_bytes',
     pattern: /^assets\//,
-    maxBytes: 405_000,
+    maxBytes: 415_000,
     kind: 'sum-matches',
-    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI after the first state-resource cluster raised the shared manifest-backed baseline.',
+    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI after webhook submission, contact capture, and GA4 transport were added to the eligibility flow.',
   },
 ];
 

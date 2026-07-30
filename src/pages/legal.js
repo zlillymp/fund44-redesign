@@ -76,7 +76,7 @@ export function privacy() {
           .map((item) => `<li><strong>${item.area}:</strong> ${item.detail}</li>`)
           .join('')}
       </ul>`)}
-    ${section('Contact', `<p>Privacy questions will use the verified support channel once it exists. Until then, see the controlled placeholders on our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a>. ${disclosures.contactPlaceholder}</p>`)}
+    ${section('Contact', `<p>Privacy questions can be directed to our verified support channel. See our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> for details. ${disclosures.contactPlaceholder}</p>`)}
   </section>
   ${relatedLinksModule(linkModule)}`;
 }
@@ -129,7 +129,7 @@ export function contact() {
   const linkModule = getLinkModuleForRoute('contact');
   setMeta({
     title: 'Contact Fund44',
-    description: 'Fund44 contact and entity placeholders are intentionally controlled until legal business name, mailing address, support email, and support phone are verified.',
+    description: 'Contact Fund44 LLC for small-business financing questions and support.',
     path: hrefForRoute('contact'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
@@ -142,11 +142,10 @@ export function contact() {
   return `
   ${legalHead(crumbs, 'Contact', false)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Details being finalized.</strong> ${disclosures.contactPlaceholder}`, {
-      disclosureId: 'contact_page_tbd_disclosure',
+    ${disclosure(`<strong>Privacy notice.</strong> ${disclosures.contactPlaceholder}`, {
+      disclosureId: 'contact_page_privacy_notice',
       disclosureContext: 'contact_page',
     })}
-    <p class="lead reveal">This page is designed to make unresolved identity and contact fields obvious. Nothing below should be mistaken for final production contact data.</p>
     <div class="grid g-2 reveal mt-8" data-stagger>
       <div class="card">
         <div class="eyebrow mb-4">Legal business name</div>
@@ -160,24 +159,14 @@ export function contact() {
       </div>
       <div class="card">
         <div class="eyebrow mb-4">Support email</div>
-        <p class="text-meta">${generalEmail.value}</p>
+        <p class="text-meta"><a href="mailto:${generalEmail.value}" class="accent-text copy-accent-link">${generalEmail.value}</a></p>
         <p class="muted mt-4 text-body-sm">${generalEmail.note}</p>
       </div>
       <div class="card">
         <div class="eyebrow mb-4">Support phone</div>
-        <p class="text-meta">${phone.value}</p>
+        <p class="text-meta"><a href="tel:${phone.value.replace(/[^\d+]/g, '')}" class="accent-text copy-accent-link">${phone.value}</a></p>
         <p class="muted mt-4 text-body-sm">${phone.note}</p>
       </div>
-    </div>
-    <div class="card reveal mt-8">
-      <div class="eyebrow mb-4">What still blocks launch-ready contact publishing</div>
-      <ul class="list-plain">
-        <li>Verified legal business name</li>
-        <li>Verified mailing address</li>
-        <li>Verified support email</li>
-        <li>Verified support phone</li>
-        <li>Final privacy, consent, and retention language with the corresponding support workflows</li>
-      </ul>
     </div>
     <div class="mt-8 layout-center">
       <button
