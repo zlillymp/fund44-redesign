@@ -45,7 +45,7 @@
       },
       {
         "iconKey": "layers",
-        "title": "Fit over fees",
+        "title": "Explain the fit",
         "description": "Fund44 is built around fit over fees. The experience explains why a path may fit based on the information provided, the stated financing need, and the product details available in the experience."
       },
       {
@@ -59,8 +59,8 @@
     "eyebrow": "Organized path review",
     "heading": "One document checklist, status tracking, and offer comparison when available.",
     "lead": "Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.",
-    "portalHeading": "A borrower portal that keeps you organized",
-    "portalLead": "The workflow is designed around one document checklist and document reuse where supported in the experience. Available steps can vary by provider and by business profile.",
+    "portalHeading": "Example borrower workflow",
+    "portalLead": "This illustrative checklist shows how one document list and status visibility can organize a financing review. Available steps can vary by provider and by business profile.",
     "portalFeatures": [
       {
         "iconKey": "file",
@@ -166,7 +166,7 @@
     "page_working_capital"
   ],
   "ctaBanner": {
-    "heading": "See the paths that fit your business.",
+    "heading": "Preview funding paths for your business.",
     "subheading": "Preview only. This flow shows sample results, does not create an application, and does not send your information to a lender or server in the current build."
   },
   "relatedIds": [

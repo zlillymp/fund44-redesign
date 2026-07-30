@@ -34,7 +34,7 @@ export function home() {
         ${content.hero.lead}
       </p>
       <div class="wrap-btns reveal mt-8">
-        ${primaryCta('Preview my funding paths', {
+        ${primaryCta('Preview funding paths', {
           ctaId: 'preview_funding_paths',
           startSurface: 'home_hero_primary',
         })}

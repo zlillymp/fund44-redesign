@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import { getCanonicalRoutes } from '../src/lib/routes.js';
 import { getContentById } from '../src/lib/content.js';
+import { escapeHtml } from '../src/lib/seo.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -66,9 +67,9 @@ for (const route of canonicalRoutes) {
 
   try {
     const content = getContentById(route.contentId);
-    expectIncludes(html, content.metaTitle, route.path, failures);
-    expectIncludes(html, content.metaDescription, route.path, failures);
-    expectIncludes(html, content.title, route.path, failures);
+    expectIncludes(html, escapeHtml(content.metaTitle), route.path, failures);
+    expectIncludes(html, escapeHtml(content.metaDescription), route.path, failures);
+    expectIncludes(html, escapeHtml(content.title), route.path, failures);
   } catch {
     const expectedCopy = expectedCopyByPath.get(route.path);
     if (expectedCopy) {

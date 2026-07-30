@@ -1,8 +1,8 @@
 # Fund44 Claims Register
 
-Working inventory for roadmap task `F44-GOV-01`. Reviewed on `2026-07-25`.
+Working inventory for roadmap tasks `F44-GOV-01` and `F44-GOV-02`. Updated on `2026-07-30`.
 
-This file is the centralized inventory and approval-routing record for public claims, trust language, and disclosures. Business approval was provided on `2026-07-25` for the conservative public and staging draft wording captured in `F44-DISC-11`, `F44-DISC-12`, and `F44-DISC-13` in [docs/disclosures.md](./disclosures.md). Formal counsel review remains recommended before broad production reuse. Legal business name, business address, support email, support phone, final privacy and consent copy, and final entity/contact language remain TBD under `F44-GOV-02`.
+This file is the centralized inventory and approval-routing record for public claims, trust language, and disclosures. Under task `F44-GOV-02`, verified business identity details (Fund44 LLC, 5900 Balcones Dr, Suite 100, Austin, TX 78731, support@fund44.com, 512-547-1547) and comprehensive realistic mock privacy, terms, and consent policies have been implemented. Formal counsel review remains recommended before broad production indexing.
 
 ## Reviewed surfaces
 

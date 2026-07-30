@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getProgramPages, getResourceHub, getStatePages, getUseCasePages } from '../src/lib/content.js';
+import { getAllContent, getContentById, getContentByRouteId, getIndustryPages, getMetroPages, getProgramPages, getResourceHub, getStatePages, getUseCasePages } from '../src/lib/content.js';
 import { getRouteBySlug } from '../src/lib/routes.js';
 import { getRouteInventory } from '../src/lib/route-inventory.js';
 
 test('structured content inventory covers the planned route set', () => {
   const allContent = getAllContent();
-  assert.equal(allContent.length, 25);
+  assert.equal(allContent.length, 36);
   assert.deepEqual(
     allContent.map((record) => record.id),
     [
@@ -32,6 +32,17 @@ test('structured content inventory covers the planned route set', () => {
       'state_california_sba_loans',
       'state_florida_sba_loans',
       'state_new_york_sba_loans',
+      'state_texas_sba_loans',
+      'metro_houston_sba_loans',
+      'metro_san_antonio_sba_loans',
+      'metro_dallas_sba_loans',
+      'metro_austin_sba_loans',
+      'metro_fort_worth_sba_loans',
+      'metro_el_paso_sba_loans',
+      'metro_arlington_sba_loans',
+      'metro_corpus_christi_sba_loans',
+      'metro_plano_sba_loans',
+      'metro_laredo_sba_loans',
       'page_resources',
       'article_sba_7a_vs_504',
       'article_preparing_your_documents',
@@ -91,13 +102,35 @@ test('industry pages remain discoverable through structured content', () => {
 test('state pages remain discoverable through structured content', () => {
   const statePages = getStatePages();
 
-  assert.equal(statePages.length, 3);
+  assert.equal(statePages.length, 4);
   assert.deepEqual(
     statePages.map((page) => page.routeId),
     [
       'california_sba_loans',
       'florida_sba_loans',
       'new_york_sba_loans',
+      'texas_sba_loans',
+    ],
+  );
+});
+
+test('metro pages remain discoverable through structured content', () => {
+  const metroPages = getMetroPages();
+
+  assert.equal(metroPages.length, 10);
+  assert.deepEqual(
+    metroPages.map((page) => page.routeId),
+    [
+      'houston_sba_loans',
+      'san_antonio_sba_loans',
+      'dallas_sba_loans',
+      'austin_sba_loans',
+      'fort_worth_sba_loans',
+      'el_paso_sba_loans',
+      'arlington_sba_loans',
+      'corpus_christi_sba_loans',
+      'plano_sba_loans',
+      'laredo_sba_loans',
     ],
   );
 });

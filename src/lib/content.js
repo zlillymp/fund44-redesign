@@ -19,6 +19,17 @@ import constructionContractorsIndustry from '../../content/industries/constructi
 import californiaStatePage from '../../content/states/california.json' with { type: 'json' };
 import floridaStatePage from '../../content/states/florida.json' with { type: 'json' };
 import newYorkStatePage from '../../content/states/new-york.json' with { type: 'json' };
+import texasStatePage from '../../content/states/texas-sba-loans.json' with { type: 'json' };
+import houstonMetroPage from '../../content/metros/houston-sba-loans.json' with { type: 'json' };
+import sanAntonioMetroPage from '../../content/metros/san-antonio-sba-loans.json' with { type: 'json' };
+import dallasMetroPage from '../../content/metros/dallas-sba-loans.json' with { type: 'json' };
+import austinMetroPage from '../../content/metros/austin-sba-loans.json' with { type: 'json' };
+import fortWorthMetroPage from '../../content/metros/fort-worth-sba-loans.json' with { type: 'json' };
+import elPasoMetroPage from '../../content/metros/el-paso-sba-loans.json' with { type: 'json' };
+import arlingtonMetroPage from '../../content/metros/arlington-sba-loans.json' with { type: 'json' };
+import corpusChristiMetroPage from '../../content/metros/corpus-christi-sba-loans.json' with { type: 'json' };
+import planoMetroPage from '../../content/metros/plano-sba-loans.json' with { type: 'json' };
+import laredoMetroPage from '../../content/metros/laredo-sba-loans.json' with { type: 'json' };
 import resourcesPage from '../../content/pages/resources.json' with { type: 'json' };
 import articleSba7aVs504 from '../../content/articles/sba-7a-vs-504.json' with { type: 'json' };
 import articlePreparingDocuments from '../../content/articles/preparing-your-documents.json' with { type: 'json' };
@@ -61,6 +72,17 @@ const rawRecords = [
   californiaStatePage,
   floridaStatePage,
   newYorkStatePage,
+  texasStatePage,
+  houstonMetroPage,
+  sanAntonioMetroPage,
+  dallasMetroPage,
+  austinMetroPage,
+  fortWorthMetroPage,
+  elPasoMetroPage,
+  arlingtonMetroPage,
+  corpusChristiMetroPage,
+  planoMetroPage,
+  laredoMetroPage,
   resourcesPage,
   articleSba7aVs504,
   articlePreparingDocuments,
@@ -113,6 +135,10 @@ export function getIndustryPages() {
 
 export function getStatePages() {
   return records.filter((record) => record.templateId === 'state_page');
+}
+
+export function getMetroPages() {
+  return records.filter((record) => record.templateId === 'metro_page');
 }
 
 export function getResourceHub() {

@@ -150,7 +150,11 @@
     "page_equipment_financing",
     "page_sba_7a",
     "use_case_business_expansion",
-    "use_case_owner_occupied_real_estate"
+    "use_case_owner_occupied_real_estate",
+    "state_texas_sba_loans",
+    "metro_dallas_sba_loans",
+    "metro_houston_sba_loans",
+    "metro_san_antonio_sba_loans"
   ],
   "contributors": {
     "authorId": null,

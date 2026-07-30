@@ -1,0 +1,251 @@
+{
+  "id": "metro_el_paso_sba_loans",
+  "routeId": "el_paso_sba_loans",
+  "slug": "texas/el-paso-sba-loans",
+  "pageType": "metro",
+  "templateId": "metro_page",
+  "title": "El Paso SBA loan resources",
+  "metaTitle": "El Paso SBA loan resources & local advisory guide",
+  "metaDescription": "El Paso small businesses comparing SBA 7(a), 504, acquisition, or working capital financing can confirm their SBA district office and EPCC SBDC partners before starting lender comparisons.",
+  "summary": "The El Paso metro page connects El Paso County and West Texas small businesses with the SBA El Paso District Office, El Paso Community College SBDC, and Fund44's national financing explainers.",
+  "contentVersion": "2026-07-30",
+  "shortLabel": "El Paso SBA loan resources",
+  "metroName": "El Paso",
+  "stateCode": "TX",
+  "hero": {
+    "eyebrow": "Metro resources: Greater El Paso, TX",
+    "title": "El Paso SBA loan guidance starts with the El Paso District Office and EPCC SBDC advising.",
+    "lead": "El Paso business owners in El Paso, Hudspeth, and surrounding West Texas counties can verify official SBA district coverage and EPCC SBDC counseling resources before comparing 7(a), 504, or acquisition financing options."
+  },
+  "quickAnswer": {
+    "term": "El Paso SBA loan resources",
+    "definition": "help small business owners in Greater El Paso locate the SBA El Paso District Office and El Paso Community College SBDC advisors before selecting an SBA 7(a), SBA 504, acquisition, or working capital program."
+  },
+  "whoItFitsHeading": "When this El Paso page fits best",
+  "bestFitHeading": "Common financing explainers El Paso borrowers review after finding local support",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "General working capital, debt refinance, and business growth up to $5 million.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Long-term fixed-rate financing for commercial real estate and industrial trade facilities in El Paso.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Acquisition and partner buyout structure explainers for West Texas buy-side transactions.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When El Paso SBA loan resource pages tend to fit",
+    "items": [
+      "You operate a business in Greater El Paso (El Paso or Hudspeth counties) and want local SBA district office details.",
+      "You want free local advisory support from the El Paso Community College SBDC before submitting financial packages to lenders.",
+      "You are organizing a cross-border trade, defense contracting, logistics, or manufacturing project in West Texas.",
+      "You want to connect local El Paso advisory contacts with Fund44's clean national financing explainers."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If you already know your exact loan structure (e.g. SBA 504 vs 7(a)), starting directly on national product pages is faster.",
+      "If your business is located in South Texas (San Antonio or Laredo), review those specific metro resource pages.",
+      "If you require city-specific municipal permit or tax advice, consult the City of El Paso or El Paso County clerk directly."
+    ]
+  },
+  "localSupportHeading": "Official El Paso support resources to open first",
+  "localSupportCards": [
+    {
+      "id": "el_paso_sba_district",
+      "title": "SBA El Paso District Office",
+      "description": "Serves 12 West Texas counties. Provides local program guidance, district events, and certified lender directory access.",
+      "resourceLabel": "Review El Paso SBA District details",
+      "resourceUrl": "https://www.sba.gov/district/el-paso",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "el_paso_epcc_sbdc",
+      "title": "El Paso Community College SBDC",
+      "description": "Part of the South-West Texas Border SBDC Network, offering no-cost business consulting and loan application prep in El Paso.",
+      "resourceLabel": "Find an El Paso SBDC center",
+      "resourceUrl": "https://txsbdc.org/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "texas_governor_small_biz_ep",
+      "title": "Texas Governor's Small Business Assistance",
+      "description": "Statewide small-business portal providing Texas business permits, financing guides, and resource directories.",
+      "resourceLabel": "Open Texas Governor's Portal",
+      "resourceUrl": "https://gov.texas.gov/business/page/small-business",
+      "iconKey": "cash",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "metroContextHeading": "El Paso-specific context before financing comparisons",
+  "metroContextCards": [
+    {
+      "id": "ep_district_coverage",
+      "title": "Dedicated SBA El Paso District Office",
+      "description": "El Paso has its own dedicated SBA District Office serving West Texas border communities.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "ep_epcc_sbdc_hub",
+      "title": "EPCC SBDC delivers localized advising",
+      "description": "El Paso Community College SBDC advisors help business owners prepare balance sheets, tax returns, and projections.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "ep_key_industries",
+      "title": "Cross-border trade, logistics, defense, and manufacturing",
+      "description": "El Paso's strategic border location drives high demand for SBA 504 industrial facilities and 7(a) trade financing.",
+      "iconKey": "layers",
+      "relatedRouteId": "sba_504"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common El Paso-starting document examples",
+    "items": [
+      "3 years of business and personal tax returns",
+      "Year-to-date balance sheet and profit & loss statement",
+      "El Paso County assumed name certificate or Texas Secretary of State entity registration",
+      "Detailed use of funds schedule for property, equipment, or working capital"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 connects El Paso business owners with official local advisory contacts and provides clean, objective national financing comparisons.",
+    "bullets": [
+      "Points borrowers directly to the SBA El Paso District Office and EPCC SBDC.",
+      "Compares national 7(a), 504, and acquisition explainers without state markup.",
+      "Leaves credit underwriting and loan decisions to certified SBA lenders."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if your El Paso project shifts focus",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Review property acquisition and construction financing paths.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines",
+      "description": "Review cash-flow and operating credit line options.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organize your loan package before contacting lenders.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> El Paso resource details are educational entry points. SBA office coverage, counseling availability, eligibility, and lender terms vary by business profile and provider.",
+  "ctaBanner": {
+    "heading": "Ready to compare El Paso SBA financing options?",
+    "subheading": "Preview the national financing paths that match your business profile after gathering local support."
+  },
+  "commonQuestions": [
+    {
+      "id": "ep_faq_district",
+      "question": "Which SBA district office covers El Paso?",
+      "answer": "The SBA El Paso District Office serves El Paso and 12 West Texas counties."
+    },
+    {
+      "id": "ep_faq_sbdc",
+      "question": "Where can I get free SBA loan application help in El Paso?",
+      "answer": "The El Paso Community College SBDC provides free business consulting and loan prep assistance."
+    },
+    {
+      "id": "ep_faq_7a_504",
+      "question": "What is the difference between SBA 7(a) and 504 loans for El Paso businesses?",
+      "answer": "SBA 7(a) offers up to $5M for general working capital, debt refinance, or acquisitions. SBA 504 is specialized for commercial real estate and industrial space."
+    },
+    {
+      "id": "ep_faq_fund44",
+      "question": "Does Fund44 issue SBA loans directly in El Paso?",
+      "answer": "No. Fund44 is an educational technology marketplace, not a lender. Loans are issued by third-party SBA participating lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_preparing_your_documents",
+    "state_texas_sba_loans",
+    "metro_laredo_sba_loans",
+    "metro_san_antonio_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_el_paso_district_2026_07_30",
+    "external_texas_sbdc_south_west_border_2026_07_30",
+    "external_texas_governor_small_business_2026_07_30"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "el_paso_sba_loan_resources",
+    "contentGroup": "metro",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "metro",
+    "ctaIds": [
+      "preview_funding_paths",
+      "metro_best_fit_link",
+      "metro_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "el_paso_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

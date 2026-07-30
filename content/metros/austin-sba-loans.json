@@ -1,0 +1,252 @@
+{
+  "id": "metro_austin_sba_loans",
+  "routeId": "austin_sba_loans",
+  "slug": "texas/austin-sba-loans",
+  "pageType": "metro",
+  "templateId": "metro_page",
+  "title": "Austin SBA loan resources",
+  "metaTitle": "Austin SBA loan resources & local advisory guide",
+  "metaDescription": "Austin small businesses comparing SBA 7(a), 504, acquisition, or working capital financing can confirm their SBA district office and Texas State University SBDC partners before starting lender comparisons.",
+  "summary": "The Austin metro page connects Travis County and Central Texas small businesses with the SBA San Antonio District Office, Texas State University SBDC, and Fund44's national financing explainers.",
+  "contentVersion": "2026-07-30",
+  "shortLabel": "Austin SBA loan resources",
+  "metroName": "Austin",
+  "stateCode": "TX",
+  "hero": {
+    "eyebrow": "Metro resources: Greater Austin, TX",
+    "title": "Austin SBA loan guidance starts with the San Antonio District Office and Texas State SBDC advising.",
+    "lead": "Austin-area business owners in Travis, Williamson, and Hays counties can verify official SBA district coverage and Texas State SBDC counseling resources before comparing 7(a), 504, or acquisition financing options."
+  },
+  "quickAnswer": {
+    "term": "Austin SBA loan resources",
+    "definition": "help small business owners in Greater Austin locate the SBA San Antonio District Office and Texas State University SBDC advisors before selecting an SBA 7(a), SBA 504, acquisition, or working capital program."
+  },
+  "whoItFitsHeading": "When this Austin page fits best",
+  "bestFitHeading": "Common financing explainers Austin borrowers review after finding local support",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "General working capital, debt refinance, and business growth up to $5 million.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Long-term fixed-rate financing for owner-occupied real estate and facilities in Austin.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Acquisition and partner buyout structure explainers for Central Texas tech and service buy-side transactions.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When Austin SBA loan resource pages tend to fit",
+    "items": [
+      "You operate a business in Greater Austin (Travis, Williamson, Hays, or Bastrop counties) and want local SBA district office details.",
+      "You want free local advisory support from the Texas State University SBDC before submitting financial documentation to lenders.",
+      "You are organizing a technology startup, commercial expansion, or acquisition project in Central Texas.",
+      "You want to connect local Austin advisory contacts with Fund44's clean national financing explainers."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If you already know your exact loan structure (e.g. SBA 504 vs 7(a)), starting directly on national product pages is faster.",
+      "If your business is located in San Antonio or Dallas, review those specific metro resource pages instead.",
+      "If you require city-specific municipal permit or tax advice, consult the City of Austin or Travis County clerk directly."
+    ]
+  },
+  "localSupportHeading": "Official Austin support resources to open first",
+  "localSupportCards": [
+    {
+      "id": "austin_sba_district",
+      "title": "SBA San Antonio District Office (Austin Branch)",
+      "description": "Serves 55 counties including Travis, Williamson, and Hays. Provides local program guidance, district events, and certified lender directory access.",
+      "resourceLabel": "Review San Antonio/Austin SBA District details",
+      "resourceUrl": "https://www.sba.gov/district/san-antonio",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "austin_txstate_sbdc",
+      "title": "Texas State University SBDC",
+      "description": "Part of the South-West Texas Border SBDC Network, providing no-cost business consulting and loan application prep across the Austin region.",
+      "resourceLabel": "Find an Austin SBDC center",
+      "resourceUrl": "https://txsbdc.org/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "texas_governor_small_biz_austin",
+      "title": "Texas Governor's Small Business Assistance",
+      "description": "Statewide small-business portal headquartered in Austin providing Texas business permits, financing guides, and resource directories.",
+      "resourceLabel": "Open Texas Governor's Portal",
+      "resourceUrl": "https://gov.texas.gov/business/page/small-business",
+      "iconKey": "cash",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "metroContextHeading": "Austin-specific context before financing comparisons",
+  "metroContextCards": [
+    {
+      "id": "austin_san_antonio_coverage",
+      "title": "Covered by the SBA San Antonio District Office",
+      "description": "Austin business owners are served by the SBA San Antonio District Office which maintains regional coverage for Travis County.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "austin_txstate_sbdc_hub",
+      "title": "Texas State SBDC delivers Central Texas counseling",
+      "description": "Texas State SBDC advisors assist Austin founders and small business owners with financial statements and loan prep.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "austin_key_industries",
+      "title": "Technology, creative industries, healthcare, and retail",
+      "description": "Austin's fast-growing economy drives high demand for SBA 7(a) working capital and 504 owner-occupied real estate funding.",
+      "iconKey": "layers",
+      "relatedRouteId": "sba_504"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common Austin-starting document examples",
+    "items": [
+      "3 years of business and personal tax returns",
+      "Year-to-date balance sheet and profit & loss statement",
+      "Travis County assumed name certificate or Texas Secretary of State entity registration",
+      "Detailed use of funds schedule for equipment, property, or working capital"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 connects Austin business owners with official local advisory contacts and provides clean, objective national financing comparisons.",
+    "bullets": [
+      "Points borrowers directly to the SBA San Antonio District Office and Texas State SBDC.",
+      "Compares national 7(a), 504, and acquisition explainers without state markup.",
+      "Leaves credit underwriting and loan decisions to certified SBA lenders."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if your Austin project shifts focus",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Review property acquisition and construction financing paths.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines",
+      "description": "Review cash-flow and operating credit line options.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organize your loan package before contacting lenders.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Austin resource details are educational entry points. SBA office coverage, counseling availability, eligibility, and lender terms vary by business profile and provider.",
+  "ctaBanner": {
+    "heading": "Ready to compare Austin SBA financing options?",
+    "subheading": "Preview the national financing paths that match your business profile after gathering local support."
+  },
+  "commonQuestions": [
+    {
+      "id": "austin_faq_district",
+      "question": "Which SBA district office covers Austin?",
+      "answer": "The SBA San Antonio District Office serves Austin and surrounding Travis, Williamson, and Hays counties."
+    },
+    {
+      "id": "austin_faq_sbdc",
+      "question": "Where can I get free SBA loan application help in Austin?",
+      "answer": "The Texas State University SBDC provides free business consulting and loan prep assistance for Austin-area businesses."
+    },
+    {
+      "id": "austin_faq_7a_504",
+      "question": "What is the difference between SBA 7(a) and 504 loans for Austin businesses?",
+      "answer": "SBA 7(a) offers up to $5M for general working capital, debt refinance, or acquisitions. SBA 504 is specialized for commercial real estate."
+    },
+    {
+      "id": "austin_faq_fund44",
+      "question": "Does Fund44 issue SBA loans directly in Austin?",
+      "answer": "No. Fund44 is an educational technology marketplace, not a lender. Loans are issued by third-party SBA participating lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_preparing_your_documents",
+    "state_texas_sba_loans",
+    "metro_san_antonio_sba_loans",
+    "metro_houston_sba_loans",
+    "metro_dallas_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_san_antonio_district_2026_07_30",
+    "external_texas_sbdc_south_west_border_2026_07_30",
+    "external_texas_governor_small_business_2026_07_30"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "austin_sba_loan_resources",
+    "contentGroup": "metro",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "metro",
+    "ctaIds": [
+      "preview_funding_paths",
+      "metro_best_fit_link",
+      "metro_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "austin_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

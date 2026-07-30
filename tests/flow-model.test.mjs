@@ -112,7 +112,9 @@ test('restart keeps entry context but resets answers and mode selection state', 
 
   const reset = restartState(state);
 
-  assert.equal(reset.currentStepId, STEP_IDS.modeSelect);
+  // Public preview hides live mode choice, so restart resumes at use-of-funds with preview selected.
+  assert.equal(reset.currentStepId, STEP_IDS.useOfFunds);
+  assert.equal(reset.context.activeMode, ELIGIBILITY_MODES.preview);
   assert.equal(reset.values.use, '');
   assert.equal(reset.values.amount, '');
   assert.equal(reset.context.entryRouteId, 'working_capital');

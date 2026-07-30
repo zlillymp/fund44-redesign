@@ -333,10 +333,11 @@ function renderModeCards() {
   const liveSelected = activeMode === ELIGIBILITY_MODES.live;
   const error = getFieldError(flowState, FIELD_IDS.mode);
   const errorId = `${FIELD_IDS.mode}-error`;
+  const showLiveChoice = liveEligibilityGate.showModeChoice !== false;
 
   return `
     <div class="field${error ? ' err' : ''}">
-      <div class="choice-grid choice-grid-stack" role="radiogroup" aria-label="Eligibility mode">
+      <div class="choice-grid ${showLiveChoice ? 'choice-grid-stack' : ''}" role="radiogroup" aria-label="Eligibility mode">
         <button
           type="button"
           class="choice choice-mode ${previewSelected ? 'sel' : ''}"
@@ -348,6 +349,7 @@ function renderModeCards() {
           <b>${getModeLabel(ELIGIBILITY_MODES.preview)}</b>
           <span>${getModeDescription(ELIGIBILITY_MODES.preview)}</span>
         </button>
+        ${showLiveChoice ? `
         <button
           type="button"
           class="choice choice-mode ${liveSelected ? 'sel' : ''}"
@@ -358,7 +360,7 @@ function renderModeCards() {
         >
           <b>${getModeLabel(ELIGIBILITY_MODES.live)}</b>
           <span>${getModeDescription(ELIGIBILITY_MODES.live)}</span>
-        </button>
+        </button>` : ''}
       </div>
       <p class="field-err" id="${errorId}" data-err="${FIELD_IDS.mode}">${escapeHtml(error)}</p>
     </div>

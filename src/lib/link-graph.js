@@ -61,6 +61,7 @@ function getHubRouteId(route) {
   if (route.templateId === 'use_case_page') return 'financing';
   if (route.templateId === 'industry_page') return 'financing';
   if (route.templateId === 'state_page') return 'financing';
+  if (route.templateId === 'metro_page') return route.parentRouteId || 'texas_sba_loans';
   if (route.routeId === 'financing') return 'home';
   if (route.routeId === 'resources') return 'home';
   if (route.routeId === 'about' || route.routeId === 'how_it_works') return 'home';
@@ -74,6 +75,7 @@ function getNextStepRouteId(route) {
   if (route.templateId === 'use_case_page') return 'how_it_works';
   if (route.templateId === 'industry_page') return 'how_it_works';
   if (route.templateId === 'state_page') return 'how_it_works';
+  if (route.templateId === 'metro_page') return 'how_it_works';
   if (route.routeId === 'financing') return 'how_it_works';
   return 'financing';
 }
@@ -93,6 +95,9 @@ function getMinimumRequirements(route) {
   }
   if (route.templateId === 'state_page') {
     return { hub: 1, contextual: 6, next: 1 };
+  }
+  if (route.templateId === 'metro_page') {
+    return { hub: 1, contextual: 4, next: 1 };
   }
   if (route.templateId === 'resources_hub') {
     return { hub: 1, contextual: 4, next: 1 };
@@ -146,7 +151,13 @@ function getStructuredContextualRouteIds(route) {
     }
   });
 
-  record.stateContextCards?.forEach((card) => {
+  record.localSupportCards?.forEach((card) => {
+    if (card.relatedRouteId) {
+      targetRouteIds.push(card.relatedRouteId);
+    }
+  });
+
+  record.metroContextCards?.forEach((card) => {
     if (card.relatedRouteId) {
       targetRouteIds.push(card.relatedRouteId);
     }
@@ -234,7 +245,7 @@ export function getLinkModuleForRoute(routeId) {
     routeId,
     eyebrow: route.templateId === 'editorial_article' ? 'Keep reading' : 'Keep exploring',
     heading: sectionHeading(route),
-    groups: [hubGroup, contextualGroup, nextGroup],
+    groups: [hubGroup, contextualGroup, nextGroup].filter((group) => group.items.length > 0),
   };
 }
 

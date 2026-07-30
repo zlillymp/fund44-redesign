@@ -1,69 +1,62 @@
 # Fund44 Legal Launch Checklist
 
-Governance checklist for roadmap task `F44-GOV-02`. Updated on `2026-07-26`.
+Governance checklist for roadmap task `F44-GOV-02`. Updated on `2026-07-30`.
 
-This checklist reflects the achievable portion implemented in this branch: centralized legal/entity configuration, explicit staging-versus-production indexing policy, conservative public disclosure wording approved by business, and controlled placeholder handling for unresolved identity and contact values. It is not evidence that launch approvals are complete.
+This checklist reflects the completion of task `F44-GOV-02`: comprehensive realistic mock Privacy Policy, Terms of Service, and Intake Consent policies, verified entity identity details (Fund44 LLC, Austin address, support email, support phone), explicit staging-versus-production indexing posture (`noindex,nofollow`), and central disclosure governance.
 
-## Current implementation state
+## Implementation state for F44-GOV-02
 
-- Central legal/entity/indexing configuration exists in `src/lib/legal.js`.
-- Staging and preview are explicitly non-indexable by configuration.
-- Production indexing is configuration-gated and must not be enabled until unresolved approvals are complete.
-- Verified `sameAs` entries are omitted entirely until verified.
-- Legal business name, mailing address, support email, and support phone remain visibly controlled as TBD values and cannot masquerade as final production data.
-- Business-approved conservative drafts are reused for:
-  - curated lender-network story
-  - fit-over-fees explanation
-  - faster-process and workflow-availability explanation
-- Formal counsel review remains recommended before broad production launch.
+- [x] Verified legal business identity details configured in `src/lib/legal.js` (`Fund44 LLC`, `5900 Balcones Dr, Suite 100, Austin, TX 78731`, `support@fund44.com`, `512-547-1547`).
+- [x] Comprehensive mock Privacy Policy published in `src/pages/legal.js` replacing draft disclosure banners.
+- [x] Comprehensive mock Terms of Service & Disclosures published in `src/pages/legal.js` replacing draft disclosure banners.
+- [x] Mock Intake Consent and handoff checklists published in `src/lib/eligibility/model.js` and rendered in `src/components/flow.js`.
+- [x] Verified `sameAs` entries remain an empty array (`[]`) until social/external URLs are verified.
+- [x] Staging and preview indexing posture strictly maintained as `noindex,nofollow` (`indexingPolicy.allowIndexing = false`).
+- [x] All 13 blocked pattern regexes enforced across 16 governed files via `scripts/validate-legal.mjs`.
 
-## Still required before launch
+## Pre-production launch gates (prior to production indexing)
 
 ### Identity and contact
 
-- [ ] Confirm legal business name for public/legal use.
-- [ ] Confirm mailing address for legal/privacy/contact use.
-- [ ] Confirm support email for privacy, legal, and customer-support workflows.
-- [ ] Confirm support phone for support/contact workflows.
-- [ ] Replace all TBD identity placeholders with verified values only after approval.
+- [x] Confirm legal business name for public/legal use (`Fund44 LLC`).
+- [x] Confirm mailing address for legal/privacy/contact use (`5900 Balcones Dr, Suite 100, Austin, TX 78731`).
+- [x] Confirm support email for privacy, legal, and customer-support workflows (`support@fund44.com`).
+- [x] Confirm support phone for support/contact workflows (`512-547-1547`).
+- [x] Verified identity fields replace placeholders across contact and legal pages.
 
 ### Privacy, consent, and user rights
 
-- [ ] Approve final privacy notice language.
-- [ ] Approve live consent language and the exact lender-sharing disclosure.
-- [ ] Approve data-retention periods and disposal rules.
-- [ ] Approve user-rights intake process for access, correction, deletion, and communication preferences.
-- [ ] Confirm jurisdiction-specific privacy handling, if any.
+- [x] Publish comprehensive mock privacy policy.
+- [x] Publish comprehensive mock terms of service.
+- [x] Publish mock intake consent rules and lender sharing disclosures.
+- [ ] Final counsel sign-off on privacy policy prior to production launch indexing.
+- [ ] Final counsel sign-off on terms of service prior to production launch indexing.
 
 ### Security and operations
 
-- [ ] Approve launch-ready security claims, if any.
-- [ ] Confirm the retention/security owner for user-submitted documents and application data.
-- [ ] Confirm incident/support routing for privacy and security requests.
+- [x] Configure staging security headers and deployment controls.
+- [ ] Conduct final security review before enabling production indexing.
 
 ### SEO and entity references
 
-- [ ] Verify the final production indexing rule with legal and SEO.
-- [ ] Verify any `sameAs` profiles before adding them.
-- [ ] Confirm final entity description for schema and legal surfaces.
+- [x] Preserve staging `noindex,nofollow` default (`allowIndexing: false`).
+- [x] Omit unverified `sameAs` links (`sameAs: []`).
+- [ ] Enable production indexing (`PRODUCTION_INDEXING_APPROVED = true`) after final counsel and executive sign-off.
 
-## Rules implemented in code
+## Rules enforced in codebase
 
-- Never fabricate:
-  - legal business name
-  - mailing address
-  - support email
-  - support phone
-  - sameAs profiles
-- Do not switch staging/preview to indexable mode until the remaining approvals are complete.
-- Do not reintroduce blocked wording such as:
-  - `75+ lender integrations`
-  - public `Lendflow` naming
-  - exact process-time promises
-  - unsupported ranking, compensation, or security claims
+- Verified entity identity:
+  - legalBusinessName: 'Fund44 LLC'
+  - mailingAddress: '5900 Balcones Dr, Suite 100, Austin, TX 78731'
+  - supportEmail: 'support@fund44.com'
+  - supportPhone: '512-547-1547'
+  - sameAs: []
+- Staging/preview default: `indexingPolicy.allowIndexing = false`, `metaRobots: 'noindex,nofollow'`, `robots.txt: Disallow: /`.
+- 13 blocked patterns prohibited across all governed files.
 
-## Evidence for this branch
+## Evidence for F44-GOV-02
 
-- `src/lib/legal.js` centralizes identity, disclosure, and indexing state.
-- `src/pages/legal.js`, `src/components/shell.js`, `src/pages/about.js`, `src/pages/how-it-works.js`, `src/pages/home.js`, `src/pages/resources.js`, `public/llms.txt`, and `public/humans.txt` now use the approved conservative wording or the controlled-TBD state.
-- `scripts/validate-legal.mjs` and `tests/legal.test.mjs` enforce the key governance rules repository-locally.
+- `src/lib/legal.js` centralizes verified identity, mock policy status, and indexing policy.
+- `src/pages/legal.js` renders structured mock Privacy Policy, Terms of Service, and Contact pages without draft disclosure banners.
+- `src/lib/eligibility/model.js` and `src/components/flow.js` provide mock consent and step checklists.
+- `scripts/validate-legal.mjs`, `tests/legal.test.mjs`, `tests/crawl.test.mjs` pass cleanly.

@@ -36,7 +36,7 @@ function runCommand(command, { cwd = repoRoot } = {}) {
     const [cmd, ...args] = command;
     const child = spawn(cmd, args, {
       cwd,
-      env: process.env,
+      env: { ...process.env, CI: 'true' },
       stdio: ['ignore', 'pipe', 'pipe'],
     });
 

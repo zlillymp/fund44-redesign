@@ -15,6 +15,7 @@ const SCALABLE_FAMILY_TEMPLATES = {
   use_case: 'use_case_page',
   industry: 'industry_page',
   state: 'state_page',
+  metro: 'metro_page',
 };
 
 const CONTEXT_KIND_BY_FAMILY = {
@@ -22,6 +23,7 @@ const CONTEXT_KIND_BY_FAMILY = {
   use_case: 'use_case',
   industry: 'industry',
   state: 'state',
+  metro: 'metro',
 };
 
 function countOccurrences(html, pattern) {
@@ -57,7 +59,7 @@ test('every route family that maps to a scalable template has routes and a regis
 
 test('scalable template variants render every contracted section block', () => {
   const families = routesByFamily();
-  const variantFamilies = ['financing_program', 'use_case', 'industry', 'state'];
+  const variantFamilies = ['financing_program', 'use_case', 'industry', 'state', 'metro'];
 
   for (const routeFamily of variantFamilies) {
     for (const route of families.get(routeFamily)) {
@@ -91,7 +93,7 @@ test('scalable template variants render every contracted section block', () => {
 test('scalable template variants keep contracted sections in the documented reading order', () => {
   const families = routesByFamily();
 
-  for (const routeFamily of ['financing_program', 'use_case', 'industry', 'state']) {
+  for (const routeFamily of ['financing_program', 'use_case', 'industry', 'state', 'metro']) {
     for (const route of families.get(routeFamily)) {
       const { html } = renderRouteToHtml(route.path);
       const content = getContentByRouteId(route.routeId);
@@ -144,7 +146,7 @@ test('scalable template variants attach their own route family to every funnel C
 test('scalable template variants render FAQ entries with unique ids bound to the measurement group', () => {
   const families = routesByFamily();
 
-  for (const routeFamily of ['financing_program', 'use_case', 'industry', 'state']) {
+  for (const routeFamily of ['financing_program', 'use_case', 'industry', 'state', 'metro']) {
     for (const route of families.get(routeFamily)) {
       const { html } = renderRouteToHtml(route.path);
       const content = getContentByRouteId(route.routeId);

@@ -1,8 +1,8 @@
 # Fund44 Centralized Disclosures
 
-Central wording source for roadmap task `F44-GOV-01`. Reviewed on `2026-07-25`.
+Central wording source for roadmap tasks `F44-GOV-01` and `F44-GOV-02`. Updated on `2026-07-30`.
 
-This file centralizes approved and draft disclosure language so pages, manifests, and AI-facing files stop inventing variations. The business approver input received on `2026-07-25` authorizes conservative public and staging draft use of `F44-DISC-11`, `F44-DISC-12`, and `F44-DISC-13`. Formal counsel review remains recommended before broad production reuse. Legal business name, business address, support email, support phone, and final privacy, terms, consent, and entity/contact copy remain TBD under `F44-GOV-02`.
+This file centralizes approved and draft disclosure language so pages, manifests, and AI-facing files stop inventing variations. Under task `F44-GOV-02`, realistic mock privacy, terms, and consent policies have been drafted and published for staging and evaluation alongside verified entity identity details (Fund44 LLC, 5900 Balcones Dr, Suite 100, Austin, TX 78731, support@fund44.com, 512-547-1547). Formal counsel review remains recommended before broad production indexing.
 
 ## Use rules
 

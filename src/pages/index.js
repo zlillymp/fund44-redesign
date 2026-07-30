@@ -18,7 +18,20 @@ import {
   californiaStatePage,
   floridaStatePage,
   newYorkStatePage,
+  texasStatePage,
 } from './states.js';
+import {
+  houstonMetroPage,
+  sanAntonioMetroPage,
+  dallasMetroPage,
+  austinMetroPage,
+  fortWorthMetroPage,
+  elPasoMetroPage,
+  arlingtonMetroPage,
+  corpusChristiMetroPage,
+  planoMetroPage,
+  laredoMetroPage,
+} from './metros.js';
 import { howItWorks } from './how-it-works.js';
 import { about } from './about.js';
 import { resources, article } from './resources.js';
@@ -48,6 +61,17 @@ export const pageRenderers = {
   californiaStatePage,
   floridaStatePage,
   newYorkStatePage,
+  texasStatePage,
+  houstonMetroPage,
+  sanAntonioMetroPage,
+  dallasMetroPage,
+  austinMetroPage,
+  fortWorthMetroPage,
+  elPasoMetroPage,
+  arlingtonMetroPage,
+  corpusChristiMetroPage,
+  planoMetroPage,
+  laredoMetroPage,
   howItWorks,
   about,
   resources,

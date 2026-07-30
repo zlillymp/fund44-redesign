@@ -110,12 +110,38 @@ test('state launch routes are canonical clean-path entries', () => {
     'california_sba_loans',
     'florida_sba_loans',
     'new_york_sba_loans',
+    'texas_sba_loans',
   ].forEach((routeId) => {
     const route = inventory.get(routeId);
     assert.ok(route, `missing route ${routeId}`);
     assert.equal(route.pageType, 'state');
     assert.equal(route.templateId, 'state_page');
     assert.equal(route.routeFamily, 'state');
+    assert.equal(route.canonical, true);
+    assert.equal(route.indexable, true);
+  });
+});
+
+test('metro launch routes are canonical clean-path entries', () => {
+  const inventory = new Map(getRouteInventory().map((route) => [route.routeId, route]));
+
+  [
+    'houston_sba_loans',
+    'san_antonio_sba_loans',
+    'dallas_sba_loans',
+    'austin_sba_loans',
+    'fort_worth_sba_loans',
+    'el_paso_sba_loans',
+    'arlington_sba_loans',
+    'corpus_christi_sba_loans',
+    'plano_sba_loans',
+    'laredo_sba_loans',
+  ].forEach((routeId) => {
+    const route = inventory.get(routeId);
+    assert.ok(route, `missing route ${routeId}`);
+    assert.equal(route.pageType, 'metro');
+    assert.equal(route.templateId, 'metro_page');
+    assert.equal(route.routeFamily, 'metro');
     assert.equal(route.canonical, true);
     assert.equal(route.indexable, true);
   });
@@ -134,4 +160,5 @@ test('structured content records remain bound to manifest route ids', () => {
   assert.equal(getContentById('use_case_cash_flow_needs').routeId, 'cash_flow_needs');
   assert.equal(getContentById('industry_trucking_companies').routeId, 'trucking_companies');
   assert.equal(getContentById('state_florida_sba_loans').routeId, 'florida_sba_loans');
+  assert.equal(getContentById('metro_houston_sba_loans').routeId, 'houston_sba_loans');
 });

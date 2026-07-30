@@ -80,13 +80,15 @@ const server = createServer(async (req, res) => {
   res.end(asset.body);
 });
 
-await new Promise((resolve) => server.listen(4173, '127.0.0.1', resolve));
+await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+const port = server.address().port;
+const baseUrl = `http://127.0.0.1:${port}`;
 
 try {
   const routes = getCanonicalRoutes().filter((route) => route.routeId !== 'not_found');
 
   for (const route of routes) {
-    const response = await fetchText(`http://127.0.0.1:4173${route.path}`);
+    const response = await fetchText(`${baseUrl}${route.path}`);
     if (response.status !== 200) {
       throw new Error(`Expected 200 for ${route.path}, got ${response.status}`);
     }
@@ -98,13 +100,13 @@ try {
     }
   }
 
-  const hashResponse = await fetchText('http://127.0.0.1:4173/#/financing');
+  const hashResponse = await fetchText(`${baseUrl}/#/financing`);
   if (hashResponse.status !== 200) {
     throw new Error(`Expected 200 for legacy hash route, got ${hashResponse.status}`);
   }
 
-  const entryResponse = await fetchText('http://127.0.0.1:4173/financing');
-  const mainResponse = await fetchText('http://127.0.0.1:4173/');
+  const entryResponse = await fetchText(`${baseUrl}/financing`);
+  const mainResponse = await fetchText(`${baseUrl}/`);
   if (!entryResponse.text.includes('/assets/')) {
     throw new Error('Expected clean-path entry response to include built asset references.');
   }
@@ -112,7 +114,7 @@ try {
     throw new Error('Expected home entry response to include built asset references.');
   }
 
-  const notFoundResponse = await fetchText('http://127.0.0.1:4173/does-not-exist');
+  const notFoundResponse = await fetchText(`${baseUrl}/does-not-exist`);
   if (notFoundResponse.status !== 404) {
     throw new Error(`Expected 404 for unknown route, got ${notFoundResponse.status}`);
   }
