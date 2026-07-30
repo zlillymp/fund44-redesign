@@ -58,10 +58,6 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 
 ## home
 
-### Main financing guide
-
-- None
-
 ### Related financing paths
 
 - `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.

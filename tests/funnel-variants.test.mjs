@@ -102,7 +102,9 @@ test('planned live sequence keeps consent ahead of contact capture', () => {
 test('unknown requested modes fall back to the preview sequence', () => {
   const state = createInitialEligibilityState({ requestedMode: 'turbo' });
 
-  assert.equal(state.context.requestedMode, '');
+  // Invalid modes normalize away; with live choice hidden, public entry defaults to preview.
+  assert.equal(state.context.requestedMode, 'preview');
+  assert.equal(state.context.activeMode, 'preview');
   assert.deepEqual(getModeSequence(state.context.requestedMode), PREVIEW_STEP_SEQUENCE);
 });
 

@@ -75,7 +75,7 @@ test.describe('release browser smoke', () => {
     await page.getByRole('button', { name: /preview funding paths/i }).first().click();
     await expect(page.locator('#flowDialog')).toBeVisible();
 
-    await page.locator('[data-mode-choice="preview"]').click();
+    // Preview auto-starts at use-of-funds; continue without a choice to emit validation analytics.
     await page.getByRole('button', { name: /^Continue/ }).click();
     await page.locator('[data-choice="use"][data-val="working"]').click();
     await page.getByRole('button', { name: /^Continue/ }).click();

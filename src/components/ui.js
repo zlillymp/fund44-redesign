@@ -21,7 +21,7 @@ export const breadcrumb = (crumbs) => `
   </nav>`;
 
 export const primaryCta = (
-  label = 'Preview my funding paths',
+  label = 'Preview funding paths',
   {
     ctaId = 'preview_funding_paths',
     startSurface = 'page_hero_primary',
@@ -157,11 +157,12 @@ export const faqBlock = (items, faqGroup = 'faq_group') => `
 // 1. Funding match dashboard
 export const matchDashboard = () => `
 <div class="panel reveal" data-viz="match">
-  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">fund44 · match results</span></div>
+  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">fund44 · match results · example</span></div>
   <div class="panel-body">
     <div class="match-head">
       <div>
         <div class="match-count"><span data-count="4">0</span><small>illustrative paths found</small></div>
+        <p class="muted disclosure-copy match-fit-legend">Percentages are illustrative fit indicators for this example — not approval odds or eligibility scores.</p>
       </div>
       <span class="tag">Use of funds · Acquisition</span>
     </div>
@@ -174,7 +175,7 @@ export const matchDashboard = () => `
       ].map(([n,m,p]) => `
         <div class="match-row">
           <div><div class="mr-name">${n}</div><div class="mr-meta">${m}</div></div>
-          <div class="match-fit"><span class="fit-bar"><i class="fit-bar-fill" style="width:0" data-fit="${p}"></i></span><span class="fit-pct">${p}%</span></div>
+          <div class="match-fit"><span class="fit-bar"><i class="fit-bar-fill" style="width:0" data-fit="${p}"></i></span><span class="fit-pct" aria-label="Illustrative fit ${p}%">${p}%</span></div>
         </div>`).join('')}
     </div>
   </div>
@@ -199,7 +200,7 @@ export const routingWaterfall = () => `
 // 3. Document checklist
 export const docChecklist = () => `
 <div class="panel reveal" data-viz="checklist">
-  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">document checklist</span></div>
+  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">document checklist · example</span></div>
   <div class="panel-body">
     <div class="checklist">
       ${[
@@ -221,15 +222,15 @@ export const docChecklist = () => `
 // 4. Status timeline
 export const statusTimeline = () => `
 <div class="panel reveal" data-viz="timeline">
-  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">application status</span></div>
+  <div class="panel-bar"><span class="panel-dots"><i></i><i></i><i></i></span><span class="panel-title">application status · example</span></div>
   <div class="panel-body">
     <div class="timeline">
       ${[
-        ['Application submitted','Complete','done'],
-        ['Matched to lenders','4 paths surfaced','done'],
-        ['Documents in review','With 2 lenders','active'],
-        ['Offers returned','Compare side by side',''],
-        ['Choose & continue','Proceed with one lender',''],
+        ['Sample: Application submitted','Example complete','done'],
+        ['Sample: Matched to lenders','4 example paths','done'],
+        ['Sample: Documents in review','Illustrative lender review','active'],
+        ['Sample: Offers returned','Compare side by side',''],
+        ['Sample: Choose & continue','Proceed with one lender',''],
       ].map(([b,s,cls],i,arr) => `
         <div class="tl-step ${cls}">
           <div class="tl-marker"><span class="tl-dot"></span>${i<arr.length-1?'<span class="tl-rail"></span>':''}</div>
@@ -331,12 +332,16 @@ export const stepRow = (steps) => `
     </div>`).join('')}
 </div>`;
 
-export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => `
+export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => {
+  const visibleGroups = (groups || []).filter((group) => Array.isArray(group.items) && group.items.length > 0);
+  if (!visibleGroups.length) return '';
+
+  return `
 <section class="section-tight wrap">
   ${eyebrow(eb)}
   <h2 class="h2 reveal mt-4 mb-8 title-xl">${heading}</h2>
-  <div class="grid g-3 reveal" data-stagger>
-    ${groups.map((group) => `
+  <div class="grid g-${Math.min(visibleGroups.length, 3)} reveal" data-stagger>
+    ${visibleGroups.map((group) => `
       <section class="card" aria-labelledby="${group.id}">
         <h3 id="${group.id}" class="title-lg">${group.title}</h3>
         <ul role="list" class="section-card-list mt-6">
@@ -351,3 +356,4 @@ export const relatedLinksModule = ({ eyebrow: eb, heading, groups }) => `
     `).join('')}
   </div>
 </section>`;
+};

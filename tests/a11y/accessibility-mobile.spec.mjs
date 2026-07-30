@@ -105,11 +105,8 @@ test.describe('FAQ, motion, and dialog behavior', () => {
       expect(dialogBox.height).toBeLessThanOrEqual(page.viewportSize().height);
     }
 
-    const modeChoice = page.locator('[data-mode-choice="preview"]').first();
-    await expect(modeChoice).toBeFocused();
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Enter');
-    await expect(page.locator('[data-choice="use"]').first()).toBeFocused();
+    const useChoice = page.locator('[data-choice="use"]').first();
+    await expect(useChoice).toBeFocused();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Shift+Tab');
     await page.getByRole('button', { name: /continue/i }).click();

@@ -291,18 +291,21 @@ export function getCurrentSequence(state, options) {
 
 export function createInitialEligibilityState(context = {}) {
   const requestedMode = normalizeMode(context.requestedMode);
-  const initialMode = requestedMode || '';
+  const hideLiveChoice = liveEligibilityGate.showModeChoice === false;
+  const initialMode = requestedMode || (hideLiveChoice ? ELIGIBILITY_MODES.preview : '');
+  const shouldSkipModeSelect = hideLiveChoice && initialMode === ELIGIBILITY_MODES.preview;
 
   return {
-    currentStepId: STEP_IDS.modeSelect,
-    completedStepIds: [],
+    currentStepId: shouldSkipModeSelect ? STEP_IDS.useOfFunds : STEP_IDS.modeSelect,
+    completedStepIds: shouldSkipModeSelect ? [STEP_IDS.modeSelect] : [],
     values: { ...DEFAULT_VALUES },
     errors: {},
     context: {
       ...DEFAULT_CONTEXT,
       ...context,
-      requestedMode,
+      requestedMode: initialMode || requestedMode,
       activeMode: initialMode,
+      modeSource: context.modeSource || (shouldSkipModeSelect ? 'cta' : 'ui'),
     },
     outcome: null,
     recovery: {
@@ -414,8 +417,12 @@ export function getStepDefinition(stepId, state) {
       return {
         id: STEP_IDS.modeSelect,
         name: 'Mode selection',
-        title: 'Choose how you want to start.',
-        description: 'Preview shows sample results without sending data. Live application submits your information to the Fund44 intake workflow.',
+        title: liveEligibilityGate.showModeChoice === false
+          ? 'Start a funding-path preview.'
+          : 'Choose how you want to start.',
+        description: liveEligibilityGate.showModeChoice === false
+          ? 'Preview shows sample results in your browser without creating an application or sending data off the page.'
+          : 'Preview shows sample results without sending data. Live application submits your information to the Fund44 intake workflow.',
       };
     case STEP_IDS.useOfFunds:
       return {

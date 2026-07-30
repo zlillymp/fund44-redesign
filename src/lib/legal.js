@@ -122,6 +122,8 @@ export const disclosures = {
 
 export const liveEligibilityGate = {
   enabled: true,
+  /** When false, the public eligibility modal hides Live application and starts in preview. */
+  showModeChoice: false,
   leadWebhookUrl: 'https://n8n-latest-9uei.onrender.com/webhook/lead',
   applicationWebhookUrl: 'https://n8n-latest-9uei.onrender.com/webhook/application',
   summary:
