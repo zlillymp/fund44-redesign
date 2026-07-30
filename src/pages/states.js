@@ -202,3 +202,7 @@ export function floridaStatePage() {
 export function newYorkStatePage() {
   return renderState('new_york_sba_loans');
 }
+
+export function texasStatePage() {
+  return renderState('texas_sba_loans');
+}

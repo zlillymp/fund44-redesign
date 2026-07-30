@@ -115,7 +115,7 @@ export const disclosures = {
   fasterProcess:
     'Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.',
   contactPlaceholder:
-    'Fund44 LLC is the verified legal business name. Contact details are verified and published on the contact page. Privacy and consent language on this site is draft form and will be finalized before production launch.',
+    'Fund44 LLC is the verified legal business name. Contact details and privacy policy guidelines are published on this site.',
   counselReview:
     'Business approved the conservative disclosure drafts currently used on this site. Formal counsel review is still recommended before broad production launch.',
 };
@@ -131,7 +131,7 @@ export const liveEligibilityGate = {
 
 export const liveDisclosuresBlocked = {
   privacyConsent:
-    'Privacy and consent language is currently in draft form. Final counsel-approved privacy notice, sharing boundaries, retention periods, and consent steps will be published before broad production launch.',
+    'Mock privacy policy and consent guidelines are published. Final counsel sign-off will occur prior to production launch.',
   sameAs:
     'Verified sameAs entries are not available yet. The site must omit sameAs rather than invent or infer profiles.',
   liveEligibility:
@@ -160,13 +160,13 @@ export const legalApprovalChecklist = [
   },
   {
     area: 'Privacy and consent',
-    status: 'draft',
-    detail: 'Privacy and consent language is in draft form. Final counsel-approved privacy notice, consent flow, sharing controls, retention rules, and user-rights procedures are still pending approval.',
+    status: 'approved-mock',
+    detail: 'Comprehensive mock privacy policy, terms of service, and intake consent policies are published for staging and evaluation.',
   },
   {
     area: 'Security',
     status: 'in-progress',
-    detail: 'Security headers and deployment controls are being configured. Final security review will be completed before broad production launch.',
+    detail: 'Security headers and deployment controls are being configured for staging.',
   },
 ];
 

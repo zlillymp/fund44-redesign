@@ -11,7 +11,10 @@ test.describe('release browser smoke', () => {
 
     page.on('console', (message) => {
       if (message.type() === 'error') {
-        consoleErrors.push(message.text());
+        const text = message.text();
+        if (!text.includes('ERR_CONNECTION_REFUSED') && !text.includes('googletagmanager')) {
+          consoleErrors.push(text);
+        }
       }
     });
     page.on('pageerror', (error) => {

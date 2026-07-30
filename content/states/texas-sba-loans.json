@@ -1,0 +1,262 @@
+{
+  "id": "state_texas_sba_loans",
+  "routeId": "texas_sba_loans",
+  "slug": "texas-sba-loans",
+  "pageType": "state",
+  "templateId": "state_page",
+  "title": "Texas SBA loan resources",
+  "metaTitle": "Texas SBA loan resources & statewide advisory guide",
+  "metaDescription": "Texas small businesses comparing SBA 7(a), 504, acquisition, or working capital financing can confirm their regional SBA district office and SBDC partners across Texas metros before selecting lenders.",
+  "summary": "The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.",
+  "contentVersion": "2026-07-30",
+  "shortLabel": "Texas SBA loan resources",
+  "stateCode": "TX",
+  "hero": {
+    "eyebrow": "State resources: Texas",
+    "title": "Texas SBA loan guidance starts with regional district offices and local SBDC advising.",
+    "lead": "Texas small business owners across Houston, Dallas-Fort Worth, San Antonio, Austin, El Paso, and regional hubs can verify official SBA district coverage and local advising before comparing 7(a), 504, or acquisition financing options."
+  },
+  "quickAnswer": {
+    "term": "Texas SBA loan resources",
+    "definition": "help business owners across Texas locate their regional SBA district office (Houston, DFW, San Antonio, or El Paso) and statewide SBDC network advisors before selecting an SBA 7(a), SBA 504, acquisition, or equipment program."
+  },
+  "whoItFitsHeading": "When this Texas page fits best",
+  "bestFitHeading": "Common financing explainers Texas borrowers review after finding local support",
+  "bestFitProducts": [
+    {
+      "routeId": "sba_7a",
+      "title": "SBA 7(a) loans",
+      "description": "General working capital, debt refinance, and business growth up to $5 million.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "sba_504",
+      "title": "SBA 504 loans",
+      "description": "Long-term fixed-rate financing for owner-occupied real estate and heavy machinery in Texas.",
+      "iconKey": "layers"
+    },
+    {
+      "routeId": "business_acquisition",
+      "title": "Business acquisition financing",
+      "description": "Acquisition and partner buyout structure explainers for Texas buy-side transactions.",
+      "iconKey": "route"
+    }
+  ],
+  "whoItFits": {
+    "heading": "When Texas SBA-loan resource pages tend to fit",
+    "items": [
+      "You operate a business in Texas and want to confirm your local SBA district office and regional SBDC entry points.",
+      "You want free local advisory support from a Texas SBDC center before submitting loan packages to lenders.",
+      "You are planning a commercial real estate expansion, acquisition, or working capital request in Texas.",
+      "You want to pair local Texas advisory guidance with Fund44's clean national program explainers."
+    ]
+  },
+  "whenItMayNotFit": {
+    "heading": "When this path may not fit as well",
+    "items": [
+      "If you already know your exact loan program (e.g. SBA 504 vs 7(a)), starting directly on national product pages is faster.",
+      "If you are looking for metro-specific SBDC centers, review the specific Texas metro pages (Houston, Dallas, San Antonio, Austin, etc.).",
+      "If you need municipal permit or tax advice, consult your city or county clerk directly."
+    ]
+  },
+  "stateSupportHeading": "Official Texas support resources to open first",
+  "stateSupportCards": [
+    {
+      "id": "tx_sba_districts",
+      "title": "Texas SBA district offices",
+      "description": "Texas is served by 4 SBA district offices: Houston, Dallas/Fort Worth, San Antonio, and El Paso.",
+      "resourceLabel": "Review Texas district coverage",
+      "resourceUrl": "https://www.sba.gov/about-sba/sba-locations/sba-district-offices",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "tx_sbdc_network",
+      "title": "Texas SBDC network",
+      "description": "Four regional SBDC networks provide free business counseling and loan package prep across all 254 Texas counties.",
+      "resourceLabel": "Find a Texas SBDC center",
+      "resourceUrl": "https://txsbdc.org/",
+      "iconKey": "route",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "tx_governor_small_biz",
+      "title": "Texas Governor's Small Business Assistance",
+      "description": "Statewide portal offering Texas small business guides, permits, state incentives, and resource directories.",
+      "resourceLabel": "Open Texas Governor's Portal",
+      "resourceUrl": "https://gov.texas.gov/business/page/small-business",
+      "iconKey": "cash",
+      "relatedRouteId": "financing"
+    }
+  ],
+  "stateContextHeading": "Texas-specific context before financing comparisons",
+  "stateContextCards": [
+    {
+      "id": "tx_four_districts",
+      "title": "Four SBA district offices cover Texas",
+      "description": "Depending on your county, your business is served by Houston, Dallas/Fort Worth, San Antonio, or El Paso district offices.",
+      "iconKey": "building",
+      "relatedRouteId": "sba_7a"
+    },
+    {
+      "id": "tx_statewide_sbdc",
+      "title": "Statewide SBDC network advising",
+      "description": "University-hosted SBDC hubs at UH, UTSA, Dallas College, and Texas Tech deliver no-cost loan preparation assistance.",
+      "iconKey": "file",
+      "relatedRouteId": "resource_preparing_documents"
+    },
+    {
+      "id": "tx_key_sectors",
+      "title": "Diverse economy across major metro regions",
+      "description": "Texas leads in trade, energy, healthcare, construction, and technology projects that leverage SBA financing.",
+      "iconKey": "layers",
+      "relatedRouteId": "sba_504"
+    }
+  ],
+  "typicalDocuments": {
+    "heading": "Common Texas-starting document examples",
+    "items": [
+      "3 years of business and personal tax returns",
+      "Year-to-date balance sheet and profit & loss statement",
+      "Texas Secretary of State entity filing or county assumed name certificate (DBA)",
+      "Detailed use of funds schedule for real estate, equipment, or working capital"
+    ]
+  },
+  "howFund44Fits": {
+    "heading": "How Fund44 fits",
+    "summary": "Fund44 connects Texas business owners with official local advisory contacts and provides clean, objective national financing comparisons.",
+    "bullets": [
+      "Points borrowers directly to regional SBA district offices and Texas SBDC centers.",
+      "Compares national 7(a), 504, and acquisition explainers without state markup.",
+      "Leaves credit underwriting and loan decisions to certified SBA lenders."
+    ]
+  },
+  "alternativePathsHeading": "Compare these next if your Texas project shifts focus",
+  "alternativePaths": [
+    {
+      "routeId": "owner_occupied_real_estate",
+      "title": "Owner-occupied real estate",
+      "description": "Review property acquisition and construction financing paths.",
+      "iconKey": "building"
+    },
+    {
+      "routeId": "working_capital",
+      "title": "Working capital & lines",
+      "description": "Review cash-flow and operating credit line options.",
+      "iconKey": "cash"
+    },
+    {
+      "routeId": "resource_preparing_documents",
+      "title": "Preparing your documents",
+      "description": "Organize your loan package before contacting lenders.",
+      "iconKey": "file"
+    }
+  ],
+  "sectionDisclosureHtml": "<strong>Fund44 is not a lender.</strong> Texas resource details are educational entry points. SBA office coverage, counseling availability, eligibility, and lender terms vary by business profile and provider.",
+  "ctaBanner": {
+    "heading": "Ready to compare Texas SBA financing options?",
+    "subheading": "Preview the national financing paths that match your business profile after gathering local support."
+  },
+  "commonQuestions": [
+    {
+      "id": "tx_faq_districts",
+      "question": "How many SBA district offices serve Texas?",
+      "answer": "Texas is served by 4 SBA district offices: Houston, Dallas/Fort Worth, San Antonio, and El Paso."
+    },
+    {
+      "id": "tx_faq_sbdc",
+      "question": "Where can Texas business owners get free loan preparation help?",
+      "answer": "The Texas SBDC network offers free business consulting and loan application prep across 4 regional university-led networks."
+    },
+    {
+      "id": "tx_faq_7a_504",
+      "question": "What is the difference between SBA 7(a) and 504 loans in Texas?",
+      "answer": "SBA 7(a) provides flexible capital up to $5M for general working capital, equipment, or acquisitions. SBA 504 specializes in long-term real estate and heavy machinery."
+    },
+    {
+      "id": "tx_faq_fund44",
+      "question": "Does Fund44 issue SBA loans in Texas directly?",
+      "answer": "No. Fund44 is an educational technology marketplace, not a lender. Loans are issued by third-party SBA participating lenders."
+    }
+  ],
+  "relatedIds": [
+    "page_financing",
+    "page_sba_7a",
+    "page_sba_504",
+    "page_business_acquisition",
+    "article_preparing_your_documents",
+    "state_california_sba_loans",
+    "state_florida_sba_loans",
+    "state_new_york_sba_loans",
+    "metro_houston_sba_loans",
+    "metro_san_antonio_sba_loans",
+    "metro_dallas_sba_loans",
+    "metro_austin_sba_loans",
+    "metro_fort_worth_sba_loans",
+    "metro_el_paso_sba_loans",
+    "metro_arlington_sba_loans",
+    "metro_corpus_christi_sba_loans",
+    "metro_plano_sba_loans",
+    "metro_laredo_sba_loans"
+  ],
+  "contributors": {
+    "authorId": null,
+    "reviewerId": null,
+    "authorPlaceholder": "TBD under F44-GOV-02",
+    "reviewerPlaceholder": "TBD under F44-GOV-02"
+  },
+  "publishedDate": null,
+  "reviewedDate": null,
+  "claimIds": [
+    "F44-PROD-02",
+    "F44-PROD-03",
+    "F44-PROD-06",
+    "F44-PROD-07"
+  ],
+  "claimReview": {
+    "requiresEvidence": true,
+    "evidenceScopes": [
+      "product_overview",
+      "program_detail",
+      "educational_editorial",
+      "document_guidance"
+    ]
+  },
+  "citationIds": [
+    "external_sba_7a_loans_2026_07_26",
+    "external_sba_504_loans_2026_07_26",
+    "external_sba_houston_district_2026_07_30",
+    "external_sba_dallas_fort_worth_district_2026_07_30",
+    "external_sba_san_antonio_district_2026_07_30",
+    "external_sba_el_paso_district_2026_07_30",
+    "external_texas_governor_small_business_2026_07_30"
+  ],
+  "disclosureIds": [
+    "F44-DISC-04",
+    "F44-DISC-09"
+  ],
+  "indexability": {
+    "canonical": true,
+    "indexable": true,
+    "sitemap": true,
+    "llms": true,
+    "landing": true
+  },
+  "intent": {
+    "primaryTopic": "texas_sba_loan_resources",
+    "contentGroup": "state",
+    "audienceStage": "consideration",
+    "funnelRole": "entry"
+  },
+  "measurement": {
+    "routeFamily": "state",
+    "ctaIds": [
+      "preview_funding_paths",
+      "state_best_fit_link",
+      "state_alternative_link",
+      "cta_banner_preview_funding_paths"
+    ],
+    "faqGroup": "texas_sba_resources_faq",
+    "freshnessState": "review_pending"
+  }
+}

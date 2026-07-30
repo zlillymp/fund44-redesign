@@ -6,6 +6,7 @@ export default defineConfig({
   testDir: './tests/release',
   timeout: 30_000,
   fullyParallel: false,
+  workers: 1,
   retries: 0,
   outputDir: 'test-results/release',
   reporter: [
@@ -19,7 +20,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run preview -- --host 127.0.0.1 --port 4174',
     url: `http://127.0.0.1:${port}`,
-    reuseExistingServer: true,
+    reuseExistingServer: !process.env.CI,
     timeout: 30_000,
   },
   projects: [

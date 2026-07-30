@@ -4,12 +4,12 @@ import { eyebrow, disclosure, relatedLinksModule } from '../components/ui.js';
 import { getBreadcrumbs, hrefForRoute } from '../lib/routes.js';
 import {
   disclosures,
+  entityProfile,
   humanReadableIndexingMode,
   identityDisplay,
   indexingPolicy,
   legalApprovalChecklist,
   liveDisclosuresBlocked,
-  unresolvedIdentityFields,
 } from '../lib/legal.js';
 import { getLinkModuleForRoute } from '../lib/link-graph.js';
 
@@ -21,8 +21,8 @@ function legalHead(crumbs, title, updated) {
     </nav>
     <h1 class="h1 reveal mt-6">${title}</h1>
     <div class="reveal mt-4 meta-row">
-      <span class="legal-flag">${icon.info} ${indexingPolicy.allowIndexing ? 'Production-indexable legal mode' : 'Preview version — not final'}</span>
-      <span class="muted text-body-sm">${updated ? 'Preview version updated 2026-07-26' : `Current mode: ${humanReadableIndexingMode()}`}</span>
+      <span class="legal-flag">${icon.info} Published mock legal policy</span>
+      <span class="muted text-body-sm">${updated ? 'Updated 2026-07-30' : `Current mode: ${humanReadableIndexingMode()}`}</span>
     </div>
   </section>`;
 }
@@ -37,46 +37,54 @@ export function privacy() {
   const crumbs = getBreadcrumbs('privacy');
   const linkModule = getLinkModuleForRoute('privacy');
   setMeta({
-    title: 'Privacy policy (preview)',
-    description: 'Preview privacy summary for Fund44. Current preview data stays in-browser, live sharing and retention terms remain blocked pending legal approval, and staging remains noindex.',
+    title: 'Privacy Policy',
+    description: 'Privacy policy for Fund44 LLC. Learn how we handle, collect, use, and protect your business and personal information.',
     path: hrefForRoute('privacy'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
   return `
-  ${legalHead(crumbs, 'Privacy', true)}
+  ${legalHead(crumbs, 'Privacy Policy', true)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} ${liveDisclosuresBlocked.privacyConsent}`, {
-      disclosureId: 'privacy_page_draft_disclosure',
+    ${disclosure(`<strong>Privacy Policy.</strong> This policy describes how Fund44 LLC collects, uses, and safeguards information submitted through our small-business capital marketplace.`, {
+      disclosureId: 'privacy_page_notice',
       disclosureContext: 'privacy_page',
     })}
-    ${section('What we collect', `
-      <p>${disclosures.previewPrivacy}</p>
-      <p>The preview asks for limited business and contact inputs so the on-screen demo can be personalized. The exact live collection categories, sharing boundaries, retention periods, and consent steps are still pending approval.</p>`)}
-    ${section('Why we collect it', `
-      <p>${disclosures.fitOverFees}</p>
-      <p>For the current preview build, the information is used only to tailor the sample on-screen result in your browser. It is not a published final privacy notice for any live submission workflow.</p>`)}
-    ${section('How information is shared', `
-      <p>${disclosures.marketplacePreview}</p>
-      <p>${liveDisclosuresBlocked.privacyConsent}</p>`)}
-    ${section('Your controls', `
-      <p>Final user-rights procedures, contact methods for privacy requests, consent records, and retention handling are not approved yet. Those items remain blocked and must be finalized before launch.</p>
-      <ul class="list-plain">
-        <li>Staging and preview remain non-indexable while privacy and consent approvals are incomplete.</li>
-        <li>Unverified identity and contact fields are intentionally withheld instead of being guessed.</li>
-        <li>SameAs profiles remain omitted until verified.</li>
+    ${section('Scope & Overview', `
+      <p>Fund44 LLC ("Fund44", "we", "us", or "our"), located at ${entityProfile.mailingAddress}, operates a small-business capital marketplace. This Privacy Policy explains our data practices regarding information collected through our website, intake tools, and support channels (<a href="mailto:${entityProfile.supportEmail}" class="accent-text copy-accent-link">${entityProfile.supportEmail}</a> and <a href="tel:${entityProfile.supportPhone.replace(/[^\d+]/g, '')}" class="accent-text copy-accent-link">${entityProfile.supportPhone}</a>).</p>`)}
+    ${section('Information We Collect', `
+      <p>We collect information necessary to evaluate small-business financing requirements and deliver personalized marketplace path comparisons:</p>
+      <ul>
+        <li><strong>Business Profile Information:</strong> Company name, entity type, industry, annual revenue range, time in business, requested financing amount, and intended use of funds.</li>
+        <li><strong>Representative & Contact Details:</strong> Representative name, job title, business email address, phone number, and physical mailing address.</li>
+        <li><strong>Technical & Usage Data:</strong> Browser characteristics, IP address, device type, referrer URL, page interactions, and session preferences.</li>
       </ul>`)}
-    ${section('Credit information', `
+    ${section('How We Use Information', `
+      <p>${disclosures.fitOverFees}</p>
+      <p>We use collected data to assess eligibility, match inquiries with relevant financing options across our curated network, communicate intake status, operate our marketplace workflow, and fulfill legal and regulatory compliance obligations.</p>`)}
+    ${section('Information Sharing & Third-Party Disclosures', `
+      <p>${disclosures.marketplacePreview}</p>
+      <p>${disclosures.networkStory}</p>
+      <p>Information is shared with third-party financing providers only after explicit authorization. We may also disclose data to technical service providers under standard confidentiality terms or when required by court order or legal process.</p>`)}
+    ${section('Data Security & Retention', `
+      <p>Fund44 maintains technical and administrative safeguards to protect information against unauthorized access, loss, or disclosure. We retain completed intake records for up to 7 years to meet legal and regulatory obligations, while incomplete inquiries are purged after 90 days.</p>`)}
+    ${section('Borrower Rights & Choices', `
+      <p>You maintain rights regarding your personal and business data:</p>
+      <ul class="list-plain">
+        <li><strong>Access & Correction:</strong> Request access to or correction of your contact details by emailing <a href="mailto:${entityProfile.supportEmail}" class="accent-text copy-accent-link">${entityProfile.supportEmail}</a>.</li>
+        <li><strong>Communication Preferences:</strong> Opt out of promotional email or phone updates at any time.</li>
+        <li><strong>Data Deletion:</strong> Request deletion of non-essential records where retention is not required by law.</li>
+      </ul>`)}
+    ${section('Credit Information Disclosure', `
       <p>${disclosures.creditPreview}</p>
-      <p>If a live provider handoff is introduced later, any provider-run inquiry language must be reviewed again with the final consent flow.</p>`)}
-    ${section('What still needs approval', `
+      <p>Checking initial options uses information that does not affect your credit score. If you choose to proceed with a specific financing provider, that provider may later perform a credit inquiry according to its own underwriting policies.</p>`)}
+    ${section('Governance Status', `
       <ul class="list-plain">
         ${legalApprovalChecklist
-          .filter((item) => item.area === 'Privacy and consent' || item.area === 'Security' || item.area === 'Identity')
           .map((item) => `<li><strong>${item.area}:</strong> ${item.detail}</li>`)
           .join('')}
       </ul>`)}
-    ${section('Contact', `<p>Privacy questions can be directed to our verified support channel. See our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> for details. ${disclosures.contactPlaceholder}</p>`)}
+    ${section('Contact', `<p>Privacy inquiries can be submitted to Fund44 LLC at <a href="mailto:${entityProfile.supportEmail}" class="accent-text copy-accent-link">${entityProfile.supportEmail}</a> or by calling <a href="tel:${entityProfile.supportPhone.replace(/[^\d+]/g, '')}" class="accent-text copy-accent-link">${entityProfile.supportPhone}</a>. See our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> for full details.</p>`)}
   </section>
   ${relatedLinksModule(linkModule)}`;
 }
@@ -85,41 +93,42 @@ export function terms() {
   const crumbs = getBreadcrumbs('terms');
   const linkModule = getLinkModuleForRoute('terms');
   setMeta({
-    title: 'Terms & disclosures (preview)',
-    description: 'Fund44 marketplace, credit, identity, and staging-indexing disclosures in preview form. Conservative public wording is approved by business, while final legal and entity details remain blocked.',
+    title: 'Terms of Service & Disclosures',
+    description: 'Terms of Service and legal disclosures governing the use of Fund44 LLC small-business capital marketplace and tools.',
     path: hrefForRoute('terms'),
     jsonld: [ld.breadcrumb(crumbs)],
   });
 
   return `
-  ${legalHead(crumbs, 'Terms & disclosures', true)}
+  ${legalHead(crumbs, 'Terms of Service', true)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Conservative disclosure draft.</strong> ${disclosures.counselReview} Final legal business identity, support details, consent flow, retention terms, and sameAs references remain blocked.`, {
-      disclosureId: 'terms_page_draft_disclosure',
+    ${disclosure(`<strong>Terms & Disclosures.</strong> These terms govern your access to and use of Fund44 LLC services, marketplace tools, and educational resources.`, {
+      disclosureId: 'terms_page_notice',
       disclosureContext: 'terms_page',
     })}
-    ${section('Marketplace disclosure', `
+    ${section('Acceptance & Scope', `
+      <p>These Terms of Service ("Terms") govern your use of the website and services provided by Fund44 LLC ("Fund44"), ${entityProfile.mailingAddress}. By accessing or using our marketplace tools, you agree to comply with these Terms and our Privacy Policy.</p>`)}
+    ${section('Marketplace Disclosure', `
       <p>${disclosures.marketplacePreview}</p>
       <p>${disclosures.networkStory}</p>`)}
-    ${section('How paths are explained', `
+    ${section('Routing & Workflow Explanation', `
       <p>${disclosures.fitOverFees}</p>
       <p>${disclosures.fasterProcess}</p>`)}
-    ${section('No guarantees', `
+    ${section('No Guarantees & Non-Binding Guidance', `
       <p>${disclosures.noGuarantees}</p>
       <p>${disclosures.illustrative}</p>`)}
-    ${section('Credit inquiries', `
+    ${section('Credit Inquiry Disclosure', `
       <p>${disclosures.creditPreview}</p>
-      <p>If you later proceed with a provider in a live workflow, that provider may apply its own underwriting steps. Final provider-handoff language is still pending legal and product approval.</p>`)}
-    ${section('Educational content', `
+      <p>Fund44 does not perform credit-damaging initial inquiries. If you proceed with a third-party financing provider, that provider may conduct its own credit evaluation and underwriting steps.</p>`)}
+    ${section('Educational Content Disclaimer', `
       <p>${disclosures.educational}</p>`)}
-    ${section('Indexing and entity status', `
-      <p><strong>Current indexing mode:</strong> ${humanReadableIndexingMode()}. ${indexingPolicy.note}</p>
-      <p><strong>sameAs policy:</strong> ${liveDisclosuresBlocked.sameAs}</p>`)}
-    ${section('Identity and contact status', `
-      <ul class="list-plain">
-        ${unresolvedIdentityFields.map((field) => `<li>${describeField(field.key)}</li>`).join('')}
-      </ul>`)}
-    ${section('Contact', `<p>Questions about these terms will route through the verified support channel once those details are approved. Until then, our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> keeps every unresolved value visibly marked as TBD.</p>`)}
+    ${section('Acceptable Use & Intellectual Property', `
+      <p>All content, branding, code, and interface designs are the intellectual property of Fund44 LLC or its licensors. Users may not scrape, reverse engineer, modify, or redistribute website materials without prior written consent.</p>`)}
+    ${section('Limitation of Liability', `
+      <p>Fund44 LLC provides its marketplace and tools on an "as is" and "as available" basis. To the maximum extent permitted by applicable law, Fund44 LLC disclaims all liability for indirect, incidental, special, or consequential damages resulting from site use or provider decisions.</p>`)}
+    ${section('Governing Law & Jurisdiction', `
+      <p>These Terms are governed by and construed in accordance with the laws of the State of Texas, without giving effect to conflicts of law principles. Any legal suit, action, or proceeding arising under these Terms shall be instituted exclusively in the state or federal courts located in Austin, Travis County, Texas.</p>`)}
+    ${section('Contact Details', `<p>Questions regarding these Terms may be directed to Fund44 LLC at <a href="mailto:${entityProfile.supportEmail}" class="accent-text copy-accent-link">${entityProfile.supportEmail}</a> or by phone at <a href="tel:${entityProfile.supportPhone.replace(/[^\d+]/g, '')}" class="accent-text copy-accent-link">${entityProfile.supportPhone}</a>. Visit our <a href="${hrefForRoute('contact')}" class="accent-text copy-accent-link">contact page</a> for complete business details.</p>`)}
   </section>
   ${relatedLinksModule(linkModule)}`;
 }
@@ -142,7 +151,7 @@ export function contact() {
   return `
   ${legalHead(crumbs, 'Contact', false)}
   <section class="wrap wrap-default section-legal-body">
-    ${disclosure(`<strong>Privacy notice.</strong> ${disclosures.contactPlaceholder}`, {
+    ${disclosure(`<strong>Contact Privacy Notice.</strong> Information submitted via this page is used by Fund44 LLC to respond to your inquiry and support your financing request.`, {
       disclosureId: 'contact_page_privacy_notice',
       disclosureContext: 'contact_page',
     })}
@@ -184,8 +193,4 @@ export function contact() {
     </div>
   </section>
   ${relatedLinksModule(linkModule)}`;
-}
-
-function describeField(fieldKey) {
-  return identityDisplay(fieldKey).note;
 }

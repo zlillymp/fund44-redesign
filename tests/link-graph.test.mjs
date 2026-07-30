@@ -7,7 +7,7 @@ test('link graph covers every canonical indexable route without harmful validati
   const graph = getLinkGraph();
   const validation = validateLinkGraph(graph);
 
-  assert.equal(graph.nodes.length, 30);
+  assert.equal(graph.nodes.length, 41);
   assert.equal(validation.errors.length, 0);
 });
 
@@ -98,6 +98,7 @@ test('state routes receive hub/contextual/next coverage and inbound links', () =
     'california_sba_loans',
     'florida_sba_loans',
     'new_york_sba_loans',
+    'texas_sba_loans',
   ].forEach((routeId) => {
     const module = getLinkModuleForRoute(routeId);
     const hub = module.groups.find((group) => group.relation === 'hub');
@@ -106,6 +107,35 @@ test('state routes receive hub/contextual/next coverage and inbound links', () =
 
     assert.equal(hub.items[0].targetRouteId, 'financing');
     assert.ok(contextual.items.length >= 6);
+    assert.equal(next.items[0].targetRouteId, 'how_it_works');
+    assert.ok((inbound.get(routeId) || 0) > 0, `${routeId} should have at least one inbound link`);
+  });
+});
+
+test('metro routes receive hub/contextual/next coverage and inbound links', () => {
+  const graph = getLinkGraph();
+  const validation = validateLinkGraph(graph);
+  const inbound = validation.inboundCounts;
+
+  [
+    'houston_sba_loans',
+    'san_antonio_sba_loans',
+    'dallas_sba_loans',
+    'austin_sba_loans',
+    'fort_worth_sba_loans',
+    'el_paso_sba_loans',
+    'arlington_sba_loans',
+    'corpus_christi_sba_loans',
+    'plano_sba_loans',
+    'laredo_sba_loans',
+  ].forEach((routeId) => {
+    const module = getLinkModuleForRoute(routeId);
+    const hub = module.groups.find((group) => group.relation === 'hub');
+    const contextual = module.groups.find((group) => group.relation === 'contextual');
+    const next = module.groups.find((group) => group.relation === 'next');
+
+    assert.equal(hub.items[0].targetRouteId, 'texas_sba_loans');
+    assert.ok(contextual.items.length >= 4);
     assert.equal(next.items[0].targetRouteId, 'how_it_works');
     assert.ok((inbound.get(routeId) || 0) > 0, `${routeId} should have at least one inbound link`);
   });

@@ -305,22 +305,31 @@ function setActiveNav(currentRouteId) {
 }
 
 async function render({ preserveScroll = false } = {}) {
-  const { match, html } = renderRouteToHtml(window.location.pathname);
-  app.innerHTML = html;
-  if (!preserveScroll) {
-    window.scrollTo(0, 0);
+  const doUpdate = () => {
+    const { match, html } = renderRouteToHtml(window.location.pathname);
+    app.innerHTML = html;
+    if (!preserveScroll) {
+      window.scrollTo(0, 0);
+    }
+    setActiveNav(match.route.routeId);
+    observeReveals();
+    animateViz();
+    cleanupVisibilityEvents();
+    cleanupVisibilityEvents = instrumentVisibilityEvents(document.body);
+    trackRouteResolved({
+      pathname: window.location.pathname,
+      referrerRouteId: lastResolvedRouteId,
+    });
+    lastResolvedRouteId = match.route.routeId;
+    lastRenderLocationKey = getLocationKey();
+  };
+
+  if (typeof document !== 'undefined' && document.startViewTransition && !prefersReducedMotion()) {
+    const transition = document.startViewTransition(() => doUpdate());
+    await transition.finished.catch(() => {});
+  } else {
+    doUpdate();
   }
-  setActiveNav(match.route.routeId);
-  observeReveals();
-  animateViz();
-  cleanupVisibilityEvents();
-  cleanupVisibilityEvents = instrumentVisibilityEvents(document.body);
-  trackRouteResolved({
-    pathname: window.location.pathname,
-    referrerRouteId: lastResolvedRouteId,
-  });
-  lastResolvedRouteId = match.route.routeId;
-  lastRenderLocationKey = getLocationKey();
 }
 
 function navigate(href, { replace = false } = {}) {

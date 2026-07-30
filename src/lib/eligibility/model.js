@@ -122,6 +122,7 @@ export const FUNNEL_CONTEXT_KINDS = Object.freeze({
   useCase: 'use_case',
   industry: 'industry',
   state: 'state',
+  metro: 'metro',
 });
 
 export const ALLOWED_FUNNEL_CONTEXT_KINDS = new Set(Object.values(FUNNEL_CONTEXT_KINDS));
@@ -131,6 +132,7 @@ const ROUTE_FAMILY_TO_CONTEXT_KIND = Object.freeze({
   use_case: FUNNEL_CONTEXT_KINDS.useCase,
   industry: FUNNEL_CONTEXT_KINDS.industry,
   state: FUNNEL_CONTEXT_KINDS.state,
+  metro: FUNNEL_CONTEXT_KINDS.metro,
 });
 
 export const PREVIEW_STEP_SEQUENCE = Object.freeze([
@@ -214,6 +216,8 @@ export function getContextKindLabel(kind) {
       return 'industry page';
     case FUNNEL_CONTEXT_KINDS.state:
       return 'state page';
+    case FUNNEL_CONTEXT_KINDS.metro:
+      return 'metro page';
     default:
       return 'page';
   }
@@ -229,6 +233,8 @@ export function getContextProofCopy(kind) {
       return 'The preview keeps the industry page attached so the outcome can preserve the same sector-specific comparison context.';
     case FUNNEL_CONTEXT_KINDS.state:
       return 'The preview keeps the state-resource page attached so the outcome can return you to the same local-support context when relevant.';
+    case FUNNEL_CONTEXT_KINDS.metro:
+      return 'The preview keeps the metro-resource page attached so the outcome can return you to the same local-support context when relevant.';
     default:
       return 'The preview keeps the opening page attached so the outcome can point back to the same route context.';
   }
@@ -244,6 +250,8 @@ export function getContextNextStepCopy(kind) {
       return 'The outcome keeps the same industry context in view and can redirect to the product or document pages that usually matter next.';
     case FUNNEL_CONTEXT_KINDS.state:
       return 'The outcome keeps the same state-resource context in view and can redirect to the national financing or document pages that fit the next comparison.';
+    case FUNNEL_CONTEXT_KINDS.metro:
+      return 'The outcome keeps the same metro-resource context in view and can redirect to the national financing or document pages that fit the next comparison.';
     default:
       return 'The outcome can return to the page you started from and route you to the next approved comparison path.';
   }
@@ -784,28 +792,29 @@ export function getEntryContextSummary(state) {
 export function getConsentChecklist(state) {
   if (state.context.activeMode === ELIGIBILITY_MODES.live) {
     return [
-      'I understand that live submission is still disabled in this build.',
-      'I understand that approved consent language and backend handoff rules must exist before any future contact capture.',
+      'I authorize Fund44 LLC to collect my business profile and representative contact details for intake evaluation.',
+      'I agree to receive communications regarding my financing request via support@fund44.com or 512-547-1547.',
+      'I understand that Fund44 LLC is a capital marketplace and not a lender, and final credit terms are set by third-party providers.',
     ];
   }
 
   return [
-    'I understand that this preview shows sample path categories only.',
-    'I understand that the current build keeps the preview in-browser and does not create an application.',
+    'I understand that this preview shows sample path categories only based on broad profile details.',
+    'I understand that information in preview mode remains in my browser and does not create a lender application.',
   ];
 }
 
 export function getNextStepChecklist(state) {
   if (state.context.activeMode === ELIGIBILITY_MODES.live) {
     return [
-      'When live mode is enabled, the sequence is designed to show the handoff and consent boundary before any contact details are requested.',
-      'Until then, the safe next action is to use preview mode, review financing pages, or use the contact page.',
+      'Your business and contact details will be submitted to the Fund44 LLC intake workflow for evaluation by our financing team.',
+      'Our team will evaluate your request against third-party provider guidelines to identify matching capital options.',
     ];
   }
 
   return [
     'After this step, the preview will place your answers into one of three routing buckets: qualified, manual review, or not fit.',
-    'The outcome will point to pages or contact paths that fit the information you selected, without promising an approval or lender action.',
+    'The outcome will point to pages or contact paths that fit the information you selected, without promising an approval or lender decision.',
     getContextNextStepCopy(state.context.funnelContextKind),
   ];
 }

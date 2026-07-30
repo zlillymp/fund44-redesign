@@ -150,7 +150,10 @@
     "page_business_acquisition",
     "page_equipment_financing",
     "use_case_buy_a_business",
-    "article_preparing_your_documents"
+    "article_preparing_your_documents",
+    "state_texas_sba_loans",
+    "metro_arlington_sba_loans",
+    "metro_plano_sba_loans"
   ],
   "contributors": {
     "authorId": null,

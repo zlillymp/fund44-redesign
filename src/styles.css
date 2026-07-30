@@ -171,6 +171,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
+  color-scheme: light dark;
   -webkit-text-size-adjust: none; text-size-adjust: none;
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; scroll-behavior: smooth;

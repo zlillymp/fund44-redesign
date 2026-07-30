@@ -7,8 +7,8 @@ import { getSitemapEntries, getLlmsEntries, getIndexableRouteInventory } from '.
 test('freshness report covers content, citations, governance records, and generated assets', () => {
   const report = getFreshnessReport();
 
-  assert.equal(report.content.length, 25);
-  assert.equal(report.citations.length, 45);
+  assert.equal(report.content.length, 36);
+  assert.equal(report.citations.length, 53);
   assert.equal(report.governance.length, 3);
   assert.equal(report.generatedAssets.length, 3);
   assert.equal(report.blockingEntries.length, 0);
@@ -26,9 +26,9 @@ test('current repo baseline keeps canonical content pending first review without
 });
 
 test('indexable route inventories stay intact while content is pending first review', () => {
-  assert.equal(getSitemapEntries().length, 30);
-  assert.equal(getLlmsEntries().length, 27);
-  assert.equal(getIndexableRouteInventory().length, 30);
+  assert.equal(getSitemapEntries().length, 41);
+  assert.equal(getLlmsEntries().length, 38);
+  assert.equal(getIndexableRouteInventory().length, 41);
 });
 
 test('freshness report flags stale citations as noindex and expired citations as block', () => {

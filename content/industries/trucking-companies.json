@@ -150,7 +150,10 @@
     "page_line_of_credit",
     "page_term_loan",
     "use_case_equipment_purchase",
-    "use_case_cash_flow_needs"
+    "use_case_cash_flow_needs",
+    "state_texas_sba_loans",
+    "metro_fort_worth_sba_loans",
+    "metro_laredo_sba_loans"
   ],
   "contributors": {
     "authorId": null,

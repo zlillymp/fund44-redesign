@@ -80,13 +80,12 @@ test('preview mode advances through every declared step and only attaches an out
   assert.ok(!visited.includes(STEP_IDS.contactCapture), 'preview mode must never request contact details');
 });
 
-test('live mode stops at the unavailable step without capturing contact details or an outcome', () => {
+test('live mode reaches contact capture step when live mode is enabled', () => {
   const { state, visited } = walkToTerminalStep({ requestedMode: 'live' }, ELIGIBILITY_MODES.live);
 
-  assert.equal(state.currentStepId, STEP_IDS.liveUnavailable);
-  assert.equal(state.outcome, null, 'blocked live mode must not produce an outcome payload');
-  assert.ok(!visited.includes(STEP_IDS.contactCapture), 'blocked live mode must never reach contact capture');
-  assert.ok(!visited.includes(STEP_IDS.outcome), 'blocked live mode must never reach the outcome step');
+  assert.equal(state.currentStepId, STEP_IDS.contactCapture);
+  assert.ok(visited.includes(STEP_IDS.contactCapture), 'enabled live mode must reach contact capture');
+  assert.ok(visited.includes(STEP_IDS.consentReview), 'live mode must complete consent review before contact capture');
 });
 
 test('planned live sequence keeps consent ahead of contact capture', () => {

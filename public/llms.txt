@@ -45,6 +45,17 @@
 - California SBA loan resources: /states/california-sba-loans
 - Florida SBA loan resources: /states/florida-sba-loans
 - New York SBA loan resources: /states/new-york-sba-loans
+- Texas SBA loan resources: /states/texas-sba-loans
+- Houston SBA loan resources: /metros/texas/houston-sba-loans
+- San Antonio SBA loan resources: /metros/texas/san-antonio-sba-loans
+- Dallas SBA loan resources: /metros/texas/dallas-sba-loans
+- Austin SBA loan resources: /metros/texas/austin-sba-loans
+- Fort Worth SBA loan resources: /metros/texas/fort-worth-sba-loans
+- El Paso SBA loan resources: /metros/texas/el-paso-sba-loans
+- Arlington SBA loan resources: /metros/texas/arlington-sba-loans
+- Corpus Christi SBA loan resources: /metros/texas/corpus-christi-sba-loans
+- Plano SBA loan resources: /metros/texas/plano-sba-loans
+- Laredo SBA loan resources: /metros/texas/laredo-sba-loans
 - How it works: /how-it-works
 - About Fund44: /about
 - Resources: /resources

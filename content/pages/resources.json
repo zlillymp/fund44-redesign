@@ -80,7 +80,8 @@
     "page_working_capital",
     "state_california_sba_loans",
     "state_florida_sba_loans",
-    "state_new_york_sba_loans"
+    "state_new_york_sba_loans",
+    "state_texas_sba_loans"
   ],
   "contributors": {
     "authorId": null,

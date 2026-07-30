@@ -4,10 +4,10 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 
 ## Summary
 
-- Indexable canonical routes: 30
-- Hub links: 29
-- Contextual links: 161
-- Next-step links: 30
+- Indexable canonical routes: 41
+- Hub links: 40
+- Contextual links: 297
+- Next-step links: 41
 - Orphans detected: 0
 
 ## Route Inventory
@@ -15,31 +15,42 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 | Route ID | Path | Hub | Contextual | Next | Inbound |
 | --- | --- | --- | --- | --- | --- |
 | `home` | `/` | 0 | 7 | 1 | 7 |
-| `financing` | `/financing` | 1 | 19 | 1 | 29 |
-| `sba_7a` | `/sba-7a` | 1 | 3 | 1 | 19 |
-| `sba_504` | `/sba-504` | 1 | 3 | 1 | 10 |
-| `business_acquisition` | `/business-acquisition` | 1 | 3 | 1 | 8 |
-| `working_capital` | `/working-capital` | 1 | 6 | 1 | 13 |
+| `financing` | `/financing` | 1 | 20 | 1 | 40 |
+| `sba_7a` | `/sba-7a` | 1 | 3 | 1 | 30 |
+| `sba_504` | `/sba-504` | 1 | 3 | 1 | 21 |
+| `business_acquisition` | `/business-acquisition` | 1 | 3 | 1 | 19 |
+| `working_capital` | `/working-capital` | 1 | 6 | 1 | 24 |
 | `term_loan` | `/term-loan` | 1 | 3 | 1 | 9 |
 | `line_of_credit` | `/line-of-credit` | 1 | 3 | 1 | 9 |
 | `equipment_financing` | `/equipment-financing` | 1 | 3 | 1 | 7 |
 | `buy_a_business` | `/use-cases/buy-a-business` | 1 | 6 | 1 | 4 |
-| `owner_occupied_real_estate` | `/use-cases/owner-occupied-real-estate` | 1 | 6 | 1 | 6 |
+| `owner_occupied_real_estate` | `/use-cases/owner-occupied-real-estate` | 1 | 6 | 1 | 17 |
 | `cash_flow_needs` | `/use-cases/cash-flow-needs` | 1 | 7 | 1 | 4 |
 | `equipment_purchase` | `/use-cases/equipment-purchase` | 1 | 7 | 1 | 6 |
 | `business_expansion` | `/use-cases/business-expansion` | 1 | 7 | 1 | 6 |
 | `refinance_business_debt` | `/use-cases/refinance-business-debt` | 1 | 6 | 1 | 3 |
-| `franchise_businesses` | `/industries/franchise-businesses` | 1 | 6 | 1 | 2 |
-| `trucking_companies` | `/industries/trucking-companies` | 1 | 5 | 1 | 2 |
-| `construction_contractors` | `/industries/construction-contractors` | 1 | 6 | 1 | 2 |
-| `california_sba_loans` | `/states/california-sba-loans` | 1 | 8 | 1 | 4 |
-| `florida_sba_loans` | `/states/florida-sba-loans` | 1 | 8 | 1 | 4 |
-| `new_york_sba_loans` | `/states/new-york-sba-loans` | 1 | 8 | 1 | 4 |
-| `how_it_works` | `/how-it-works` | 1 | 2 | 1 | 22 |
+| `franchise_businesses` | `/industries/franchise-businesses` | 1 | 9 | 1 | 2 |
+| `trucking_companies` | `/industries/trucking-companies` | 1 | 8 | 1 | 2 |
+| `construction_contractors` | `/industries/construction-contractors` | 1 | 10 | 1 | 2 |
+| `california_sba_loans` | `/states/california-sba-loans` | 1 | 9 | 1 | 5 |
+| `florida_sba_loans` | `/states/florida-sba-loans` | 1 | 9 | 1 | 5 |
+| `new_york_sba_loans` | `/states/new-york-sba-loans` | 1 | 9 | 1 | 5 |
+| `texas_sba_loans` | `/states/texas-sba-loans` | 1 | 19 | 1 | 18 |
+| `houston_sba_loans` | `/metros/texas/houston-sba-loans` | 1 | 11 | 1 | 6 |
+| `san_antonio_sba_loans` | `/metros/texas/san-antonio-sba-loans` | 1 | 11 | 1 | 7 |
+| `dallas_sba_loans` | `/metros/texas/dallas-sba-loans` | 1 | 11 | 1 | 7 |
+| `austin_sba_loans` | `/metros/texas/austin-sba-loans` | 1 | 10 | 1 | 3 |
+| `fort_worth_sba_loans` | `/metros/texas/fort-worth-sba-loans` | 1 | 10 | 1 | 5 |
+| `el_paso_sba_loans` | `/metros/texas/el-paso-sba-loans` | 1 | 9 | 1 | 2 |
+| `arlington_sba_loans` | `/metros/texas/arlington-sba-loans` | 1 | 10 | 1 | 5 |
+| `corpus_christi_sba_loans` | `/metros/texas/corpus-christi-sba-loans` | 1 | 10 | 1 | 4 |
+| `plano_sba_loans` | `/metros/texas/plano-sba-loans` | 1 | 10 | 1 | 5 |
+| `laredo_sba_loans` | `/metros/texas/laredo-sba-loans` | 1 | 10 | 1 | 5 |
+| `how_it_works` | `/how-it-works` | 1 | 2 | 1 | 33 |
 | `about` | `/about` | 1 | 2 | 1 | 2 |
-| `resources` | `/resources` | 1 | 9 | 1 | 6 |
+| `resources` | `/resources` | 1 | 10 | 1 | 6 |
 | `resource_sba_7a_vs_504` | `/resources/sba-7a-vs-504` | 1 | 4 | 1 | 6 |
-| `resource_preparing_documents` | `/resources/preparing-your-documents` | 1 | 4 | 1 | 13 |
+| `resource_preparing_documents` | `/resources/preparing-your-documents` | 1 | 4 | 1 | 24 |
 | `resource_working_capital_vs_term_loan` | `/resources/working-capital-vs-term-loan` | 1 | 4 | 1 | 7 |
 | `privacy` | `/privacy` | 1 | 2 | 1 | 2 |
 | `terms` | `/terms` | 1 | 2 | 1 | 2 |
@@ -93,6 +104,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `california_sba_loans` /states/california-sba-loans — The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.
 - `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
 - `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
 
 ### Where to go next
 
@@ -357,6 +369,9 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `equipment_financing` /equipment-financing — The equipment-financing page explains when asset-backed financing can fit machinery, vehicle, and equipment purchases and how it compares with SBA options.
 - `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+- `arlington_sba_loans` /metros/texas/arlington-sba-loans — The Arlington metro page connects Tarrant County small businesses with the SBA Dallas/Fort Worth District Office, UT Arlington SBDC, and Fund44's national financing explainers.
+- `plano_sba_loans` /metros/texas/plano-sba-loans — The Plano metro page connects Collin County and North DFW small businesses with the SBA Dallas/Fort Worth District Office, Collin SBDC, and Fund44's national financing explainers.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
 ### Where to go next
@@ -377,6 +392,9 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `term_loan` /term-loan — The business term-loan page explains when a fixed-amount, scheduled-repayment loan can fit planned projects, growth investments, and certain refinancing needs.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+- `fort_worth_sba_loans` /metros/texas/fort-worth-sba-loans — The Fort Worth metro page connects Tarrant County and West DFW small businesses with the SBA Dallas/Fort Worth District Office, Tarrant County College SBDC, and Fund44's national financing explainers.
+- `laredo_sba_loans` /metros/texas/laredo-sba-loans — The Laredo metro page connects Webb County and South Texas border small businesses with the SBA San Antonio District Office, TAMIU SBDC, and Fund44's national financing explainers.
 
 ### Where to go next
 
@@ -396,6 +414,10 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
 - `equipment_purchase` /use-cases/equipment-purchase — The equipment-purchase use-case page compares the financing routes most often reviewed when the goal is purchasing or refinancing business equipment.
 
 ### Where to go next
@@ -417,6 +439,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
 - `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
 
@@ -439,6 +462,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `california_sba_loans` /states/california-sba-loans — The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.
 - `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
 - `cash_flow_needs` /use-cases/cash-flow-needs — The cash-flow-needs use-case page compares the financing paths most often reviewed when the goal is stabilizing recurring operating cash, seasonality, or short-term business needs.
 - `business_expansion` /use-cases/business-expansion — The business-expansion use-case page compares the financing routes most often reviewed when the goal is opening a location, renovating space, or funding a defined growth initiative.
 
@@ -461,8 +485,284 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `california_sba_loans` /states/california-sba-loans — The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.
 - `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
 - `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
 - `buy_a_business` /use-cases/buy-a-business — The buy-a-business use-case page compares the most common financing starting points when the goal is purchasing an established business or buying out a partner.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## texas_sba_loans
+
+### Main financing guide
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+
+### Related financing paths
+
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `california_sba_loans` /states/california-sba-loans — The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.
+- `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
+- `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `austin_sba_loans` /metros/texas/austin-sba-loans — The Austin metro page connects Travis County and Central Texas small businesses with the SBA San Antonio District Office, Texas State University SBDC, and Fund44's national financing explainers.
+- `fort_worth_sba_loans` /metros/texas/fort-worth-sba-loans — The Fort Worth metro page connects Tarrant County and West DFW small businesses with the SBA Dallas/Fort Worth District Office, Tarrant County College SBDC, and Fund44's national financing explainers.
+- `el_paso_sba_loans` /metros/texas/el-paso-sba-loans — The El Paso metro page connects El Paso County and West Texas small businesses with the SBA El Paso District Office, El Paso Community College SBDC, and Fund44's national financing explainers.
+- `arlington_sba_loans` /metros/texas/arlington-sba-loans — The Arlington metro page connects Tarrant County small businesses with the SBA Dallas/Fort Worth District Office, UT Arlington SBDC, and Fund44's national financing explainers.
+- `corpus_christi_sba_loans` /metros/texas/corpus-christi-sba-loans — The Corpus Christi metro page connects Nueces County and Coastal Bend small businesses with the SBA San Antonio District Office, Del Mar College SBDC, and Fund44's national financing explainers.
+- `plano_sba_loans` /metros/texas/plano-sba-loans — The Plano metro page connects Collin County and North DFW small businesses with the SBA Dallas/Fort Worth District Office, Collin SBDC, and Fund44's national financing explainers.
+- `laredo_sba_loans` /metros/texas/laredo-sba-loans — The Laredo metro page connects Webb County and South Texas border small businesses with the SBA San Antonio District Office, TAMIU SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## houston_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `austin_sba_loans` /metros/texas/austin-sba-loans — The Austin metro page connects Travis County and Central Texas small businesses with the SBA San Antonio District Office, Texas State University SBDC, and Fund44's national financing explainers.
+- `corpus_christi_sba_loans` /metros/texas/corpus-christi-sba-loans — The Corpus Christi metro page connects Nueces County and Coastal Bend small businesses with the SBA San Antonio District Office, Del Mar College SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## san_antonio_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `austin_sba_loans` /metros/texas/austin-sba-loans — The Austin metro page connects Travis County and Central Texas small businesses with the SBA San Antonio District Office, Texas State University SBDC, and Fund44's national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `corpus_christi_sba_loans` /metros/texas/corpus-christi-sba-loans — The Corpus Christi metro page connects Nueces County and Coastal Bend small businesses with the SBA San Antonio District Office, Del Mar College SBDC, and Fund44's national financing explainers.
+- `laredo_sba_loans` /metros/texas/laredo-sba-loans — The Laredo metro page connects Webb County and South Texas border small businesses with the SBA San Antonio District Office, TAMIU SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## dallas_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `fort_worth_sba_loans` /metros/texas/fort-worth-sba-loans — The Fort Worth metro page connects Tarrant County and West DFW small businesses with the SBA Dallas/Fort Worth District Office, Tarrant County College SBDC, and Fund44's national financing explainers.
+- `plano_sba_loans` /metros/texas/plano-sba-loans — The Plano metro page connects Collin County and North DFW small businesses with the SBA Dallas/Fort Worth District Office, Collin SBDC, and Fund44's national financing explainers.
+- `arlington_sba_loans` /metros/texas/arlington-sba-loans — The Arlington metro page connects Tarrant County small businesses with the SBA Dallas/Fort Worth District Office, UT Arlington SBDC, and Fund44's national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## austin_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## fort_worth_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `arlington_sba_loans` /metros/texas/arlington-sba-loans — The Arlington metro page connects Tarrant County small businesses with the SBA Dallas/Fort Worth District Office, UT Arlington SBDC, and Fund44's national financing explainers.
+- `plano_sba_loans` /metros/texas/plano-sba-loans — The Plano metro page connects Collin County and North DFW small businesses with the SBA Dallas/Fort Worth District Office, Collin SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## el_paso_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `laredo_sba_loans` /metros/texas/laredo-sba-loans — The Laredo metro page connects Webb County and South Texas border small businesses with the SBA San Antonio District Office, TAMIU SBDC, and Fund44's national financing explainers.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## arlington_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `fort_worth_sba_loans` /metros/texas/fort-worth-sba-loans — The Fort Worth metro page connects Tarrant County and West DFW small businesses with the SBA Dallas/Fort Worth District Office, Tarrant County College SBDC, and Fund44's national financing explainers.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `plano_sba_loans` /metros/texas/plano-sba-loans — The Plano metro page connects Collin County and North DFW small businesses with the SBA Dallas/Fort Worth District Office, Collin SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## corpus_christi_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `houston_sba_loans` /metros/texas/houston-sba-loans — The Houston metro page connects Harris County and Greater Houston small businesses with the SBA Houston District Office, Texas Gulf Coast SBDC Network, and Fund44's national financing explainers.
+- `laredo_sba_loans` /metros/texas/laredo-sba-loans — The Laredo metro page connects Webb County and South Texas border small businesses with the SBA San Antonio District Office, TAMIU SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## plano_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `dallas_sba_loans` /metros/texas/dallas-sba-loans — The Dallas metro page connects Dallas County and North Texas small businesses with the SBA Dallas/Fort Worth District Office, North Texas SBDC Network (Dallas College), and Fund44's national financing explainers.
+- `fort_worth_sba_loans` /metros/texas/fort-worth-sba-loans — The Fort Worth metro page connects Tarrant County and West DFW small businesses with the SBA Dallas/Fort Worth District Office, Tarrant County College SBDC, and Fund44's national financing explainers.
+- `arlington_sba_loans` /metros/texas/arlington-sba-loans — The Arlington metro page connects Tarrant County small businesses with the SBA Dallas/Fort Worth District Office, UT Arlington SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
+
+### Where to go next
+
+- `how_it_works` /how-it-works — See the step-by-step process, routing explanations, document flow, and comparison workflow.
+
+
+## laredo_sba_loans
+
+### Main financing guide
+
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
+
+### Related financing paths
+
+- `financing` /financing — The financing hub compares the main product categories on the site and routes visitors into the matching program guide based on the financing goal they are researching.
+- `sba_7a` /sba-7a — The SBA 7(a) page explains a flexible SBA-backed financing program and where it commonly fits for small-business borrowers.
+- `sba_504` /sba-504 — The SBA 504 page covers fixed-asset SBA financing used for owner-occupied property and major equipment projects.
+- `business_acquisition` /business-acquisition — The business acquisition page explains common acquisition financing structures and what lenders typically evaluate in a purchase or buyout transaction.
+- `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
+- `san_antonio_sba_loans` /metros/texas/san-antonio-sba-loans — The San Antonio metro page connects Bexar County and South Texas small businesses with the SBA San Antonio District Office, South-West Texas Border SBDC (UTSA), and Fund44's national financing explainers.
+- `corpus_christi_sba_loans` /metros/texas/corpus-christi-sba-loans — The Corpus Christi metro page connects Nueces County and Coastal Bend small businesses with the SBA San Antonio District Office, Del Mar College SBDC, and Fund44's national financing explainers.
+- `el_paso_sba_loans` /metros/texas/el-paso-sba-loans — The El Paso metro page connects El Paso County and West Texas small businesses with the SBA El Paso District Office, El Paso Community College SBDC, and Fund44's national financing explainers.
+- `owner_occupied_real_estate` /use-cases/owner-occupied-real-estate — The owner-occupied real-estate use-case page compares the financing routes most often evaluated when the goal is buying, building, improving, or refinancing property used by the business.
+- `working_capital` /working-capital — The working-capital page explains the broader family of flexible financing options for day-to-day cash flow, recurring gaps, and shorter-term business needs, then routes visitors into the more specific product pages.
 
 ### Where to go next
 
@@ -515,6 +815,7 @@ Generated from `content/manifest.mjs`, `src/lib/routes.js`, and structured conte
 - `california_sba_loans` /states/california-sba-loans — The California state page explains how borrowers can pair the right California SBA district office, statewide SBDC support, and state small-business resources with Fund44’s national financing explainers.
 - `florida_sba_loans` /states/florida-sba-loans — The Florida state page explains how borrowers can pair the right SBA district office, Florida SBDC support, and Florida small-business resources with Fund44’s national financing explainers.
 - `new_york_sba_loans` /states/new-york-sba-loans — The New York state page explains how borrowers can pair the right SBA district office, statewide SBDC support, and New York state business resources with Fund44’s national financing explainers.
+- `texas_sba_loans` /states/texas-sba-loans — The Texas state page connects small businesses in Texas with SBA district offices in Houston, Dallas/Fort Worth, San Antonio, and El Paso, statewide SBDC advising networks, and Fund44's national financing explainers.
 - `resource_sba_7a_vs_504` /resources/sba-7a-vs-504 — A comparison article that distinguishes SBA 7(a) from SBA 504 and explains when each program is typically considered.
 - `resource_preparing_documents` /resources/preparing-your-documents — A practical article about the documents borrowers commonly assemble before comparing financing options.
 - `resource_working_capital_vs_term_loan` /resources/working-capital-vs-term-loan — A comparison article that helps borrowers match recurring cash-flow needs or one-time investments to the right flexible structure.

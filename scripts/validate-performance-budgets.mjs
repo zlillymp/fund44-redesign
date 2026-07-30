@@ -10,9 +10,9 @@ const budgets = [
   {
     name: 'bundle_js_max_bytes',
     pattern: /^assets\/.+\.js$/,
-    maxBytes: 370_000,
+    maxBytes: 500_000,
     kind: 'largest-match',
-    rationale: 'Keep the single shipped JS entry under a conservative ceiling after webhook submission, contact capture, and GA4 transport were added to the eligibility flow.',
+    rationale: 'Keep the single shipped JS entry under a measured ceiling after adding 10 Texas metro pages with local district office/SBDC details, legal disclosures, and metro route handlers to the application bundle.',
   },
   {
     name: 'bundle_css_max_bytes',
@@ -24,23 +24,23 @@ const budgets = [
   {
     name: 'html_entry_max_bytes',
     pattern: /^index\.html$/,
-    maxBytes: 67_000,
+    maxBytes: 78_000,
     kind: 'largest-match',
-    rationale: 'Keep the home prerendered entry within a measured ceiling after the state-resource cluster expanded shared nav, footer, crawl, and manifest-backed route inventory.',
+    rationale: 'Keep the home prerendered entry within a measured ceiling after state and metro expansion enlarged shared nav, footer, crawl, and manifest-backed route inventory.',
   },
   {
     name: 'html_per_page_max_bytes',
     pattern: /\.html$/,
-    maxBytes: 75_000,
+    maxBytes: 86_000,
     kind: 'all-matches',
-    rationale: 'Prevent individual prerendered pages from growing well beyond the measured state-launch footprint while allowing evidence-backed local-resource sections and prerendered related-link modules.',
+    rationale: 'Prevent individual prerendered pages from growing beyond the measured state and metro launch footprint while allowing evidence-backed local-resource sections, SBDC/district office references, and prerendered related-link modules.',
   },
   {
     name: 'asset_total_max_bytes',
     pattern: /^assets\//,
-    maxBytes: 415_000,
+    maxBytes: 550_000,
     kind: 'sum-matches',
-    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI after webhook submission, contact capture, and GA4 transport were added to the eligibility flow.',
+    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI after adding Texas state and 10 metro programmatic routes, legal disclosures, and local advisory cards.',
   },
 ];
 
