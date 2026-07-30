@@ -9,6 +9,7 @@
     "build:link-graph": "node scripts/build-link-graph.mjs",
     "preview": "vite preview",
     "test": "node --test",
+    "audit:challenger-metro": "node scripts/audit-challenger-metro.mjs",
     "test:a11y": "playwright test",
     "test:release": "playwright test --config=playwright.release.config.mjs",
     "qa:release": "node scripts/run-release-gates.mjs",
