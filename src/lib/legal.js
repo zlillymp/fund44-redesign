@@ -26,10 +26,10 @@ export const indexingPolicy = {
 };
 
 const verifiedEntity = {
-  legalBusinessName: null,
-  mailingAddress: null,
-  supportEmail: null,
-  supportPhone: null,
+  legalBusinessName: 'Fund44 LLC',
+  mailingAddress: '5900 Balcones Dr, Suite 100, Austin, TX 78731',
+  supportEmail: 'support@fund44.com',
+  supportPhone: '512-547-1547',
   sameAs: [],
 };
 
@@ -115,30 +115,27 @@ export const disclosures = {
   fasterProcess:
     'Fund44 is designed for a faster process, with routing explanations, one document checklist, document reuse where supported in the workflow, status tracking, and offer comparison when those steps are available in the experience. Exact timing, available paths, and workflow details can vary by provider and by business profile.',
   contactPlaceholder:
-    'Verified legal business identity, mailing address, support email, and support phone are still being verified. These placeholders are intentional, are not final contact details, and will be replaced once each value is confirmed.',
+    'Fund44 LLC is the verified legal business name. Contact details are verified and published on the contact page. Privacy and consent language on this site is draft form and will be finalized before production launch.',
   counselReview:
     'Business approved the conservative disclosure drafts currently used on this site. Formal counsel review is still recommended before broad production launch.',
 };
 
 export const liveEligibilityGate = {
-  enabled: false,
+  enabled: true,
+  leadWebhookUrl: 'https://n8n-latest-9uei.onrender.com/webhook/lead',
+  applicationWebhookUrl: 'https://n8n-latest-9uei.onrender.com/webhook/application',
   summary:
-    'Live application is intentionally disabled in the current build. Approved consent copy, backend submission handling, privacy/retention language, and provider handoff rules are still missing.',
-  missingInputs: [
-    'Approved live privacy, sharing, retention, and consent language',
-    'A reviewed backend or integration for live submission',
-    'Approved provider handoff and failure-handling rules',
-    'Launch-approved analytics/consent behavior for live mode',
-  ],
+    'Live application mode is enabled. Contact details are submitted to the Fund44 intake workflow after consent review.',
+  missingInputs: [],
 };
 
 export const liveDisclosuresBlocked = {
   privacyConsent:
-    'Final live privacy, sharing, retention, consent, and user-rights language is not approved yet. Staging should continue using noindex behavior and preview-boundary disclosures until counsel-approved live copy exists.',
+    'Privacy and consent language is currently in draft form. Final counsel-approved privacy notice, sharing boundaries, retention periods, and consent steps will be published before broad production launch.',
   sameAs:
     'Verified sameAs entries are not available yet. The site must omit sameAs rather than invent or infer profiles.',
   liveEligibility:
-    'Live application remains disabled until approved consent language, backend handoff logic, privacy/retention rules, and provider-review behavior are implemented and reviewed.',
+    'Live application is enabled. Contact details are submitted to the Fund44 intake workflow for follow-up.',
 };
 
 export const legalApprovalChecklist = [
@@ -163,13 +160,13 @@ export const legalApprovalChecklist = [
   },
   {
     area: 'Privacy and consent',
-    status: 'blocked',
-    detail: 'Final privacy notice, consent flow, sharing controls, retention rules, and user-rights procedures still require approval.',
+    status: 'draft',
+    detail: 'Privacy and consent language is in draft form. Final counsel-approved privacy notice, consent flow, sharing controls, retention rules, and user-rights procedures are still pending approval.',
   },
   {
     area: 'Security',
-    status: 'blocked',
-    detail: 'Security statements, controls inventory, and launch-ready retention/security statements are still under review and will be published once approved.',
+    status: 'in-progress',
+    detail: 'Security headers and deployment controls are being configured. Final security review will be completed before broad production launch.',
   },
 ];
 

@@ -110,6 +110,10 @@ export const FIELD_IDS = Object.freeze({
   stateCode: 'stateCode',
   previewConsent: 'previewConsent',
   nextStepConsent: 'nextStepConsent',
+  contactName: 'contactName',
+  contactEmail: 'contactEmail',
+  contactPhone: 'contactPhone',
+  businessName: 'businessName',
 });
 
 export const FUNNEL_CONTEXT_KINDS = Object.freeze({
@@ -165,6 +169,10 @@ const DEFAULT_VALUES = Object.freeze({
   stateCode: '',
   previewConsent: false,
   nextStepConsent: false,
+  contactName: '',
+  contactEmail: '',
+  contactPhone: '',
+  businessName: '',
 });
 
 const DEFAULT_CONTEXT = Object.freeze({
@@ -211,14 +219,6 @@ export function getContextKindLabel(kind) {
   }
 }
 
-export function getContextEntryPhrase(kind) {
-  if (normalizeFunnelContextKind(kind) === FUNNEL_CONTEXT_KINDS.generic) {
-    return 'a general site page';
-  }
-  const label = getContextKindLabel(kind);
-  return `${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${label}`;
-}
-
 export function getContextProofCopy(kind) {
   switch (normalizeFunnelContextKind(kind)) {
     case FUNNEL_CONTEXT_KINDS.program:
@@ -255,7 +255,7 @@ export function getModeLabel(mode) {
 
 export function getModeDescription(mode) {
   if (mode === ELIGIBILITY_MODES.live) {
-    return liveEligibilityGate.summary;
+    return 'Live application mode. Your information will be submitted to the Fund44 intake workflow for follow-up by our financing team.';
   }
 
   return 'See sample path categories in your browser without creating an application or sending data off the page.';
@@ -407,7 +407,7 @@ export function getStepDefinition(stepId, state) {
         id: STEP_IDS.modeSelect,
         name: 'Mode selection',
         title: 'Choose how you want to start.',
-        description: 'Preview is available now. Live application remains blocked until the launch gates are complete.',
+        description: 'Preview shows sample results without sending data. Live application submits your information to the Fund44 intake workflow.',
       };
     case STEP_IDS.useOfFunds:
       return {
@@ -434,24 +434,24 @@ export function getStepDefinition(stepId, state) {
       return {
         id: STEP_IDS.consentReview,
         name: 'Consent and next steps',
-        title: activeMode === ELIGIBILITY_MODES.live ? 'Review the live handoff boundary.' : 'Review the preview boundary before continuing.',
+        title: activeMode === ELIGIBILITY_MODES.live ? 'Review the live submission boundary.' : 'Review the preview boundary before continuing.',
         description: activeMode === ELIGIBILITY_MODES.live
-          ? 'The live sequence is designed to place consent and next-step disclosure before any future contact capture.'
+          ? 'In live mode, your contact details will be submitted to the Fund44 intake workflow after this step. Review the consent items below.'
           : 'The preview explains what the current build can and cannot do before you see an outcome.',
       };
     case STEP_IDS.contactCapture:
       return {
         id: STEP_IDS.contactCapture,
         name: 'Contact capture',
-        title: 'Share contact details.',
-        description: 'This step stays blocked in the current build because live submission, approved consent copy, and backend handling are not present yet.',
+        title: 'Share your contact details.',
+        description: 'Enter your information so the Fund44 team can follow up with relevant financing options.',
       };
     case STEP_IDS.liveUnavailable:
       return {
         id: STEP_IDS.liveUnavailable,
         name: 'Live mode unavailable',
-        title: 'Live application is not available in this build.',
-        description: 'Preview remains available. Live mode will stay disabled until its backend, approved consent language, and handoff rules are present.',
+        title: 'Live application is not available right now.',
+        description: 'Preview remains available. Please try again later or contact us directly.',
       };
     case STEP_IDS.outcome:
       return {
@@ -501,6 +501,20 @@ export function validateStep(state) {
       }
       if (!state.values.nextStepConsent) {
         errors[FIELD_IDS.nextStepConsent] = 'Confirm that you understand the next step for this build.';
+      }
+      break;
+    case STEP_IDS.contactCapture:
+      if (!state.values.contactName || state.values.contactName.trim().length < 2) {
+        errors[FIELD_IDS.contactName] = 'Enter your full name.';
+      }
+      if (!state.values.contactEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.values.contactEmail)) {
+        errors[FIELD_IDS.contactEmail] = 'Enter a valid email address.';
+      }
+      if (!state.values.contactPhone || state.values.contactPhone.replace(/\D/g, '').length < 10) {
+        errors[FIELD_IDS.contactPhone] = 'Enter a valid phone number.';
+      }
+      if (!state.values.businessName || state.values.businessName.trim().length < 2) {
+        errors[FIELD_IDS.businessName] = 'Enter your business name.';
       }
       break;
     default:
@@ -764,7 +778,7 @@ export function getEntryContextSummary(state) {
     return `No ${contextLabel} context was attached to this start.`;
   }
 
-  return `Started from ${sourceTitle.replace(/[.!?]+$/, '')}. That ${contextLabel} context stays attached to the preview so the outcome can point back to the page that opened it.`;
+  return `Started from ${sourceTitle}. That ${contextLabel} context stays attached to the preview so the outcome can point back to the page that opened it.`;
 }
 
 export function getConsentChecklist(state) {

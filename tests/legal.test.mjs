@@ -21,15 +21,21 @@ test('staging defaults to noindex while approvals remain incomplete', () => {
   assert.equal(robotsForRoute(getRoute('home')), 'noindex,nofollow');
 });
 
-test('identity placeholders stay visibly unresolved until verified', () => {
-  assert.equal(entityProfile.hasVerifiedIdentity, false);
-  assert.deepEqual(
-    unresolvedIdentityFields.map((field) => field.key).sort(),
-    ['legalBusinessName', 'mailingAddress', 'supportEmail', 'supportPhone'].sort(),
-  );
+test('identity fields are verified with real business values', () => {
+  assert.equal(entityProfile.hasVerifiedIdentity, true);
+  assert.deepEqual(unresolvedIdentityFields, []);
   const supportEmail = identityDisplay('supportEmail');
-  assert.equal(supportEmail.verified, false);
-  assert.match(supportEmail.value, /\[support email pending verification\]/);
+  assert.equal(supportEmail.verified, true);
+  assert.equal(supportEmail.value, 'support@fund44.com');
+  const supportPhone = identityDisplay('supportPhone');
+  assert.equal(supportPhone.verified, true);
+  assert.equal(supportPhone.value, '512-547-1547');
+  const legalName = identityDisplay('legalBusinessName');
+  assert.equal(legalName.verified, true);
+  assert.equal(legalName.value, 'Fund44 LLC');
+  const mailingAddress = identityDisplay('mailingAddress');
+  assert.equal(mailingAddress.verified, true);
+  assert.match(mailingAddress.value, /5900 Balcones Dr/i);
 });
 
 test('sameAs remains omitted until verified', () => {

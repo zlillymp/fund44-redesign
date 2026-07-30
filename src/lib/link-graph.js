@@ -234,7 +234,7 @@ export function getLinkModuleForRoute(routeId) {
     routeId,
     eyebrow: route.templateId === 'editorial_article' ? 'Keep reading' : 'Keep exploring',
     heading: sectionHeading(route),
-    groups: [hubGroup, contextualGroup, nextGroup].filter((group) => group.items.length > 0),
+    groups: [hubGroup, contextualGroup, nextGroup],
   };
 }
 

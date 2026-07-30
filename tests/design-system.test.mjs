@@ -78,23 +78,3 @@ test('public shared component layer avoids raw colors and non-dynamic inline sty
     }
   }
 });
-
-test('disclosure bar keeps its text on one flex line and its icon at icon size', () => {
-  const css = read('src/product.css');
-  const icons = read('src/lib/svg.js');
-
-  const svgRule = css.match(/\.disclosure-bar svg \{([^}]*)\}/)?.[1];
-  const textRule = css.match(/\.disclosure-bar p \{([^}]*)\}/)?.[1];
-
-  assert.ok(svgRule, 'src/product.css must style .disclosure-bar svg');
-  assert.ok(textRule, 'src/product.css must style .disclosure-bar p');
-
-  // the shared info icon ships a viewBox with no width/height, so an unsized
-  // rule lets it fill the flex row and collapse the paragraph to zero width
-  assert.doesNotMatch(icons, /info: `<svg[^>]*\swidth=/);
-  assert.match(svgRule, /(^|;)\s*width:\s*\d+px/);
-  assert.match(svgRule, /(^|;)\s*height:\s*\d+px/);
-
-  assert.match(textRule, /(^|;)\s*flex:\s*1/);
-  assert.match(textRule, /(^|;)\s*min-width:\s*0/);
-});

@@ -1,0 +1,31 @@
+{
+  "name": "Fund44",
+  "short_name": "Fund44",
+  "description": "A small-business capital marketplace that helps owners review third-party financing paths.",
+  "icons": [
+    {
+      "src": "/fund44-favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/fund44-favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/fund44-apple-touch-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/fund44-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0E0E0C",
+  "background_color": "#F7F6F1",
+  "display": "standalone",
+  "start_url": "/"
+}

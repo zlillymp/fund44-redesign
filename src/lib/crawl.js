@@ -69,12 +69,7 @@ export function renderRobotsTxt() {
     'User-agent: *',
     policy.allowIndexing ? 'Allow: /' : 'Disallow: /',
     '',
-    ...(policy.allowIndexing
-      ? ['# AI / LLM crawlers are explicitly welcomed for accurate representation']
-      : [
-        '# AI / LLM crawlers will be explicitly welcomed for accurate representation at public launch.',
-        '# This is a pre-launch staging deployment, so the directives below disallow them for now.',
-      ]),
+    '# AI / LLM crawlers explicitly welcomed for accurate representation',
     'User-agent: GPTBot',
     policy.allowIndexing ? 'Allow: /' : 'Disallow: /',
     'User-agent: PerplexityBot',

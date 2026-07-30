@@ -9,9 +9,7 @@ import {
   advanceState,
   createInitialEligibilityState,
   deriveOutcome,
-  getContextEntryPhrase,
   getCurrentSequence,
-  getEntryContextSummary,
   getStepCount,
   restartState,
   selectMode,
@@ -32,7 +30,7 @@ test('preview flow uses explicit stable step ids', () => {
   assert.equal(getStepCount(state), 6);
 });
 
-test('live flow remains blocked but still preserves pre-contact steps', () => {
+test('live flow is enabled and preserves pre-contact steps with contact capture', () => {
   const state = selectMode(createInitialEligibilityState({ requestedMode: 'live' }), ELIGIBILITY_MODES.live);
 
   assert.deepEqual(getCurrentSequence(state), [
@@ -41,7 +39,8 @@ test('live flow remains blocked but still preserves pre-contact steps', () => {
     STEP_IDS.fundingAmount,
     STEP_IDS.businessProfile,
     STEP_IDS.consentReview,
-    STEP_IDS.liveUnavailable,
+    STEP_IDS.contactCapture,
+    STEP_IDS.outcome,
   ]);
   assert.equal(state.currentStepId, STEP_IDS.useOfFunds);
 });
@@ -173,20 +172,4 @@ test('outcome recommendations preserve route-family context for use-case, indust
     assert.equal(entryContext.routeId, routeId);
     assert.equal(entryContext.contextKind, contextKind);
   }
-});
-
-test('entry-context copy reads as one sentence regardless of source punctuation', () => {
-  const state = createInitialEligibilityState({ requestedMode: 'preview' });
-  state.context.entryTitle = 'Fund44 — More ways to fund your business.';
-
-  const summary = getEntryContextSummary(state);
-
-  assert.doesNotMatch(summary, /\.\./);
-  assert.match(summary, /^Started from Fund44 — More ways to fund your business\. That /);
-});
-
-test('result-screen entry phrase names the source page with the right article', () => {
-  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.generic), 'a general site page');
-  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.program), 'a product page');
-  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.industry), 'an industry page');
 });

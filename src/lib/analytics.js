@@ -459,6 +459,24 @@ export function assertNoAnalyticsPii(payload) {
   assertNoPiiShapedKeys(payload);
 }
 
+function ga4Sink(record) {
+  if (!hasWindow() || typeof window.gtag !== 'function') return;
+  const { event_name, payload } = record;
+  const ga4Params = {};
+  const skipKeys = new Set(['event_version', 'session_id']);
+  Object.entries(payload || {}).forEach(([key, value]) => {
+    if (skipKeys.has(key)) return;
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+      ga4Params[key] = value;
+    }
+  });
+  try {
+    window.gtag('event', event_name, ga4Params);
+  } catch {
+    // silently ignore GA4 errors so analytics never breaks the site
+  }
+}
+
 function sinkEvent(record) {
   const queue = safeQueue();
   queue.push(record);
@@ -479,6 +497,8 @@ function sinkEvent(record) {
       console.info('[fund44 analytics]', record);
     }
   }
+
+  ga4Sink(record);
 }
 
 function emit(eventName, payload) {

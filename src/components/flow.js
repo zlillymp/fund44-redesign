@@ -22,7 +22,6 @@ import {
   createInitialEligibilityState,
   getAnnouncement,
   getConsentChecklist,
-  getContextEntryPhrase,
   getContextKindLabel,
   getContextProofCopy,
   getCurrentSequence,
@@ -54,6 +53,7 @@ import {
   trackEligibilityStepView,
   trackEligibilityValidationError,
 } from '../lib/analytics.js';
+import { submitLead, submitApplication } from '../lib/submit.js';
 import {
   clearEligibilityState,
   isFlowHistoryState,
@@ -497,7 +497,7 @@ function renderOutcomeView() {
   const outcome = flowState.outcome;
   const selectedUse = getUseOption(flowState.values.use);
   const resultPaths = matchedPathLabels();
-  const entryPhrase = getContextEntryPhrase(flowState.context.funnelContextKind);
+  const contextLabel = getContextKindLabel(flowState.context.funnelContextKind);
 
   if (!outcome) {
     return '';
@@ -509,7 +509,7 @@ function renderOutcomeView() {
       <span class="tag">${escapeHtml(outcome.badge)}</span>
       <h2 class="step-title mt-4" id="flowDialogTitle">${escapeHtml(outcome.heading)}</h2>
       <p class="step-why">${escapeHtml(outcome.summary)}</p>
-      <p class="muted text-body-sm flow-center mt-4">Started from ${escapeHtml(entryPhrase)}. The recommendations below keep that route intent attached to the next step.</p>
+      <p class="muted text-body-sm flow-center mt-4">Started from a ${escapeHtml(contextLabel)}. The recommendations below keep that route intent attached to the next step.</p>
       <div class="result-summary layout-left">
         <div class="rs-row"><span>Mode</span><b>${escapeHtml(getModeLabel(flowState.context.activeMode || ELIGIBILITY_MODES.preview))}</b></div>
         <div class="rs-row"><span>Entry context</span><b>${escapeHtml(flowState.context.productContextTitle || flowState.context.entryTitle || 'Generic preview entry')}</b></div>
@@ -538,6 +538,16 @@ function renderOutcomeView() {
             ${escapeHtml(recommendationLabel(item))}
           </a>
         `).join('')}
+        ${(outcome.outcomeCategory === OUTCOME_CATEGORIES.qualified || outcome.outcomeCategory === OUTCOME_CATEGORIES.manualReview) && currentEligibilityMode() === ELIGIBILITY_MODES.preview ? `
+          <button
+            class="btn btn-primary btn-block"
+            data-flow-contact-capture
+            data-analytics-cta-id="get_matched"
+            data-analytics-cta-label="Get matched"
+            data-analytics-cta-type="primary"
+            data-analytics-cta-placement="eligibility_outcome"
+          >Get matched ${icon.arrow}</button>
+        ` : ''}
       </div>
       <div class="dialog-note dialog-note-inline flow-note-left">
         <strong>What this means.</strong> ${escapeHtml(disclosures.illustrative)} ${escapeHtml(disclosures.noGuarantees)}
@@ -545,6 +555,96 @@ function renderOutcomeView() {
     </div>
     <div class="dialog-foot">
       <button class="btn btn-ghost" data-flow-restart>Start over</button>
+      <button class="btn btn-primary btn-block" data-flow-close>Done</button>
+    </div>
+  `;
+}
+
+function renderContactCapture() {
+  const nameError = getFieldError(flowState, FIELD_IDS.contactName);
+  const emailError = getFieldError(flowState, FIELD_IDS.contactEmail);
+  const phoneError = getFieldError(flowState, FIELD_IDS.contactPhone);
+  const businessNameError = getFieldError(flowState, FIELD_IDS.businessName);
+
+  const isLive = currentEligibilityMode() === ELIGIBILITY_MODES.live;
+  const submitLabel = isLive ? 'Submit application' : 'Get matched';
+
+  return `
+    <div class="field${nameError ? ' err' : ''}">
+      <label for="f-contactName">Your name</label>
+      <input
+        class="select"
+        id="f-contactName"
+        type="text"
+        data-field="${FIELD_IDS.contactName}"
+        value="${escapeHtml(flowState.values.contactName || '')}"
+        aria-invalid="${nameError ? 'true' : 'false'}"
+        autocomplete="name"
+      />
+      <p class="field-err">${escapeHtml(nameError)}</p>
+    </div>
+    <div class="field${emailError ? ' err' : ''}">
+      <label for="f-contactEmail">Email address</label>
+      <input
+        class="select"
+        id="f-contactEmail"
+        type="email"
+        data-field="${FIELD_IDS.contactEmail}"
+        value="${escapeHtml(flowState.values.contactEmail || '')}"
+        aria-invalid="${emailError ? 'true' : 'false'}"
+        autocomplete="email"
+      />
+      <p class="field-err">${escapeHtml(emailError)}</p>
+    </div>
+    <div class="field${phoneError ? ' err' : ''}">
+      <label for="f-contactPhone">Phone number</label>
+      <input
+        class="select"
+        id="f-contactPhone"
+        type="tel"
+        data-field="${FIELD_IDS.contactPhone}"
+        value="${escapeHtml(flowState.values.contactPhone || '')}"
+        aria-invalid="${phoneError ? 'true' : 'false'}"
+        autocomplete="tel"
+      />
+      <p class="field-err">${escapeHtml(phoneError)}</p>
+    </div>
+    <div class="field${businessNameError ? ' err' : ''}">
+      <label for="f-businessName">Business name</label>
+      <input
+        class="select"
+        id="f-businessName"
+        type="text"
+        data-field="${FIELD_IDS.businessName}"
+        value="${escapeHtml(flowState.values.businessName || '')}"
+        aria-invalid="${businessNameError ? 'true' : 'false'}"
+        autocomplete="organization"
+      />
+      <p class="field-err">${escapeHtml(businessNameError)}</p>
+    </div>
+    <input type="hidden" data-flow-submit-label="${escapeHtml(submitLabel)}" />
+  `;
+}
+
+let submissionResult = null;
+
+function renderSubmissionResult() {
+  if (!submissionResult) return '';
+  const isSuccess = submissionResult.ok;
+  return `
+    <div class="dialog-body flow-center">
+      <div class="success-mark${isSuccess ? '' : ' success-mark-muted'}">${isSuccess ? icon.check : icon.close}</div>
+      <h2 class="step-title mt-4" id="flowDialogTitle">${isSuccess ? 'Thank you' : 'Submission failed'}</h2>
+      <p class="step-why">${escapeHtml(
+        isSuccess
+          ? 'Your information has been submitted. A Fund44 team member will reach out to you shortly.'
+          : submissionResult.error || 'Something went wrong. Please try again or contact us directly.',
+      )}</p>
+      <div class="dialog-note dialog-note-inline flow-note-left">
+        <strong>What happens next.</strong> ${escapeHtml(disclosures.noGuarantees)}
+      </div>
+    </div>
+    <div class="dialog-foot">
       <button class="btn btn-primary btn-block" data-flow-close>Done</button>
     </div>
   `;
@@ -595,6 +695,8 @@ function renderStepFields(stepId) {
       `;
     case STEP_IDS.consentReview:
       return renderConsentReview();
+    case STEP_IDS.contactCapture:
+      return renderContactCapture();
     default:
       return '';
   }
@@ -603,6 +705,10 @@ function renderStepFields(stepId) {
 function primaryButtonLabel(stepId) {
   if (stepId === STEP_IDS.modeSelect) return 'Continue';
   if (stepId === STEP_IDS.consentReview) return flowState.context.activeMode === ELIGIBILITY_MODES.live ? 'Review live availability' : 'See my preview';
+  if (stepId === STEP_IDS.contactCapture) {
+    const isLive = currentEligibilityMode() === ELIGIBILITY_MODES.live;
+    return isLive ? 'Submit application' : 'Get matched';
+  }
   return 'Continue';
 }
 
@@ -638,6 +744,10 @@ function renderDialogFrame(definition) {
 }
 
 function renderDialog() {
+  if (submissionResult) {
+    return renderSubmissionResult();
+  }
+
   if (flowState.currentStepId === STEP_IDS.liveUnavailable) {
     return renderLiveUnavailable();
   }
@@ -777,6 +887,7 @@ function closeFlow({ fromHistory = false } = {}) {
   backdrop.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
   markOpenState(false);
+  submissionResult = null;
   syncStorage();
 
   if (historyEntryActive && !fromHistory) {
@@ -792,8 +903,59 @@ function closeFlow({ fromHistory = false } = {}) {
   resetTrackedFlowEvents();
 }
 
+async function handleContactSubmission() {
+  const isLive = currentEligibilityMode() === ELIGIBILITY_MODES.live;
+  const contactFields = {
+    contactName: flowState.values.contactName || '',
+    contactEmail: flowState.values.contactEmail || '',
+    contactPhone: flowState.values.contactPhone || '',
+    businessName: flowState.values.businessName || '',
+  };
+
+  trackApplicationSubmitAttempt({
+    eligibilityMode: currentEligibilityMode(),
+    stepId: STEP_IDS.contactCapture,
+    attemptNumber: 1,
+  });
+
+  const dialog = backdrop?.querySelector('#flowDialog');
+  if (dialog) {
+    dialog.innerHTML = `
+      <p class="sr-only" id="flowDialogAnnouncement" aria-live="polite">Submitting your information...</p>
+      <div class="dialog-body flow-center">
+        <div class="step-title">Submitting...</div>
+        <p class="step-why">Please wait while we submit your information.</p>
+      </div>
+    `;
+  }
+
+  const result = isLive
+    ? await submitApplication(flowState, contactFields)
+    : await submitLead(flowState, contactFields);
+
+  submissionResult = result;
+
+  trackApplicationSubmitResult({
+    eligibilityMode: currentEligibilityMode(),
+    result: result.ok ? 'success' : 'failed',
+    failureReasonCode: result.ok ? '' : (result.error || 'unknown'),
+    integrationTarget: isLive ? 'application_webhook' : 'lead_webhook',
+  });
+
+  if (result.ok) {
+    trackContactRequestSubmit({
+      requestType: isLive ? 'application' : 'lead',
+      sourceOutcome: flowState.outcome?.outcomeCategory || '',
+      eligibilityMode: currentEligibilityMode(),
+    });
+  }
+
+  paint();
+}
+
 function restartFlow() {
   flowState = restartState(flowState);
+  submissionResult = null;
   resetTrackedFlowEvents();
   paint();
 }
@@ -862,6 +1024,11 @@ function next() {
     });
     paint({ focus: false });
     focusFirstError();
+    return;
+  }
+
+  if (previousState.currentStepId === STEP_IDS.contactCapture) {
+    handleContactSubmission();
     return;
   }
 
@@ -978,6 +1145,17 @@ export function initFlow() {
       return;
     }
 
+    if (event.target.closest('[data-flow-contact-capture]')) {
+      flowState = {
+        ...flowState,
+        currentStepId: STEP_IDS.contactCapture,
+        completedStepIds: [...new Set([...flowState.completedStepIds, STEP_IDS.outcome])],
+        errors: {},
+      };
+      paint();
+      return;
+    }
+
     const modeChoice = event.target.closest('[data-mode-choice]');
     if (modeChoice) {
       selectFlowMode(modeChoice.dataset.modeChoice);
@@ -1079,6 +1257,7 @@ export function __resetFlowForTests() {
   clearEligibilityState();
   flowState = createInitialEligibilityState();
   historyEntryActive = false;
+  submissionResult = null;
   resetTrackedFlowEvents();
   if (backdrop?.isConnected) {
     backdrop.remove();
