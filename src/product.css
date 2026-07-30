@@ -242,7 +242,15 @@
   background: var(--role-surface-base); font-size: var(--text-sm); color: var(--role-text-secondary); line-height:1.55;
   width: 100%; max-width: 100%; box-sizing: border-box;
 }
-.disclosure-bar svg { flex-shrink:0; margin-top:2px; color: var(--role-text-muted); }
+/* the icon ships a viewBox with no width/height, so it must be sized here or it
+   claims the whole flex row and squeezes the paragraph to zero width */
+.disclosure-bar svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--role-text-muted);
+}
 .disclosure-bar p {
   flex: 1 1 auto;
   min-width: 0;

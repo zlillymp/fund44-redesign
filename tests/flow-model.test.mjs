@@ -9,7 +9,9 @@ import {
   advanceState,
   createInitialEligibilityState,
   deriveOutcome,
+  getContextEntryPhrase,
   getCurrentSequence,
+  getEntryContextSummary,
   getStepCount,
   restartState,
   selectMode,
@@ -174,4 +176,20 @@ test('outcome recommendations preserve route-family context for use-case, indust
     assert.equal(entryContext.routeId, routeId);
     assert.equal(entryContext.contextKind, contextKind);
   }
+});
+
+test('entry-context copy reads as one sentence regardless of source punctuation', () => {
+  const state = createInitialEligibilityState({ requestedMode: 'preview' });
+  state.context.entryTitle = 'Fund44 — More ways to fund your business.';
+
+  const summary = getEntryContextSummary(state);
+
+  assert.doesNotMatch(summary, /\.\./);
+  assert.match(summary, /^Started from Fund44 — More ways to fund your business\. That /);
+});
+
+test('result-screen entry phrase names the source page with the right article', () => {
+  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.generic), 'a general site page');
+  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.program), 'a product page');
+  assert.equal(getContextEntryPhrase(FUNNEL_CONTEXT_KINDS.industry), 'an industry page');
 });
