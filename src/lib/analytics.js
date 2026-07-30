@@ -161,6 +161,11 @@ const DISALLOWED_KEY_PATTERNS = [
   /free_?text/i,
 ];
 
+// Raw vendor/partner reference IDs are allowed inside Fund44 but must never reach a
+// third-party destination (measurement plan: Privacy and PII Restrictions).
+const RAW_REFERENCE_KEY_PATTERN =
+  /(lender|application|partner|provider|offer|lead|submission|customer|account|user|external|reference|raw)_?(id|ref)/i;
+
 function hasWindow() {
   return typeof window !== 'undefined';
 }
@@ -459,6 +464,70 @@ export function assertNoAnalyticsPii(payload) {
   assertNoPiiShapedKeys(payload);
 }
 
+function keyIsDestinationSafe(key) {
+  return !DISALLOWED_KEY_PATTERNS.some((pattern) => pattern.test(key))
+    && !RAW_REFERENCE_KEY_PATTERN.test(key);
+}
+
+export function sanitizeDestinationParams(params = {}) {
+  const safe = {};
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (!keyIsDestinationSafe(key)) return;
+
+    if (Array.isArray(value)) {
+      if (value.some((item) => valueLooksLikePii(item))) return;
+      safe[key] = value.slice();
+      return;
+    }
+
+    if (valueLooksLikePii(value)) return;
+    safe[key] = value;
+  });
+
+  return safe;
+}
+
+export function analyticsEnvironment() {
+  return currentEnvironment();
+}
+
+export function analyticsConsentGranted() {
+  return currentConsentState() === 'granted';
+}
+
+const destinations = [];
+
+export function registerAnalyticsDestination(destination) {
+  if (!destination || typeof destination.send !== 'function' || !destination.id) {
+    throw new Error('Analytics destination must expose an id and a send(eventName, payload) method');
+  }
+
+  if (destinations.some((registered) => registered.id === destination.id)) {
+    return false;
+  }
+
+  destinations.push(destination);
+  return true;
+}
+
+export function getRegisteredDestinationIds() {
+  return destinations.map((destination) => destination.id);
+}
+
+function fanOutToDestinations(eventName, payload) {
+  destinations.forEach((destination) => {
+    try {
+      destination.send(eventName, payload);
+    } catch (error) {
+      // A failing third-party tag must never break first-party funnel instrumentation.
+      if (hasWindow() && window[ANALYTICS_DEBUG_GLOBAL] === true) {
+        console.warn(`[fund44 analytics] destination "${destination.id}" failed`, error);
+      }
+    }
+  });
+}
+
 function sinkEvent(record) {
   const queue = safeQueue();
   queue.push(record);
@@ -488,6 +557,7 @@ function emit(eventName, payload) {
     payload,
     recorded_at: new Date().toISOString(),
   });
+  fanOutToDestinations(eventName, payload);
 }
 
 export function trackEvent(eventName, eventFields = {}, contextOverrides = {}) {
@@ -517,6 +587,7 @@ export function resetAnalyticsForTests() {
   entryTracked = false;
   inMemorySessionId = null;
   inMemoryAttribution = null;
+  destinations.length = 0;
   if (hasWindow()) {
     window[ANALYTICS_QUEUE_GLOBAL] = [];
     delete window[ANALYTICS_TEST_SINK_GLOBAL];

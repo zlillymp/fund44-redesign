@@ -183,6 +183,21 @@ Do not collapse all content into one generic page type. Page-type reporting is r
 - Do not hash PII and treat it as anonymous telemetry unless privacy review explicitly approves that approach.
 - Dashboard outputs must stay aggregated; do not build low-volume drill-downs that reconstruct individual applicant journeys.
 
+### Destinations
+
+Vendor tools are destinations behind [src/lib/analytics.js](../src/lib/analytics.js). Call sites emit approved events through the layer only; no page, component, or template may call a vendor API such as `gtag()` directly. `npm run validate:analytics` enforces the destination allowlist and scans `src/` plus `index.html` for direct vendor calls.
+
+| Destination | Property | Scope | Consent | Vendor page views |
+| --- | --- | --- | --- | --- |
+| Google Analytics 4 | `G-W5V9YVKQJC` | `environment === 'production'` and host `fund44.com` / `www.fund44.com` only | Consent Mode v2, all signals default `denied` (`wait_for_update: 500`) | Off (`send_page_view: false`) |
+
+- Adapter: [src/lib/analytics/destinations/ga4.js](../src/lib/analytics/destinations/ga4.js). Registration and the production-host gate live in [src/lib/analytics/destinations/index.js](../src/lib/analytics/destinations/index.js).
+- On staging, previews, and localhost the adapter is registered but `gtag.js` is never injected and no hits are sent, so staging keeps its `noindex` posture and production baselines stay clean.
+- SPA `page_view` is dispatched by the layer on every route resolution, so GA4 auto page views stay disabled to prevent double-counting route changes.
+- Consent stays `denied` until the layer's consent signal reports consent, which remains blocked by `F44-GOV-02` final consent copy. `updateConsent({ analyticsGranted, adsGranted })` is the only path to `granted`.
+- Forwarded params pass through the layer's shared `sanitizeDestinationParams` hook, which drops PII-shaped keys/values and raw lender, application, and partner reference IDs. Array values are flattened to comma-delimited strings for vendor compatibility.
+- `gtag.js` is injected once per page, guarded by an idempotency flag, so repeated bootstraps cannot double-tag.
+
 ## QA Checklist
 
 - Event names match this file exactly.

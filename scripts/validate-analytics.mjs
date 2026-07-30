@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { renderRouteToHtml } from '../src/pages/index.js';
 import {
   ANALYTICS_CORE_EVENTS,
@@ -5,9 +9,20 @@ import {
   ANALYTICS_FLOW_STEP_PAGE_TYPE,
   analyticsEventNames,
   analyticsEventSpec,
+  sanitizeDestinationParams,
 } from '../src/lib/analytics.js';
+import { analyticsDestinationManifest } from '../src/lib/analytics/destinations/index.js';
+import {
+  GA4_CONSENT_DEFAULTS,
+  GA4_MEASUREMENT_ID,
+  GA4_PRODUCTION_HOSTS,
+  isGa4DestinationEnabled,
+} from '../src/lib/analytics/destinations/ga4.js';
 import { getAllRoutes } from '../src/lib/routes.js';
 import { getAllContent } from '../src/lib/content.js';
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const GA4_ADAPTER_PATH = 'src/lib/analytics/destinations/ga4.js';
 
 const errors = [];
 
@@ -48,6 +63,10 @@ const approvedEvents = new Set([
   'js_error',
   'performance_budget_result',
   'a11y_check_result',
+]);
+
+const approvedDestinations = new Map([
+  ['ga4', { vendor: 'google_analytics_4', propertyId: GA4_MEASUREMENT_ID }],
 ]);
 
 const sharedFields = [
@@ -181,10 +200,97 @@ contentByRoute.forEach((record, routeId) => {
 assert(ANALYTICS_FLOW_STEP_PAGE_TYPE === 'funnel_step', 'funnel step page_type override must remain stable');
 assert(ANALYTICS_FLOW_OUTCOME_PAGE_TYPE === 'funnel_outcome', 'funnel outcome page_type override must remain stable');
 
+analyticsDestinationManifest.forEach((destination) => {
+  const approved = approvedDestinations.get(destination.id);
+  assert(Boolean(approved), `analytics destination "${destination.id}" is not on the approved destination allowlist`);
+  if (!approved) return;
+
+  assert(destination.vendor === approved.vendor, `destination "${destination.id}" vendor drifted from the approved vendor`);
+  assert(destination.propertyId === approved.propertyId, `destination "${destination.id}" property id drifted from the approved property`);
+  assert(destination.productionOnly === true, `destination "${destination.id}" must stay production-only`);
+  assert(destination.consentDefault === 'denied', `destination "${destination.id}" must default consent to denied`);
+  assert(destination.sendsVendorPageViews === false, `destination "${destination.id}" must leave SPA page_view to the analytics layer`);
+});
+
+assert(
+  analyticsDestinationManifest.length === approvedDestinations.size,
+  'analytics destination manifest drifted from the approved destination allowlist',
+);
+
+assert(
+  GA4_PRODUCTION_HOSTS.join(',') === 'fund44.com,www.fund44.com',
+  'GA4 destination host allowlist must stay limited to the production domains',
+);
+
+['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage'].forEach((signal) => {
+  assert(GA4_CONSENT_DEFAULTS[signal] === 'denied', `GA4 Consent Mode default "${signal}" must be denied`);
+});
+assert(GA4_CONSENT_DEFAULTS.wait_for_update === 500, 'GA4 Consent Mode defaults must keep wait_for_update at 500ms');
+
+assert(
+  isGa4DestinationEnabled({ environment: 'production', hostname: 'fund44.com' })
+  && isGa4DestinationEnabled({ environment: 'production', hostname: 'www.fund44.com' }),
+  'GA4 destination must load on the production domains',
+);
+
+[
+  { environment: 'staging', hostname: 'fund44.com' },
+  { environment: 'production', hostname: 'staging.fund44.com' },
+  { environment: 'production', hostname: 'localhost' },
+  { environment: 'preview', hostname: 'fund44.com' },
+].forEach(({ environment, hostname }) => {
+  assert(
+    !isGa4DestinationEnabled({ environment, hostname }),
+    `GA4 destination must stay disabled for environment "${environment}" on host "${hostname}"`,
+  );
+});
+
+const scrubbed = sanitizeDestinationParams({
+  route_id: 'home',
+  cta_id: 'preview_funding_paths',
+  email: 'owner@example.com',
+  lender_id: 'LEND-1',
+  application_id: 'APP-1',
+  partner_reference_id: 'PRT-1',
+  notes: 'free text',
+});
+assert(
+  Object.keys(scrubbed).sort().join(',') === 'cta_id,route_id',
+  'destination sanitization must strip PII keys and raw lender/application/partner reference IDs',
+);
+
+function collectSourceFiles(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) return collectSourceFiles(entryPath);
+    return /\.(js|mjs)$/.test(entry.name) ? [entryPath] : [];
+  });
+}
+
+const vendorSurfaceFiles = [
+  ...collectSourceFiles(path.join(repoRoot, 'src')),
+  path.join(repoRoot, 'index.html'),
+];
+
+vendorSurfaceFiles.forEach((filePath) => {
+  const relativePath = path.relative(repoRoot, filePath).split(path.sep).join('/');
+  if (relativePath === GA4_ADAPTER_PATH) return;
+
+  const source = fs.readFileSync(filePath, 'utf8');
+  assert(
+    !source.includes('gtag('),
+    `${relativePath} must not call gtag() directly; route vendor calls through the analytics destination adapter`,
+  );
+  assert(
+    !source.includes(GA4_MEASUREMENT_ID),
+    `${relativePath} must not hardcode the GA4 measurement id; it belongs to ${GA4_ADAPTER_PATH}`,
+  );
+});
+
 if (errors.length > 0) {
   console.error('Analytics validation failed:\n');
   errors.forEach((message) => console.error(`- ${message}`));
   process.exit(1);
 }
 
-console.log(`Analytics validation passed for ${analyticsEventNames.length} events and ${getAllRoutes().length} routes.`);
+console.log(`Analytics validation passed for ${analyticsEventNames.length} events, ${analyticsDestinationManifest.length} destination(s), and ${getAllRoutes().length} routes.`);

@@ -10,9 +10,9 @@ const budgets = [
   {
     name: 'bundle_js_max_bytes',
     pattern: /^assets\/.+\.js$/,
-    maxBytes: 360_000,
+    maxBytes: 364_000,
     kind: 'largest-match',
-    rationale: 'Keep the single shipped JS entry under a conservative ceiling after the first state-resource cluster added three prerendered, manifest-backed pages and their shared structured-content inventory.',
+    rationale: 'Keep the single shipped JS entry under a conservative ceiling, ratcheted to the measured footprint after the vendor-neutral analytics layer gained its destination registry and the production-gated GA4 adapter.',
   },
   {
     name: 'bundle_css_max_bytes',
@@ -38,9 +38,9 @@ const budgets = [
   {
     name: 'asset_total_max_bytes',
     pattern: /^assets\//,
-    maxBytes: 405_000,
+    maxBytes: 409_000,
     kind: 'sum-matches',
-    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI after the first state-resource cluster raised the shared manifest-backed baseline.',
+    rationale: 'Keep the aggregate shipped JS/CSS bundle volume bounded in CI, ratcheted to the measured footprint after the analytics destination registry and production-gated GA4 adapter shipped.',
   },
 ];
 

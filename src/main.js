@@ -13,6 +13,7 @@ import {
   trackRouteResolved,
   trackTrustModuleClick,
 } from './lib/analytics.js';
+import { initAnalyticsDestinations } from './lib/analytics/destinations/index.js';
 import { initMonitoring } from './lib/monitoring.js';
 
 const app = typeof document !== 'undefined' ? document.getElementById('app') : null;
@@ -446,6 +447,7 @@ function boot() {
 
   document.getElementById('shell-header').innerHTML = header();
   document.getElementById('shell-footer').innerHTML = footer();
+  initAnalyticsDestinations();
   initMonitoring();
   initTheme();
   initHeaderScroll();
